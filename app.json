@@ -6,6 +6,10 @@
     "icon": "./assets/icon.png",
     "orientation": "portrait",
     "sdkVersion": "20.0.0",
-    "androidShowExponentNotificationInShellApp": false
+    "androidShowExponentNotificationInShellApp": false,
+    "loading": {
+      "icon": "./assets/icon.png",
+      "backgroundColor": "#187f65"
+    }
   }
 }
