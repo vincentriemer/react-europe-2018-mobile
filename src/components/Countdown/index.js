@@ -1,29 +1,9 @@
 import React from 'react';
-import { View } from 'react-native';
-import glamorous from 'glamorous-native';
 import moment from 'moment';
+import { Container, Section, Title, Value } from './styles';
 
 // Nov 27, 2017 at 8am central standard
 const NODEVEMBER_MOMENT = moment('2017-11-27T08-0600');
-
-const Section = glamorous.view({
-  flexDirection: 'column',
-  padding: 10,
-});
-
-const Title = glamorous.text({
-  color: 'white',
-  fontSize: 16,
-  textAlign: 'center',
-});
-
-const Value = glamorous.text({
-  color: 'white',
-  fontSize: 32,
-  textAlign: 'center',
-  flex: 1,
-  fontFamily: 'orbitron-bold',
-});
 
 const sections = ['Days', 'Hours', 'Minutes', 'Seconds'];
 
@@ -45,23 +25,6 @@ const dateDiff = milliseconds => {
       [value]: parseInt(diffValue),
     };
   }, {});
-
-  const diffObj = {
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  };
-
-  diffObj.days = parseInt(millisecondsLeft / daysInMilliseconds);
-  millisecondsLeft -= diffObj.days * daysInMilliseconds;
-  diffObj.hours = parseInt(millisecondsLeft / hoursInMilliseconds);
-  millisecondsLeft -= diffObj.hours * hoursInMilliseconds;
-  diffObj.minutes = parseInt(millisecondsLeft / minutesInMilliseconds);
-  millisecondsLeft -= diffObj.minutes * minutesInMilliseconds;
-  diffObj.seconds = parseInt(millisecondsLeft / secondsInMilliseconds);
-  millisecondsLeft -= diffObj.seconds * secondsInMilliseconds;
-  return diffObj;
 };
 
 export default class Countdown extends React.Component {
@@ -72,26 +35,22 @@ export default class Countdown extends React.Component {
       timer: setInterval(this.updateNow, 1000),
     };
   }
+
   componentWillUnmount() {
     clearInterval(this.state.timer);
   }
+
   updateNow = () => {
     this.setState({
       now: new Date(),
     });
   };
+
   render() {
     const { now } = this.state;
     const diff = dateDiff(NODEVEMBER_MOMENT.diff(now));
     return (
-      <View
-        style={{
-          flex: 1,
-          flexDirection: 'row',
-          alignContent: 'center',
-          justifyContent: 'center',
-        }}
-      >
+      <Container>
         {sections.map(v => {
           return (
             <Section key={v}>
@@ -100,7 +59,7 @@ export default class Countdown extends React.Component {
             </Section>
           );
         })}
-      </View>
+      </Container>
     );
   }
 }

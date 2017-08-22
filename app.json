@@ -4,12 +4,12 @@
     "slug": "nodevember-2017",
     "version": "1.0.1",
     "primaryColor": "#187f65",
-    "icon": "./assets/icon.png",
+    "icon": "./src/assets/icon.png",
     "orientation": "portrait",
     "sdkVersion": "20.0.0",
     "androidShowExponentNotificationInShellApp": false,
     "loading": {
-      "icon": "./assets/icon.png",
+      "icon": "./src/assets/icon.png",
       "backgroundColor": "#187f65"
     }
   }
