@@ -2,6 +2,7 @@
   "expo": {
     "name": "Nodevember 2017",
     "slug": "nodevember-2017",
+    "version": "1.0.1",
     "primaryColor": "#187f65",
     "icon": "./assets/icon.png",
     "orientation": "portrait",
