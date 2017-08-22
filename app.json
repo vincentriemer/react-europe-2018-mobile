@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "Nodevember 2017",
+    "slug": "nodevember-2017",
+    "primaryColor": "#187f65",
+    "icon": "./assets/icon.png",
+    "orientation": "portrait",
+    "sdkVersion": "20.0.0",
+    "androidShowExponentNotificationInShellApp": false
+  }
+}
