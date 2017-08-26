@@ -1,10 +1,7 @@
 import glamorous from 'glamorous-native';
 import { Platform } from 'react-native';
 
-export const ScrollingContainer = glamorous.scrollView({
-  flex: 1,
-  backgroundColor: '#187f65',
-});
+export const ScrollingContainer = glamorous.scrollView({});
 
 export const Container = glamorous.view({
   flex: 1,

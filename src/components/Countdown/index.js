@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import { Container, Section, Title, Value } from './styles';
+import { Container, Section, Title, Value, Label } from './styles';
 
 // Nov 27, 2017 at 8am central standard
 const NODEVEMBER_MOMENT = moment('2017-11-27T08-0600');
@@ -54,7 +54,7 @@ export default class Countdown extends React.Component {
         {sections.map(v => {
           return (
             <Section key={v}>
-              <Title>{v}</Title>
+              <Label>{v}</Label>
               <Value>{diff[v]}</Value>
             </Section>
           );

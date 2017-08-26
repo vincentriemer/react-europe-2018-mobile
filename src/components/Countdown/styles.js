@@ -13,15 +13,27 @@ export const Section = glamorous.view({
 });
 
 export const Title = glamorous.text({
-  color: 'white',
+  color: 'black',
+  fontSize: 18,
+  textAlign: 'center',
+});
+
+export const Label = glamorous.text({
+  color: 'black',
   fontSize: 16,
   textAlign: 'center',
 });
 
 export const Value = glamorous.text({
-  color: 'white',
+  color: '#187f65',
   fontSize: 32,
   textAlign: 'center',
   flex: 1,
-  fontFamily: 'orbitron-bold',
+  fontFamily: 'open-sans-bold',
+  borderColor: '#187f65',
+  width: 50,
+  marginTop: 8,
+  paddingTop: 4,
+  paddingBottom: 4,
+  borderWidth: 1,
 });

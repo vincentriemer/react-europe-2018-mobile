@@ -2,6 +2,7 @@ import React from 'react';
 import { WebBrowser } from 'expo';
 import { TouchableOpacity } from 'react-native';
 import Countdown from '../Countdown';
+import Keynotes from '../Keynotes';
 import {
   Container,
   HeaderWrapper,
@@ -29,8 +30,9 @@ export default class LandingScreen extends React.Component {
               <ThemedButton>Buy Tickets</ThemedButton>
             </TouchableOpacity>
           </HeaderWrapper>
-          <Countdown />
         </Container>
+        <Countdown />
+        <Keynotes />
       </ScrollingContainer>
     );
   }
