@@ -2,7 +2,7 @@ import React from 'react';
 import { Font, Constants } from 'expo';
 import { View, StatusBar } from 'react-native';
 import glamorous, { ThemeProvider } from 'glamorous-native';
-import LandingScreen from './src/components/LandingScreen';
+import MainNavigation from './src/MainNavigation';
 
 const theme = {
   font: {
@@ -42,7 +42,7 @@ export default class App extends React.Component {
         <View>
           <StatusBar barStyle="light-content" backgroundColor="#187f65" />
           <StatusBarPlaceholder />
-          {this.state.fontLoaded && <LandingScreen />}
+          {this.state.fontLoaded && <MainNavigation />}
         </View>
       </ThemeProvider>
     );

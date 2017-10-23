@@ -2,7 +2,6 @@ import React from 'react';
 import { WebBrowser } from 'expo';
 import { TouchableOpacity } from 'react-native';
 import Countdown from '../Countdown';
-import Keynotes from '../Keynotes';
 import {
   Container,
   HeaderWrapper,
@@ -23,7 +22,7 @@ export default class LandingScreen extends React.Component {
     return (
       <ScrollingContainer>
         <Container>
-          <Image source={require('./logo.png')} />
+          <Image source={require('../../assets/logo.png')} />
           <HeaderWrapper>
             <Heading>November 27th & 28th</Heading>
             <TouchableOpacity onPress={this.openTickets}>
@@ -32,7 +31,6 @@ export default class LandingScreen extends React.Component {
           </HeaderWrapper>
         </Container>
         <Countdown />
-        <Keynotes />
       </ScrollingContainer>
     );
   }

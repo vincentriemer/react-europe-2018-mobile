@@ -1,6 +1,14 @@
 import React from 'react';
 import moment from 'moment';
-import { Container, Section, Title, Value, Label } from './styles';
+import leftPad from 'left-pad';
+import {
+  Container,
+  SectionContainer,
+  Section,
+  Title,
+  Value,
+  Label,
+} from './styles';
 
 // Nov 27, 2017 at 8am central standard
 const NODEVEMBER_MOMENT = moment('2017-11-27T08-0600');
@@ -22,7 +30,7 @@ const dateDiff = milliseconds => {
     millisecondsLeft -= diffValue * millisecondValue;
     return {
       ...acc,
-      [value]: parseInt(diffValue),
+      [value]: leftPad(parseInt(diffValue), 2, '0'),
     };
   }, {});
 };
@@ -51,14 +59,17 @@ export default class Countdown extends React.Component {
     const diff = dateDiff(NODEVEMBER_MOMENT.diff(now));
     return (
       <Container>
-        {sections.map(v => {
-          return (
-            <Section key={v}>
-              <Label>{v}</Label>
-              <Value>{diff[v]}</Value>
-            </Section>
-          );
-        })}
+        <Title>Countdown</Title>
+        <SectionContainer>
+          {sections.map(v => {
+            return (
+              <Section key={v}>
+                <Value>{diff[v]}</Value>
+                <Label>{v.toLowerCase().substr(0, 1)}</Label>
+              </Section>
+            );
+          })}
+        </SectionContainer>
       </Container>
     );
   }

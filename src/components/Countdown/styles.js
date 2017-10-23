@@ -1,6 +1,15 @@
 import glamorous from 'glamorous-native';
 
+const getColorFromTheme = ({ theme: { colors } }) => ({
+  color: colors.main,
+});
+
 export const Container = glamorous.view({
+  flex: 1,
+  flexDirection: 'column',
+});
+
+export const SectionContainer = glamorous.view({
   flex: 1,
   flexDirection: 'row',
   alignContent: 'center',
@@ -8,32 +17,39 @@ export const Container = glamorous.view({
 });
 
 export const Section = glamorous.view({
-  flexDirection: 'column',
+  flexDirection: 'row',
+  flex: 1,
+  alignContent: 'space-between',
+  alignItems: 'baseline',
   padding: 10,
 });
 
-export const Title = glamorous.text({
-  color: 'black',
-  fontSize: 18,
-  textAlign: 'center',
-});
+export const Title = glamorous.text(
+  {
+    fontSize: 18,
+    textAlign: 'center',
+    flex: 1,
+  },
+  getColorFromTheme
+);
 
-export const Label = glamorous.text({
-  color: 'black',
-  fontSize: 16,
-  textAlign: 'center',
-});
+export const Label = glamorous.text(
+  {
+    fontSize: 16,
+    textAlign: 'center',
+    fontFamily: 'orbitron-bold',
+    paddingBottom: 4,
+  },
+  getColorFromTheme
+);
 
-export const Value = glamorous.text({
-  color: '#187f65',
-  fontSize: 32,
-  textAlign: 'center',
-  flex: 1,
-  fontFamily: 'open-sans-bold',
-  borderColor: '#187f65',
-  width: 50,
-  marginTop: 8,
-  paddingTop: 4,
-  paddingBottom: 4,
-  borderWidth: 1,
-});
+export const Value = glamorous.text(
+  {
+    fontSize: 32,
+    textAlign: 'right',
+    flex: 1,
+    fontFamily: 'orbitron-bold',
+    paddingRight: 4,
+  },
+  getColorFromTheme
+);
