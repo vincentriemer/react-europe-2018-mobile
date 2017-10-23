@@ -1,10 +1,27 @@
-import { StackNavigator } from 'react-navigation';
+import { StackNavigator, DrawerNavigator } from 'react-navigation';
 import Screens from './screens';
 
-export default StackNavigator({
+const DrawerStack = DrawerNavigator({
   Home: { screen: Screens.Home },
-  Speakers: { path: 'speakers/:name', screen: Screens.Speakers },
-  Keynotes: { path: 'keynotes/:name', screen: Screens.Keynotes },
-  Events: { path: 'events/:name', screen: Screens.Events },
-  Sponsors: { path: 'sponsors', screen: Screens.Sponsors },
+  Keynotes: { screen: Screens.Keynotes },
+  Speakers: { screen: Screens.Speakers },
+  Sponsors: { screen: Screens.Sponsors },
+  Events: { screen: Screens.Events },
 });
+
+const MainNavigation = StackNavigator(
+  {
+    DrawerStack: { screen: DrawerStack },
+  },
+  {
+    initialRouteName: 'DrawerStack',
+    headerMode: 'float',
+    navigationOptions: ({ navigation }) => ({
+      headerStyle: { backgroundColor: '#187f65' },
+      title: 'Nodevember',
+      headerTintColor: 'white',
+    }),
+  }
+);
+
+export default MainNavigation;

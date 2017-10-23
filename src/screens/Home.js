@@ -1,11 +1,17 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
 
 const Home = () => {
-  return <Text style={{ marginTop: 10 }}>Home</Text>;
+  return (
+    <View style={{ flex: 1, marginTop: 50 }}>
+      <Text style={{ marginTop: 10, fontSize: 28 }}>Home</Text>
+    </View>
+  );
 };
 
 Home.navigationOptions = {
+  headerStyle: { backgroundColor: '#187f65' },
+  headerTintColor: 'white',
   title: 'Home',
 };
 
