@@ -3,6 +3,7 @@ import { Font, Constants } from 'expo';
 import { View, StatusBar } from 'react-native';
 import glamorous, { ThemeProvider } from 'glamorous-native';
 import MainNavigation from './src/MainNavigation';
+import Home from './src/screens/Home';
 
 const theme = {
   font: {
@@ -27,22 +28,26 @@ export default class App extends React.Component {
     fontLoaded: false,
   };
   async componentDidMount() {
-    await Font.loadAsync({
-      'open-sans-bold': require('./src/assets/OpenSans-Bold.ttf'),
-      'orbitron-bold': require('./src/assets/Orbitron-Bold.ttf'),
-    });
-    this.setState({
-      fontLoaded: true,
-    });
+    // await Font.loadAsync({
+    //   'open-sans-bold': require('./src/assets/OpenSans-Bold.ttf'),
+    //   'orbitron-bold': require('./src/assets/Orbitron-Bold.ttf'),
+    // });
+    // this.setState({
+    //   fontLoaded: true,
+    // });
   }
 
   render() {
     return (
       <ThemeProvider theme={theme}>
-        <View>
-          <StatusBar barStyle="light-content" backgroundColor="#187f65" />
-          <StatusBarPlaceholder />
-          {this.state.fontLoaded && <MainNavigation />}
+        <View
+          style={{
+            paddingTop: Constants.statusBarHeight,
+            flex: 1,
+          }}
+        >
+          <MainNavigation />
+          {/* <Home /> */}
         </View>
       </ThemeProvider>
     );

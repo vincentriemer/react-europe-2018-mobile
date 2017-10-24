@@ -16,7 +16,7 @@ export const Image = glamorous.image({
 });
 
 export const Heading = glamorous.text({
-  fontFamily: 'open-sans-bold',
+  // fontFamily: 'open-sans-bold',
   fontSize: 32,
   color: 'white',
 });
@@ -28,16 +28,11 @@ export const HeaderWrapper = glamorous.view({
 });
 
 export const ThemedButton = glamorous.text({
-  fontFamily: 'open-sans-bold',
+  // fontFamily: 'open-sans-bold',
   textAlign: 'center',
   margin: 10,
   padding: 5,
   fontSize: 36,
   color: '#187f65',
   backgroundColor: 'white',
-  borderRadius: 2,
-  ...Platform.select({
-    android: { elevation: 5 },
-    ios: {},
-  }),
 });

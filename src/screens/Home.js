@@ -1,10 +1,16 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-
 const Home = () => {
   return (
-    <View style={{ flex: 1, marginTop: 50 }}>
-      <Text style={{ marginTop: 10, fontSize: 28 }}>Home</Text>
+    <View
+      style={{
+        flex: 1,
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      <Text style={{ fontSize: 28 }}>Home</Text>
     </View>
   );
 };

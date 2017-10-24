@@ -12,10 +12,6 @@ const Container = glamorous.view({
   borderColor: '#187f65',
   borderWidth: 2,
   borderTopWidth: 0,
-  ...Platform.select({
-    android: { elevation: 5 },
-    ios: {},
-  }),
 });
 
 const Image = glamorous.image({
@@ -24,10 +20,6 @@ const Image = glamorous.image({
   width: 100,
   backgroundColor: '#187f65',
   marginRight: 15,
-  ...Platform.select({
-    android: { elevation: 10 },
-    ios: {},
-  }),
 });
 
 const Details = glamorous.view({
@@ -71,7 +63,7 @@ const Bio = ({ children }) => {
 const List = glamorous.view({});
 
 const Title = glamorous.text({
-  fontFamily: 'orbitron-bold',
+  // fontFamily: 'orbitron-bold',
   backgroundColor: '#187f65',
   color: 'white',
   fontSize: 32,

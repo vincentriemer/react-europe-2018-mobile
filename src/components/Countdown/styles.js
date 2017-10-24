@@ -37,7 +37,7 @@ export const Label = glamorous.text(
   {
     fontSize: 16,
     textAlign: 'center',
-    fontFamily: 'orbitron-bold',
+    // fontFamily: 'orbitron-bold',
     paddingBottom: 4,
   },
   getColorFromTheme
@@ -48,7 +48,7 @@ export const Value = glamorous.text(
     fontSize: 32,
     textAlign: 'right',
     flex: 1,
-    fontFamily: 'orbitron-bold',
+    // fontFamily: 'orbitron-bold',
     paddingRight: 4,
   },
   getColorFromTheme
