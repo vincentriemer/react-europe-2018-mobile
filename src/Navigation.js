@@ -1,12 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StackNavigator } from 'react-navigation';
+import {
+  TabRouter,
+  TabNavigator,
+  StackNavigator,
+  SceneView,
+} from 'react-navigation';
 import { Text, StyleSheet, StatusBar, View } from 'react-native';
+import { TabViewAnimated } from 'react-native-tab-view';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import hoistStatics from 'hoist-non-react-statics';
 
 import { Layout } from './constants';
 import Screens from './screens';
+
+const ScheduleDayStack = StackNavigator({
+  Day: {
+    screen: Screens.ScheduleDay,
+  }
+})
+
+const ScheduleNavigation = TabNavigator({
+  Sunday: {
+    screen: ScheduleDayStack,
+  },
+  Monday: {
+    screen: ScheduleDayStack,
+  },
+  Tuesday: {
+    screen: ScheduleDayStack,
+  },
+});
 
 const DRAWER_WIDTH = Math.min(Math.max(Layout.window.width - 100, 200), 350);
 
@@ -43,6 +67,11 @@ export function connectDrawerButton(WrappedComponent) {
 }
 
 class DrawerNavigation extends React.Component {
+  static router = TabRouter({
+    Home: { screen: Screens.Home },
+    Schedule: { screen: ScheduleNavigation },
+  });
+
   _isDrawerOpen = false;
 
   static childContextTypes = {
@@ -63,7 +92,20 @@ class DrawerNavigation extends React.Component {
     };
   }
 
+  _renderScene = ({ route }: any) => {
+    const { screenProps } = this.props;
+    const ScreenComponent = DrawerNavigation.router.getComponentForRouteName(
+      route.routeName
+    );
+    return (
+      <View style={{ flex: 1, overflow: 'hidden' }}>
+        <ScreenComponent />
+      </View>
+    );
+  };
+
   render() {
+    console.log(this.props);
     return (
       <View style={styles.container}>
         <DrawerLayout
@@ -84,7 +126,13 @@ class DrawerNavigation extends React.Component {
           drawerBackgroundColor="#ddd"
           renderNavigationView={this._renderNavigationView}
         >
-          <InnerNavigation />
+          <TabViewAnimated
+            navigationState={this.props.navigation.state}
+            animationEnabled={false}
+            renderScene={this._renderScene}
+            onIndexChange={() => {}}
+            swipeEnabled={false}
+          />
         </DrawerLayout>
         <StatusBar barStyle="light-content" />
       </View>
@@ -94,15 +142,20 @@ class DrawerNavigation extends React.Component {
   _renderNavigationView = () => {
     return (
       <View style={styles.drawerNavigationContainer}>
-        <Text>Hello!</Text>
+        <Text onPress={() => this._navigateToScreen('Home')}>Home</Text>
+        <View style={{ marginTop: 10 }} />
+        <Text onPress={() => this._navigateToScreen('Schedule')}>Schedule</Text>
       </View>
     );
   };
-}
 
-const InnerNavigation = StackNavigator({
-  Home: { screen: Screens.Home },
-});
+  _navigateToScreen = screen => {
+    this.props.navigation.navigate(screen);
+    requestIdleCallback(() => {
+      this._drawerRef.closeDrawer();
+    });
+  };
+}
 
 export default StackNavigator(
   {
