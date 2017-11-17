@@ -3,6 +3,7 @@ import { Text, Image, ScrollView, StyleSheet, View } from 'react-native';
 import { connectDrawerButton } from '../Navigation';
 import { Feather } from '@expo/vector-icons';
 import { RectButton } from 'react-native-gesture-handler';
+import { BoldText, SemiBoldText } from '../components/StyledText';
 
 import { Layout } from '../constants';
 
@@ -61,16 +62,16 @@ class Home extends React.Component {
             }}
           >
             <Image
-              source={require('../assets/logo.png')}
-              style={{ width: 180, height: 50, resizeMode: 'contain' }}
+              source={require('../assets/logo-shadow.png')}
+              style={{ width: 220, height: 60, resizeMode: 'contain' }}
               tintColor="#fff"
             />
             <View style={styles.headerContent}>
-              <Text style={styles.headerText}>November 27th to 28th</Text>
-              <Text style={styles.headerText}>Nashville, Tennesse</Text>
+              <SemiBoldText style={styles.headerText}>November 27th to 28th</SemiBoldText>
+              <SemiBoldText style={styles.headerText}>Nashville, Tennesse</SemiBoldText>
               <View style={{paddingTop: 8, alignItems: 'center'}}>
                 <RectButton style={styles.button}>
-                  <Text style={styles.buttonText}>Buy a ticket</Text>
+                  <BoldText style={styles.buttonText}>Buy a ticket</BoldText>
                 </RectButton>
                 {/* <RectButton style={styles.button}>
                   <Text style={styles.buttonText}>I already have a ticket</Text>
@@ -108,7 +109,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     textAlign: 'center',
     fontSize: 17,
-    lineHeight: 17 * 1.6,
+    lineHeight: 17 * 1.5,
   },
   button: {
     backgroundColor: '#0E4537',
@@ -121,7 +122,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     color: '#fff',
     fontSize: 17,
-    fontWeight: '500',
   },
 });
 
