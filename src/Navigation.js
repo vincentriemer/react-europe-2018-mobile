@@ -6,19 +6,21 @@ import {
   StackNavigator,
   SceneView,
 } from 'react-navigation';
-import { Text, StyleSheet, StatusBar, View } from 'react-native';
+import { Image, Text, StyleSheet, StatusBar, View } from 'react-native';
 import { TabViewAnimated } from 'react-native-tab-view';
+import { RectButton } from 'react-native-gesture-handler';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import hoistStatics from 'hoist-non-react-statics';
 
 import { Layout } from './constants';
 import Screens from './screens';
+import { BoldText } from './components/StyledText';
 
 const ScheduleDayStack = StackNavigator({
   Day: {
     screen: Screens.ScheduleDay,
-  }
-})
+  },
+});
 
 const ScheduleNavigation = TabNavigator({
   Sunday: {
@@ -29,19 +31,6 @@ const ScheduleNavigation = TabNavigator({
   },
   Tuesday: {
     screen: ScheduleDayStack,
-  },
-});
-
-const DRAWER_WIDTH = Math.min(Math.max(Layout.window.width - 100, 200), 350);
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  drawerNavigationContainer: {
-    backgroundColor: '#fff',
-    flex: 1,
-    padding: 20,
   },
 });
 
@@ -66,6 +55,7 @@ export function connectDrawerButton(WrappedComponent) {
   return hoistStatics(ConnectedDrawerButton, WrappedComponent);
 }
 
+const DRAWER_WIDTH = Math.min(Math.max(Layout.window.width - 100, 200), 350);
 class DrawerNavigation extends React.Component {
   static router = TabRouter({
     Home: { screen: Screens.Home },
@@ -105,7 +95,6 @@ class DrawerNavigation extends React.Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <View style={styles.container}>
         <DrawerLayout
@@ -123,7 +112,7 @@ class DrawerNavigation extends React.Component {
           hideStatusBar={true}
           drawerPosition={DrawerLayout.positions.Left}
           drawerType="front"
-          drawerBackgroundColor="#ddd"
+          drawerBackgroundColor="#333333"
           renderNavigationView={this._renderNavigationView}
         >
           <TabViewAnimated
@@ -141,10 +130,50 @@ class DrawerNavigation extends React.Component {
 
   _renderNavigationView = () => {
     return (
-      <View style={styles.drawerNavigationContainer}>
-        <Text onPress={() => this._navigateToScreen('Home')}>Home</Text>
-        <View style={{ marginTop: 10 }} />
-        <Text onPress={() => this._navigateToScreen('Schedule')}>Schedule</Text>
+      <View style={styles.drawerContainer}>
+        <View style={styles.drawerHeader}>
+          <Image
+            source={require('./assets/hero.png')}
+            style={{
+              height: 120 + Layout.notchHeight,
+              width: DRAWER_WIDTH,
+              resizeMode: 'cover',
+            }}
+          />
+          <View
+            style={[
+              StyleSheet.absoluteFill,
+              { backgroundColor: 'rgba(23, 127, 100, 0.57)' },
+            ]}
+          />
+          <View
+            style={[
+              StyleSheet.absoluteFill,
+              {
+                alignItems: 'center',
+                justifyContent: 'center',
+                paddingTop: Layout.notchHeight,
+              },
+            ]}
+          >
+            <Image
+              source={require('./assets/logo.png')}
+              style={{
+                width: 200,
+                height: 50,
+                resizeMode: 'contain',
+              }}
+            />
+          </View>
+        </View>
+        <View style={styles.drawerButtons}>
+          <DrawerButton onPress={() => this._navigateToScreen('Home')}>
+            Home
+          </DrawerButton>
+          <DrawerButton onPress={() => this._navigateToScreen('Schedule')}>
+            Schedule
+          </DrawerButton>
+        </View>
       </View>
     );
   };
@@ -156,6 +185,30 @@ class DrawerNavigation extends React.Component {
     });
   };
 }
+
+class DrawerButton extends React.Component {
+  render() {
+    return (
+      <RectButton onPress={this.props.onPress} activeOpacity={0.5}>
+        <BoldText style={styles.drawerButtonText}>
+          {this.props.children.toUpperCase()}
+        </BoldText>
+      </RectButton>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  drawerButtonText: {
+    color: '#fff',
+    fontSize: 17,
+    padding: 10,
+  },
+  drawerNavigationContainer: {},
+});
 
 export default StackNavigator(
   {
