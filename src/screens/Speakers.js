@@ -71,6 +71,7 @@ export default class Speakers extends React.Component {
   render() {
     return (
       <SectionList
+        stickySectionHeadersEnabled={true}
         renderItem={this._renderItem}
         renderSectionHeader={this._renderSectionHeader}
         sections={SpeakerData}

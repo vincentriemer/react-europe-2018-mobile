@@ -68,6 +68,7 @@ export default class Sponsors extends React.Component {
   render() {
     return (
       <SectionList
+        stickySectionHeadersEnabled={true}
         sections={SponsorsByLevel}
         renderSectionHeader={this._renderSectionHeader}
         renderItem={this._renderItem}

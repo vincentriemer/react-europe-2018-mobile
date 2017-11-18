@@ -59,6 +59,7 @@ export default function ScheduleDay(options) {
     render() {
       return (
         <SectionList
+          stickySectionHeadersEnabled={true}
           renderItem={this._renderItem}
           renderSectionHeader={this._renderSectionHeader}
           sections={slotsByTime}
