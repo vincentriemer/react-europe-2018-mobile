@@ -66,14 +66,6 @@ export default class Crews extends React.Component {
     );
   }
 
-  _renderSectionHeader = ({ section }) => {
-    return (
-      <View style={styles.sectionHeader}>
-        <RegularText>{section.title}</RegularText>
-      </View>
-    );
-  };
-
   _renderItem = ({ item }) => {
     return <CrewRow item={item} />;
   };
@@ -94,13 +86,5 @@ const styles = StyleSheet.create({
   },
   rowData: {
     flex: 1,
-  },
-  sectionHeader: {
-    paddingHorizontal: 10,
-    paddingTop: 7,
-    paddingBottom: 5,
-    backgroundColor: '#eee',
-    borderWidth: 1,
-    borderColor: '#eee',
   },
 });
