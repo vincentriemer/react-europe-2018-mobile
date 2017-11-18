@@ -12,7 +12,7 @@ import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import hoistStatics from 'hoist-non-react-statics';
 
-import { Layout } from './constants';
+import { Colors, Layout } from './constants';
 import Screens from './screens';
 import { SemiBoldText, BoldText } from './components/StyledText';
 
@@ -59,11 +59,18 @@ export function connectDrawerButton(WrappedComponent) {
   return hoistStatics(ConnectedDrawerButton, WrappedComponent);
 }
 
+const SpeakersNavigation = StackNavigator({
+  SpeakerList: {
+    screen: Screens.Speakers,
+  },
+});
+
 const DRAWER_WIDTH = Math.min(Math.max(Layout.window.width - 100, 200), 350);
 class DrawerNavigation extends React.Component {
   static router = TabRouter({
-    Schedule: { screen: ScheduleNavigation },
     Home: { screen: Screens.Home },
+    Schedule: { screen: ScheduleNavigation },
+    Speakers: { screen: SpeakersNavigation },
   });
 
   _isDrawerOpen = false;
@@ -172,27 +179,30 @@ class DrawerNavigation extends React.Component {
           </View>
         </View>
         <View style={styles.drawerButtons}>
-          <DrawerButton onPress={() => this._navigateToScreen('Home')}>
-            Home
-          </DrawerButton>
-          <DrawerButton onPress={() => this._navigateToScreen('Schedule')}>
-            Schedule
-          </DrawerButton>
-          <DrawerButton onPress={() => this._navigateToScreen('Home')}>
-            Events
-          </DrawerButton>
-          <DrawerButton onPress={() => this._navigateToScreen('Home')}>
-            Speakers
-          </DrawerButton>
-          <DrawerButton onPress={() => this._navigateToScreen('Home')}>
-            Crew
-          </DrawerButton>
-          <DrawerButton onPress={() => this._navigateToScreen('Home')}>
-            Sponsors
-          </DrawerButton>
+          {/* make sure the buttons here are in the same order as in route config */}
+          {this._renderButtons([
+            { route: 'Home', title: 'Home' },
+            { route: 'Schedule', title: 'Schedule' },
+            { route: 'Speakers', title: 'Speakers' },
+            { route: 'Home', title: 'Crew' },
+            { route: 'Home', title: 'Sponsors' },
+          ])}
         </View>
       </View>
     );
+  };
+
+  _renderButtons = buttonConfig => {
+    const selectedIndex = this.props.navigation.state.index;
+
+    return buttonConfig.map((config, i) => (
+      <DrawerButton
+        onPress={() => this._navigateToScreen(config.route)}
+        selected={selectedIndex === i}
+      >
+        {config.title}
+      </DrawerButton>
+    ));
   };
 
   _navigateToScreen = screen => {
@@ -210,6 +220,7 @@ class DrawerButton extends React.Component {
       <BorderlessButton onPress={this.props.onPress} activeOpacity={0.2}>
         <View
           style={{
+            backgroundColor: this.props.selected ? 'rgba(255,255,255,0.1)' : 'transparent',
             height: 50,
             width: DRAWER_WIDTH,
             justifyContent: 'center',
@@ -235,7 +246,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   drawerButtons: {
-    paddingTop: 10,
+    paddingTop: 0,
   },
   drawerNavigationContainer: {},
 });

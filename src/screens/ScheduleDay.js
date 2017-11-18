@@ -46,7 +46,7 @@ export default function ScheduleDay(options) {
     schedule => schedule.title === options.day
   );
   const slotsByTime = schedule.slots.map((slot, i) => {
-    return { data: [slot], title: slot.time, key: i.toString() };
+    return { data: [slot], title: slot.time };
   });
 
   class ScheduleDayComponent extends React.Component {
