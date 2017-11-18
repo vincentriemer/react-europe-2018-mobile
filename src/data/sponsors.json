@@ -74,7 +74,7 @@
   {
     "company": "fly.io",
     "twitter": "flydotio",
-    "logo": "/img/sponsors/flyio.svg",
+    "logo": "https://s3.amazonaws.com/nodevember-expo/flyio.png",
     "url": "https://fly.io/",
     "description": "Fly brings the untapped potential of intelligent edge-servers to your finger-tips. It's a global load balancer, a smart reverse proxy, a library of powerful Middleware; it's a CDN that developers like you control.",
     "level": "Bronze"
@@ -90,7 +90,7 @@
   {
     "company": "Heroku",
     "twitter": "heroku",
-    "logo": "/img/sponsors/heroku-logotype-horizontal-purple.svg",
+    "logo": "https://s3.amazonaws.com/nodevember-expo/heroku.png",
     "url": "https://www.heroku.com/",
     "description": "Heroku, a Salesforce company and industry pioneer in platform as a service (PaaS), enables developers to build and run applications entirely in the cloud, without the need to purchase or maintain any servers or software. Over 8 million apps, including ones from Product Hunt, Casper and Citrix run on Heroku. With support for the most popular languages such as Ruby and Node.js, high-scale data services including Postgres, Redis and Kafka, and an add-ons ecosystem featuring over 150 cloud application services, Heroku provides companies from startups to Fortune 500 enterprises with a faster and more effective way to create, deploy and manage beautiful apps in the cloud.",
     "level": "Diamond"
@@ -106,7 +106,7 @@
   {
     "company": "NodeSource",
     "twitter": "NodeSource",
-    "logo": "/img/sponsors/nodesource.svg",
+    "logo": "https://s3.amazonaws.com/nodevember-expo/nodesource.png",
     "url": "https://nodesource.com/",
     "description": "",
     "level": "Silver"

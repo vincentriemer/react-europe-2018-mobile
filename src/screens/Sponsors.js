@@ -4,22 +4,35 @@ import FadeIn from 'react-native-fade-in-image';
 import { WebBrowser } from 'expo';
 import { ScrollView, RectButton } from 'react-native-gesture-handler';
 
-import { Colors } from '../constants';
+import { Layout, Colors } from '../constants';
 import MenuButton from '../components/MenuButton';
 import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
 
 import _ from 'lodash';
 
 import SponsorData from '../data/sponsors.json';
-const SponsorsByLevel = _.map(
-  _.groupBy(SponsorData, data => data.level),
-  (value, key) => {
-    return { data: value, title: key };
-  }
-);
+const SponsorsByLevelUnsorted = _.groupBy(SponsorData, data => data.level);
+// const SponsorsByLevelUnsorted = _.map(
+//   _.groupBy(SponsorData, data => data.level),
+//   (value, key) => {
+//     return { data: value, title: key };
+//   }
+// );
+
+const SponsorsByLevel = [
+  { title: 'Diamond', data: SponsorsByLevelUnsorted['Diamond'] },
+  { title: 'Gold', data: SponsorsByLevelUnsorted['Gold'] },
+  { title: 'Silver', data: SponsorsByLevelUnsorted['Silver'] },
+  { title: 'Bronze', data: SponsorsByLevelUnsorted['Bronze'] },
+  { title: 'Community', data: SponsorsByLevelUnsorted['Community'] },
+];
 
 function getLogoURL(sponsor) {
-  return `http://nodevember.org${sponsor.logo}`;
+  if (sponsor.logo.startsWith('/img')) {
+    return `http://nodevember.org${sponsor.logo}`;
+  } else {
+    return sponsor.logo;
+  }
 }
 
 class SponsorRow extends React.Component {
@@ -32,18 +45,36 @@ class SponsorRow extends React.Component {
         style={{ flex: 1, backgroundColor: '#fff' }}
       >
         <View style={styles.row}>
-          <View style={styles.rowAvatarContainer}>
+          <View
+            style={[
+              styles.rowData,
+              {
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginBottom: sponsor.description ? 15 : 5,
+                marginTop: 10,
+              },
+            ]}
+          >
             <FadeIn>
               <Image
                 source={{ uri: getLogoURL(sponsor) }}
-                style={{ width: 50, height: 50, borderRadius: 25, resizeMode: "contain" }}
+                style={{
+                  width: Layout.window.width / 2,
+                  height: 80,
+                  borderRadius: 0,
+                  resizeMode: 'contain',
+                }}
               />
             </FadeIn>
           </View>
-          <View style={styles.rowData}>
-            <BoldText>{sponsor.company}</BoldText>
-            <RegularText>{sponsor.description}</RegularText>
-          </View>
+          {sponsor.description ? (
+            <View style={styles.rowData}>
+              <RegularText style={{ marginBottom: 10 }}>
+                {sponsor.description}
+              </RegularText>
+            </View>
+          ) : null}
         </View>
       </RectButton>
     );
@@ -97,7 +128,6 @@ const styles = StyleSheet.create({
     padding: 10,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderColor: '#eee',
-    flexDirection: 'row',
   },
   rowAvatarContainer: {
     paddingVertical: 5,
