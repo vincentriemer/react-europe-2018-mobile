@@ -145,7 +145,7 @@ class DrawerNavigation extends React.Component {
           }}
           drawerWidth={DRAWER_WIDTH}
           keyboardDismissMode="on-drag"
-          hideStatusBar={true}
+          hideStatusBar={Platform.OS === 'android' ? true : false}
           drawerPosition={DrawerLayout.positions.Left}
           drawerType="front"
           drawerBackgroundColor="#333333"

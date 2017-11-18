@@ -54,6 +54,7 @@ class SpeakerRow extends React.Component {
 
   _handlePress = () => {
     // do nothing for now
+    alert('pressed!')
   }
 }
 
