@@ -23,12 +23,16 @@ export default class NavigationBar extends React.Component {
   }
 }
 
+// Didn't want to investigate why I needed to offset this a bit, surely there is a good reason
+const MADE_UP_NUMBER = 7;
+
 const styles = StyleSheet.create({
   navigationBarContainer: {
     backgroundColor: 'transparent',
     height: Layout.headerHeight,
     position: 'absolute',
-    paddingTop: Constants.statusBarHeight,
+    paddingTop:
+      Platform.OS === 'ios' ? Constants.statusBarHeight : MADE_UP_NUMBER,
     top: 0,
     left: 0,
     right: 0,
@@ -40,8 +44,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: Platform.OS === 'ios' ? 'center' : 'flex-start',
   },
-  navigationBarLeftButton: {
- },
-  navigationBarRightButton: {
-  },
+  navigationBarLeftButton: {},
+  navigationBarRightButton: {},
 });

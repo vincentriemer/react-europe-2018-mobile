@@ -41,24 +41,8 @@ export default class App extends React.Component {
     }
 
     return (
-      <View
-        style={{
-          paddingTop: Platform.OS === 'android' ? Constants.statusBarHeight : 0,
-          flex: 1,
-        }}
-      >
+      <View style={{ flex: 1 }}>
         <Navigation />
-        {Platform.OS === 'android' ? (
-          <View
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              right: 0,
-              height: Constants.statusBarHeight,
-            }}
-          />
-        ) : null}
       </View>
     );
   }

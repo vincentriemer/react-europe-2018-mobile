@@ -1,12 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
+  TabBarBottom,
   TabRouter,
   TabNavigator,
   StackNavigator,
   SceneView,
 } from 'react-navigation';
-import { Image, Text, StyleSheet, StatusBar, View } from 'react-native';
+import {
+  Platform,
+  Image,
+  Text,
+  StyleSheet,
+  StatusBar,
+  View,
+} from 'react-native';
+import { Constants } from 'expo';
 import { TabViewAnimated } from 'react-native-tab-view';
 import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
@@ -31,6 +40,8 @@ const ScheduleNavigation = TabNavigator(
   {
     swipeEnabled: false,
     animationEnabled: false,
+    tabBarComponent: TabBarBottom,
+    tabBarPosition: 'bottom',
     tabBarOptions: {
       style: { backgroundColor: '#333' },
       activeTintColor: '#fff',
@@ -140,15 +151,39 @@ class DrawerNavigation extends React.Component {
           drawerBackgroundColor="#333333"
           renderNavigationView={this._renderNavigationView}
         >
-          <TabViewAnimated
-            navigationState={this.props.navigation.state}
-            animationEnabled={false}
-            renderScene={this._renderScene}
-            onIndexChange={() => {}}
-            swipeEnabled={false}
-            lazy
-          />
+          <View style={{ flex: 1 }}>
+            <View
+              key="tab-view-container"
+              style={{
+                flex: 1,
+                paddingTop:
+                  Platform.OS === 'android' ? Constants.statusBarHeight : 0,
+              }}
+            >
+              <TabViewAnimated
+                navigationState={this.props.navigation.state}
+                animationEnabled={false}
+                renderScene={this._renderScene}
+                onIndexChange={() => {}}
+                swipeEnabled={false}
+                lazy
+              />
+            </View>
+            <View
+              key="status-bar-underlay"
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                height:
+                  Platform.OS === 'android' ? Constants.statusBarHeight : 0,
+                backgroundColor: Colors.green,
+              }}
+            />
+          </View>
         </DrawerLayout>
+
         <StatusBar barStyle="light-content" />
       </View>
     );
@@ -234,7 +269,9 @@ class DrawerButton extends React.Component {
       <BorderlessButton onPress={this.props.onPress} activeOpacity={0.2}>
         <View
           style={{
-            backgroundColor: this.props.selected ? 'rgba(255,255,255,0.1)' : 'transparent',
+            backgroundColor: this.props.selected
+              ? 'rgba(255,255,255,0.1)'
+              : 'transparent',
             height: 50,
             width: DRAWER_WIDTH,
             justifyContent: 'center',

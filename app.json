@@ -10,6 +10,7 @@
     "sdkVersion": "23.0.0",
     "splash": {
       "image": "./src/assets/icon.png",
+      "resizeMode": "contain",
       "backgroundColor": "#187f65"
     }
   }

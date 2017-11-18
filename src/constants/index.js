@@ -16,9 +16,7 @@ export const Layout = {
   },
   notchHeight,
   headerHeight:
-    Platform.OS === 'android'
-      ? Header.HEIGHT + Constants.statusBarHeight
-      : Header.HEIGHT + notchHeight,
+    Platform.OS === 'android' ? Header.HEIGHT : Header.HEIGHT + notchHeight,
 };
 
 export const Colors = {
