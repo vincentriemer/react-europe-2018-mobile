@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  TabBarBottom,
   TabRouter,
   TabNavigator,
   StackNavigator,
@@ -23,6 +22,7 @@ import hoistStatics from 'hoist-non-react-statics';
 
 import { Colors, Layout } from './constants';
 import Screens from './screens';
+import TabBarBottom from './components/TabBarBottom';
 import { SemiBoldText, BoldText } from './components/StyledText';
 
 const ScheduleNavigation = TabNavigator(
@@ -151,7 +151,7 @@ class DrawerNavigation extends React.Component {
           drawerBackgroundColor="#333333"
           renderNavigationView={this._renderNavigationView}
         >
-          <View style={{ flex: 1 }}>
+          <View style={{ flex: 1 }} key="container">
             <View
               key="tab-view-container"
               style={{
@@ -246,6 +246,7 @@ class DrawerNavigation extends React.Component {
 
     return buttonConfig.map((config, i) => (
       <DrawerButton
+        key={i}
         onPress={() => this._navigateToScreen(config.route)}
         selected={selectedIndex === i}
       >
