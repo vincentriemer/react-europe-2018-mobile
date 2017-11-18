@@ -21,4 +21,6 @@ export const Layout = {
       : Header.HEIGHT + notchHeight,
 };
 
-export const Colors = {};
+export const Colors = {
+  green: '#187f65',
+};

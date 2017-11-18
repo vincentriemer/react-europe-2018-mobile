@@ -62,8 +62,8 @@ export function connectDrawerButton(WrappedComponent) {
 const DRAWER_WIDTH = Math.min(Math.max(Layout.window.width - 100, 200), 350);
 class DrawerNavigation extends React.Component {
   static router = TabRouter({
-    Home: { screen: Screens.Home },
     Schedule: { screen: ScheduleNavigation },
+    Home: { screen: Screens.Home },
   });
 
   _isDrawerOpen = false;

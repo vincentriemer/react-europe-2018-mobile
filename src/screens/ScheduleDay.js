@@ -1,17 +1,50 @@
 import React from 'react';
 import { Text, SectionList, StyleSheet, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import _ from 'lodash';
 
-import { BoldText } from '../components/StyledText';
+import { RegularText, SemiBoldText, BoldText } from '../components/StyledText';
+import { Colors } from '../constants';
 import MenuButton from '../components/MenuButton';
 
 import FullSchedule from '../data/schedule.json';
-import _ from 'lodash';
 
-console.log('hi');
+const styles = StyleSheet.create({
+  row: {
+    padding: 10,
+    backgroundColor: '#fff',
+    borderWidth: 1,
+    borderColor: '#eee',
+  },
+  sectionHeader: {
+    paddingHorizontal: 10,
+    paddingTop: 7,
+    paddingBottom: 5,
+    backgroundColor: '#eee',
+    borderWidth: 1,
+    borderColor: '#eee',
+  },
+});
+
+class ScheduleRow extends React.Component {
+  render() {
+    const { item } = this.props;
+
+    return (
+      <View style={styles.row}>
+        <BoldText>{item.title}</BoldText>
+        {item.speaker ? <SemiBoldText>{item.speaker}</SemiBoldText> : null}
+        <RegularText>{item.room}</RegularText>
+      </View>
+    );
+  }
+}
 
 export default function ScheduleDay(options) {
-  const schedule = _.find(FullSchedule, schedule => schedule.title === options.day);
+  const schedule = _.find(
+    FullSchedule,
+    schedule => schedule.title === options.day
+  );
   const slotsByTime = schedule.slots.map((slot, i) => {
     return { data: [slot], title: slot.time, key: i.toString() };
   });
@@ -19,7 +52,7 @@ export default function ScheduleDay(options) {
   class ScheduleDayComponent extends React.Component {
     static navigationOptions = {
       title: `${options.day} Schedule`,
-      headerStyle: { backgroundColor: '#187f65' },
+      headerStyle: { backgroundColor: Colors.green },
       headerTintColor: 'white',
       headerLeft: <MenuButton />,
       tabBarLabel: options.day,
@@ -43,32 +76,14 @@ export default function ScheduleDay(options) {
 
     _renderSectionHeader = ({ section }) => {
       return (
-        <View
-          style={{
-            padding: 5,
-            backgroundColor: '#eee',
-            borderWidth: 1,
-            borderColor: '#eee',
-          }}
-        >
-          <Text>{section.title}</Text>
+        <View style={styles.sectionHeader}>
+          <RegularText>{section.title}</RegularText>
         </View>
       );
     };
 
     _renderItem = ({ item }) => {
-      return (
-        <View
-          style={{
-            padding: 20,
-            backgroundColor: '#fff',
-            borderWidth: 1,
-            borderColor: '#eee',
-          }}
-        >
-          <Text>{JSON.stringify(item)}</Text>
-        </View>
-      );
+      return <ScheduleRow item={item} />;
     };
   }
 
