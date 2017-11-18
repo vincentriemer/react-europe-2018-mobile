@@ -65,7 +65,7 @@ const SpeakersNavigation = StackNavigator({
   },
 });
 
-const DRAWER_WIDTH = Math.min(Math.max(Layout.window.width - 100, 200), 350);
+const DRAWER_WIDTH = Math.min(Math.max(Layout.window.width - 80, 280), 350);
 class DrawerNavigation extends React.Component {
   static router = TabRouter({
     Home: { screen: Screens.Home },

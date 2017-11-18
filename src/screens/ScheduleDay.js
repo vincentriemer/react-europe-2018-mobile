@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   row: {
     padding: 10,
     backgroundColor: '#fff',
-    borderWidth: 1,
+    borderBottomWidth: StyleSheet.hairlineWidth,
     borderColor: '#eee',
   },
   sectionHeader: {

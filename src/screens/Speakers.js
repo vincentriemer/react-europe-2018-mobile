@@ -1,9 +1,10 @@
 import React from 'react';
 import { Image, SectionList, StyleSheet, View, Text } from 'react-native';
+import FadeIn from 'react-native-fade-in-image';
 
 import { Colors } from '../constants';
 import MenuButton from '../components/MenuButton';
-import { RegularText } from '../components/StyledText';
+import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
 
 import KeynotersData from '../data/keynotes.json';
 import SpeakersData from '../data/speakers.json';
@@ -27,15 +28,19 @@ class SpeakerRow extends React.Component {
     return (
       <View style={styles.row}>
         <View style={styles.rowAvatarContainer}>
-          <Image
-            source={{ uri: getAvatarURL(speaker) }}
-            style={{ width: 50, height: 50, borderRadius: 20 }}
-          />
+          <FadeIn>
+            <Image
+              source={{ uri: getAvatarURL(speaker) }}
+              style={{ width: 50, height: 50, borderRadius: 25 }}
+            />
+          </FadeIn>
         </View>
         <View style={styles.rowData}>
-          <Text>{speaker.name}</Text>
-          <Text>{speaker.organization}</Text>
-          <Text>{speaker.title}</Text>
+          <BoldText>{speaker.name}</BoldText>
+          {speaker.organization ? (
+            <SemiBoldText>{speaker.organization}</SemiBoldText>
+          ) : null}
+          <RegularText>{speaker.title}</RegularText>
         </View>
       </View>
     );
@@ -82,9 +87,17 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     backgroundColor: '#fff',
-    borderWidth: 1,
+    borderBottomWidth: StyleSheet.hairlineWidth,
     borderColor: '#eee',
     flexDirection: 'row',
+  },
+  rowAvatarContainer: {
+    paddingVertical: 5,
+    paddingRight: 10,
+    paddingLeft: 0,
+  },
+  rowData: {
+    flex: 1,
   },
   sectionHeader: {
     paddingHorizontal: 10,
