@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image, FlatList, StyleSheet, View, Text } from 'react-native';
 import FadeIn from 'react-native-fade-in-image';
+import { ScrollView } from 'react-native-gesture-handler';
 
 import { Colors } from '../constants';
 import MenuButton from '../components/MenuButton';
@@ -59,6 +60,7 @@ export default class Crews extends React.Component {
   render() {
     return (
       <FlatList
+        renderScrollComponent={props => <ScrollView {...props} />}
         renderItem={this._renderItem}
         data={CrewData}
         keyExtractor={(item, index) => index}

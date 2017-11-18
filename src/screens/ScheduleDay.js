@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, SectionList, StyleSheet, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
-import { RectButton } from 'react-native-gesture-handler';
+import { ScrollView, RectButton } from 'react-native-gesture-handler';
 import _ from 'lodash';
 
 import { RegularText, SemiBoldText, BoldText } from '../components/StyledText';
@@ -59,6 +59,7 @@ export default function ScheduleDay(options) {
     render() {
       return (
         <SectionList
+          renderScrollComponent={props => <ScrollView {...props} />}
           stickySectionHeadersEnabled={true}
           renderItem={this._renderItem}
           renderSectionHeader={this._renderSectionHeader}

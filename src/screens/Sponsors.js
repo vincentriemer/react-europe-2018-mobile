@@ -2,11 +2,11 @@ import React from 'react';
 import { Image, SectionList, StyleSheet, View, Text } from 'react-native';
 import FadeIn from 'react-native-fade-in-image';
 import { WebBrowser } from 'expo';
+import { ScrollView, RectButton } from 'react-native-gesture-handler';
 
 import { Colors } from '../constants';
 import MenuButton from '../components/MenuButton';
 import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
-import { RectButton } from 'react-native-gesture-handler';
 
 import _ from 'lodash';
 
@@ -68,6 +68,7 @@ export default class Sponsors extends React.Component {
   render() {
     return (
       <SectionList
+        renderScrollComponent={props => <ScrollView {...props} />}
         stickySectionHeadersEnabled={true}
         sections={SponsorsByLevel}
         renderSectionHeader={this._renderSectionHeader}
