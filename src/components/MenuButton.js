@@ -1,14 +1,14 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import { connectDrawerButton } from '../Navigation';
-import { RectButton } from 'react-native-gesture-handler';
+import { BorderlessButton } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
 
 @connectDrawerButton
 export default class MenuButton extends React.Component {
   render() {
     return (
-      <RectButton
+      <BorderlessButton
         onPress={this.props.openDrawer}
         style={{
           marginBottom: 2,
@@ -24,7 +24,7 @@ export default class MenuButton extends React.Component {
           size={28}
           color="#fff"
         />
-      </RectButton>
+      </BorderlessButton>
     );
   }
 }
