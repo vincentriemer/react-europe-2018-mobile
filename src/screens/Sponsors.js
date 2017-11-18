@@ -12,13 +12,6 @@ import _ from 'lodash';
 
 import SponsorData from '../data/sponsors.json';
 const SponsorsByLevelUnsorted = _.groupBy(SponsorData, data => data.level);
-// const SponsorsByLevelUnsorted = _.map(
-//   _.groupBy(SponsorData, data => data.level),
-//   (value, key) => {
-//     return { data: value, title: key };
-//   }
-// );
-
 const SponsorsByLevel = [
   { title: 'Diamond', data: SponsorsByLevelUnsorted['Diamond'] },
   { title: 'Gold', data: SponsorsByLevelUnsorted['Gold'] },
@@ -87,7 +80,7 @@ class SponsorRow extends React.Component {
 
 export default class Sponsors extends React.Component {
   static navigationOptions = {
-    title: 'Sponsor',
+    title: 'Sponsors',
     headerStyle: { backgroundColor: Colors.green },
     headerTintColor: 'white',
     headerLeft: <MenuButton />,
