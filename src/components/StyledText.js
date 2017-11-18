@@ -6,7 +6,11 @@ export class RegularText extends React.Component {
     return (
       <Text
         {...this.props}
-        style={[this.props.style, { fontFamily: 'open-sans' }]}
+        style={[
+          { backgroundColor: 'transparent' },
+          this.props.style,
+          { fontFamily: 'open-sans' },
+        ]}
       />
     );
   }
@@ -17,7 +21,11 @@ export class SemiBoldText extends React.Component {
     return (
       <Text
         {...this.props}
-        style={[this.props.style, { fontFamily: 'open-sans-semibold' }]}
+        style={[
+          { backgroundColor: 'transparent' },
+          this.props.style,
+          { fontFamily: 'open-sans-semibold' },
+        ]}
       />
     );
   }
@@ -28,7 +36,11 @@ export class BoldText extends React.Component {
     return (
       <Text
         {...this.props}
-        style={[this.props.style, { fontFamily: 'open-sans-bold' }]}
+        style={[
+          { backgroundColor: 'transparent' },
+          this.props.style,
+          { fontFamily: 'open-sans-bold' },
+        ]}
       />
     );
   }

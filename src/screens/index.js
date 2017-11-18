@@ -1,3 +1,4 @@
+import Crew from './Crew';
 import Home from './Home';
 import ScheduleDay from './ScheduleDay';
 import Speakers from './Speakers';
@@ -7,6 +8,7 @@ import Events from './Events';
 
 export default {
   Home,
+  Crew,
   ScheduleDay,
   Speakers,
   Sponsors,

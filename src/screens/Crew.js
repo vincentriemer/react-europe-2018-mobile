@@ -1,51 +1,39 @@
 import React from 'react';
-import { Image, SectionList, StyleSheet, View, Text } from 'react-native';
+import { Image, FlatList, StyleSheet, View, Text } from 'react-native';
 import FadeIn from 'react-native-fade-in-image';
-import { RectButton } from 'react-native-gesture-handler';
 
 import { Colors } from '../constants';
 import MenuButton from '../components/MenuButton';
 import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
+import { RectButton } from 'react-native-gesture-handler';
 
-import KeynotersData from '../data/keynotes.json';
-import SpeakersData from '../data/speakers.json';
-const SpeakerData = [
-  { data: KeynotersData, title: 'Keynotes' },
-  { data: SpeakersData, title: 'Speakers' },
-];
+import CrewData from '../data/crew.json';
 
-function getAvatarURL(speaker) {
-  if (speaker.avatar.includes('gravatar')) {
-    return speaker.avatar;
-  } else {
-    return `http://nodevember.org${speaker.avatar}`;
-  }
+function getAvatarURL(crew) {
+  return `http://nodevember.org${crew.avatar}`;
 }
 
-class SpeakerRow extends React.Component {
+class CrewRow extends React.Component {
   render() {
-    const { item: speaker } = this.props;
+    const { item: crew } = this.props;
 
     return (
-      <RectButton
-        onPress={this._handlePress}
-        style={{ flex: 1, backgroundColor: '#fff' }}
-      >
+      <RectButton onPress={this._handlePress} style={{flex: 1, backgroundColor: '#fff'}}>
         <View style={styles.row}>
           <View style={styles.rowAvatarContainer}>
             <FadeIn>
               <Image
-                source={{ uri: getAvatarURL(speaker) }}
+                source={{ uri: getAvatarURL(crew) }}
                 style={{ width: 50, height: 50, borderRadius: 25 }}
               />
             </FadeIn>
           </View>
           <View style={styles.rowData}>
-            <BoldText>{speaker.name}</BoldText>
-            {speaker.organization ? (
-              <SemiBoldText>{speaker.organization}</SemiBoldText>
+            <BoldText>{crew.person}</BoldText>
+            {crew.role ? (
+              <SemiBoldText>{crew.role}</SemiBoldText>
             ) : null}
-            <RegularText>{speaker.title}</RegularText>
+            <RegularText>{crew.bio}</RegularText>
           </View>
         </View>
       </RectButton>
@@ -57,9 +45,9 @@ class SpeakerRow extends React.Component {
   }
 }
 
-export default class Speakers extends React.Component {
+export default class Crews extends React.Component {
   static navigationOptions = {
-    title: 'Speakers',
+    title: 'Crew',
     headerStyle: { backgroundColor: Colors.green },
     headerTintColor: 'white',
     headerLeft: <MenuButton />,
@@ -70,10 +58,9 @@ export default class Speakers extends React.Component {
 
   render() {
     return (
-      <SectionList
+      <FlatList
         renderItem={this._renderItem}
-        renderSectionHeader={this._renderSectionHeader}
-        sections={SpeakerData}
+        data={CrewData}
         keyExtractor={(item, index) => index}
       />
     );
@@ -88,7 +75,7 @@ export default class Speakers extends React.Component {
   };
 
   _renderItem = ({ item }) => {
-    return <SpeakerRow item={item} />;
+    return <CrewRow item={item} />;
   };
 }
 

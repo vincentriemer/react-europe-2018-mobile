@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, SectionList, StyleSheet, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
+import { RectButton } from 'react-native-gesture-handler';
 import _ from 'lodash';
 
 import { RegularText, SemiBoldText, BoldText } from '../components/StyledText';
@@ -9,35 +10,27 @@ import MenuButton from '../components/MenuButton';
 
 import FullSchedule from '../data/schedule.json';
 
-const styles = StyleSheet.create({
-  row: {
-    padding: 10,
-    backgroundColor: '#fff',
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderColor: '#eee',
-  },
-  sectionHeader: {
-    paddingHorizontal: 10,
-    paddingTop: 7,
-    paddingBottom: 5,
-    backgroundColor: '#eee',
-    borderWidth: 1,
-    borderColor: '#eee',
-  },
-});
-
 class ScheduleRow extends React.Component {
   render() {
     const { item } = this.props;
 
     return (
-      <View style={styles.row}>
-        <BoldText>{item.title}</BoldText>
-        {item.speaker ? <SemiBoldText>{item.speaker}</SemiBoldText> : null}
-        <RegularText>{item.room}</RegularText>
-      </View>
+      <RectButton
+        onPress={this._handlePress}
+        style={{ flex: 1, backgroundColor: '#fff' }}
+      >
+        <View style={styles.row}>
+          <BoldText>{item.title}</BoldText>
+          {item.speaker ? <SemiBoldText>{item.speaker}</SemiBoldText> : null}
+          <RegularText>{item.room}</RegularText>
+        </View>
+      </RectButton>
     );
   }
+
+  _handlePress = () => {
+    // do nothing for now
+  };
 }
 
 export default function ScheduleDay(options) {
@@ -102,3 +95,19 @@ export default function ScheduleDay(options) {
     }
   );
 }
+
+const styles = StyleSheet.create({
+  row: {
+    padding: 10,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderColor: '#eee',
+  },
+  sectionHeader: {
+    paddingHorizontal: 10,
+    paddingTop: 7,
+    paddingBottom: 5,
+    backgroundColor: '#eee',
+    borderWidth: 1,
+    borderColor: '#eee',
+  },
+});

@@ -65,12 +65,19 @@ const SpeakersNavigation = StackNavigator({
   },
 });
 
+const CrewNavigation = StackNavigator({
+  CrewList: {
+    screen: Screens.Crew,
+  },
+});
+
 const DRAWER_WIDTH = Math.min(Math.max(Layout.window.width - 80, 280), 350);
 class DrawerNavigation extends React.Component {
   static router = TabRouter({
     Home: { screen: Screens.Home },
     Schedule: { screen: ScheduleNavigation },
     Speakers: { screen: SpeakersNavigation },
+    Crew: { screen: CrewNavigation },
   });
 
   _isDrawerOpen = false;
@@ -184,7 +191,7 @@ class DrawerNavigation extends React.Component {
             { route: 'Home', title: 'Home' },
             { route: 'Schedule', title: 'Schedule' },
             { route: 'Speakers', title: 'Speakers' },
-            { route: 'Home', title: 'Crew' },
+            { route: 'Crew', title: 'Crew' },
             { route: 'Home', title: 'Sponsors' },
           ])}
         </View>
