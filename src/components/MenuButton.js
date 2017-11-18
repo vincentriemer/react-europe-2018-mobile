@@ -1,7 +1,8 @@
 import React from 'react';
+import { Platform } from 'react-native';
 import { connectDrawerButton } from '../Navigation';
 import { RectButton } from 'react-native-gesture-handler';
-import { Feather } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 
 @connectDrawerButton
 export default class MenuButton extends React.Component {
@@ -18,7 +19,11 @@ export default class MenuButton extends React.Component {
         }}
         hitSlop={{ left: 15, top: 15, right: 15, bottom: 15 }}
       >
-        <Feather name="menu" size={28} color="#fff" />
+        <Ionicons
+          name={Platform.OS === 'ios' ? 'ios-menu-outline' : 'md-menu'}
+          size={28}
+          color="#fff"
+        />
       </RectButton>
     );
   }

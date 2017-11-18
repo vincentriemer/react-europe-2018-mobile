@@ -8,31 +8,35 @@ import {
 } from 'react-navigation';
 import { Image, Text, StyleSheet, StatusBar, View } from 'react-native';
 import { TabViewAnimated } from 'react-native-tab-view';
-import { RectButton } from 'react-native-gesture-handler';
+import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import hoistStatics from 'hoist-non-react-statics';
 
 import { Layout } from './constants';
 import Screens from './screens';
-import { BoldText } from './components/StyledText';
+import { SemiBoldText, BoldText } from './components/StyledText';
 
-const ScheduleDayStack = StackNavigator({
-  Day: {
-    screen: Screens.ScheduleDay,
+const ScheduleNavigation = TabNavigator(
+  {
+    Sunday: {
+      screen: Screens.ScheduleDay({ day: 'Sunday', date: '26' }),
+    },
+    Monday: {
+      screen: Screens.ScheduleDay({ day: 'Monday', date: '27' }),
+    },
+    Tuesday: {
+      screen: Screens.ScheduleDay({ day: 'Tuesday', date: '28' }),
+    },
   },
-});
-
-const ScheduleNavigation = TabNavigator({
-  Sunday: {
-    screen: ScheduleDayStack,
-  },
-  Monday: {
-    screen: ScheduleDayStack,
-  },
-  Tuesday: {
-    screen: ScheduleDayStack,
-  },
-});
+  {
+    swipeEnabled: false,
+    animationEnabled: false,
+    tabBarOptions: {
+      style: { backgroundColor: '#333' },
+      activeTintColor: '#fff',
+    },
+  }
+);
 
 export function connectDrawerButton(WrappedComponent) {
   const ConnectedDrawerButton = (props, context) => {
@@ -121,6 +125,7 @@ class DrawerNavigation extends React.Component {
             renderScene={this._renderScene}
             onIndexChange={() => {}}
             swipeEnabled={false}
+            lazy
           />
         </DrawerLayout>
         <StatusBar barStyle="light-content" />
@@ -173,6 +178,18 @@ class DrawerNavigation extends React.Component {
           <DrawerButton onPress={() => this._navigateToScreen('Schedule')}>
             Schedule
           </DrawerButton>
+          <DrawerButton onPress={() => this._navigateToScreen('Home')}>
+            Events
+          </DrawerButton>
+          <DrawerButton onPress={() => this._navigateToScreen('Home')}>
+            Speakers
+          </DrawerButton>
+          <DrawerButton onPress={() => this._navigateToScreen('Home')}>
+            Crew
+          </DrawerButton>
+          <DrawerButton onPress={() => this._navigateToScreen('Home')}>
+            Sponsors
+          </DrawerButton>
         </View>
       </View>
     );
@@ -180,6 +197,7 @@ class DrawerNavigation extends React.Component {
 
   _navigateToScreen = screen => {
     this.props.navigation.navigate(screen);
+
     requestIdleCallback(() => {
       this._drawerRef.closeDrawer();
     });
@@ -189,11 +207,20 @@ class DrawerNavigation extends React.Component {
 class DrawerButton extends React.Component {
   render() {
     return (
-      <RectButton onPress={this.props.onPress} activeOpacity={0.5}>
-        <BoldText style={styles.drawerButtonText}>
-          {this.props.children.toUpperCase()}
-        </BoldText>
-      </RectButton>
+      <BorderlessButton onPress={this.props.onPress} activeOpacity={0.2}>
+        <View
+          style={{
+            height: 50,
+            width: DRAWER_WIDTH,
+            justifyContent: 'center',
+            paddingHorizontal: 5,
+          }}
+        >
+          <SemiBoldText style={styles.drawerButtonText}>
+            {this.props.children.toUpperCase()}
+          </SemiBoldText>
+        </View>
+      </BorderlessButton>
     );
   }
 }
@@ -207,13 +234,15 @@ const styles = StyleSheet.create({
     fontSize: 17,
     padding: 10,
   },
+  drawerButtons: {
+    paddingTop: 10,
+  },
   drawerNavigationContainer: {},
 });
 
 export default StackNavigator(
   {
     Primary: { screen: DrawerNavigation },
-    Modal: { screen: View /* Placeholder */ },
   },
   {
     headerMode: 'none',
