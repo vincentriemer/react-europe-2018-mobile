@@ -1,12 +1,13 @@
 import React from 'react';
 import { Text, Image, ScrollView, StyleSheet, View } from 'react-native';
+import { LinearGradient, Video } from 'expo';
 import { connectDrawerButton } from '../Navigation';
 import { RectButton } from 'react-native-gesture-handler';
 import { BoldText, SemiBoldText } from '../components/StyledText';
 import MenuButton from '../components/MenuButton';
 
 import NavigationBar from '../components/NavigationBar';
-import { Layout } from '../constants';
+import { Colors, Layout } from '../constants';
 
 class Home extends React.Component {
   render() {
@@ -22,6 +23,27 @@ class Home extends React.Component {
               alignItems: 'center',
             }}
           >
+            <View style={styles.headerVideoLayer}>
+              <Video
+                source={require('../assets/video.mp4')}
+                style={{ flex: 1 }}
+                resizeMode="cover"
+                shouldPlay
+                muted
+                isLooping
+              />
+              <View style={styles.headerVideoOverlay} />
+              <LinearGradient
+                colors={[Colors.green, 'transparent']}
+                style={{
+                  position: 'absolute',
+                  left: 0,
+                  right: 0,
+                  top: 0,
+                  bottom: 0,
+                }}
+              />
+            </View>
             <Image
               source={require('../assets/logo-shadow.png')}
               style={{ width: 220, height: 60, resizeMode: 'contain' }}
@@ -69,6 +91,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 5,
     paddingVertical: 10,
+  },
+  headerVideoLayer: {
+    ...StyleSheet.absoluteFillObject,
+  },
+  headerVideoOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: Colors.green,
+    opacity: 0.8,
   },
   headerText: {
     color: '#fff',

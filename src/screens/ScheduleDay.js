@@ -97,6 +97,9 @@ export default function ScheduleDay(options) {
       },
     },
     {
+      cardStyle: {
+        backgroundColor: '#fafafa',
+      },
       navigationOptions: {
         headerTitleStyle: {
           fontFamily: 'open-sans-bold',

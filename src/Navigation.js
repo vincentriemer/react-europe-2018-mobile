@@ -87,23 +87,29 @@ export function connectDrawerButton(WrappedComponent) {
   return hoistStatics(ConnectedDrawerButton, WrappedComponent);
 }
 
+const DefaultStackConfig = {
+  cardStyle: {
+    backgroundColor: '#fafafa',
+  },
+}
+
 const SpeakersNavigation = StackNavigator({
   SpeakerList: {
     screen: Screens.Speakers,
   },
-});
+}, DefaultStackConfig);
 
 const CrewNavigation = StackNavigator({
   CrewList: {
     screen: Screens.Crew,
   },
-});
+}, DefaultStackConfig);
 
 const SponsorNavigation = StackNavigator({
   SponsorList: {
     screen: Screens.Sponsors,
   },
-});
+}, DefaultStackConfig);
 
 const DRAWER_WIDTH = Math.min(Math.max(Layout.window.width - 80, 280), 350);
 class DrawerNavigation extends React.Component {
@@ -326,6 +332,7 @@ export default StackNavigator(
     Details: { screen: Screens.Details },
   },
   {
+    ...DefaultStackConfig,
     headerMode: 'none',
   }
 );

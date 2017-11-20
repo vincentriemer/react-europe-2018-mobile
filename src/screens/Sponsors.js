@@ -50,7 +50,7 @@ class SponsorRow extends React.Component {
               },
             ]}
           >
-            <FadeIn>
+            <FadeIn placeholderStyle={{borderRadius: 3}}>
               <Image
                 source={{ uri: getLogoURL(sponsor) }}
                 style={{
