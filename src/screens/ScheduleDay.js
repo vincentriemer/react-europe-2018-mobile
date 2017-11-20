@@ -39,8 +39,9 @@ export default function ScheduleDay(options) {
     FullSchedule,
     schedule => schedule.title === options.day
   );
-  const slotsByTime = schedule.slots.map((slot, i) => {
-    return { data: [slot], title: slot.time };
+  const slotsByTime = _.groupBy(schedule.slots, slot => slot.time);
+  const slotsData = _.map(slotsByTime, (data, time) => {
+    return { data, title: time };
   });
 
   class ScheduleDayComponent extends React.Component {
@@ -64,7 +65,7 @@ export default function ScheduleDay(options) {
           stickySectionHeadersEnabled={true}
           renderItem={this._renderItem}
           renderSectionHeader={this._renderSectionHeader}
-          sections={slotsByTime}
+          sections={slotsData}
           keyExtractor={(item, index) => index}
         />
       );
