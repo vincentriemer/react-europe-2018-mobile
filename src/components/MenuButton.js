@@ -13,6 +13,7 @@ export default class MenuButton extends React.Component {
         style={{
           marginBottom: 2,
           marginRight: 5,
+          marginTop: 3,
           paddingHorizontal: 10,
           paddingVertical: 5,
           alignSelf: 'flex-start',

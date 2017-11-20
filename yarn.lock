@@ -3849,9 +3849,9 @@ react-native-drawer-layout@1.3.2:
   dependencies:
     react-native-dismiss-keyboard "1.0.0"
 
-react-native-fade-in-image@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/react-native-fade-in-image/-/react-native-fade-in-image-1.2.0.tgz#94ea1275926c405e997a1ca744deed895f395e51"
+react-native-fade-in-image@1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/react-native-fade-in-image/-/react-native-fade-in-image-1.3.0.tgz#2804ad4bfbe78e2eee373e604437d5c2dec1d9b4"
   dependencies:
     react-clone-referenced-element "^1.0.1"
     react-mixin "^3.0.5"
