@@ -1,9 +1,10 @@
 import React from 'react';
 import { Text, SectionList, StyleSheet, View } from 'react-native';
-import { StackNavigator } from 'react-navigation';
+import { NavigationActions, StackNavigator } from 'react-navigation';
 import { ScrollView, RectButton } from 'react-native-gesture-handler';
 import _ from 'lodash';
 
+import { connectTopNavigation } from '../Navigation';
 import { RegularText, SemiBoldText, BoldText } from '../components/StyledText';
 import { Colors } from '../constants';
 import MenuButton from '../components/MenuButton';
@@ -16,6 +17,7 @@ class ScheduleRow extends React.Component {
 
     return (
       <RectButton
+        activeOpacity={0.05}
         onPress={this._handlePress}
         style={{ flex: 1, backgroundColor: '#fff' }}
       >
@@ -29,8 +31,7 @@ class ScheduleRow extends React.Component {
   }
 
   _handlePress = () => {
-    // do nothing for now
-    alert('pressed!')
+    this.props.onPress && this.props.onPress(this.props.item);
   };
 }
 
@@ -44,6 +45,7 @@ export default function ScheduleDay(options) {
     return { data, title: time };
   });
 
+  @connectTopNavigation
   class ScheduleDayComponent extends React.Component {
     static navigationOptions = {
       title: `${options.day} Schedule`,
@@ -80,7 +82,11 @@ export default function ScheduleDay(options) {
     };
 
     _renderItem = ({ item }) => {
-      return <ScheduleRow item={item} />;
+      return <ScheduleRow item={item} onPress={this._handlePressRow} />;
+    };
+
+    _handlePressRow = item => {
+      this.props.topNavigation.navigate('Details', {scheduleSlot: item});
     };
   }
 

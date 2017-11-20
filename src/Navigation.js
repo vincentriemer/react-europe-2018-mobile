@@ -49,6 +49,23 @@ const ScheduleNavigation = TabNavigator(
   }
 );
 
+export function connectTopNavigation(WrappedComponent) {
+  const ConnectedTopNavigation = (props, context) => {
+    return (
+      <WrappedComponent
+        {...props}
+        topNavigation={context.topNavigation}
+      />
+    );
+  };
+
+  ConnectedTopNavigation.contextTypes = {
+    topNavigation: PropTypes.any,
+  };
+
+  return hoistStatics(ConnectedTopNavigation, WrappedComponent);
+}
+
 export function connectDrawerButton(WrappedComponent) {
   const ConnectedDrawerButton = (props, context) => {
     return (
@@ -104,6 +121,7 @@ class DrawerNavigation extends React.Component {
     openDrawer: PropTypes.func,
     closeDrawer: PropTypes.func,
     toggleDrawer: PropTypes.func,
+    topNavigation: PropTypes.any,
   };
 
   getChildContext() {
@@ -115,6 +133,7 @@ class DrawerNavigation extends React.Component {
       openDrawer,
       closeDrawer,
       toggleDrawer,
+      topNavigation: this.props.navigation,
     };
   }
 
@@ -257,11 +276,8 @@ class DrawerNavigation extends React.Component {
   };
 
   _navigateToScreen = screen => {
+    this._drawerRef.closeDrawer();
     this.props.navigation.navigate(screen);
-
-    requestIdleCallback(() => {
-      this._drawerRef.closeDrawer();
-    });
   };
 }
 
@@ -307,6 +323,7 @@ const styles = StyleSheet.create({
 export default StackNavigator(
   {
     Primary: { screen: DrawerNavigation },
+    Details: { screen: Screens.Details },
   },
   {
     headerMode: 'none',

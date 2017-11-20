@@ -35,6 +35,7 @@ class SponsorRow extends React.Component {
     return (
       <RectButton
         onPress={this._handlePress}
+        activeOpacity={0.05}
         style={{ flex: 1, backgroundColor: '#fff' }}
       >
         <View style={styles.row}>
