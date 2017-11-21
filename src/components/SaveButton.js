@@ -6,29 +6,21 @@ import { Colors } from '../constants';
 
 export default class SaveButton extends React.Component {
   render() {
+    const { savePress, active } = this.props;
+    const isIOS = Platform.OS === 'ios';
     return (
       <BorderlessButton
-        onPress={this.props.savePress}
+        onPress={savePress}
         style={{
           alignSelf: 'flex-start',
         }}
         hitSlop={{ left: 15, top: 15, right: 15, bottom: 15 }}
       >
-        {this.props.active ? (
-          <Ionicons
-            name={Platform.os === 'ios' ? 'ios-heart' : 'md-heart'}
-            size={28}
-            color={Colors.green}
-          />
-        ) : (
-          <Ionicons
-            name={
-              Platform.os === 'ios' ? 'ios-heart-outline' : 'md-heart-outline'
-            }
-            size={28}
-            color="#000"
-          />
-        )}
+        <Ionicons
+          name={`${isIOS ? 'ios' : 'md'}-heart${active ? '' : '-outline'}`}
+          size={28}
+          color={active ? Colors.green : '#000'}
+        />
       </BorderlessButton>
     );
   }
