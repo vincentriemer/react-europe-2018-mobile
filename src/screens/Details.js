@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Animated,
   Image,
   Platform,
   StyleSheet,
@@ -9,6 +10,7 @@ import {
 } from 'react-native';
 import { Constants, Video } from 'expo';
 import _ from 'lodash';
+import FadeIn from 'react-native-fade-in-image';
 
 import { Colors, Layout } from '../constants';
 import { RegularText, BoldText, SemiBoldText } from '../components/StyledText';
@@ -33,6 +35,10 @@ function getAvatarURL(speaker) {
 }
 
 export default class Details extends React.Component {
+  state = {
+    scrollY: new Animated.Value(0),
+  };
+
   render() {
     let params = this.props.navigation.state.params || {};
     let speaker;
@@ -45,15 +51,67 @@ export default class Details extends React.Component {
       event = findTalkData(speaker.name);
     }
 
+    const { scrollY } = this.state;
+    const scale = scrollY.interpolate({
+      inputRange: [-300, 0, 1],
+      outputRange: [2, 1, 1],
+      extrapolate: 'clamp',
+    });
+    const translateX = 0;
+    const translateY = scrollY.interpolate({
+      inputRange: [-300, 0, 1],
+      outputRange: [-50, 1, 1],
+      extrapolate: 'clamp',
+    });
+
     return (
       <View style={{ flex: 1, backgroundColor: '#fff' }}>
-        <ScrollView style={{ flex: 1, backgroundColor: 'transparent' }}>
+        {Platform.OS === 'ios' ? (
+          <Animated.View
+            style={{
+              position: 'absolute',
+              top: -350,
+              left: 0,
+              right: 0,
+              height: 400,
+              transform: [
+                {
+                  translateY: scrollY.interpolate({
+                    inputRange: [-1, 0, 1],
+                    outputRange: [1, 0, 0],
+                  }),
+                },
+              ],
+              backgroundColor: Colors.green,
+            }}
+          />
+        ) : null}
+        <Animated.ScrollView
+          style={{ flex: 1, backgroundColor: 'transparent' }}
+          scrollEventThrottle={1}
+          onScroll={Animated.event(
+            [
+              {
+                nativeEvent: { contentOffset: { y: this.state.scrollY } },
+              },
+            ],
+            { useNativeDriver: true }
+          )}
+        >
           <View style={styles.headerContainer}>
             <View style={styles.headerContent}>
-              <Image
-                source={{ uri: getAvatarURL(speaker) }}
-                style={styles.avatar}
-              />
+              <Animated.View
+                style={{
+                  transform: [{ scale }, { translateX }, { translateY }],
+                }}
+              >
+                <FadeIn placeholderStyle={{ backgroundColor: '#318A73' }}>
+                  <Image
+                    source={{ uri: getAvatarURL(speaker) }}
+                    style={styles.avatar}
+                  />
+                </FadeIn>
+              </Animated.View>
               <SemiBoldText style={styles.headerText}>
                 {speaker.name}
               </SemiBoldText>
@@ -70,21 +128,7 @@ export default class Details extends React.Component {
             </SemiBoldText>
             <SemiBoldText>{event.room}</SemiBoldText>
           </View>
-
-
-          {Platform.OS === 'ios' ? (
-            <View
-              style={{
-                position: 'absolute',
-                top: -400,
-                left: 0,
-                right: 0,
-                height: 400,
-                backgroundColor: Colors.green,
-              }}
-            />
-          ) : null}
-        </ScrollView>
+        </Animated.ScrollView>
       </View>
     );
   }
@@ -99,10 +143,10 @@ const styles = StyleSheet.create({
   },
   content: {
     backgroundColor: '#fff',
-    minHeight: 200,
+    padding: 20,
   },
   headerContainer: {
-    height: 250,
+    height: 300,
     backgroundColor: Colors.green,
   },
   headerContent: {
