@@ -7,6 +7,7 @@ import { Colors } from '../constants';
 import MenuButton from '../components/MenuButton';
 import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
 import { RectButton } from 'react-native-gesture-handler';
+import LoadingPlaceholder from '../components/LoadingPlaceholder';
 
 import CrewData from '../data/crew.json';
 
@@ -43,7 +44,7 @@ class CrewRow extends React.Component {
 
   _handlePress = () => {
     // do nothing for now
-    alert('pressed!')
+    // alert('pressed!')
   }
 }
 
@@ -60,12 +61,14 @@ export default class Crews extends React.Component {
 
   render() {
     return (
-      <FlatList
-        renderScrollComponent={props => <ScrollView {...props} />}
-        renderItem={this._renderItem}
-        data={CrewData}
-        keyExtractor={(item, index) => index}
-      />
+      <LoadingPlaceholder>
+        <FlatList
+          renderScrollComponent={props => <ScrollView {...props} />}
+          renderItem={this._renderItem}
+          data={CrewData}
+          keyExtractor={(item, index) => index}
+        />
+      </LoadingPlaceholder>
     );
   }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, ScrollView, View } from 'react-native';
+import { Image, StyleSheet, Text, ScrollView, View } from 'react-native';
 import { Constants, Video } from 'expo';
 import _ from 'lodash';
 
@@ -17,6 +17,14 @@ const Talks = _.chain(Schedule)
   .filter(slot => slot.talk || slot.keynote)
   .value();
 
+function getAvatarURL(speaker) {
+  if (speaker.avatar.includes('gravatar')) {
+    return speaker.avatar;
+  } else {
+    return `http://nodevember.org${speaker.avatar}`;
+  }
+}
+
 export default class Details extends React.Component {
   render() {
     let params = this.props.navigation.state.params || {};
@@ -30,18 +38,6 @@ export default class Details extends React.Component {
       event = findTalkData(speaker.name);
     }
 
-    if (speaker) {
-      return this._renderFullDetails(speaker, event);
-    } else {
-      return this._renderEvent(event);
-    }
-  }
-
-  _renderFullDetails = (speaker, event) => {
-    return <RegularText>{JSON.stringify(speaker)}</RegularText>;
-  };
-
-  _renderEvent = event => {
     return (
       <View style={{ flex: 1, backgroundColor: '#fff' }}>
         <View
@@ -57,9 +53,18 @@ export default class Details extends React.Component {
         <ScrollView style={{ flex: 1, backgroundColor: 'transparent' }}>
           <View style={styles.headerContainer}>
             <View style={styles.headerContent}>
+              <Image
+                source={{ uri: getAvatarURL(speaker) }}
+                style={styles.avatar}
+              />
               <SemiBoldText style={styles.headerText}>
-                {event.title}
+                {speaker.name}
               </SemiBoldText>
+              {speaker.organization ? (
+                <RegularText style={styles.headerText}>
+                  {speaker.organization}
+                </RegularText>
+              ) : null}
             </View>
           </View>
           <View style={styles.content}>
@@ -71,11 +76,16 @@ export default class Details extends React.Component {
         </ScrollView>
       </View>
     );
-  };
+  }
 }
 
 const styles = StyleSheet.create({
   container: {},
+  avatar: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+  },
   content: {
     backgroundColor: '#fff',
     minHeight: 200,

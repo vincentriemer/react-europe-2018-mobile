@@ -7,6 +7,7 @@ import { Colors } from '../constants';
 import { connectTopNavigation } from '../Navigation';
 import MenuButton from '../components/MenuButton';
 import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
+import LoadingPlaceholder from '../components/LoadingPlaceholder';
 
 import KeynotersData from '../data/keynotes.json';
 import SpeakersData from '../data/speakers.json';
@@ -73,14 +74,16 @@ export default class Speakers extends React.Component {
 
   render() {
     return (
-      <SectionList
-        renderScrollComponent={props => <ScrollView {...props} />}
-        stickySectionHeadersEnabled={true}
-        renderItem={this._renderItem}
-        renderSectionHeader={this._renderSectionHeader}
-        sections={SpeakerData}
-        keyExtractor={(item, index) => index}
-      />
+      <LoadingPlaceholder>
+        <SectionList
+          renderScrollComponent={props => <ScrollView {...props} />}
+          stickySectionHeadersEnabled={true}
+          renderItem={this._renderItem}
+          renderSectionHeader={this._renderSectionHeader}
+          sections={SpeakerData}
+          keyExtractor={(item, index) => index}
+        />
+      </LoadingPlaceholder>
     );
   }
 

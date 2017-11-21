@@ -1,11 +1,12 @@
 import React from 'react';
-import { Text, SectionList, StyleSheet, View } from 'react-native';
+import { Platform, Text, SectionList, StyleSheet, View } from 'react-native';
 import { NavigationActions, StackNavigator } from 'react-navigation';
 import { ScrollView, RectButton } from 'react-native-gesture-handler';
 import _ from 'lodash';
 
 import { connectTopNavigation } from '../Navigation';
 import { RegularText, SemiBoldText, BoldText } from '../components/StyledText';
+import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { Colors } from '../constants';
 import MenuButton from '../components/MenuButton';
 
@@ -14,20 +15,27 @@ import FullSchedule from '../data/schedule.json';
 class ScheduleRow extends React.Component {
   render() {
     const { item } = this.props;
-
-    return (
-      <RectButton
-        activeOpacity={0.05}
-        onPress={this._handlePress}
-        style={{ flex: 1, backgroundColor: '#fff' }}
-      >
-        <View style={styles.row}>
-          <BoldText>{item.title}</BoldText>
-          {item.speaker ? <SemiBoldText>{item.speaker}</SemiBoldText> : null}
-          <RegularText>{item.room}</RegularText>
-        </View>
-      </RectButton>
+    const content = (
+      <View style={[styles.row, styles.rowStatic]}>
+        <BoldText>{item.title}</BoldText>
+        {item.speaker ? <SemiBoldText>{item.speaker}</SemiBoldText> : null}
+        <RegularText>{item.room}</RegularText>
+      </View>
     );
+
+    if (item.talk) {
+      return (
+        <RectButton
+          activeOpacity={0.05}
+          onPress={this._handlePress}
+          style={{ flex: 1, backgroundColor: '#fff' }}
+        >
+          {content}
+        </RectButton>
+      );
+    } else {
+      return content;
+    }
   }
 
   _handlePress = () => {
@@ -62,14 +70,17 @@ export default function ScheduleDay(options) {
 
     render() {
       return (
-        <SectionList
-          renderScrollComponent={props => <ScrollView {...props} />}
-          stickySectionHeadersEnabled={true}
-          renderItem={this._renderItem}
-          renderSectionHeader={this._renderSectionHeader}
-          sections={slotsData}
-          keyExtractor={(item, index) => index}
-        />
+        <LoadingPlaceholder>
+          <SectionList
+            renderScrollComponent={props => <ScrollView {...props} />}
+            stickySectionHeadersEnabled={true}
+            renderItem={this._renderItem}
+            renderSectionHeader={this._renderSectionHeader}
+            sections={slotsData}
+            keyExtractor={(item, index) => index}
+            initialNumToRender={10}
+          />
+        </LoadingPlaceholder>
       );
     }
 
@@ -86,7 +97,7 @@ export default function ScheduleDay(options) {
     };
 
     _handlePressRow = item => {
-      this.props.topNavigation.navigate('Details', {scheduleSlot: item});
+      this.props.topNavigation.navigate('Details', { scheduleSlot: item });
     };
   }
 
@@ -114,6 +125,9 @@ const styles = StyleSheet.create({
     padding: 10,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderColor: '#eee',
+  },
+  rowStatic: {
+    backgroundColor: '#fafafa',
   },
   sectionHeader: {
     paddingHorizontal: 10,

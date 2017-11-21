@@ -7,6 +7,7 @@ import { ScrollView, RectButton } from 'react-native-gesture-handler';
 import { Layout, Colors } from '../constants';
 import MenuButton from '../components/MenuButton';
 import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
+import LoadingPlaceholder from '../components/LoadingPlaceholder';
 
 import _ from 'lodash';
 
@@ -92,14 +93,17 @@ export default class Sponsors extends React.Component {
 
   render() {
     return (
-      <SectionList
-        renderScrollComponent={props => <ScrollView {...props} />}
-        stickySectionHeadersEnabled={true}
-        sections={SponsorsByLevel}
-        renderSectionHeader={this._renderSectionHeader}
-        renderItem={this._renderItem}
-        keyExtractor={(item, index) => index}
-      />
+      <LoadingPlaceholder>
+        <SectionList
+          renderScrollComponent={props => <ScrollView {...props} />}
+          stickySectionHeadersEnabled={true}
+          sections={SponsorsByLevel}
+          renderSectionHeader={this._renderSectionHeader}
+          renderItem={this._renderItem}
+          keyExtractor={(item, index) => index}
+          initialNumToRender={4}
+        />
+      </LoadingPlaceholder>
     );
   }
 

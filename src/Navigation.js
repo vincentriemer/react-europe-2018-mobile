@@ -38,6 +38,7 @@ const ScheduleNavigation = TabNavigator(
     },
   },
   {
+    lazy: true,
     swipeEnabled: false,
     animationEnabled: false,
     tabBarComponent: TabBarBottom,
@@ -52,10 +53,7 @@ const ScheduleNavigation = TabNavigator(
 export function connectTopNavigation(WrappedComponent) {
   const ConnectedTopNavigation = (props, context) => {
     return (
-      <WrappedComponent
-        {...props}
-        topNavigation={context.topNavigation}
-      />
+      <WrappedComponent {...props} topNavigation={context.topNavigation} />
     );
   };
 
@@ -91,25 +89,34 @@ const DefaultStackConfig = {
   cardStyle: {
     backgroundColor: '#fafafa',
   },
-}
+};
 
-const SpeakersNavigation = StackNavigator({
-  SpeakerList: {
-    screen: Screens.Speakers,
+const SpeakersNavigation = StackNavigator(
+  {
+    SpeakerList: {
+      screen: Screens.Speakers,
+    },
   },
-}, DefaultStackConfig);
+  DefaultStackConfig
+);
 
-const CrewNavigation = StackNavigator({
-  CrewList: {
-    screen: Screens.Crew,
+const CrewNavigation = StackNavigator(
+  {
+    CrewList: {
+      screen: Screens.Crew,
+    },
   },
-}, DefaultStackConfig);
+  DefaultStackConfig
+);
 
-const SponsorNavigation = StackNavigator({
-  SponsorList: {
-    screen: Screens.Sponsors,
+const SponsorNavigation = StackNavigator(
+  {
+    SponsorList: {
+      screen: Screens.Sponsors,
+    },
   },
-}, DefaultStackConfig);
+  DefaultStackConfig
+);
 
 const DRAWER_WIDTH = Math.min(Math.max(Layout.window.width - 80, 280), 350);
 class DrawerNavigation extends React.Component {
@@ -128,6 +135,7 @@ class DrawerNavigation extends React.Component {
     closeDrawer: PropTypes.func,
     toggleDrawer: PropTypes.func,
     topNavigation: PropTypes.any,
+    navigation: PropTypes.object.isRequired,
   };
 
   getChildContext() {
@@ -135,11 +143,13 @@ class DrawerNavigation extends React.Component {
     const closeDrawer = options => this._drawerRef.closeDrawer(options);
     const toggleDrawer = options =>
       this._isDrawerOpen ? closeDrawer(options) : openDrawer(options);
+
     return {
       openDrawer,
       closeDrawer,
       toggleDrawer,
       topNavigation: this.props.navigation,
+      navigation: this.props.navigation,
     };
   }
 
@@ -148,6 +158,7 @@ class DrawerNavigation extends React.Component {
     const ScreenComponent = DrawerNavigation.router.getComponentForRouteName(
       route.routeName
     );
+
     return (
       <View style={{ flex: 1, overflow: 'hidden' }}>
         <ScreenComponent />
@@ -170,7 +181,6 @@ class DrawerNavigation extends React.Component {
           }}
           drawerWidth={DRAWER_WIDTH}
           keyboardDismissMode="on-drag"
-          hideStatusBar={Platform.OS === 'android' ? true : false}
           edgeWidth={80}
           drawerPosition={DrawerLayout.positions.Left}
           drawerType="front"
@@ -222,7 +232,7 @@ class DrawerNavigation extends React.Component {
           <Image
             source={require('./assets/hero.png')}
             style={{
-              height: 120 + Layout.notchHeight,
+              height: 140 + Layout.notchHeight,
               width: DRAWER_WIDTH,
               resizeMode: 'cover',
             }}
@@ -239,7 +249,7 @@ class DrawerNavigation extends React.Component {
               {
                 alignItems: 'center',
                 justifyContent: 'center',
-                paddingTop: Layout.notchHeight,
+                paddingTop: Layout.notchHeight + 20,
               },
             ]}
           >
