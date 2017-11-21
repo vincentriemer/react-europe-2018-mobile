@@ -21,7 +21,12 @@ const Speakers = [
 ];
 const Schedule = require('../data/schedule.json');
 const Talks = _.chain(Schedule)
-  .map(day => day.slots.map(slot => (slot.day = day.title)))
+  .map(day =>
+    day.slots.map(slot => {
+      slot.day = day.title;
+      return slot;
+    })
+  )
   .flatten()
   .filter(slot => slot.talk || slot.keynote)
   .value();
