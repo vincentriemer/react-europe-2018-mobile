@@ -1,5 +1,12 @@
 import React from 'react';
-import { Image, Platform, StyleSheet, Text, ScrollView, View } from 'react-native';
+import {
+  Image,
+  Platform,
+  StyleSheet,
+  Text,
+  ScrollView,
+  View,
+} from 'react-native';
 import { Constants, Video } from 'expo';
 import _ from 'lodash';
 
@@ -40,18 +47,6 @@ export default class Details extends React.Component {
 
     return (
       <View style={{ flex: 1, backgroundColor: '#fff' }}>
-        {Platform.OS === 'ios' ? (
-          <View
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              right: 0,
-              height: 300,
-              backgroundColor: Colors.green,
-            }}
-          />
-        ) : null}
         <ScrollView style={{ flex: 1, backgroundColor: 'transparent' }}>
           <View style={styles.headerContainer}>
             <View style={styles.headerContent}>
@@ -75,6 +70,20 @@ export default class Details extends React.Component {
             </SemiBoldText>
             <SemiBoldText>{event.room}</SemiBoldText>
           </View>
+
+
+          {Platform.OS === 'ios' ? (
+            <View
+              style={{
+                position: 'absolute',
+                top: -400,
+                left: 0,
+                right: 0,
+                height: 400,
+                backgroundColor: Colors.green,
+              }}
+            />
+          ) : null}
         </ScrollView>
       </View>
     );
