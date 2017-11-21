@@ -6,8 +6,10 @@ import {
   StackNavigator,
   createNavigator,
   createNavigationContainer,
-  NavigatorTypes,
 } from 'react-navigation';
+import NavigatorTypes from 'react-navigation/src/navigators/NavigatorTypes';
+import withCachedChildNavigation from 'react-navigation/src/withCachedChildNavigation';
+import SceneView from 'react-navigation/src/views/SceneView';
 import {
   Platform,
   Image,
@@ -117,7 +119,8 @@ const DrawerRouteConfig = {
 const DrawerRouter = TabRouter(DrawerRouteConfig);
 
 const DRAWER_WIDTH = Math.min(Math.max(Layout.window.width - 80, 280), 350);
-class DrawerScreen extends React.Component {
+@withCachedChildNavigation
+class DrawerView extends React.Component {
   _isDrawerOpen = false;
 
   static childContextTypes = {
@@ -141,13 +144,18 @@ class DrawerScreen extends React.Component {
 
   _renderScene = ({ route }: any) => {
     const { screenProps } = this.props;
+    const childNavigation = this.props.childNavigationProps[route.key];
     const ScreenComponent = DrawerRouter.getComponentForRouteName(
       route.routeName
     );
 
     return (
       <View style={{ flex: 1, overflow: 'hidden' }}>
-        <ScreenComponent />
+        <SceneView
+          screenProps={screenProps}
+          component={ScreenComponent}
+          navigation={childNavigation}
+        />
       </View>
     );
   };
@@ -186,7 +194,7 @@ class DrawerScreen extends React.Component {
                 navigationState={this.props.navigation.state}
                 animationEnabled={false}
                 renderScene={this._renderScene}
-                onIndexChange={() => {}}
+                onIndexChange={this._handlePageChanged}
                 swipeEnabled={false}
                 lazy
               />
@@ -210,6 +218,11 @@ class DrawerScreen extends React.Component {
       </View>
     );
   }
+
+  _handlePageChanged = index => {
+    const { navigation } = this.props;
+    navigation.navigate(navigation.state.routes[index].routeName);
+  };
 
   _renderNavigationView = () => {
     return (
@@ -288,11 +301,8 @@ const DrawerNavigation = createNavigationContainer(
     DrawerRouter,
     DrawerRouteConfig,
     {},
-    'react-navigation/TABS'
-  )(props => {
-  console.log(props);
-  return <DrawerScreen {...props} />;
-})
+    NavigatorTypes.TABS
+  )(props => <DrawerView {...props} />)
 );
 
 class DrawerButton extends React.Component {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, StyleSheet, Text, ScrollView, View } from 'react-native';
+import { Image, Platform, StyleSheet, Text, ScrollView, View } from 'react-native';
 import { Constants, Video } from 'expo';
 import _ from 'lodash';
 
@@ -40,16 +40,18 @@ export default class Details extends React.Component {
 
     return (
       <View style={{ flex: 1, backgroundColor: '#fff' }}>
-        <View
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            height: 200,
-            backgroundColor: Colors.green,
-          }}
-        />
+        {Platform.OS === 'ios' ? (
+          <View
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              height: 200,
+              backgroundColor: Colors.green,
+            }}
+          />
+        ) : null}
         <ScrollView style={{ flex: 1, backgroundColor: 'transparent' }}>
           <View style={styles.headerContainer}>
             <View style={styles.headerContent}>
