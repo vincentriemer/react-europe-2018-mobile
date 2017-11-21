@@ -1,5 +1,11 @@
 import React from 'react';
-import { Platform, Text, SectionList, StyleSheet, View } from 'react-native';
+import {
+  Text,
+  SectionList,
+  StyleSheet,
+  View,
+  AsyncStorage,
+} from 'react-native';
 import { NavigationActions, StackNavigator } from 'react-navigation';
 import { ScrollView, RectButton } from 'react-native-gesture-handler';
 import _ from 'lodash';
@@ -74,9 +80,14 @@ export default function ScheduleDay(options) {
         </BoldText>
       ),
     };
+    static savedTalksStorageKey = '@ScheduleDayComponent:savedTalks';
     state = {
       savedTalks: {},
     };
+
+    componentDidMount() {
+      this._loadSavedTalks();
+    }
 
     render() {
       return (
@@ -119,12 +130,34 @@ export default function ScheduleDay(options) {
     };
 
     _handleSaveToggle = key => {
-      this.setState(state => ({
-        savedTalks: {
-          ...state.savedTalks,
-          [key]: !state.savedTalks[key],
-        },
-      }));
+      this.setState(
+        state => ({
+          savedTalks: {
+            ...state.savedTalks,
+            [key]: !state.savedTalks[key],
+          },
+        }),
+        this._storeSavedTalks
+      );
+    };
+
+    _loadSavedTalks = () => {
+      AsyncStorage.getItem(
+        ScheduleDayComponent.savedTalksStorageKey
+      ).then(value => {
+        if (value) {
+          this.setState({
+            savedTalks: JSON.parse(value),
+          });
+        }
+      });
+    };
+
+    _storeSavedTalks = () => {
+      AsyncStorage.setItem(
+        ScheduleDayComponent.savedTalksStorageKey,
+        JSON.stringify(this.state.savedTalks)
+      );
     };
   }
 
