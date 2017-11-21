@@ -4,7 +4,9 @@ import {
   TabRouter,
   TabNavigator,
   StackNavigator,
-  SceneView,
+  createNavigator,
+  createNavigationContainer,
+  NavigatorTypes,
 } from 'react-navigation';
 import {
   Platform,
@@ -118,16 +120,18 @@ const SponsorNavigation = StackNavigator(
   DefaultStackConfig
 );
 
-const DRAWER_WIDTH = Math.min(Math.max(Layout.window.width - 80, 280), 350);
-class DrawerNavigation extends React.Component {
-  static router = TabRouter({
-    Home: { screen: Screens.Home },
-    Schedule: { screen: ScheduleNavigation },
-    Speakers: { screen: SpeakersNavigation },
-    Crew: { screen: CrewNavigation },
-    Sponsors: { screen: SponsorNavigation },
-  });
+const DrawerRouteConfig = {
+  Home: { screen: Screens.Home },
+  Schedule: { screen: ScheduleNavigation },
+  Speakers: { screen: SpeakersNavigation },
+  Crew: { screen: CrewNavigation },
+  Sponsors: { screen: SponsorNavigation },
+};
 
+const DrawerRouter = TabRouter(DrawerRouteConfig);
+
+const DRAWER_WIDTH = Math.min(Math.max(Layout.window.width - 80, 280), 350);
+class DrawerScreen extends React.Component {
   _isDrawerOpen = false;
 
   static childContextTypes = {
@@ -148,14 +152,12 @@ class DrawerNavigation extends React.Component {
       openDrawer,
       closeDrawer,
       toggleDrawer,
-      topNavigation: this.props.navigation,
-      navigation: this.props.navigation,
     };
   }
 
   _renderScene = ({ route }: any) => {
     const { screenProps } = this.props;
-    const ScreenComponent = DrawerNavigation.router.getComponentForRouteName(
+    const ScreenComponent = DrawerRouter.getComponentForRouteName(
       route.routeName
     );
 
@@ -296,6 +298,18 @@ class DrawerNavigation extends React.Component {
     this.props.navigation.navigate(screen);
   };
 }
+
+const DrawerNavigation = createNavigationContainer(
+  createNavigator(
+    DrawerRouter,
+    DrawerRouteConfig,
+    {},
+    'react-navigation/TABS'
+  )(props => {
+  console.log(props);
+  return <DrawerScreen {...props} />;
+})
+);
 
 class DrawerButton extends React.Component {
   render() {
