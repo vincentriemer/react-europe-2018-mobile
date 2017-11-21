@@ -52,20 +52,6 @@ const ScheduleNavigation = TabNavigator(
   }
 );
 
-export function connectTopNavigation(WrappedComponent) {
-  const ConnectedTopNavigation = (props, context) => {
-    return (
-      <WrappedComponent {...props} topNavigation={context.topNavigation} />
-    );
-  };
-
-  ConnectedTopNavigation.contextTypes = {
-    topNavigation: PropTypes.any,
-  };
-
-  return hoistStatics(ConnectedTopNavigation, WrappedComponent);
-}
-
 export function connectDrawerButton(WrappedComponent) {
   const ConnectedDrawerButton = (props, context) => {
     return (
@@ -138,8 +124,6 @@ class DrawerScreen extends React.Component {
     openDrawer: PropTypes.func,
     closeDrawer: PropTypes.func,
     toggleDrawer: PropTypes.func,
-    topNavigation: PropTypes.any,
-    navigation: PropTypes.object.isRequired,
   };
 
   getChildContext() {

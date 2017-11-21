@@ -4,7 +4,6 @@ import { NavigationActions, StackNavigator } from 'react-navigation';
 import { ScrollView, RectButton } from 'react-native-gesture-handler';
 import _ from 'lodash';
 
-import { connectTopNavigation } from '../Navigation';
 import { RegularText, SemiBoldText, BoldText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { Colors } from '../constants';
@@ -53,7 +52,6 @@ export default function ScheduleDay(options) {
     return { data, title: time };
   });
 
-  @connectTopNavigation
   class ScheduleDayComponent extends React.Component {
     static navigationOptions = {
       title: `${options.day} Schedule`,
@@ -97,7 +95,7 @@ export default function ScheduleDay(options) {
     };
 
     _handlePressRow = item => {
-      this.props.topNavigation.navigate('Details', { scheduleSlot: item });
+      this.props.navigation.navigate('Details', { scheduleSlot: item });
     };
   }
 

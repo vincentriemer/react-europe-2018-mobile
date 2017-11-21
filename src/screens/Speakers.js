@@ -4,7 +4,6 @@ import FadeIn from 'react-native-fade-in-image';
 import { ScrollView, RectButton } from 'react-native-gesture-handler';
 
 import { Colors } from '../constants';
-import { connectTopNavigation } from '../Navigation';
 import MenuButton from '../components/MenuButton';
 import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
@@ -60,7 +59,6 @@ class SpeakerRow extends React.Component {
   };
 }
 
-@connectTopNavigation
 export default class Speakers extends React.Component {
   static navigationOptions = {
     title: 'Speakers',
@@ -100,7 +98,7 @@ export default class Speakers extends React.Component {
   };
 
   _handlePressRow = speaker => {
-    this.props.topNavigation.navigate('Details', { speaker });
+    this.props.navigation.navigate('Details', { speaker });
   };
 }
 
