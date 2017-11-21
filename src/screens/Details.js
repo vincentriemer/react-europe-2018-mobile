@@ -47,7 +47,7 @@ export default class Details extends React.Component {
               top: 0,
               left: 0,
               right: 0,
-              height: 200,
+              height: 300,
               backgroundColor: Colors.green,
             }}
           />

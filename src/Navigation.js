@@ -20,7 +20,7 @@ import {
 } from 'react-native';
 import { Constants } from 'expo';
 import { TabViewAnimated } from 'react-native-tab-view';
-import { RectButton } from 'react-native-gesture-handler';
+import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import hoistStatics from 'hoist-non-react-statics';
 
@@ -308,7 +308,10 @@ const DrawerNavigation = createNavigationContainer(
 class DrawerButton extends React.Component {
   render() {
     return (
-      <RectButton onPress={this.props.onPress}>
+      <BorderlessButton
+        onPress={this.props.onPress}
+        hitSlop={{ top: 20, left: 20, right: 20, bottom: 20 }}
+      >
         <View
           style={{
             backgroundColor: this.props.selected
@@ -318,13 +321,14 @@ class DrawerButton extends React.Component {
             width: DRAWER_WIDTH,
             justifyContent: 'center',
             paddingHorizontal: 5,
+            paddingLeft: Platform.OS === 'android' ? 5 : 0,
           }}
         >
           <SemiBoldText style={styles.drawerButtonText}>
             {this.props.children.toUpperCase()}
           </SemiBoldText>
         </View>
-      </RectButton>
+      </BorderlessButton>
     );
   }
 }
