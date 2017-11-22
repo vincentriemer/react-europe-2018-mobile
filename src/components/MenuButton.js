@@ -3,6 +3,7 @@ import { Platform } from 'react-native';
 import { connectDrawerButton } from '../Navigation';
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { Ionicons } from '@expo/vector-icons';
+import { Layout } from '../constants';
 
 @connectDrawerButton
 export default class MenuButton extends React.Component {
@@ -13,7 +14,7 @@ export default class MenuButton extends React.Component {
         style={{
           marginBottom: 2,
           marginRight: 5,
-          marginTop: 3,
+          marginTop: Layout.notchHeight > 0 ? 0 : 3,
           marginLeft: 5,
           paddingHorizontal: 10,
           paddingVertical: 5,

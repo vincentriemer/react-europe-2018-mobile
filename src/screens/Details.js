@@ -165,7 +165,9 @@ export default class Details extends React.Component {
           renderLeftButton={() => (
             <View
               style={{
+                // gross dumb things
                 paddingTop: Platform.OS === 'android' ? 17 : 0,
+                marginTop: Layout.notchHeight > 0 ? -5 : 0,
               }}
             >
               <HeaderBackButton
