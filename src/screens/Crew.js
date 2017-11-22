@@ -6,7 +6,6 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { Colors } from '../constants';
 import MenuButton from '../components/MenuButton';
 import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
-import { RectButton } from 'react-native-gesture-handler';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 
 import CrewData from '../data/crew.json';
@@ -20,32 +19,28 @@ class CrewRow extends React.Component {
     const { item: crew } = this.props;
 
     return (
-      <RectButton onPress={this._handlePress} style={{flex: 1, backgroundColor: '#fff'}}>
-        <View style={styles.row}>
-          <View style={styles.rowAvatarContainer}>
-            <FadeIn>
-              <Image
-                source={{ uri: getAvatarURL(crew) }}
-                style={{ width: 50, height: 50, borderRadius: 25 }}
-              />
-            </FadeIn>
-          </View>
-          <View style={styles.rowData}>
-            <BoldText>{crew.person}</BoldText>
-            {crew.role ? (
-              <SemiBoldText>{crew.role}</SemiBoldText>
-            ) : null}
-            <RegularText>{crew.bio}</RegularText>
-          </View>
+      <View style={styles.row}>
+        <View style={styles.rowAvatarContainer}>
+          <FadeIn>
+            <Image
+              source={{ uri: getAvatarURL(crew) }}
+              style={{ width: 50, height: 50, borderRadius: 25 }}
+            />
+          </FadeIn>
         </View>
-      </RectButton>
+        <View style={styles.rowData}>
+          <BoldText>{crew.person}</BoldText>
+          {crew.role ? <SemiBoldText>{crew.role}</SemiBoldText> : null}
+          <RegularText>{crew.bio}</RegularText>
+        </View>
+      </View>
     );
   }
 
   _handlePress = () => {
     // do nothing for now
     // alert('pressed!')
-  }
+  };
 }
 
 export default class Crews extends React.Component {
@@ -83,6 +78,7 @@ const styles = StyleSheet.create({
     padding: 10,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderColor: '#eee',
+    backgroundColor: '#fff',
     flexDirection: 'row',
   },
   rowAvatarContainer: {

@@ -1,22 +1,26 @@
 import React from 'react';
 import { Text, Image, ScrollView, StyleSheet, View } from 'react-native';
-import { LinearGradient, Video } from 'expo';
-import { connectDrawerButton } from '../Navigation';
-import { RectButton } from 'react-native-gesture-handler';
+import { LinearGradient, WebBrowser, Video } from 'expo';
+import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
+import { NavigationActions } from 'react-navigation';
+import { Ionicons } from '@expo/vector-icons';
 
 import NavigationBar from '../components/NavigationBar';
 import TalksUpNext from '../components/TalksUpNext';
-import { BoldText, SemiBoldText } from '../components/StyledText';
 import MenuButton from '../components/MenuButton';
-import { Colors, Layout } from '../constants';
-
+import { BoldText, SemiBoldText } from '../components/StyledText';
+import { connectDrawerButton } from '../Navigation';
+import { Colors, FontSizes, Layout } from '../constants';
 import { Speakers, Talks } from '../data';
 
 class Home extends React.Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <ScrollView style={{ flex: 1 }}>
+        <ScrollView
+          style={{ flex: 1 }}
+          contentContainerStyle={{ paddingBottom: 20 + Layout.notchHeight / 2 }}
+        >
           <View
             style={{
               backgroundColor: '#187f65',
@@ -60,21 +64,56 @@ class Home extends React.Component {
                 Nashville, Tennesse
               </SemiBoldText>
               <View style={{ paddingTop: 8, alignItems: 'center' }}>
-                <RectButton style={styles.button}>
-                  <SemiBoldText style={styles.buttonText}>
-                    Buy a ticket
-                  </SemiBoldText>
-                </RectButton>
-                <RectButton style={styles.button}>
-                  <SemiBoldText style={styles.buttonText}>
-                    I already have a ticket
-                  </SemiBoldText>
-                </RectButton>
+                <ClipBorderRadius>
+                  <RectButton style={styles.button} underlayColor="#fff">
+                    <SemiBoldText style={styles.buttonText}>
+                      Buy a ticket
+                    </SemiBoldText>
+                  </RectButton>
+                </ClipBorderRadius>
               </View>
             </View>
           </View>
 
-          <TalksUpNext style={{marginTop: 20}} />
+          <TalksUpNext
+            style={{ marginTop: 20, marginHorizontal: 15, marginBottom: 2 }}
+          />
+          <View style={{ marginHorizontal: 15, marginBottom: 20 }}>
+            <BorderlessButton onPress={this._handlePressAllTalks}>
+              <SemiBoldText style={styles.seeAllTalks}>
+                See all talks →
+              </SemiBoldText>
+            </BorderlessButton>
+          </View>
+
+          <ClipBorderRadius>
+            <RectButton
+              style={styles.bigButton}
+              onPress={this._handlePressCOCButton}
+              underlayColor="#fff"
+            >
+              <SemiBoldText style={styles.bigButtonText}>
+                Read the Code of Conduct
+              </SemiBoldText>
+            </RectButton>
+          </ClipBorderRadius>
+
+          <ClipBorderRadius>
+            <RectButton
+              style={styles.bigButton}
+              onPress={this._handlePressTwitterButton}
+              underlayColor="#fff"
+            >
+              <Ionicons
+                name="logo-twitter"
+                size={25}
+                style={{ color: '#fff', marginRight: 5 }}
+              />
+              <SemiBoldText style={styles.bigButtonText}>
+                @nodevember
+              </SemiBoldText>
+            </RectButton>
+          </ClipBorderRadius>
 
           <OverscrollView />
         </ScrollView>
@@ -82,6 +121,22 @@ class Home extends React.Component {
       </View>
     );
   }
+
+  _handlePressAllTalks = () => {
+    this.props.navigation.dispatch(
+      NavigationActions.navigate({
+        routeName: 'Schedule',
+      })
+    );
+  };
+
+  _handlePressCOCButton = () => {
+    WebBrowser.openBrowserAsync('http://nodevember.org/conduct');
+  };
+
+  _handlePressTwitterButton = () => {
+    WebBrowser.openBrowserAsync('https://twitter.com/nodevember');
+  };
 }
 
 const OverscrollView = () => (
@@ -96,6 +151,21 @@ const OverscrollView = () => (
     }}
   />
 );
+
+const ClipBorderRadius = ({ children, style }) => {
+  return (
+    <View
+      style={[
+        { borderRadius: BORDER_RADIUS, overflow: 'hidden', marginTop: 10 },
+        style,
+      ]}
+    >
+      {children}
+    </View>
+  );
+};
+
+const BORDER_RADIUS = 5;
 
 const styles = StyleSheet.create({
   headerContent: {
@@ -121,14 +191,32 @@ const styles = StyleSheet.create({
     backgroundColor: '#0E4537',
     paddingHorizontal: 15,
     paddingVertical: 10,
-    borderRadius: 8,
-    marginTop: 10,
-    overflow: 'hidden',
+    borderRadius: BORDER_RADIUS,
   },
   buttonText: {
     backgroundColor: 'transparent',
     color: '#fff',
-    fontSize: 17,
+    fontSize: FontSizes.normalButton,
+  },
+  bigButton: {
+    backgroundColor: Colors.green,
+    paddingHorizontal: 15,
+    paddingVertical: 15,
+    marginHorizontal: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: BORDER_RADIUS,
+    overflow: 'hidden',
+    flexDirection: 'row',
+  },
+  bigButtonText: {
+    fontSize: FontSizes.normalButton,
+    color: '#fff',
+    textAlign: 'center',
+  },
+  seeAllTalks: {
+    fontSize: FontSizes.normalButton,
+    color: Colors.green,
   },
 });
 
