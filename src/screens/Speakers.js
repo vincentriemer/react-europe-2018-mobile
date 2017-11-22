@@ -7,6 +7,7 @@ import { Colors } from '../constants';
 import MenuButton from '../components/MenuButton';
 import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
+import { getSpeakerAvatarURL } from '../utils';
 
 import KeynotersData from '../data/keynotes.json';
 import SpeakersData from '../data/speakers.json';
@@ -14,14 +15,6 @@ const SpeakerData = [
   { data: KeynotersData, title: 'Keynotes' },
   { data: SpeakersData, title: 'Speakers' },
 ];
-
-function getAvatarURL(speaker) {
-  if (speaker.avatar.includes('gravatar')) {
-    return speaker.avatar;
-  } else {
-    return `http://nodevember.org${speaker.avatar}`;
-  }
-}
 
 class SpeakerRow extends React.Component {
   render() {
@@ -37,7 +30,7 @@ class SpeakerRow extends React.Component {
           <View style={styles.rowAvatarContainer}>
             <FadeIn>
               <Image
-                source={{ uri: getAvatarURL(speaker) }}
+                source={{ uri: getSpeakerAvatarURL(speaker) }}
                 style={{ width: 50, height: 50, borderRadius: 25 }}
               />
             </FadeIn>

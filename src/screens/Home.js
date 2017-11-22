@@ -3,11 +3,14 @@ import { Text, Image, ScrollView, StyleSheet, View } from 'react-native';
 import { LinearGradient, Video } from 'expo';
 import { connectDrawerButton } from '../Navigation';
 import { RectButton } from 'react-native-gesture-handler';
-import { BoldText, SemiBoldText } from '../components/StyledText';
-import MenuButton from '../components/MenuButton';
 
 import NavigationBar from '../components/NavigationBar';
+import TalksUpNext from '../components/TalksUpNext';
+import { BoldText, SemiBoldText } from '../components/StyledText';
+import MenuButton from '../components/MenuButton';
 import { Colors, Layout } from '../constants';
+
+import { Speakers, Talks } from '../data';
 
 class Home extends React.Component {
   render() {
@@ -18,7 +21,7 @@ class Home extends React.Component {
             style={{
               backgroundColor: '#187f65',
               padding: 10,
-              paddingTop: Layout.headerHeight,
+              paddingTop: Layout.headerHeight - 10,
               justifyContent: 'center',
               alignItems: 'center',
             }}
@@ -58,33 +61,41 @@ class Home extends React.Component {
               </SemiBoldText>
               <View style={{ paddingTop: 8, alignItems: 'center' }}>
                 <RectButton style={styles.button}>
-                  <BoldText style={styles.buttonText}>Buy a ticket</BoldText>
+                  <SemiBoldText style={styles.buttonText}>
+                    Buy a ticket
+                  </SemiBoldText>
                 </RectButton>
-                {/* <RectButton style={styles.button}>
-                  <Text style={styles.buttonText}>I already have a ticket</Text>
-                </RectButton> */}
+                <RectButton style={styles.button}>
+                  <SemiBoldText style={styles.buttonText}>
+                    I already have a ticket
+                  </SemiBoldText>
+                </RectButton>
               </View>
             </View>
           </View>
 
-          <Text style={{ fontSize: 28, fontFamily: 'open-sans-bold' }} />
+          <TalksUpNext style={{marginTop: 20}} />
 
-          <View
-            style={{
-              position: 'absolute',
-              top: -400,
-              height: 400,
-              left: 0,
-              right: 0,
-              backgroundColor: '#187f65',
-            }}
-          />
+          <OverscrollView />
         </ScrollView>
         <NavigationBar renderLeftButton={() => <MenuButton />} />
       </View>
     );
   }
 }
+
+const OverscrollView = () => (
+  <View
+    style={{
+      position: 'absolute',
+      top: -400,
+      height: 400,
+      left: 0,
+      right: 0,
+      backgroundColor: '#187f65',
+    }}
+  />
+);
 
 const styles = StyleSheet.create({
   headerContent: {
@@ -112,6 +123,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderRadius: 8,
     marginTop: 10,
+    overflow: 'hidden',
   },
   buttonText: {
     backgroundColor: 'transparent',

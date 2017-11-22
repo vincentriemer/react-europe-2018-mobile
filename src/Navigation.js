@@ -308,27 +308,27 @@ const DrawerNavigation = createNavigationContainer(
 class DrawerButton extends React.Component {
   render() {
     return (
-      <BorderlessButton
+      <RectButton
         onPress={this.props.onPress}
-        hitSlop={{ top: 20, left: 20, right: 20, bottom: 20 }}
+        style={{
+          backgroundColor: this.props.selected
+            ? 'rgba(255,255,255,0.1)'
+            : '#333333',
+        }}
       >
         <View
           style={{
-            backgroundColor: this.props.selected
-              ? 'rgba(255,255,255,0.1)'
-              : 'transparent',
             height: 50,
             width: DRAWER_WIDTH,
             justifyContent: 'center',
             paddingHorizontal: 5,
-            paddingLeft: Platform.OS === 'android' ? 5 : 0,
           }}
         >
           <SemiBoldText style={styles.drawerButtonText}>
             {this.props.children.toUpperCase()}
           </SemiBoldText>
         </View>
-      </BorderlessButton>
+      </RectButton>
     );
   }
 }
