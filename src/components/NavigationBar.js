@@ -14,7 +14,7 @@ export default class NavigationBar extends React.Component {
 
   _renderAnimated = () => {
     return (
-      <View style={styles.navigationBarContainer}>
+      <View style={[styles.navigationBarContainer, this.props.style]}>
         <Animated.View
           style={[
             StyleSheet.absoluteFill,

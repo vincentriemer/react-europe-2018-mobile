@@ -28,7 +28,6 @@ export default class App extends React.Component {
         'open-sans-semibold': require('./src/assets/OpenSans-SemiBold.ttf'),
         ...Ionicons.font,
       }),
-      Asset.fromModule(require('./src/assets/video.mp4')).downloadAsync(),
       Asset.fromModule(require('./src/assets/logo.png')).downloadAsync(),
       Asset.fromModule(
         require('react-navigation/src/views/assets/back-icon.png')

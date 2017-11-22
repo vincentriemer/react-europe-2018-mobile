@@ -4,6 +4,7 @@ import {
   Image,
   Platform,
   StyleSheet,
+  TouchableOpacity,
   Text,
   ScrollView,
   View,
@@ -11,8 +12,8 @@ import {
 import { Constants, Video } from 'expo';
 import FadeIn from 'react-native-fade-in-image';
 import ReadMore from 'react-native-read-more-text';
-import { BorderlessButton } from 'react-native-gesture-handler';
 import { HeaderBackButton } from 'react-navigation';
+import { View as AnimatableView } from 'react-native-animatable';
 import _ from 'lodash';
 
 import { Colors, FontSizes, Layout } from '../constants';
@@ -113,7 +114,13 @@ export default class Details extends React.Component {
             ) : null}
             <BoldText style={styles.talkTitleText}>{talk.title}</BoldText>
           </View>
-          <View style={styles.content}>
+          <AnimatableView
+            animation="fadeIn"
+            useNativeDriver
+            delay={Platform.OS === 'ios' ? 50 : 150}
+            duration={500}
+            style={styles.content}
+          >
             <SemiBoldText style={styles.sectionHeader}>Bio</SemiBoldText>
             <ReadMore
               numberOfLines={3}
@@ -145,17 +152,28 @@ export default class Details extends React.Component {
               {talk.day} {talk.time}
             </RegularText>
             <RegularText>{talk.room}</RegularText>
-          </View>
+          </AnimatableView>
         </Animated.ScrollView>
 
         <NavigationBar
           animatedBackgroundOpacity={headerOpacity}
+          style={[
+            Platform.OS === 'android'
+              ? { height: Layout.headerHeight + Constants.statusBarHeight }
+              : null,
+          ]}
           renderLeftButton={() => (
-            <HeaderBackButton
-              onPress={() => this.props.navigation.goBack()}
-              tintColor="#fff"
-              title={null}
-            />
+            <View
+              style={{
+                paddingTop: Platform.OS === 'android' ? 17 : 0,
+              }}
+            >
+              <HeaderBackButton
+                onPress={() => this.props.navigation.goBack()}
+                tintColor="#fff"
+                title={null}
+              />
+            </View>
           )}
         />
       </View>
@@ -164,27 +182,27 @@ export default class Details extends React.Component {
 
   _renderTruncatedFooter = handlePress => {
     return (
-      <BorderlessButton
-        onPress={handlePress}
+      <TouchableOpacity
         hitSlop={{ top: 15, left: 15, right: 15, bottom: 15 }}
+        onPress={handlePress}
       >
         <SemiBoldText style={{ color: Colors.green, marginTop: 5 }}>
           Read more
         </SemiBoldText>
-      </BorderlessButton>
+      </TouchableOpacity>
     );
   };
 
   _renderRevealedFooter = handlePress => {
     return (
-      <BorderlessButton
-        onPress={handlePress}
+      <TouchableOpacity
         hitSlop={{ top: 15, left: 15, right: 15, bottom: 15 }}
+        onPress={handlePress}
       >
         <SemiBoldText style={{ color: Colors.green, marginTop: 5 }}>
           Show less
         </SemiBoldText>
-      </BorderlessButton>
+      </TouchableOpacity>
     );
   };
 }

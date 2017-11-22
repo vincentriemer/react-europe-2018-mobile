@@ -11,6 +11,10 @@
     "splash": {
       "backgroundColor": "#187f65"
     },
+    "android" :{
+      "package": "org.nodevember.app",
+      "icon": "./src/assets/icon-android.png"
+    },
     "ios": {
       "bundleIdentifier": "org.nodevember.app",
       "supportsTablet": true,

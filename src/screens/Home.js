@@ -1,8 +1,10 @@
 import React from 'react';
 import {
   Animated,
+  Linking,
   Text,
   Image,
+  TouchableOpacity,
   ScrollView,
   StyleSheet,
   View,
@@ -10,11 +12,13 @@ import {
 import { LinearGradient, WebBrowser, Video } from 'expo';
 import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import { NavigationActions } from 'react-navigation';
+import FadeIn from 'react-native-fade-in-image';
 import { Ionicons } from '@expo/vector-icons';
 
 import NavigationBar from '../components/NavigationBar';
 import TalksUpNext from '../components/TalksUpNext';
 import MenuButton from '../components/MenuButton';
+import VideoBackground from '../components/VideoBackground';
 import { BoldText, SemiBoldText } from '../components/StyledText';
 import { connectDrawerButton } from '../Navigation';
 import { Colors, FontSizes, Layout } from '../constants';
@@ -63,14 +67,7 @@ class Home extends React.Component {
             }}
           >
             <View style={styles.headerVideoLayer}>
-              <Video
-                source={require('../assets/video.mp4')}
-                style={{ flex: 1 }}
-                resizeMode="cover"
-                shouldPlay
-                muted
-                isLooping
-              />
+              <VideoBackground />
               <View style={styles.headerVideoOverlay} />
               <LinearGradient
                 colors={[Colors.green, 'transparent']}
@@ -129,11 +126,11 @@ class Home extends React.Component {
             style={{ marginTop: 20, marginHorizontal: 15, marginBottom: 2 }}
           />
           <View style={{ marginHorizontal: 15, marginBottom: 20 }}>
-            <BorderlessButton onPress={this._handlePressAllTalks}>
+            <TouchableOpacity onPress={this._handlePressAllTalks}>
               <SemiBoldText style={styles.seeAllTalks}>
                 See all talks →
               </SemiBoldText>
-            </BorderlessButton>
+            </TouchableOpacity>
           </View>
 
           <ClipBorderRadius>
@@ -182,7 +179,7 @@ class Home extends React.Component {
   }
 
   _openTickets = () => {
-    WebBrowser.openBrowserAsync(
+    Linking.openURL(
       'https://www.eventbrite.com/e/nodevember-2017-tickets-34928136998'
     );
   };
@@ -199,8 +196,12 @@ class Home extends React.Component {
     WebBrowser.openBrowserAsync('http://nodevember.org/conduct');
   };
 
-  _handlePressTwitterButton = () => {
-    WebBrowser.openBrowserAsync('https://twitter.com/nodevember');
+  _handlePressTwitterButton = async () => {
+    try {
+      await Linking.openURL(`twitter://user?screen_name=nodevember`);
+    } catch (e) {
+      WebBrowser.openBrowserAsync('https://twitter.com/nodevember');
+    }
   };
 }
 

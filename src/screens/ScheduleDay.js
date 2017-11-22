@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
   },
   rowStatic: {
     backgroundColor: '#f5f5f5',
-    opacity: 0.7,
+    opacity: 0.5,
   },
   sectionHeader: {
     paddingHorizontal: 10,
