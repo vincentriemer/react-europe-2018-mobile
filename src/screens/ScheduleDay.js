@@ -6,7 +6,7 @@ import _ from 'lodash';
 
 import { RegularText, SemiBoldText, BoldText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
-import { Colors } from '../constants';
+import { Colors, Layout } from '../constants';
 import MenuButton from '../components/MenuButton';
 
 import FullSchedule from '../data/schedule.json';
@@ -54,7 +54,7 @@ export default function ScheduleDay(options) {
 
   class ScheduleDayComponent extends React.Component {
     static navigationOptions = {
-      title: `${options.day} Schedule`,
+      title: Layout.isSmallDevice ? options.day : `${options.day} Schedule`,
       headerStyle: { backgroundColor: Colors.green },
       headerTintColor: 'white',
       headerLeft: <MenuButton />,

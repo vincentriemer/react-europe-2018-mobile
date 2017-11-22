@@ -30,7 +30,7 @@ export const Colors = {
 export const FontSizes = {
   title: isSmallDevice ? 16 : 18,
   subtitle: isSmallDevice ? 14 : 16,
-  bodyLarge: isSmallDevice ? 13 : 14,
+  bodyLarge: 14,
   bodyTitle: isSmallDevice ? 14 : 15,
   normalButton: isSmallDevice ? 15 : 16,
 };

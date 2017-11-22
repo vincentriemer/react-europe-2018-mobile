@@ -1,5 +1,12 @@
 import React from 'react';
-import { Text, Image, ScrollView, StyleSheet, View } from 'react-native';
+import {
+  Animated,
+  Text,
+  Image,
+  ScrollView,
+  StyleSheet,
+  View,
+} from 'react-native';
 import { LinearGradient, WebBrowser, Video } from 'expo';
 import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import { NavigationActions } from 'react-navigation';
@@ -12,14 +19,39 @@ import { BoldText, SemiBoldText } from '../components/StyledText';
 import { connectDrawerButton } from '../Navigation';
 import { Colors, FontSizes, Layout } from '../constants';
 import { Speakers, Talks } from '../data';
+import {
+  HideWhenConferenceHasStarted,
+  HideWhenConferenceHasEnded,
+  ShowWhenConferenceHasEnded,
+} from '../utils';
 
 class Home extends React.Component {
+  state = {
+    scrollY: new Animated.Value(0),
+  };
+
   render() {
+    const { scrollY } = this.state;
+    const headerOpacity = scrollY.interpolate({
+      inputRange: [0, 50, 150],
+      outputRange: [0, 0, 1],
+      extrapolate: 'clamp',
+    });
+
     return (
       <View style={{ flex: 1 }}>
-        <ScrollView
+        <Animated.ScrollView
           style={{ flex: 1 }}
           contentContainerStyle={{ paddingBottom: 20 + Layout.notchHeight / 2 }}
+          scrollEventThrottle={1}
+          onScroll={Animated.event(
+            [
+              {
+                nativeEvent: { contentOffset: { y: scrollY } },
+              },
+            ],
+            { useNativeDriver: true }
+          )}
         >
           <View
             style={{
@@ -57,21 +89,39 @@ class Home extends React.Component {
               tintColor="#fff"
             />
             <View style={styles.headerContent}>
-              <SemiBoldText style={styles.headerText}>
-                November 27th to 28th
-              </SemiBoldText>
-              <SemiBoldText style={styles.headerText}>
-                Nashville, Tennesse
-              </SemiBoldText>
-              <View style={{ paddingTop: 8, alignItems: 'center' }}>
-                <ClipBorderRadius>
-                  <RectButton style={styles.button} underlayColor="#fff" onPress={this._openTickets}>
-                    <SemiBoldText style={styles.buttonText}>
-                      Buy a ticket
-                    </SemiBoldText>
-                  </RectButton>
-                </ClipBorderRadius>
-              </View>
+              <ShowWhenConferenceHasEnded>
+                <SemiBoldText style={styles.headerText}>
+                  Thank you for joining us!
+                </SemiBoldText>
+                <SemiBoldText style={styles.headerText}>
+                  See you in November, 2018!
+                </SemiBoldText>
+              </ShowWhenConferenceHasEnded>
+
+              <HideWhenConferenceHasEnded>
+                <SemiBoldText style={styles.headerText}>
+                  November 27th to 28th
+                </SemiBoldText>
+                <SemiBoldText style={styles.headerText}>
+                  Nashville, Tennesse
+                </SemiBoldText>
+              </HideWhenConferenceHasEnded>
+
+              <HideWhenConferenceHasStarted>
+                <View style={{ paddingTop: 8, alignItems: 'center' }}>
+                  <ClipBorderRadius>
+                    <RectButton
+                      style={styles.buyButton}
+                      underlayColor={Colors.green}
+                      onPress={this._openTickets}
+                    >
+                      <SemiBoldText style={styles.buyButtonText}>
+                        Buy a ticket
+                      </SemiBoldText>
+                    </RectButton>
+                  </ClipBorderRadius>
+                </View>
+              </HideWhenConferenceHasStarted>
             </View>
           </View>
 
@@ -121,8 +171,12 @@ class Home extends React.Component {
           </ClipBorderRadius>
 
           <OverscrollView />
-        </ScrollView>
-        <NavigationBar renderLeftButton={() => <MenuButton />} />
+        </Animated.ScrollView>
+
+        <NavigationBar
+          renderLeftButton={() => <MenuButton />}
+          animatedBackgroundOpacity={headerOpacity}
+        />
       </View>
     );
   }
@@ -198,21 +252,21 @@ const styles = StyleSheet.create({
     fontSize: 17,
     lineHeight: 17 * 1.5,
   },
-  button: {
-    backgroundColor: '#0E4537',
-    paddingHorizontal: 15,
+  buyButton: {
+    backgroundColor: '#fff',
+    paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: BORDER_RADIUS,
   },
-  buttonText: {
+  buyButtonText: {
     backgroundColor: 'transparent',
-    color: '#fff',
+    color: 'rgba(0,0,0,0.9)',
     fontSize: FontSizes.normalButton,
   },
   bigButton: {
     backgroundColor: Colors.green,
     paddingHorizontal: 15,
-    paddingVertical: 15,
+    height: 50,
     marginHorizontal: 15,
     alignItems: 'center',
     justifyContent: 'center',

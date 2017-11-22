@@ -1,6 +1,8 @@
 import React from 'react';
 import { Asset, AppLoading, Font, Constants } from 'expo';
 import { Platform, View, StatusBar } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+
 import Navigation from './src/Navigation';
 import Home from './src/screens/Home';
 
@@ -24,10 +26,13 @@ export default class App extends React.Component {
         'open-sans-bold': require('./src/assets/OpenSans-Bold.ttf'),
         'open-sans': require('./src/assets/OpenSans-Regular.ttf'),
         'open-sans-semibold': require('./src/assets/OpenSans-SemiBold.ttf'),
-        'orbitron-bold': require('./src/assets/Orbitron-Bold.ttf'),
+        ...Ionicons.font,
       }),
       Asset.fromModule(require('./src/assets/video.mp4')).downloadAsync(),
       Asset.fromModule(require('./src/assets/logo.png')).downloadAsync(),
+      Asset.fromModule(
+        require('react-navigation/src/views/assets/back-icon.png')
+      ).downloadAsync(),
     ]);
   };
 

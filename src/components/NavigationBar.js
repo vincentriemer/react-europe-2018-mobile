@@ -1,10 +1,45 @@
 import React from 'react';
-import { Platform, View, StyleSheet } from 'react-native';
+import { Animated, Platform, View, StyleSheet } from 'react-native';
 import { Constants } from 'expo';
-import { Layout } from '../constants';
+import { Colors, Layout } from '../constants';
 
 export default class NavigationBar extends React.Component {
   render() {
+    if (this.props.animatedBackgroundOpacity) {
+      return this._renderAnimated();
+    } else {
+      return this._renderStatic();
+    }
+  }
+
+  _renderAnimated = () => {
+    return (
+      <View style={styles.navigationBarContainer}>
+        <Animated.View
+          style={[
+            StyleSheet.absoluteFill,
+            {
+              backgroundColor: Colors.green,
+              opacity: this.props.animatedBackgroundOpacity,
+            },
+          ]}
+        />
+        <View style={styles.navigationBarLeftButton}>
+          {this.props.renderLeftButton && this.props.renderLeftButton()}
+        </View>
+
+        <View style={styles.navigationBarTitleContainer}>
+          {this.props.renderTitle && this.props.renderTitle()}
+        </View>
+
+        <View style={styles.navigationBarRightButton}>
+          {this.props.renderRightButton && this.props.renderRightButton()}
+        </View>
+      </View>
+    );
+  };
+
+  _renderStatic = () => {
     return (
       <View style={styles.navigationBarContainer}>
         <View style={styles.navigationBarLeftButton}>
@@ -20,7 +55,7 @@ export default class NavigationBar extends React.Component {
         </View>
       </View>
     );
-  }
+  };
 }
 
 // Didn't want to investigate why I needed to offset this a bit, surely there is a good reason

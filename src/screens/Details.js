@@ -12,12 +12,14 @@ import { Constants, Video } from 'expo';
 import FadeIn from 'react-native-fade-in-image';
 import ReadMore from 'react-native-read-more-text';
 import { BorderlessButton } from 'react-native-gesture-handler';
+import { HeaderBackButton } from 'react-navigation';
 import _ from 'lodash';
 
 import { Colors, FontSizes, Layout } from '../constants';
 import { RegularText, BoldText, SemiBoldText } from '../components/StyledText';
 import { getSpeakerAvatarURL } from '../utils';
 import { findTalkData, findSpeakerData } from '../data';
+import NavigationBar from '../components/NavigationBar';
 
 export default class Details extends React.Component {
   state = {
@@ -47,6 +49,11 @@ export default class Details extends React.Component {
       inputRange: [-300, 0, 1],
       outputRange: [-50, 1, 1],
       extrapolate: 'clamp',
+    });
+
+    const headerOpacity = scrollY.interpolate({
+      inputRange: [0, 30, 200],
+      outputRange: [0, 0, 1],
     });
 
     return (
@@ -140,6 +147,17 @@ export default class Details extends React.Component {
             <RegularText>{talk.room}</RegularText>
           </View>
         </Animated.ScrollView>
+
+        <NavigationBar
+          animatedBackgroundOpacity={headerOpacity}
+          renderLeftButton={() => (
+            <HeaderBackButton
+              onPress={() => this.props.navigation.goBack()}
+              tintColor="#fff"
+              title={null}
+            />
+          )}
+        />
       </View>
     );
   }

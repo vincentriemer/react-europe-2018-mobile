@@ -24,7 +24,7 @@ import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import hoistStatics from 'hoist-non-react-statics';
 
-import { Colors, Layout } from './constants';
+import { Colors, FontSizes, Layout } from './constants';
 import Screens from './screens';
 import TabBarBottom from './components/TabBarBottom';
 import { SemiBoldText, BoldText } from './components/StyledText';
@@ -339,7 +339,7 @@ const styles = StyleSheet.create({
   },
   drawerButtonText: {
     color: '#fff',
-    fontSize: 17,
+    fontSize: FontSizes.normalButton,
     padding: 10,
   },
   drawerButtons: {

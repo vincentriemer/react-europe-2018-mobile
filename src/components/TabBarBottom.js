@@ -256,6 +256,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: isIos ? 'center' : 'stretch',
     justifyContent: 'flex-end',
+    paddingBottom: 3,
   },
   tabPortrait: {
     justifyContent: 'flex-end',

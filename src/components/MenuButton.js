@@ -19,7 +19,7 @@ export default class MenuButton extends React.Component {
           paddingVertical: 5,
           alignSelf: 'flex-start',
         }}
-        hitSlop={{ left: 15, top: 15, right: 15, bottom: 15 }}
+        hitSlop={{ left: 30, top: 30, right: 30, bottom: 30 }}
       >
         <Ionicons
           name={Platform.OS === 'ios' ? 'ios-menu-outline' : 'md-menu'}
