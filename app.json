@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Nodevember 2017",
+    "name": "Nodevember",
     "slug": "app",
     "privacy": "unlisted",
     "version": "1.0.1",
@@ -12,8 +12,11 @@
       "backgroundColor": "#187f65"
     },
     "ios": {
+      "bundleIdentifier": "org.nodevember.app",
+      "supportsTablet": true,
+      "loadJSInBackgroundExperimental": true,
       "splash": {
-        "image": "./src/assets/splash.png",
+        "image": "./src/assets/splash-icon.png",
         "resizeMode": "contain",
         "backgroundColor": "#187f65"
       }

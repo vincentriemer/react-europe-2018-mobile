@@ -41,7 +41,7 @@
   },
   {
     "name": "Jared M. Smith",
-    "avatar": "https://papercallio-production.s3.amazonaws.com/uploads/user/avatar/4949/blue_headshot_small.png",
+    "avatar": "https://s3.amazonaws.com/nodevember-expo/jared.png",
     "location": "Knoxville, Tennessee",
     "bio": "Jared is a Cyber Security Researcher at Oak Ridge National Laboratory, where he leads several R&D projects and works on others in collaboration with researchers from MIT, Stanford Research Institute, U.S. Department of Homeland Security, FBI, NSA, GE, and many other organizations. Jared received his BS in Computer Science from the University of Tennessee and is currently working on his PhD in Computer Science with a focus on Internet infrastructure resiliency and privacy-preserving methods of communication. While an undergrad at UT, Jared founded and led the student-organized computer security organization, HackUTK, growing it from four founders to over 200 members. He also founded and led the first VolHacks, UT’s annual software, hardware, and VR hackathon, bringing in 23 sponsors and 200+ students in its first year. Jared also teaches at Treehouse, with courses on Big Data and Docker, as well as security courses in the pipeline. In his spare time, he advises several companies on a wide range of technical matters, gives conference talks across North America, organizes technology conferences, and hikes in the Great Smoky Mountains.",
     "talk_format": "Talk (~30-45 minutes)",
@@ -119,7 +119,7 @@
   },
   {
     "name": "Tracey Berg-Fulton",
-    "avatar": "https://papercallio-production.s3.amazonaws.com/uploads/user/avatar/14811/IMG_7188.JPG",
+    "avatar": "https://s3.amazonaws.com/nodevember-expo/tracey.jpg",
     "location": "Pittsburgh, PA",
     "bio": "Tracey Berg-Fulton is Content Lead at Cotton Bureau. In addition to doing the words and plate spinning for Cotton Bureau, Tracey is an advocate for Type 1 Diabetes, focusing on access to insulin for all. She is a graduate of Otterbein University and the University of Glasgow, and spends way too much time live tweeting Antiques Roadshow, running silly distances, and picking up and putting down weights. She and her husband share their Pittsburgh home with an adopted giant schnabrador named Walter.",
     "talk_format": "Lightning Talk (~5-10 minutes)",
@@ -161,7 +161,7 @@
   },
   {
     "name": "Heidi Waterhouse",
-    "avatar": "https://papercallio-production.s3.amazonaws.com/uploads/user/avatar/1497/KCDCportrait0279.JPG",
+    "avatar": "https://s3.amazonaws.com/nodevember-expo/heidi.jpg",
     "location": "Twin Cities, MN",
     "bio": "Heidi is a developer advocate and widely experienced technical writer working in the intersection of cutting-edge technology, usability, and chaos. \r\n\r\nShe speaks on topics like search-led writing, starting new documentation for products, common mistakes in software development, and whistleblowing as a technical writer.",
     "talk_format": "Talk (~30-45 minutes)",
@@ -351,7 +351,7 @@
   },
   {
     "name": "Randy Cox",
-    "avatar": "https://papercallio-production.s3.amazonaws.com/uploads/user/avatar/15468/Randy-Cox.jpg",
+    "avatar": "https://s3.amazonaws.com/nodevember-expo/randy.jpg",
     "location": "Indianapolis, Indiana",
     "bio": "Randy has been a professional programmer for nearly 20 years, and has focused exclusively on front-end web development since 2004. He lives with his family in Noblesville, Indiana where he prefers to make things out of atoms than out of bits.",
     "talk_format": "Talk (~30-45 minutes)",
@@ -396,7 +396,7 @@
   },
   {
     "name": "Heather Downing",
-    "avatar": "https://papercallio-production.s3.amazonaws.com/uploads/user/avatar/7635/avatarphoto.jpg",
+    "avatar": "https://s3.amazonaws.com/nodevember-expo/heather.jpg",
     "location": "Kansas City, Missouri",
     "bio": "Heather is a passionate coder and entrepreneur. She has experience working with Fortune 500 companies building enterprise-level voice, mobile and C#/.Net applications. She focuses on external thought leadership, encouraging fellow programmers to present on topics outside of the office and in the community. She is an international technical speaker and co-host of the YouTube channel \"The Hello World Show\" -- a weekly video series that interviews software masters and teaches the audience something valuable in less than 10 minutes. \r\n\r\nHeather encourages those with nontraditional backgrounds to enter the world of software development, as she changed careers at 27 and does not have a degree - yet has built a reputation as an early adapter of new tech. She is an advocate of women in tech, and part of Kansas City Women in Technology. When not coding, Heather spends her time as a competitive equestrian and learning the art of mounted archery.",
     "talk_format": "Talk (~30-45 minutes)",

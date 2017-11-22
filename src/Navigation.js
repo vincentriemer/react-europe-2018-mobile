@@ -175,7 +175,7 @@ class DrawerView extends React.Component {
           }}
           drawerWidth={DRAWER_WIDTH}
           keyboardDismissMode="on-drag"
-          edgeWidth={80}
+          edgeWidth={60}
           drawerPosition={DrawerLayout.positions.Left}
           drawerType="front"
           drawerBackgroundColor="#333333"

@@ -1,7 +1,7 @@
 import moment from 'moment-timezone';
 
 export function getSpeakerAvatarURL(speaker) {
-  if (speaker.avatar.includes('gravatar')) {
+  if (speaker.avatar.includes('gravatar') || !speaker.avatar.startsWith('/img')) {
     return speaker.avatar;
   } else {
     return `http://nodevember.org${speaker.avatar}`;
