@@ -15,7 +15,7 @@ class ScheduleRow extends React.Component {
   render() {
     const { item } = this.props;
     const content = (
-      <View style={[styles.row, styles.rowStatic]}>
+      <View style={[styles.row, !item.talk && styles.rowStatic]}>
         <BoldText>{item.title}</BoldText>
         {item.speaker ? <SemiBoldText>{item.speaker}</SemiBoldText> : null}
         <RegularText>{item.room}</RegularText>
@@ -125,7 +125,8 @@ const styles = StyleSheet.create({
     borderColor: '#eee',
   },
   rowStatic: {
-    backgroundColor: '#fafafa',
+    backgroundColor: '#f5f5f5',
+    opacity: 0.7,
   },
   sectionHeader: {
     paddingHorizontal: 10,

@@ -9,8 +9,10 @@ import {
   View,
 } from 'react-native';
 import { Constants, Video } from 'expo';
-import _ from 'lodash';
 import FadeIn from 'react-native-fade-in-image';
+import ReadMore from 'react-native-read-more-text';
+import { BorderlessButton } from 'react-native-gesture-handler';
+import _ from 'lodash';
 
 import { Colors, FontSizes, Layout } from '../constants';
 import { RegularText, BoldText, SemiBoldText } from '../components/StyledText';
@@ -105,15 +107,68 @@ export default class Details extends React.Component {
             <BoldText style={styles.talkTitleText}>{talk.title}</BoldText>
           </View>
           <View style={styles.content}>
-            <SemiBoldText>
-              {talk.day} {talk.time}
+            <SemiBoldText style={styles.sectionHeader}>Bio</SemiBoldText>
+            <ReadMore
+              numberOfLines={3}
+              renderTruncatedFooter={this._renderTruncatedFooter}
+              renderRevealedFooter={this._renderRevealedFooter}
+              onReady={this._handleTextReady}
+            >
+              <RegularText style={styles.bodyText}>{speaker.bio}</RegularText>
+            </ReadMore>
+
+            <SemiBoldText style={styles.sectionHeader}>
+              Talk description
             </SemiBoldText>
-            <SemiBoldText>{talk.room}</SemiBoldText>
+            <ReadMore
+              numberOfLines={5}
+              renderTruncatedFooter={this._renderTruncatedFooter}
+              renderRevealedFooter={this._renderRevealedFooter}
+              onReady={this._handleTextReady}
+            >
+              <RegularText style={styles.bodyText}>
+                {speaker.description}
+              </RegularText>
+            </ReadMore>
+
+            <SemiBoldText style={styles.sectionHeader}>
+              Time and place
+            </SemiBoldText>
+            <RegularText>
+              {talk.day} {talk.time}
+            </RegularText>
+            <RegularText>{talk.room}</RegularText>
           </View>
         </Animated.ScrollView>
       </View>
     );
   }
+
+  _renderTruncatedFooter = handlePress => {
+    return (
+      <BorderlessButton
+        onPress={handlePress}
+        hitSlop={{ top: 15, left: 15, right: 15, bottom: 15 }}
+      >
+        <SemiBoldText style={{ color: Colors.green, marginTop: 5 }}>
+          Read more
+        </SemiBoldText>
+      </BorderlessButton>
+    );
+  };
+
+  _renderRevealedFooter = handlePress => {
+    return (
+      <BorderlessButton
+        onPress={handlePress}
+        hitSlop={{ top: 15, left: 15, right: 15, bottom: 15 }}
+      >
+        <SemiBoldText style={{ color: Colors.green, marginTop: 5 }}>
+          Show less
+        </SemiBoldText>
+      </BorderlessButton>
+    );
+  };
 }
 
 const styles = StyleSheet.create({
@@ -126,7 +181,8 @@ const styles = StyleSheet.create({
   },
   content: {
     backgroundColor: '#fff',
-    padding: 20,
+    paddingBottom: 20,
+    paddingHorizontal: 20,
   },
   headerContainer: {
     backgroundColor: Colors.green,
@@ -145,5 +201,10 @@ const styles = StyleSheet.create({
     fontSize: FontSizes.title,
     textAlign: 'center',
     marginTop: 10,
+  },
+  sectionHeader: {
+    fontSize: FontSizes.bodyTitle,
+    marginTop: 15,
+    marginBottom: 3,
   },
 });

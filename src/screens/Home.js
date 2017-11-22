@@ -52,7 +52,7 @@ class Home extends React.Component {
               />
             </View>
             <Image
-              source={require('../assets/logo-shadow.png')}
+              source={require('../assets/logo.png')}
               style={{ width: 220, height: 60, resizeMode: 'contain' }}
               tintColor="#fff"
             />
@@ -65,7 +65,7 @@ class Home extends React.Component {
               </SemiBoldText>
               <View style={{ paddingTop: 8, alignItems: 'center' }}>
                 <ClipBorderRadius>
-                  <RectButton style={styles.button} underlayColor="#fff">
+                  <RectButton style={styles.button} underlayColor="#fff" onPress={this._openTickets}>
                     <SemiBoldText style={styles.buttonText}>
                       Buy a ticket
                     </SemiBoldText>
@@ -126,6 +126,12 @@ class Home extends React.Component {
       </View>
     );
   }
+
+  _openTickets = () => {
+    WebBrowser.openBrowserAsync(
+      'https://www.eventbrite.com/e/nodevember-2017-tickets-34928136998'
+    );
+  };
 
   _handlePressAllTalks = () => {
     this.props.navigation.dispatch(

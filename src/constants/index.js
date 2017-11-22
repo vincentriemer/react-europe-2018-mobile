@@ -33,4 +33,4 @@ export const FontSizes = {
   bodyLarge: isSmallDevice ? 13 : 14,
   bodyTitle: isSmallDevice ? 14 : 15,
   normalButton: isSmallDevice ? 15 : 16,
-}
+};
