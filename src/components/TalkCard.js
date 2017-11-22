@@ -6,7 +6,7 @@ import { withNavigation } from 'react-navigation';
 
 import { BoldText, RegularText, SemiBoldText } from './StyledText';
 import { getSpeakerAvatarURL } from '../utils';
-import { Colors } from '../constants';
+import { Colors, FontSizes } from '../constants';
 import { findSpeakerData } from '../data';
 
 @withNavigation
@@ -80,26 +80,26 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
   },
   speakerName: {
-    fontSize: 16,
+    fontSize: FontSizes.bodyTitle,
   },
   organizationName: {
     color: Colors.faint,
-    fontSize: 15,
+    fontSize: FontSizes.bodyLarge,
   },
   talkInfoRow: {
     paddingTop: 10,
   },
   talkTitle: {
-    fontSize: 15,
+    fontSize: FontSizes.bodyLarge,
   },
   talkLocation: {
-    fontSize: 15,
+    fontSize: FontSizes.bodyLarge,
     color: Colors.faint,
     marginTop: 10,
   },
   nextYear: {
     textAlign: 'center',
-    fontSize: 18,
+    fontSize: FontSizes.title,
     marginVertical: 10,
   },
   button: {

@@ -3,8 +3,9 @@ import { Image, Platform, StyleSheet, View } from 'react-native';
 
 import { BoldText, RegularText, SemiBoldText } from './StyledText';
 import TalkCard from './TalkCard';
-import { Colors } from '../constants';
+import { Colors, FontSizes } from '../constants';
 import { findNextTalksAfterDate } from '../data';
+import moment from 'moment-timezone';
 
 export default class TalksUpNext extends React.Component {
   constructor(props) {
@@ -30,10 +31,14 @@ export default class TalksUpNext extends React.Component {
 
     return (
       <View style={[{ marginHorizontal: 10 }, this.props.style]}>
-        <SemiBoldText style={{ fontSize: 20 }}>Coming up next</SemiBoldText>
+        <SemiBoldText style={{ fontSize: FontSizes.title }}>Coming up next</SemiBoldText>
         {this._renderDateTime()}
         {nextTalks.map(talk => (
-          <TalkCard key={talk.title} talk={talk} style={{ marginTop: 10, marginBottom: 10 }} />
+          <TalkCard
+            key={talk.title}
+            talk={talk}
+            style={{ marginTop: 10, marginBottom: 10 }}
+          />
         ))}
       </View>
     );
@@ -45,7 +50,9 @@ export default class TalksUpNext extends React.Component {
     if (dateTime) {
       return (
         <RegularText style={styles.time}>
-          {dateTime.format('dddd, MMM Do')}, {time}
+          {moment(dateTime)
+            .tz('America/Chicago')
+            .format('dddd, MMM Do')}, {time}
         </RegularText>
       );
     } else {
@@ -57,6 +64,6 @@ export default class TalksUpNext extends React.Component {
 const styles = StyleSheet.create({
   time: {
     color: Colors.faint,
-    fontSize: 16,
+    fontSize: FontSizes.subtitle,
   },
 });

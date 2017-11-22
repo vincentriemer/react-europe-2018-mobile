@@ -9,12 +9,15 @@ const isIPhoneX =
   Platform.OS === 'ios' && (D_HEIGHT === X_HEIGHT && D_WIDTH === X_WIDTH);
 const notchHeight = isIPhoneX ? 20 : 0;
 
+const isSmallDevice = D_WIDTH < 326;
+
 export const Layout = {
   window: {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
   },
   notchHeight,
+  isSmallDevice,
   headerHeight:
     Platform.OS === 'android' ? Header.HEIGHT : Header.HEIGHT + notchHeight,
 };
@@ -23,3 +26,10 @@ export const Colors = {
   green: '#187f65',
   faint: '#7a7a7a',
 };
+
+export const FontSizes = {
+  title: isSmallDevice ? 16 : 18,
+  subtitle: isSmallDevice ? 14 : 16,
+  bodyLarge: isSmallDevice ? 13 : 14,
+  bodyTitle: isSmallDevice ? 14 : 15,
+}
