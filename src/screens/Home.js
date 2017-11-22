@@ -106,8 +106,13 @@ class Home extends React.Component {
             >
               <Ionicons
                 name="logo-twitter"
-                size={25}
-                style={{ color: '#fff', marginRight: 5 }}
+                size={23}
+                style={{
+                  color: '#fff',
+                  marginTop: 3,
+                  backgroundColor: 'transparent',
+                  marginRight: 5,
+                }}
               />
               <SemiBoldText style={styles.bigButtonText}>
                 @nodevember
@@ -165,7 +170,7 @@ const ClipBorderRadius = ({ children, style }) => {
   );
 };
 
-const BORDER_RADIUS = 5;
+const BORDER_RADIUS = 3;
 
 const styles = StyleSheet.create({
   headerContent: {

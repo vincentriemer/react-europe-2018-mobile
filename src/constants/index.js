@@ -32,5 +32,5 @@ export const FontSizes = {
   subtitle: isSmallDevice ? 14 : 16,
   bodyLarge: isSmallDevice ? 13 : 14,
   bodyTitle: isSmallDevice ? 14 : 15,
-  normalButton: isSmallDevice ? 15 : 17,
+  normalButton: isSmallDevice ? 15 : 16,
 }
