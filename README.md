@@ -4,20 +4,26 @@
 - Download [Nodevember on Google Play](https://play.google.com/store/apps/details?id=org.nodevember.app&hl=en)
 - Open November [with the Expo client](https://expo.io/@nodevember/app)
 
-## Get it running
+## Get it running on your machine (anybody)
 
 - `yarn global add exp`
 - Clone this repo, cd into it, run `yarn`
 - `exp start`
 - Scan the QR code from your phone. Alternatively, in another terminal window run `exp ios` and/or `exp android` to open in simulator.
 
-## Publishing updates (JS only)
+## Deployment (for project owners)
+
+### Publishing updates (JS only)
+
+First, sign in `nodevember` Expo account.
 
 - Android: `exp publish --release-channel android`
 - iOS: `exp publish --release-channel ios`
 - Expo client: `exp publish`
 
-## Standalone builds
+### Standalone builds
+
+First, sign in to the `nodevember` Expo account.
 
 - Android: `exp build:android --release-channel android`
 - iOS: `exp build:android --release-channel ios`
