@@ -1,5 +1,9 @@
 # Nodevember app
 
+- Download [Nodevember on the Apple App Store](https://itunes.apple.com/us/app/nodevember/id1316372562?mt=8)
+- Download [Nodevember on Google Play](https://play.google.com/store/apps/details?id=org.nodevember.app&hl=en)
+- Open November [with the Expo client](https://expo.io/@nodevember/app)
+
 ## Get it running
 
 - `yarn global add exp`
