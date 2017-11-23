@@ -16,11 +16,12 @@ import { HeaderBackButton } from 'react-navigation';
 import { View as AnimatableView } from 'react-native-animatable';
 import _ from 'lodash';
 
+import AnimatedScrollView from '../components/AnimatedScrollView';
+import NavigationBar from '../components/NavigationBar';
 import { Colors, FontSizes, Layout } from '../constants';
 import { RegularText, BoldText, SemiBoldText } from '../components/StyledText';
 import { getSpeakerAvatarURL } from '../utils';
 import { findTalkData, findSpeakerData } from '../data';
-import NavigationBar from '../components/NavigationBar';
 
 export default class Details extends React.Component {
   state = {
@@ -79,7 +80,7 @@ export default class Details extends React.Component {
             }}
           />
         ) : null}
-        <Animated.ScrollView
+        <AnimatedScrollView
           style={{ flex: 1, backgroundColor: 'transparent' }}
           scrollEventThrottle={1}
           onScroll={Animated.event(
@@ -153,7 +154,7 @@ export default class Details extends React.Component {
             </RegularText>
             <RegularText>{talk.room}</RegularText>
           </AnimatableView>
-        </Animated.ScrollView>
+        </AnimatedScrollView>
 
         <NavigationBar
           animatedBackgroundOpacity={headerOpacity}

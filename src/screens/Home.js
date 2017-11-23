@@ -18,6 +18,7 @@ import { View as AnimatableView } from 'react-native-animatable';
 import { Ionicons } from '@expo/vector-icons';
 import { withNavigation } from 'react-navigation';
 
+import AnimatedScrollView from '../components/AnimatedScrollView';
 import NavigationBar from '../components/NavigationBar';
 import TalksUpNext from '../components/TalksUpNext';
 import MenuButton from '../components/MenuButton';
@@ -47,7 +48,7 @@ class Home extends React.Component {
 
     return (
       <View style={{ flex: 1 }}>
-        <Animated.ScrollView
+        <AnimatedScrollView
           style={{ flex: 1 }}
           contentContainerStyle={{ paddingBottom: 20 + Layout.notchHeight / 2 }}
           scrollEventThrottle={1}
@@ -127,7 +128,7 @@ class Home extends React.Component {
 
           <DeferredHomeContent />
           <OverscrollView />
-        </Animated.ScrollView>
+        </AnimatedScrollView>
 
         <NavigationBar
           renderLeftButton={() => <MenuButton />}
