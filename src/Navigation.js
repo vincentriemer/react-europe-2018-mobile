@@ -22,6 +22,7 @@ import { Constants } from 'expo';
 import { TabViewAnimated } from 'react-native-tab-view';
 import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
+import ResourceSavingContainer from 'react-native-resource-saving-container';
 import hoistStatics from 'hoist-non-react-statics';
 
 import { Colors, FontSizes, Layout } from './constants';
@@ -118,10 +119,42 @@ const DrawerRouteConfig = {
 
 const DrawerRouter = TabRouter(DrawerRouteConfig);
 
+class DrawerScene extends React.PureComponent {
+  state = {
+    visible: true,
+  };
+
+  setVisible = visible => {
+    this.setState({ visible });
+  };
+
+  render() {
+    const { route, screenProps } = this.props;
+    const childNavigation = this.props.childNavigationProps[route.key];
+    const ScreenComponent = DrawerRouter.getComponentForRouteName(
+      route.routeName
+    );
+
+    return (
+      <ResourceSavingContainer
+        style={{ flex: 1, overflow: 'hidden' }}
+        visible={this.state.visible}
+      >
+        <SceneView
+          screenProps={screenProps}
+          component={ScreenComponent}
+          navigation={childNavigation}
+        />
+      </ResourceSavingContainer>
+    );
+  }
+}
+
 const DRAWER_WIDTH = Math.min(Math.max(Layout.window.width - 80, 280), 350);
 @withCachedChildNavigation
 class DrawerView extends React.Component {
   _isDrawerOpen = false;
+  _scenes = {};
 
   static childContextTypes = {
     openDrawer: PropTypes.func,
@@ -142,21 +175,15 @@ class DrawerView extends React.Component {
     };
   }
 
-  _renderScene = ({ route }: any) => {
-    const { screenProps } = this.props;
-    const childNavigation = this.props.childNavigationProps[route.key];
-    const ScreenComponent = DrawerRouter.getComponentForRouteName(
-      route.routeName
-    );
-
+  _renderScene = ({ route }) => {
     return (
-      <View style={{ flex: 1, overflow: 'hidden' }}>
-        <SceneView
-          screenProps={screenProps}
-          component={ScreenComponent}
-          navigation={childNavigation}
-        />
-      </View>
+      <DrawerScene
+        ref={view => {
+          this._scenes[route.key] = view;
+        }}
+        {...this.props}
+        route={route}
+      />
     );
   };
 
@@ -194,7 +221,7 @@ class DrawerView extends React.Component {
                 navigationState={this.props.navigation.state}
                 animationEnabled={false}
                 renderScene={this._renderScene}
-                onIndexChange={this._handlePageChanged}
+                onIndexChange={this._navigateToScreen}
                 swipeEnabled={false}
                 lazy
               />
@@ -218,11 +245,6 @@ class DrawerView extends React.Component {
       </View>
     );
   }
-
-  _handlePageChanged = index => {
-    const { navigation } = this.props;
-    navigation.navigate(navigation.state.routes[index].routeName);
-  };
 
   _renderNavigationView = () => {
     return (
@@ -282,7 +304,7 @@ class DrawerView extends React.Component {
     return buttonConfig.map((config, i) => (
       <DrawerButton
         key={i}
-        onPress={() => this._navigateToScreen(config.route)}
+        onPress={() => this._navigateToScreen(i)}
         selected={selectedIndex === i}
       >
         {config.title}
@@ -290,19 +312,30 @@ class DrawerView extends React.Component {
     ));
   };
 
-  _navigateToScreen = screen => {
+  _navigateToScreen = (index) => {
     this._drawerRef.closeDrawer();
-    this.props.navigation.navigate(screen);
+
+    const { navigation } = this.props;
+    const currentRoute = navigation.state.routes[navigation.state.index];
+    const nextRoute = navigation.state.routes[index];
+    const currentScene = this._scenes[currentRoute.key];
+    const nextScene = this._scenes[nextRoute.key];
+
+    if (nextScene) {
+      nextScene.setVisible(true);
+    }
+    if (currentScene) {
+      currentScene.setVisible(false);
+    }
+
+    this.props.navigation.navigate(nextRoute.routeName);
   };
 }
 
 const DrawerNavigation = createNavigationContainer(
-  createNavigator(
-    DrawerRouter,
-    DrawerRouteConfig,
-    {},
-    NavigatorTypes.TABS
-  )(props => <DrawerView {...props} />)
+  createNavigator(DrawerRouter, DrawerRouteConfig, {}, NavigatorTypes.TABS)(
+    props => <DrawerView {...props} />
+  )
 );
 
 class DrawerButton extends React.Component {
