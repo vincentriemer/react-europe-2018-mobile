@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Animated,
   Linking,
+  Platform,
   Text,
   Image,
   TouchableOpacity,
@@ -13,7 +14,9 @@ import { LinearGradient, WebBrowser, Video } from 'expo';
 import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import { NavigationActions } from 'react-navigation';
 import FadeIn from 'react-native-fade-in-image';
+import { View as AnimatableView } from 'react-native-animatable';
 import { Ionicons } from '@expo/vector-icons';
+import { withNavigation } from 'react-navigation';
 
 import NavigationBar from '../components/NavigationBar';
 import TalksUpNext from '../components/TalksUpNext';
@@ -122,51 +125,7 @@ class Home extends React.Component {
             </View>
           </View>
 
-          <TalksUpNext
-            style={{ marginTop: 20, marginHorizontal: 15, marginBottom: 2 }}
-          />
-          <View style={{ marginHorizontal: 15, marginBottom: 20 }}>
-            <TouchableOpacity onPress={this._handlePressAllTalks}>
-              <SemiBoldText style={styles.seeAllTalks}>
-                See all talks →
-              </SemiBoldText>
-            </TouchableOpacity>
-          </View>
-
-          <ClipBorderRadius>
-            <RectButton
-              style={styles.bigButton}
-              onPress={this._handlePressCOCButton}
-              underlayColor="#fff"
-            >
-              <SemiBoldText style={styles.bigButtonText}>
-                Read the Code of Conduct
-              </SemiBoldText>
-            </RectButton>
-          </ClipBorderRadius>
-
-          <ClipBorderRadius>
-            <RectButton
-              style={styles.bigButton}
-              onPress={this._handlePressTwitterButton}
-              underlayColor="#fff"
-            >
-              <Ionicons
-                name="logo-twitter"
-                size={23}
-                style={{
-                  color: '#fff',
-                  marginTop: 3,
-                  backgroundColor: 'transparent',
-                  marginRight: 5,
-                }}
-              />
-              <SemiBoldText style={styles.bigButtonText}>
-                @nodevember
-              </SemiBoldText>
-            </RectButton>
-          </ClipBorderRadius>
-
+          <DeferredHomeContent />
           <OverscrollView />
         </Animated.ScrollView>
 
@@ -183,6 +142,78 @@ class Home extends React.Component {
       'https://www.eventbrite.com/e/nodevember-2017-tickets-34928136998'
     );
   };
+
+}
+
+@withNavigation
+class DeferredHomeContent extends React.Component {
+  state = {
+    ready: Platform.OS === 'android' ? false : true,
+  };
+
+  componentDidMount() {
+    if (this.state.ready) {
+      return;
+    }
+
+    setTimeout(() => {
+      this.setState({ ready: true });
+    }, 200);
+  }
+
+  render() {
+    if (!this.state.ready) {
+      return null;
+    }
+    return (
+      <AnimatableView animation="fadeIn" useNativeDriver duration={800}>
+        <TalksUpNext
+          style={{ marginTop: 20, marginHorizontal: 15, marginBottom: 2 }}
+        />
+        <View style={{ marginHorizontal: 15, marginBottom: 20 }}>
+          <TouchableOpacity onPress={this._handlePressAllTalks}>
+            <SemiBoldText style={styles.seeAllTalks}>
+              See all talks →
+            </SemiBoldText>
+          </TouchableOpacity>
+        </View>
+
+        <ClipBorderRadius>
+          <RectButton
+            style={styles.bigButton}
+            onPress={this._handlePressCOCButton}
+            underlayColor="#fff"
+          >
+            <SemiBoldText style={styles.bigButtonText}>
+              Read the Code of Conduct
+            </SemiBoldText>
+          </RectButton>
+        </ClipBorderRadius>
+
+        <ClipBorderRadius>
+          <RectButton
+            style={styles.bigButton}
+            onPress={this._handlePressTwitterButton}
+            underlayColor="#fff"
+          >
+            <Ionicons
+              name="logo-twitter"
+              size={23}
+              style={{
+                color: '#fff',
+                marginTop: 3,
+                backgroundColor: 'transparent',
+                marginRight: 5,
+              }}
+            />
+            <SemiBoldText style={styles.bigButtonText}>
+              @nodevember
+            </SemiBoldText>
+          </RectButton>
+        </ClipBorderRadius>
+      </AnimatableView>
+    );
+  }
 
   _handlePressAllTalks = () => {
     this.props.navigation.dispatch(
