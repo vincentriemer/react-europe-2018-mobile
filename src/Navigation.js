@@ -175,6 +175,20 @@ class DrawerView extends React.Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.navigation.state !== this.props.navigation.state) {
+      const currentRoute = this.props.navigation.state.routes[
+        this.props.navigation.state.index
+      ];
+      const nextRoute =
+        nextProps.navigation.state.routes[nextProps.navigation.state.index];
+
+      if (currentRoute.key !== nextRoute.key) {
+        this._updateVisibility(currentRoute, nextRoute);
+      }
+    }
+  }
+
   _renderScene = ({ route }) => {
     return (
       <DrawerScene
@@ -312,12 +326,7 @@ class DrawerView extends React.Component {
     ));
   };
 
-  _navigateToScreen = (index) => {
-    this._drawerRef.closeDrawer();
-
-    const { navigation } = this.props;
-    const currentRoute = navigation.state.routes[navigation.state.index];
-    const nextRoute = navigation.state.routes[index];
+  _updateVisibility = (currentRoute, nextRoute) => {
     const currentScene = this._scenes[currentRoute.key];
     const nextScene = this._scenes[nextRoute.key];
 
@@ -327,7 +336,11 @@ class DrawerView extends React.Component {
     if (currentScene) {
       currentScene.setVisible(false);
     }
+  };
 
+  _navigateToScreen = index => {
+    this._drawerRef.closeDrawer();
+    const nextRoute = this.props.navigation.state.routes[index];
     this.props.navigation.navigate(nextRoute.routeName);
   };
 }
