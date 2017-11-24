@@ -1,10 +1,11 @@
 {
   "expo": {
     "name": "Nodevember",
-    "description": "Official app for the Nodevember 2017 conference, November 27-28 in Nashville, Tennessee. Read the source or get the app store and play store links on Github: https://github.com/nodevember/nodevember-2017-mobile",
+    "description":
+      "Official app for the Nodevember 2017 conference, November 27-28 in Nashville, Tennessee. Read the source or get the app store and play store links on Github: https://github.com/nodevember/nodevember-2017-mobile",
     "slug": "app",
     "privacy": "public",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "primaryColor": "#187f65",
     "icon": "./src/assets/icon-ios.png",
     "orientation": "portrait",
@@ -14,7 +15,7 @@
       "resizeMode": "cover",
       "image": "./src/assets/splash-cover.png"
     },
-    "android" :{
+    "android": {
       "package": "org.nodevember.app",
       "icon": "./src/assets/icon-android.png",
       "versionCode": 2,
