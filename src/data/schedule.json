@@ -138,8 +138,8 @@
         "room": "132 Commodore Ballroom (600)",
         "summary": "",
         "time" : "1:30 - 2:00 pm",
-        "title" : "Speak To Me: Voice App Conversation Practices",
-        "speaker": "Heather Downing"
+        "title": "Using npm scripts as your build tool",
+        "speaker": "Elijah Manor"
       },
       {
         "talk" : true,
@@ -400,8 +400,8 @@
         "room": "140 Board of Trust Room (200)",
         "summary": "",
         "time" : "2:20 - 2:50 pm",
-        "title" : "A Skeptics guide to functional style javascript",
-        "speaker": "Jonathan Mills"
+        "title" : "Functional Programming In React",
+        "speaker": "Tyson Cadenhead"
       },
       {
         "talk" : true,

@@ -4,7 +4,8 @@
     "person": "Erin Page",
     "nodevember_email": "chair@nodevember.org",
     "avatar": "/img/crew/erin-page.jpg",
-    "bio": "Erin is a US Army Veteran, mom to two brilliant teenage boys, and Web Application Developer at Reax. She helps organize Nashville's Ruby User Group, Nodevember, and BarCamp Nashville. Erin is a go-go-go kind of person: go getter, go-to, go team!! When she is not mentoring or hacking, she can be found transporting teenagers around Nashville."
+    "bio":
+      "Erin is a US Army Veteran, mom to two brilliant teenage boys, and Web Application Developer at Reax. She helps organize Nashville's Ruby User Group, Nodevember, and BarCamp Nashville. Erin is a go-go-go kind of person: go getter, go-to, go team!! When she is not mentoring or hacking, she can be found transporting teenagers around Nashville."
   },
   {
     "role": "Marketing team",
@@ -24,7 +25,8 @@
     "person": "Sean Hill",
     "nodevember_email": "web@nodevember.org",
     "avatar": "/img/crew/sean-hill.jpeg",
-    "bio": "Sean is the founder and CEO of Reax, a custom software solutions provider. He is also a mentor in the Nashville area, teaching new developers skills they need to become better developers. He organizes Nash.rb and the Nashville Beginners meetups."
+    "bio":
+      "Sean is the founder and CEO of Reax, a custom software solutions provider. He is also a mentor in the Nashville area, teaching new developers skills they need to become better developers. He organizes Nash.rb and the Nashville Beginners meetups."
   },
   {
     "role": "Speakers Team",
@@ -57,7 +59,8 @@
     "person": "Kyle Welch",
     "nodevember_email": "",
     "avatar": "/img/crew/kyle-welch.jpg",
-    "bio": "Kyle Welch is a senior developer with 10+ years of experience building, leading, and consulting on a wide variety of projects. His background includes work in the finance, product, marketing, and government industries. Currently, Kyle leads the front end team at the National Federation of Independent Business where he creates web applications with ReactJS. Outside of work he helps organize a local ReactJS meetup. Find him on twitter, @kylewelch, where he talks about JavaScript, ReactJS, and other programming adventures."
+    "bio":
+      "Kyle Welch is a senior developer with 10+ years of experience building, leading, and consulting on a wide variety of projects. His background includes work in a wide range of industries. Recently, Kyle joined the Eventbrite team! Outside of work he helps organize a local ReactJS meetup. Find him on twitter, @kylewelch, where he talks about JavaScript, ReactJS, and other programming adventures."
   },
   {
     "role": "",
