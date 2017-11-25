@@ -15,6 +15,7 @@ import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { Colors, Layout } from '../constants';
 import MenuButton from '../components/MenuButton';
 import SaveButton from '../components/SaveButton';
+import { loadSavedTalks, storeSavedTalks } from '../utils/storageSettings';
 
 import FullSchedule from '../data/schedule.json';
 
@@ -80,13 +81,14 @@ export default function ScheduleDay(options) {
         </BoldText>
       ),
     };
-    static savedTalksStorageKey = '@ScheduleDayComponent:savedTalks';
     state = {
       savedTalks: {},
     };
 
     componentDidMount() {
-      this._loadSavedTalks();
+      loadSavedTalks().then(value =>
+        this.setState({ savedTalks: value || {} })
+      );
     }
 
     render() {
@@ -141,23 +143,8 @@ export default function ScheduleDay(options) {
       );
     };
 
-    _loadSavedTalks = () => {
-      AsyncStorage.getItem(
-        ScheduleDayComponent.savedTalksStorageKey
-      ).then(value => {
-        if (value) {
-          this.setState({
-            savedTalks: JSON.parse(value),
-          });
-        }
-      });
-    };
-
     _storeSavedTalks = () => {
-      AsyncStorage.setItem(
-        ScheduleDayComponent.savedTalksStorageKey,
-        JSON.stringify(this.state.savedTalks)
-      );
+      storeSavedTalks(this.state.savedTalks);
     };
   }
 
