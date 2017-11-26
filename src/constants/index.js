@@ -27,6 +27,11 @@ export const Colors = {
   faint: '#7a7a7a',
 };
 
+export const Icons = {
+  favorite: `${Platform.OS === 'ios' ? 'ios' : 'md'}-bookmark-outline`,
+  favoriteActive: `${Platform.OS === 'ios' ? 'ios' : 'md'}-bookmark`,
+}
+
 export const FontSizes = {
   title: isSmallDevice ? 16 : 18,
   subtitle: isSmallDevice ? 14 : 16,
