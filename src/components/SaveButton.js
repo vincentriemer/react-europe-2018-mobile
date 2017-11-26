@@ -16,8 +16,10 @@ export default class SaveButton extends React.Component {
         style={{
           alignSelf: 'flex-start',
           backgroundColor: 'transparent',
+          paddingLeft: 15,
+          paddingRight: 15,
         }}
-        hitSlop={{ left: 15, top: 15, right: 15, bottom: 15 }}
+        hitSlop={{ left: 30, top: 30, right: 30, bottom: 30 }}
       >
         <Ionicons
           name={saved ? Icons.favoriteActive : Icons.favorite}

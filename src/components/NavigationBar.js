@@ -84,11 +84,11 @@ const styles = StyleSheet.create({
   },
   navigationBarRightButton: {
     top: PADDING_TOP,
+    width: 80,
     right: 0,
     bottom: 0,
-    alignItems: 'center',
+    alignItems: 'flex-end',
     justifyContent: 'center',
     position: 'absolute',
-    paddingRight: 15,
   },
 });
