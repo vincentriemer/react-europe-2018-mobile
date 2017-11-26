@@ -15,7 +15,10 @@ export default class SaveIconWhenSaved extends React.Component {
         name={Icons.favoriteActive}
         color={Colors.green}
         size={15}
-        style={[{ backgroundColor: 'transparent', marginRight: 5, marginTop: 1 }, this.props.style]}
+        style={[
+          { backgroundColor: 'transparent', marginRight: 5, marginTop: 1 },
+          this.props.style,
+        ]}
       />
     );
   }

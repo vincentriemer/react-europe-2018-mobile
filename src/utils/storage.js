@@ -31,7 +31,7 @@ export function getSavedStateForTalk(talk) {
 // Returns the subscription, subscriber needs to remove subscription on unmount
 export function subscribeToUpdates(talk, onUpdateFn) {
   const talkKey = _.snakeCase(talk.title);
-  return _emitter.addListener('change', talks => {
+  return _emitter.addListener('change', () => {
     const active = _savedTalks[talkKey];
     onUpdateFn(active);
   });
@@ -43,12 +43,13 @@ export const toggleSaved = talk => {
     ..._savedTalks,
     [key]: !_savedTalks[key],
   };
+
   _updateSavedTalks(newSavedTalks);
 };
 
 function _updateSavedTalks(savedTalks) {
   _savedTalks = savedTalks;
-  _emitter.emit('change', _savedTalks);
+  _emitter.emit('change');
   _updateAsyncStorage();
 }
 
@@ -67,9 +68,9 @@ export function withSaveState(WrappedComponent) {
     };
 
     componentWillMount() {
-      this._subscription = subscribeToUpdates(this.props.talk, active => {
-        if (active !== this.state.active) {
-          this.setState({ active });
+      this._subscription = subscribeToUpdates(this.props.talk, saved => {
+        if (saved !== this.state.saved) {
+          this.setState({ saved });
         }
       });
     }
