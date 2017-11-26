@@ -79,7 +79,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: Platform.OS === 'ios' ? 'center' : 'flex-start',
   },
-  navigationBarLeftButton: {},
+  navigationBarLeftButton: {
+    width: 80,
+  },
   navigationBarRightButton: {
     top: PADDING_TOP,
     right: 0,
