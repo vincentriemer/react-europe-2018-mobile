@@ -25,10 +25,10 @@ class ScheduleRow extends React.Component {
 
     const content = (
       <View style={[styles.row, !item.talk && styles.rowStatic]}>
-        <View style={{ flexDirection: 'row', flex: 1, alignItems: 'center' }}>
+        <BoldText>
           <SaveIconWhenSaved talk={item} />
-          <BoldText>{item.title}</BoldText>
-        </View>
+          {item.title}
+        </BoldText>
 
         {item.speaker ? <SemiBoldText>{item.speaker}</SemiBoldText> : null}
         <RegularText>{item.room}</RegularText>

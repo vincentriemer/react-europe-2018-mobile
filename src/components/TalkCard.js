@@ -47,10 +47,10 @@ export default class TalkCard extends React.Component {
           </View>
         </View>
         <View style={styles.talkInfoRow}>
-          <View style={{flexDirection: 'row'}}>
-            <SaveIconWhenSaved talk={talk} style={{marginTop: 3}} />
-            <RegularText style={styles.talkTitle}>{talk.title}</RegularText>
-          </View>
+          <RegularText style={styles.talkTitle}>
+            <SaveIconWhenSaved talk={talk} />
+            {talk.title}
+          </RegularText>
           <RegularText style={styles.talkLocation}>{talk.room}</RegularText>
         </View>
       </RectButton>

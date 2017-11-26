@@ -1,4 +1,5 @@
 import React from 'react';
+import { Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { withSaveState } from '../utils/storage';
 import { Icons, Colors } from '../constants';
@@ -10,16 +11,14 @@ export default class SaveIconWhenSaved extends React.Component {
       return null;
     }
 
-    return (
+    const icon = (
       <Ionicons
         name={Icons.favoriteActive}
         color={Colors.green}
-        size={15}
-        style={[
-          { backgroundColor: 'transparent', marginRight: 5, marginTop: 1 },
-          this.props.style,
-        ]}
+        style={[{ backgroundColor: 'transparent' }, this.props.style]}
       />
     );
+
+    return <Text>{icon}{'  '}</Text>;
   }
 }
