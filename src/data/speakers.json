@@ -1,5 +1,57 @@
 [
   {
+    "name": "Burke H✪lland",
+    
+    "avatar":
+      "https://secure.gravatar.com/avatar/59247a80fdf2632dfea43b8824e07cdb?s=500",
+    "location": "Franklin, TN",
+    "bio":
+      "Burke Holland is a front-end developer living in Nashville, TN; the greatest city in the world. He enjoys JavaScript a lot because it's the only way he Node to Express himself. Get it? Never mind. Burke blogs only slightly better than he codes and definitely not as good as he talks about himself in the third person. Burke works on the Azure team at Microsoft on behalf of JavaScript developers everywhere. You can find him on Twitter as @burkeholland. ",
+    "talk_format": "Talk (~30-45 minutes)",
+    "twitter": "burkeholland",
+    
+    "organization": "Microsoft",
+    "shirt_size": "Men's M",
+    "title": "Visual Studio Code Can Do THAT?!?",
+    "abstract":
+      "You ❤️  VS Code. I ❤️  VS Code. Let me show you some of the cooler things it can do that you probably don't know about.",
+    "description":
+      "Visual Studio Code is on 🔥. Everybody ❤️'s this unexpected Electron-based text editor, and for good reason: it can do A LOT. It can compile Angular templates on the fly, debug native mobile applications, execute JavaScript inline and so much more! In this session, we’ll take a look at the most powerful features and plugins in Visual Studio Code, many of which, nobody knows about. This is Visual Studio Code like you’ve never 👀  it before.",
+    
+    "audience_level": "Intermediate",
+    "tags": ["tips and tricks", "visual studio code", "tools"],
+    
+    "state": "accepted",
+    "confirmed": true
+    
+  },
+  {
+    "name": "David Neal",
+    
+    "avatar":
+      "https://secure.gravatar.com/avatar/3ab1249be442027903e1180025340b3f?s=500",
+    "location": "Dalton, GA",
+    "bio":
+      "David is a family man, geek, musician, motorcyclist, speaker, and software developer living in North GA. He's currently a Senior Developer for [LeanKit](http://leankit.com). He's a Microsoft MVP, and runs on a high-octane mixture of caffeine and bacon.",
+    "talk_format": "Talk (~30-45 minutes)",
+    "twitter": "reverentgeek",
+    
+    "organization": "LeanKit",
+    "shirt_size": "Men's 2XL",
+    "title": "FSGD and the Art of Delivering Value",
+    "abstract":
+      "Shipping software. There's the pressure to go fast. There's the battle for quality and craftsmanship. The struggle is real. The goal is for you to walk away with tools and practical processes we've learned at LeanKit that will impact your team's success.",
+    "description":
+      "Shipping software. There's the pressure to go fast. There's the battle for quality and craftsmanship. The struggle is real.\r\n\r\nAt LeanKit, we strive to continuously improve our processes across the entire company. Along the way, we developed FSGD, which we affectionately pronounce \"fizz good.\" FSGD is our thinking tool for shipping Frequent, Small, Good, and Decoupled value.\r\n\r\nIn this talk, I'll share with you the challenges we faced as we scaled, how we struggled, what we learned, and how we're evolving. The goal is for you to walk away with tools and practical processes that will impact your team's success.",
+    
+    "audience_level": "All",
+    "tags": ["mentorship", "leadership", "process", "life skills"],
+    
+    "state": "accepted",
+    "confirmed": true
+    
+  },
+  {
     "name": "Beat Zenerino",
     "avatar":
       "https://secure.gravatar.com/avatar/b9ce3be1bb652e74a77e00ddecd0d731?s=500",
@@ -28,7 +80,7 @@
       "Dr. Doris Chen is a Senior Technology Evangelist at Microsoft for the Western region of the United States, specialized in web technologies (HTML5, JavaScript, TypeScript and Java).  \r\nDoris has over 18 years of experience in the software industry working in several open source web tier technologies, Java platform, .NET and distributed computing technologies. She speaks at numerous international conferences and user groups including O’Reilly OSCON, Fluent, Dev Nexus, PHP, HTML5 Dev Conference, WebVisions,  JavaOne, SD Forum, and worldwide User Groups. Doris works very closely to create and foster the open source community around Java, NetBeans, Glassfish, and related technologies. Before joining Microsoft, Doris Chen was a Technology Evangelist at Sun Microsystems.\r\nDoris received her Ph.D. from the University of California at Los Angeles (UCLA) in computer engineering, specializing in medical informatics.",
     "talk_format": "Talk (~30-45 minutes)",
     "twitter": "doristchen",
-    "url": "https://blogs.msdn.microsoft.com/dorischen/",
+    
     "organization": "Microsoft",
     "title": "What's New in TypeScript? ",
     "abstract":
@@ -87,7 +139,7 @@
       "I work for Schneider Electric and I am an active member of WiTT and WomenGetIT. I have developed software for 10 years and managed a team of software developers for 5+ years. Career development is something that I take seriously as a manager and as a mentor. \r\n\r\n",
     "talk_format": "Talk (~30-45 minutes)",
     "twitter": "LorettaTech",
-    "url": "http://www.linkedin.com/in/lorettastokes",
+    
     "organization": "Schneider Electric",
     "title": "Wonder Woman Wannabe",
     "abstract":

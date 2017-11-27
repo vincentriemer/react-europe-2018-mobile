@@ -415,9 +415,10 @@
       {
         "room": "010 Meeting Room 1 & 2, Student Life Center",
         "time" : "3:10 - 3:40 pm",
-        "talk" : false,
+        "talk" : true,
         "keynote": false,
-        "inactive": true
+        "title" : "Visual Studio Code Can Do THAT?!?",
+        "speaker": "Burke H✪lland"
       },
       {
         "talk" : true,
@@ -440,9 +441,10 @@
       {
         "room": "010 Meeting Room 1 & 2, Student Life Center",
         "time" : "4:00 - 4:30 pm",
-        "talk" : false,
+        "talk" : true,
         "keynote": false,
-        "inactive": true
+        "speaker": "David Neal",
+        "title": "FSGD and the Art of Delivering Value"
       },
       {
         "talk" : true,
