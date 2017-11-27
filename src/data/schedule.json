@@ -30,7 +30,7 @@
       {
         "talk" : false,
         "keynote": false,
-        "room": "132 Commodore Ballroom (600)",
+        "room": "132 Commodore Ballroom, Student Life Center",
         "summary": "",
         "time" : "9:00 - 9:15 am",
         "title" : "Opening Remarks"
@@ -38,7 +38,7 @@
       {
         "talk" : true,
         "keynote": true,
-        "room": "132 Commodore Ballroom (600)",
+        "room": "132 Commodore Ballroom, Student Life Center",
         "summary": "",
         "time" : "9:15 - 10:15 am",
         "title" : "Keynote - What is Community Engineering?",
@@ -47,7 +47,7 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "010 Meeting Room 1 & 2 (100)",
+        "room": "010 Meeting Room 1 & 2, Student Life Center",
         "summary": "",
         "time" : "10:35 - 11:05 am",
         "title" : "Fantastic Components and How to Find Them",
@@ -56,7 +56,7 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "140 Board of Trust Room (200)",
+        "room": "140 Board of Trust Room, Student Life Center",
         "summary": "",
         "time" : "10:35 - 11:05 am",
         "title" : "Oh Node You Didn't!",
@@ -65,7 +65,7 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "132 Commodore Ballroom (600)",
+        "room": "132 Commodore Ballroom, Student Life Center",
         "summary": "",
         "time" : "10:35 - 11:05 am",
         "title" : "Impress your friends - Build a Smart Photobooth!",
@@ -82,7 +82,7 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "010 Meeting Room 1 & 2 (100)",
+        "room": "010 Meeting Room 1 & 2, Student Life Center",
         "summary": "",
         "time" : "11:25 - 11:55 am",
         "title" : "Unlocking the Mysteries of an Unfamiliar Codebase",
@@ -91,7 +91,7 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "140 Board of Trust Room (200)",
+        "room": "140 Board of Trust Room, Student Life Center",
         "summary": "",
         "time" : "11:25 - 11:55 am",
         "title" : "Instant Mobile Web: An Accelerated Mobile Pages primer",
@@ -100,7 +100,7 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "132 Commodore Ballroom (600)",
+        "room": "132 Commodore Ballroom, Student Life Center",
         "summary": "",
         "time" : "11:25 - 11:55 am",
         "title" : "Demystifying D3 With the Help of Shakespeare",
@@ -117,7 +117,7 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "010 Meeting Room 1 & 2 (100)",
+        "room": "010 Meeting Room 1 & 2, Student Life Center",
         "summary": "",
         "time" : "1:30 - 2:00 pm",
         "title" : "Driven! Events, State Machines and Node",
@@ -126,7 +126,7 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "140 Board of Trust Room (200)",
+        "room": "140 Board of Trust Room, Student Life Center",
         "summary": "",
         "time" : "1:30 - 2:00 pm",
         "title" : "React: A Romance of Many Dimensions",
@@ -135,7 +135,7 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "132 Commodore Ballroom (600)",
+        "room": "132 Commodore Ballroom, Student Life Center",
         "summary": "",
         "time" : "1:30 - 2:00 pm",
         "title": "Using npm scripts as your build tool",
@@ -153,7 +153,7 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "010 Meeting Room 1 & 2 (100)",
+        "room": "010 Meeting Room 1 & 2, Student Life Center",
         "summary": "",
         "time" : "2:20 - 2:50 pm",
         "title" : "The State of Node Core",
@@ -162,7 +162,7 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "140 Board of Trust Room (200)",
+        "room": "140 Board of Trust Room, Student Life Center",
         "summary": "",
         "time" : "2:20 - 2:50 pm",
         "title" : "GraphQL For The Rest Of Us: New things for people who work on old things",
@@ -171,7 +171,7 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "132 Commodore Ballroom (600)",
+        "room": "132 Commodore Ballroom, Student Life Center",
         "summary": "",
         "time" : "2:20 - 2:50 pm",
         "title" : "The Node.js Event Loop: Not So Single Threaded",
@@ -180,7 +180,7 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "010 Meeting Room 1 & 2 (100)",
+        "room": "010 Meeting Room 1 & 2, Student Life Center",
         "summary": "",
         "time" : "3:10 - 3:40 pm",
         "title" : "How to embed security into your process",
@@ -189,7 +189,7 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "140 Board of Trust Room (200)",
+        "room": "140 Board of Trust Room, Student Life Center",
         "summary": "",
         "time" : "3:10 - 3:40 pm",
         "title" : "Express yourself with Typescript and React",
@@ -198,7 +198,7 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "132 Commodore Ballroom (600)",
+        "room": "132 Commodore Ballroom, Student Life Center",
         "summary": "",
         "time" : "3:10 - 3:40 pm",
         "title" : "Intro to Docker: Fixing the 'it works on my machine' Problem",
@@ -207,7 +207,7 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "010 Meeting Room 1 & 2 (100)",
+        "room": "010 Meeting Room 1 & 2, Student Life Center",
         "summary": "",
         "time" : "4:00 - 4:30 pm",
         "title" : "Accessibility - Myths and Methods",
@@ -216,7 +216,7 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "140 Board of Trust Room (200)",
+        "room": "140 Board of Trust Room, Student Life Center",
         "summary": "",
         "time" : "4:00 - 4:30 pm",
         "title" : "Kubernetes at npm",
@@ -225,7 +225,7 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "132 Commodore Ballroom (600)",
+        "room": "132 Commodore Ballroom, Student Life Center",
         "summary": "",
         "time" : "4:00 - 4:30 pm",
         "title": "Upgrading an AngularJS Directive to Angular Component",
@@ -234,7 +234,7 @@
       {
         "talk" : false,
         "keynote": false,
-        "room": "132 Commodore Ballroom (600)",
+        "room": "132 Commodore Ballroom, Student Life Center",
         "summary": "",
         "time" : "4:50 - 5:00 pm",
         "title" : "Closing Remarks"
@@ -242,7 +242,7 @@
       {
         "talk" : true,
         "keynote": true,
-        "room": "132 Commodore Ballroom (600)",
+        "room": "132 Commodore Ballroom, Student Life Center",
         "summary": "",
         "time" : "5:00 - 6:00 pm",
         "title" : "Keynote - Welcome to the new npm",
@@ -265,7 +265,7 @@
       {
         "talk" : false,
         "keynote": false,
-        "room": "132 Commodore Ballroom (600)",
+        "room": "132 Commodore Ballroom, Student Life Center",
         "summary": "",
         "time" : "9:00 - 9:15 am",
         "title" : "Opening Remarks"
@@ -273,7 +273,7 @@
       {
         "talk" : true,
         "keynote": true,
-        "room": "132 Commodore Ballroom (600)",
+        "room": "132 Commodore Ballroom, Student Life Center",
         "summary": "",
         "time" : "9:15 - 10:15 am",
         "title" : "Keynote - It's Not Dark Magic - Pulling Back the Curtains From Your Stylesheets",
@@ -282,7 +282,7 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "010 Meeting Room 1 & 2 (100)",
+        "room": "010 Meeting Room 1 & 2, Student Life Center",
         "summary": "",
         "time" : "10:35 - 11:05 am",
         "title" : "Empathy As A Service: Supporting Mental Health in the Tech Workplace",
@@ -291,7 +291,7 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "140 Board of Trust Room (200)",
+        "room": "140 Board of Trust Room, Student Life Center",
         "summary": "",
         "time" : "10:35 - 11:05 am",
         "title" : "Hit it With a Hammer or Light it on Fire: Lessons on being a newbie developer from an old car",
@@ -300,7 +300,7 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "132 Commodore Ballroom (600)",
+        "room": "132 Commodore Ballroom, Student Life Center",
         "summary": "",
         "time" : "10:35 - 11:05 am",
         "title" : "10KB or Bust: The Delicate Power of Webpack and Babel",
@@ -317,7 +317,7 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "010 Meeting Room 1 & 2 (100)",
+        "room": "010 Meeting Room 1 & 2, Student Life Center",
         "summary": "",
         "time" : "11:25 - 11:55 am",
         "title" : "Get More Done with Vue.js",
@@ -326,7 +326,7 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "140 Board of Trust Room (200)",
+        "room": "140 Board of Trust Room, Student Life Center",
         "summary": "",
         "time" : "11:25 - 11:55 am",
         "title" : "React + Charts, With And Without Libraries",
@@ -335,7 +335,7 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "132 Commodore Ballroom (600)",
+        "room": "132 Commodore Ballroom, Student Life Center",
         "summary": "",
         "time" : "11:25 - 11:55 am",
         "title" : "What's New in TypeScript?",
@@ -361,7 +361,7 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "010 Meeting Room 1 & 2 (100)",
+        "room": "010 Meeting Room 1 & 2, Student Life Center",
         "summary": "",
         "time" : "1:30 - 2:00 pm",
         "title" : "Asynchrony: Under the Hood",
@@ -370,7 +370,7 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "140 Board of Trust Room (200)",
+        "room": "140 Board of Trust Room, Student Life Center",
         "summary": "",
         "time" : "1:30 - 2:00 pm",
         "title" : "Let’s JavaScript Like It’s 1927",
@@ -379,7 +379,7 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "132 Commodore Ballroom (600)",
+        "room": "132 Commodore Ballroom, Student Life Center",
         "summary": "",
         "time" : "1:30 - 2:00 pm",
         "title" : "Creating a Reusable React Component Library",
@@ -388,7 +388,7 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "010 Meeting Room 1 & 2 (100)",
+        "room": "010 Meeting Room 1 & 2, Student Life Center",
         "summary": "",
         "time" : "2:20 - 2:50 pm",
         "title" : "Wonder Woman Wannabe",
@@ -397,7 +397,7 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "140 Board of Trust Room (200)",
+        "room": "140 Board of Trust Room",
         "summary": "",
         "time" : "2:20 - 2:50 pm",
         "title" : "Functional Programming In React",
@@ -406,14 +406,14 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "132 Commodore Ballroom (600)",
+        "room": "132 Commodore Ballroom, Student Life Center",
         "summary": "",
         "time" : "2:20 - 2:50 pm",
         "title" : "Brain-Computer Interfaces in Node",
         "speaker": "Alex Castillo"
       },
       {
-        "room": "010 Meeting Room 1 & 2 (100)",
+        "room": "010 Meeting Room 1 & 2, Student Life Center",
         "time" : "3:10 - 3:40 pm",
         "talk" : false,
         "keynote": false,
@@ -422,7 +422,7 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "140 Board of Trust Room (200)",
+        "room": "140 Board of Trust Room, Student Life Center",
         "summary": "",
         "time" : "3:10 - 3:40 pm",
         "title" : "Choose Your Own Deployment: Interactive Feature Flag Adventure",
@@ -431,14 +431,14 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "132 Commodore Ballroom (600)",
+        "room": "132 Commodore Ballroom, Student Life Center",
         "summary": "",
         "time" : "3:10 - 3:40 pm",
         "title" : "Continuous Testing With React, Storybook, and WebdriverIO",
         "speaker": "Josh Cypher"
       },
       {
-        "room": "010 Meeting Room 1 & 2 (100)",
+        "room": "010 Meeting Room 1 & 2, Student Life Center",
         "time" : "4:00 - 4:30 pm",
         "talk" : false,
         "keynote": false,
@@ -447,7 +447,7 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "140 Board of Trust Room (200)",
+        "room": "140 Board of Trust Room, Student Life Center",
         "summary": "",
         "time" : "4:00 - 4:30 pm",
         "title" : "A Shiny New Way of Rendering",
@@ -456,7 +456,7 @@
       {
         "talk" : true,
         "keynote": false,
-        "room": "132 Commodore Ballroom (600)",
+        "room": "132 Commodore Ballroom, Student Life Center",
         "summary": "",
         "time" : "4:00 - 4:30 pm",
         "title" : "How Live Coding Changed My Life",
@@ -465,7 +465,7 @@
       {
         "talk" : false,
         "keynote": false,
-        "room": "132 Commodore Ballroom (600)",
+        "room": "132 Commodore Ballroom, Student Life Center",
         "summary": "",
         "time" : "4:50 - 5:00 am",
         "title" : "Closing Remarks"
@@ -473,7 +473,7 @@
       {
         "talk" : true,
         "keynote": true,
-        "room": "132 Commodore Ballroom (600)",
+        "room": "132 Commodore Ballroom, Student Life Center",
         "summary": "",
         "time" : "5:00 - 6:00 pm",
         "title" : "Keynote - Why choose React?",
