@@ -187,7 +187,11 @@ class DrawerView extends React.Component {
     if (Platform.OS === 'ios') {
       return;
     }
-    BackHandler.addEventListener('hardwareBackPress', this._onBackPress);
+
+    // Dumb hack to have our listener take priority over built in listener
+    setTimeout(() => {
+      BackHandler.addEventListener('hardwareBackPress', this._onBackPress);
+    }, 800)
   }
 
   componentWillUnmount() {
