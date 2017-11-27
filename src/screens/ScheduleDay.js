@@ -1,22 +1,35 @@
 import React from 'react';
-import { Platform, Text, SectionList, StyleSheet, View } from 'react-native';
+import {
+  Text,
+  SectionList,
+  StyleSheet,
+  View,
+  AsyncStorage,
+} from 'react-native';
 import { NavigationActions, StackNavigator } from 'react-navigation';
 import { ScrollView, RectButton } from 'react-native-gesture-handler';
+import { Ionicons } from '@expo/vector-icons';
 import _ from 'lodash';
 
 import { RegularText, SemiBoldText, BoldText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
-import { Colors, Layout } from '../constants';
+import { Colors, Icons, Layout } from '../constants';
 import MenuButton from '../components/MenuButton';
+import SaveIconWhenSaved from '../components/SaveIconWhenSaved';
 
 import FullSchedule from '../data/schedule.json';
 
 class ScheduleRow extends React.Component {
   render() {
     const { item } = this.props;
+
     const content = (
       <View style={[styles.row, !item.talk && styles.rowStatic]}>
-        <BoldText>{item.title}</BoldText>
+        <BoldText>
+          <SaveIconWhenSaved talk={item} />
+          {item.title}
+        </BoldText>
+
         {item.speaker ? <SemiBoldText>{item.speaker}</SemiBoldText> : null}
         <RegularText>{item.room}</RegularText>
       </View>
@@ -75,7 +88,7 @@ export default function ScheduleDay(options) {
             renderItem={this._renderItem}
             renderSectionHeader={this._renderSectionHeader}
             sections={slotsData}
-            keyExtractor={(item, index) => index}
+            keyExtractor={item => _.snakeCase(item.title)}
             initialNumToRender={10}
           />
         </LoadingPlaceholder>
@@ -120,6 +133,7 @@ export default function ScheduleDay(options) {
 
 const styles = StyleSheet.create({
   row: {
+    flex: 1,
     padding: 10,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderColor: '#eee',

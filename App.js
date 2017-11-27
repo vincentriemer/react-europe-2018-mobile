@@ -2,6 +2,7 @@ import React from 'react';
 import { Asset, AppLoading, Font, Constants } from 'expo';
 import { Platform, View, StatusBar } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { loadSavedTalksAsync } from './src/utils/storage';
 
 import Navigation from './src/Navigation';
 import Home from './src/screens/Home';
@@ -19,6 +20,17 @@ export default class App extends React.Component {
   state = {
     fontLoaded: false,
   };
+
+  _loadResourcesAsync = () => {
+    return Promise.all([
+      this._loadAssetsAsync(),
+      this._loadDataAsync(),
+    ])
+  }
+
+  _loadDataAsync = () => {
+    return loadSavedTalksAsync();
+  }
 
   _loadAssetsAsync = async () => {
     return Promise.all([
@@ -39,7 +51,7 @@ export default class App extends React.Component {
     if (!this.state.fontLoaded) {
       return (
         <AppLoading
-          startAsync={this._loadAssetsAsync}
+          startAsync={this._loadResourcesAsync}
           onError={console.error}
           onFinish={() => {
             this.setState({ fontLoaded: true });

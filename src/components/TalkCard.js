@@ -4,6 +4,7 @@ import { RectButton } from 'react-native-gesture-handler';
 import FadeIn from 'react-native-fade-in-image';
 import { withNavigation } from 'react-navigation';
 
+import SaveIconWhenSaved from './SaveIconWhenSaved';
 import { BoldText, RegularText, SemiBoldText } from './StyledText';
 import { getSpeakerAvatarURL } from '../utils';
 import { Colors, FontSizes } from '../constants';
@@ -46,7 +47,10 @@ export default class TalkCard extends React.Component {
           </View>
         </View>
         <View style={styles.talkInfoRow}>
-          <RegularText style={styles.talkTitle}>{talk.title}</RegularText>
+          <RegularText style={styles.talkTitle}>
+            <SaveIconWhenSaved talk={talk} />
+            {talk.title}
+          </RegularText>
           <RegularText style={styles.talkLocation}>{talk.room}</RegularText>
         </View>
       </RectButton>

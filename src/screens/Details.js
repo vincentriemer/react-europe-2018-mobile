@@ -12,16 +12,37 @@ import {
 import { Constants, Video } from 'expo';
 import FadeIn from 'react-native-fade-in-image';
 import ReadMore from 'react-native-read-more-text';
+import { BorderlessButton } from 'react-native-gesture-handler';
 import { HeaderBackButton } from 'react-navigation';
 import { View as AnimatableView } from 'react-native-animatable';
 import _ from 'lodash';
 
 import AnimatedScrollView from '../components/AnimatedScrollView';
 import NavigationBar from '../components/NavigationBar';
-import { Colors, FontSizes, Layout } from '../constants';
+import { Colors, FontSizes, Icons, Layout } from '../constants';
 import { RegularText, BoldText, SemiBoldText } from '../components/StyledText';
 import { getSpeakerAvatarURL } from '../utils';
 import { findTalkData, findSpeakerData } from '../data';
+import SaveButton from '../components/SaveButton';
+import { Ionicons } from '@expo/vector-icons';
+
+class SavedButtonNavigationItem extends React.Component {
+  render() {
+    const { talk } = this.props;
+
+    return (
+      <View
+        style={{
+          // gross dumb things
+          paddingTop: Platform.OS === 'android' ? 17 : 0,
+          marginTop: Layout.notchHeight > 0 ? -5 : 0,
+        }}
+      >
+        <SaveButton talk={talk} />
+      </View>
+    );
+  }
+}
 
 export default class Details extends React.Component {
   state = {
@@ -178,6 +199,7 @@ export default class Details extends React.Component {
               />
             </View>
           )}
+          renderRightButton={() => <SavedButtonNavigationItem talk={talk} />}
         />
       </View>
     );
