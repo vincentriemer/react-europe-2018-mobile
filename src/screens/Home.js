@@ -198,7 +198,7 @@ class DeferredHomeContent extends React.Component {
             underlayColor="#fff"
           >
             <SemiBoldText style={styles.bigButtonText}>
-              Map of conference venues
+              {Platform.OS === 'android' ? 'Download' : 'Open'} the conference map
             </SemiBoldText>
           </RectButton>
         </ClipBorderRadius>
@@ -249,7 +249,12 @@ class DeferredHomeContent extends React.Component {
   };
 
   _handlePressMapButton = () => {
-    WebBrowser.openBrowserAsync(Asset.fromModule(require('../assets/nodevember-map.pdf')).uri);
+    let url = Asset.fromModule(require('../assets/nodevember-map.pdf')).uri;
+    if (Platform.OS === 'android') {
+      Linking.openURL(url);
+    } else {
+      WebBrowser.openBrowserAsync(url);
+    }
   };
 }
 

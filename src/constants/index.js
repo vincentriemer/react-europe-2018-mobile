@@ -28,8 +28,8 @@ export const Colors = {
 };
 
 export const Icons = {
-  favorite: `${Platform.OS === 'ios' ? 'ios' : 'md'}-bookmark-outline`,
-  favoriteActive: `${Platform.OS === 'ios' ? 'ios' : 'md'}-bookmark`,
+  favorite: `ios-bookmark-outline`,
+  favoriteActive: `ios-bookmark`,
 }
 
 export const FontSizes = {

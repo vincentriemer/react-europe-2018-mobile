@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   navigationBarRightButton: {
     top: PADDING_TOP,
     width: 80,
-    right: 0,
+    right: Platform.OS === 'android' ? 8 : 0,
     bottom: 0,
     alignItems: 'flex-end',
     justifyContent: 'center',
