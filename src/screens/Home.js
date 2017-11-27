@@ -10,7 +10,7 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
-import { LinearGradient, WebBrowser, Video } from 'expo';
+import { Asset, LinearGradient, WebBrowser, Video } from 'expo';
 import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import { NavigationActions } from 'react-navigation';
 import FadeIn from 'react-native-fade-in-image';
@@ -41,8 +41,8 @@ class Home extends React.Component {
   render() {
     const { scrollY } = this.state;
     const headerOpacity = scrollY.interpolate({
-      inputRange: [0, 50, 150],
-      outputRange: [0, 0, 1],
+      inputRange: [0, 150],
+      outputRange: [0, 1],
       extrapolate: 'clamp',
     });
 
@@ -186,7 +186,19 @@ class DeferredHomeContent extends React.Component {
             underlayColor="#fff"
           >
             <SemiBoldText style={styles.bigButtonText}>
-              Read the Code of Conduct
+              Read the code of conduct
+            </SemiBoldText>
+          </RectButton>
+        </ClipBorderRadius>
+
+        <ClipBorderRadius>
+          <RectButton
+            style={styles.bigButton}
+            onPress={this._handlePressMapButton}
+            underlayColor="#fff"
+          >
+            <SemiBoldText style={styles.bigButtonText}>
+              Map of conference venues
             </SemiBoldText>
           </RectButton>
         </ClipBorderRadius>
@@ -234,6 +246,10 @@ class DeferredHomeContent extends React.Component {
     } catch (e) {
       WebBrowser.openBrowserAsync('https://twitter.com/nodevember');
     }
+  };
+
+  _handlePressMapButton = () => {
+    WebBrowser.openBrowserAsync(Asset.fromModule(require('../assets/nodevember-map.pdf')).uri);
   };
 }
 
