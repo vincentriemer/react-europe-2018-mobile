@@ -11,6 +11,7 @@ import NavigatorTypes from 'react-navigation/src/navigators/NavigatorTypes';
 import withCachedChildNavigation from 'react-navigation/src/withCachedChildNavigation';
 import SceneView from 'react-navigation/src/views/SceneView';
 import {
+  BackHandler,
   Platform,
   Image,
   Text,
@@ -20,7 +21,11 @@ import {
 } from 'react-native';
 import { Constants } from 'expo';
 import { TabViewAnimated } from 'react-native-tab-view';
-import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
+import {
+  DrawerLayoutAndroid,
+  BorderlessButton,
+  RectButton,
+} from 'react-native-gesture-handler';
 import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
 import ResourceSavingContainer from 'react-native-resource-saving-container';
 import hoistStatics from 'hoist-non-react-statics';
@@ -29,6 +34,9 @@ import { Colors, FontSizes, Layout } from './constants';
 import Screens from './screens';
 import TabBarBottom from './components/TabBarBottom';
 import { SemiBoldText, BoldText } from './components/StyledText';
+
+const DrawerComponent =
+  Platform.OS === 'android' ? DrawerLayoutAndroid : DrawerLayout;
 
 const ScheduleNavigation = TabNavigator(
   {
@@ -175,6 +183,26 @@ class DrawerView extends React.Component {
     };
   }
 
+  componentWillMount() {
+    if (Platform.OS === 'ios') {
+      return;
+    }
+    BackHandler.addEventListener('hardwareBackPress', this._onBackPress);
+  }
+
+  componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress', this._onBackPress);
+  }
+
+  _onBackPress = () => {
+    if (this._drawerIsOpen) {
+      this._drawerRef.closeDrawer();
+      return true;
+    }
+
+    return false;
+  };
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.navigation.state !== this.props.navigation.state) {
       const currentRoute = this.props.navigation.state.routes[
@@ -204,7 +232,7 @@ class DrawerView extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <DrawerLayout
+        <DrawerComponent
           ref={view => {
             this._drawerRef = view;
           }}
@@ -217,7 +245,7 @@ class DrawerView extends React.Component {
           drawerWidth={DRAWER_WIDTH}
           keyboardDismissMode="on-drag"
           edgeWidth={60}
-          drawerPosition={DrawerLayout.positions.Left}
+          drawerPosition={DrawerComponent.positions.Left}
           drawerType="front"
           drawerBackgroundColor="#333333"
           renderNavigationView={this._renderNavigationView}
@@ -253,7 +281,7 @@ class DrawerView extends React.Component {
               }}
             />
           </View>
-        </DrawerLayout>
+        </DrawerComponent>
 
         <StatusBar barStyle="light-content" />
       </View>
