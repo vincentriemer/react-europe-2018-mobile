@@ -1,17 +1,20 @@
 import React from 'react';
 import { Image, Platform, StyleSheet, View } from 'react-native';
+import moment from 'moment-timezone';
 
 import { BoldText, RegularText, SemiBoldText } from './StyledText';
 import TalkCard from './TalkCard';
 import { Colors, FontSizes } from '../constants';
-import { findNextTalksAfterDate } from '../data';
-import moment from 'moment-timezone';
+import { findRandomTalk, findNextTalksAfterDate } from '../data';
+import { conferenceHasEnded } from '../utils';
 
 export default class TalksUpNext extends React.Component {
   constructor(props) {
     super(props);
 
-    let nextTalks = findNextTalksAfterDate();
+    let nextTalks = conferenceHasEnded()
+      ? findRandomTalk()
+      : findNextTalksAfterDate();
     let dateTime;
     let time;
     if (nextTalks) {
@@ -31,7 +34,9 @@ export default class TalksUpNext extends React.Component {
 
     return (
       <View style={[{ marginHorizontal: 10 }, this.props.style]}>
-        <SemiBoldText style={{ fontSize: FontSizes.title }}>Coming up next</SemiBoldText>
+        <SemiBoldText style={{ fontSize: FontSizes.title }}>
+          {conferenceHasEnded() ? 'A great talk from 2017' : 'Coming up next'}
+        </SemiBoldText>
         {this._renderDateTime()}
         {nextTalks.map(talk => (
           <TalkCard
@@ -45,6 +50,10 @@ export default class TalksUpNext extends React.Component {
   }
 
   _renderDateTime() {
+    if (conferenceHasEnded()) {
+      return null;
+    }
+
     const { dateTime, time } = this.state;
 
     if (dateTime) {

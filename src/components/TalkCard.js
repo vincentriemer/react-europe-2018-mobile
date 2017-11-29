@@ -6,7 +6,7 @@ import { withNavigation } from 'react-navigation';
 
 import SaveIconWhenSaved from './SaveIconWhenSaved';
 import { BoldText, RegularText, SemiBoldText } from './StyledText';
-import { getSpeakerAvatarURL } from '../utils';
+import { conferenceHasEnded, getSpeakerAvatarURL } from '../utils';
 import { Colors, FontSizes } from '../constants';
 import { findSpeakerData } from '../data';
 
@@ -51,7 +51,9 @@ export default class TalkCard extends React.Component {
             <SaveIconWhenSaved talk={talk} />
             {talk.title}
           </RegularText>
-          <RegularText style={styles.talkLocation}>{talk.room}</RegularText>
+          {conferenceHasEnded() ? null : (
+            <RegularText style={styles.talkLocation}>{talk.room}</RegularText>
+          )}
         </View>
       </RectButton>
     );

@@ -66,6 +66,10 @@ export function findNextTalksAfterDate(date = new Date(), allTalks = Talks) {
   }
 }
 
+export function findRandomTalk(allTalks = Talks) {
+  return [_.sample(allTalks)];
+}
+
 const NextYearTalk = {
   talk: true,
   keynote: true,
