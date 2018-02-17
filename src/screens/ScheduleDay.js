@@ -1,19 +1,16 @@
 import React from 'react';
 import {
-  Text,
   SectionList,
   StyleSheet,
   View,
-  AsyncStorage,
 } from 'react-native';
-import { NavigationActions, StackNavigator } from 'react-navigation';
+import { StackNavigator } from 'react-navigation';
 import { ScrollView, RectButton } from 'react-native-gesture-handler';
-import { Ionicons } from '@expo/vector-icons';
 import _ from 'lodash';
 
 import { RegularText, SemiBoldText, BoldText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
-import { Colors, Icons, Layout } from '../constants';
+import { Colors, Layout } from '../constants';
 import MenuButton from '../components/MenuButton';
 import SaveIconWhenSaved from '../components/SaveIconWhenSaved';
 
@@ -40,8 +37,7 @@ class ScheduleRow extends React.Component {
         <RectButton
           activeOpacity={0.05}
           onPress={this._handlePress}
-          style={{ flex: 1, backgroundColor: '#fff' }}
-        >
+          style={{ flex: 1, backgroundColor: '#fff' }}>
           {content}
         </RectButton>
       );
@@ -94,7 +90,7 @@ export default function ScheduleDay(options) {
         </LoadingPlaceholder>
       );
     }
-
+ 
     _renderSectionHeader = ({ section }) => {
       return (
         <View style={styles.sectionHeader}>

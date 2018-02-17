@@ -1,20 +1,15 @@
 import React from 'react';
-import { Asset, AppLoading, Font, Constants } from 'expo';
-import { Platform, View, StatusBar } from 'react-native';
+import { Asset, AppLoading, Font } from 'expo';
+import { Platform, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { loadSavedTalksAsync } from './src/utils/storage';
+import { SafeAreaView } from 'react-navigation';
+
+if (Platform.OS === 'android') {
+  SafeAreaView.setStatusBarHeight(0);
+}
 
 import Navigation from './src/Navigation';
-import Home from './src/screens/Home';
-
-const theme = {
-  font: {
-    primary: 'open-sans-bold',
-  },
-  colors: {
-    main: '#187f65',
-  },
-};
 
 export default class App extends React.Component {
   state = {
