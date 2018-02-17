@@ -109,7 +109,6 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   button: {
-    backgroundColor: '#fff',
     padding: 15,
     ...Platform.select({
       ios: {

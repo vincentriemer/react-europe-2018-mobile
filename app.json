@@ -9,11 +9,11 @@
     "primaryColor": "#187f65",
     "icon": "./src/assets/icon-ios.png",
     "orientation": "portrait",
-    "sdkVersion": "23.0.0",
+    "sdkVersion": "25.0.0",
     "splash": {
-      "backgroundColor": "#187f65",
-      "resizeMode": "cover",
-      "image": "./src/assets/splash-cover.png"
+      "image": "./src/assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#187f65"
     },
     "android": {
       "package": "org.nodevember.app",
@@ -24,12 +24,7 @@
     "ios": {
       "bundleIdentifier": "org.nodevember.app",
       "supportsTablet": true,
-      "loadJSInBackgroundExperimental": true,
-      "splash": {
-        "image": "./src/assets/splash-icon.png",
-        "resizeMode": "contain",
-        "backgroundColor": "#187f65"
-      }
+      "loadJSInBackgroundExperimental": true
     }
   }
 }
