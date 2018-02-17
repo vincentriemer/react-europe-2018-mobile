@@ -120,6 +120,7 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 2, height: 2 },
       },
       android: {
+        backgroundColor: '#fff',
         elevation: 3,
       },
     }),
