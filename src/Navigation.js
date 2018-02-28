@@ -39,15 +39,21 @@ const DrawerComponent =
 
 const ScheduleNavigation = TabNavigator(
   {
-    Sunday: {
-      screen: Screens.ScheduleDay({ day: 'Sunday', date: '26' }),
-    },
-    Monday: {
-      screen: Screens.ScheduleDay({ day: 'Monday', date: '27' }),
-    },
     Tuesday: {
-      screen: Screens.ScheduleDay({ day: 'Tuesday', date: '28' }),
+      screen: Screens.ScheduleDay({ day: 'Tuesday', date: '15' }),
     },
+    Wednesday: {
+      screen: Screens.ScheduleDay({ day: 'Wednesday', date: '16' }),
+    },
+    Thursday: {
+      screen: Screens.ScheduleDay({ day: 'Thursday', date: '17' }),
+    },
+    Friday: {
+      screen: Screens.ScheduleDay({ day: 'Friday', date: '18' }),
+    },
+    Saturday: {
+      screen: Screens.ScheduleDay({ day: 'Saturday', date: '19' }),
+    }
   },
   {
     lazy: true,

@@ -8,15 +8,15 @@ export function getSpeakerAvatarURL(speaker) {
   }
 }
 
-const CONFERENCE_START_TIME = moment.tz('2017-11-27T08:30:00', 'America/Chicago');
-const CONFERENCE_END_TIME = moment.tz('2017-11-28T20:00:00', 'America/Chicago');
+const CONFERENCE_START_TIME = moment.tz('2018-05-15T08:30:00', 'Europe/Paris');
+const CONFERENCE_END_TIME = moment.tz('2018-05-19T21:00:00', 'Europe/Paris');
 
 export function conferenceHasStarted() {
-  return moment.tz('America/Chicago').isAfter(CONFERENCE_START_TIME);
+  return moment.tz('Europe/Paris').isAfter(CONFERENCE_START_TIME);
 }
 
 export function conferenceHasEnded() {
-  return moment.tz('America/Chicago').isAfter(CONFERENCE_END_TIME);
+  return moment.tz('Europe/Paris').isAfter(CONFERENCE_END_TIME);
 }
 
 export function HideWhenConferenceHasStarted({children}) {
