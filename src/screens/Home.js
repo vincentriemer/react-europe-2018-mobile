@@ -63,27 +63,13 @@ class Home extends React.Component {
         >
           <View
             style={{
-              backgroundColor: '#187f65',
+              backgroundColor: '#4d5fab',
               padding: 10,
               paddingTop: Layout.headerHeight - 10,
               justifyContent: 'center',
               alignItems: 'center',
             }}
           >
-            <View style={styles.headerVideoLayer}>
-              <VideoBackground />
-              <View style={styles.headerVideoOverlay} />
-              <LinearGradient
-                colors={[Colors.green, 'transparent']}
-                style={{
-                  position: 'absolute',
-                  left: 0,
-                  right: 0,
-                  top: 0,
-                  bottom: 0,
-                }}
-              />
-            </View>
             <Image
               source={require('../assets/logo.png')}
               style={{ width: 220, height: 60, resizeMode: 'contain' }}
@@ -94,35 +80,22 @@ class Home extends React.Component {
                 <SemiBoldText style={styles.headerText}>
                   Thank you for joining us!
                 </SemiBoldText>
-                <SemiBoldText style={styles.headerText}>
-                  See you in November, 2018!
+                <SemiBoldText style={styles.headerTextSmall}>
+                  See you in May, 2019!
                 </SemiBoldText>
               </ShowWhenConferenceHasEnded>
 
               <HideWhenConferenceHasEnded>
                 <SemiBoldText style={styles.headerText}>
-                  November 27th to 28th
+                  May 17th to 18th (Conference)
                 </SemiBoldText>
                 <SemiBoldText style={styles.headerText}>
-                  Nashville, Tennesse
+                  May 15th to 16th (Workshops)
+                </SemiBoldText>
+                <SemiBoldText style={styles.headerText}>
+                  Paris, France
                 </SemiBoldText>
               </HideWhenConferenceHasEnded>
-
-              <HideWhenConferenceHasStarted>
-                <View style={{ paddingTop: 8, alignItems: 'center' }}>
-                  <ClipBorderRadius>
-                    <RectButton
-                      style={styles.buyButton}
-                      underlayColor={Colors.green}
-                      onPress={this._openTickets}
-                    >
-                      <SemiBoldText style={styles.buyButtonText}>
-                        Buy a ticket
-                      </SemiBoldText>
-                    </RectButton>
-                  </ClipBorderRadius>
-                </View>
-              </HideWhenConferenceHasStarted>
             </View>
           </View>
 
@@ -306,16 +279,11 @@ const styles = StyleSheet.create({
     fontSize: 17,
     lineHeight: 17 * 1.5,
   },
-  buyButton: {
-    backgroundColor: '#fff',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: BORDER_RADIUS,
-  },
-  buyButtonText: {
-    backgroundColor: 'transparent',
-    color: 'rgba(0,0,0,0.9)',
-    fontSize: FontSizes.normalButton,
+  headerSmallText: {
+    color: '#fff',
+    textAlign: 'center',
+    fontSize: 7,
+    lineHeight: 7 * 1.5,
   },
   bigButton: {
     backgroundColor: Colors.green,
