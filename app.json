@@ -1,28 +1,28 @@
 {
   "expo": {
-    "name": "Nodevember",
+    "name": "ReactEurope",
     "description":
-      "Official app for the Nodevember 2017 conference, November 27-28 in Nashville, Tennessee. Read the source or get the app store and play store links on Github: https://github.com/nodevember/nodevember-2017-mobile",
+      "Official react-europe app for the May 2018 conference, May 17-18 in Paris, France. Read the source or get the app store and play store links on Github: https://github.com/react-europe/react-europe-2018-mobile. Credits to Brent Vatne and Expo.",
     "slug": "app",
     "privacy": "public",
     "version": "1.0.4",
-    "primaryColor": "#187f65",
+    "primaryColor": "#4d5fab",
     "icon": "./src/assets/icon-ios.png",
     "orientation": "portrait",
     "sdkVersion": "25.0.0",
     "splash": {
       "image": "./src/assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#187f65"
+      "backgroundColor": "#4d5fab"
     },
     "android": {
-      "package": "org.nodevember.app",
+      "package": "org.reacteurope.app",
       "icon": "./src/assets/icon-android.png",
       "versionCode": 3,
       "permissions": []
     },
     "ios": {
-      "bundleIdentifier": "org.nodevember.app",
+      "bundleIdentifier": "org.reacteurope.app",
       "supportsTablet": true,
       "loadJSInBackgroundExperimental": true
     }
