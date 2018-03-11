@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import {
   Animated,
   Linking,
@@ -9,42 +9,42 @@ import {
   ScrollView,
   StyleSheet,
   View,
-} from 'react-native';
-import { Asset, LinearGradient, WebBrowser, Video } from 'expo';
-import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
-import { NavigationActions } from 'react-navigation';
-import FadeIn from 'react-native-fade-in-image';
-import { View as AnimatableView } from 'react-native-animatable';
-import { Ionicons } from '@expo/vector-icons';
-import { withNavigation } from 'react-navigation';
+} from 'react-native'
+import { Asset, LinearGradient, WebBrowser, Video } from 'expo'
+import { BorderlessButton, RectButton } from 'react-native-gesture-handler'
+import { NavigationActions } from 'react-navigation'
+import FadeIn from 'react-native-fade-in-image'
+import { View as AnimatableView } from 'react-native-animatable'
+import { Ionicons } from '@expo/vector-icons'
+import { withNavigation } from 'react-navigation'
 
-import AnimatedScrollView from '../components/AnimatedScrollView';
-import NavigationBar from '../components/NavigationBar';
-import TalksUpNext from '../components/TalksUpNext';
-import MenuButton from '../components/MenuButton';
-import VideoBackground from '../components/VideoBackground';
-import { BoldText, SemiBoldText } from '../components/StyledText';
-import { connectDrawerButton } from '../Navigation';
-import { Colors, FontSizes, Layout } from '../constants';
-import { Speakers, Talks } from '../data';
+import AnimatedScrollView from '../components/AnimatedScrollView'
+import NavigationBar from '../components/NavigationBar'
+import TalksUpNext from '../components/TalksUpNext'
+import MenuButton from '../components/MenuButton'
+import VideoBackground from '../components/VideoBackground'
+import { BoldText, SemiBoldText } from '../components/StyledText'
+import { connectDrawerButton } from '../Navigation'
+import { Colors, FontSizes, Layout } from '../constants'
+import { Speakers, Talks } from '../data'
 import {
   HideWhenConferenceHasStarted,
   HideWhenConferenceHasEnded,
   ShowWhenConferenceHasEnded,
-} from '../utils';
+} from '../utils'
 
 class Home extends React.Component {
   state = {
     scrollY: new Animated.Value(0),
-  };
+  }
 
   render() {
-    const { scrollY } = this.state;
+    const { scrollY } = this.state
     const headerOpacity = scrollY.interpolate({
       inputRange: [0, 150],
       outputRange: [0, 1],
       extrapolate: 'clamp',
-    });
+    })
 
     return (
       <View style={{ flex: 1 }}>
@@ -108,36 +108,35 @@ class Home extends React.Component {
           animatedBackgroundOpacity={headerOpacity}
         />
       </View>
-    );
+    )
   }
 
   _openTickets = () => {
     Linking.openURL(
       'https://www.eventbrite.com/e/nodevember-2017-tickets-34928136998'
-    );
-  };
-
+    )
+  }
 }
 
 @withNavigation
 class DeferredHomeContent extends React.Component {
   state = {
     ready: Platform.OS === 'android' ? false : true,
-  };
+  }
 
   componentDidMount() {
     if (this.state.ready) {
-      return;
+      return
     }
 
     setTimeout(() => {
-      this.setState({ ready: true });
-    }, 200);
+      this.setState({ ready: true })
+    }, 200)
   }
 
   render() {
     if (!this.state.ready) {
-      return null;
+      return null
     }
     return (
       <AnimatableView animation="fadeIn" useNativeDriver duration={800}>
@@ -171,7 +170,8 @@ class DeferredHomeContent extends React.Component {
             underlayColor="#fff"
           >
             <SemiBoldText style={styles.bigButtonText}>
-              {Platform.OS === 'android' ? 'Download' : 'Open'} the conference map
+              {Platform.OS === 'android' ? 'Download' : 'Open'} the conference
+              map
             </SemiBoldText>
           </RectButton>
         </ClipBorderRadius>
@@ -198,7 +198,7 @@ class DeferredHomeContent extends React.Component {
           </RectButton>
         </ClipBorderRadius>
       </AnimatableView>
-    );
+    )
   }
 
   _handlePressAllTalks = () => {
@@ -206,29 +206,29 @@ class DeferredHomeContent extends React.Component {
       NavigationActions.navigate({
         routeName: 'Schedule',
       })
-    );
-  };
+    )
+  }
 
   _handlePressCOCButton = () => {
-    WebBrowser.openBrowserAsync('http://nodevember.org/conduct');
-  };
+    WebBrowser.openBrowserAsync('http://nodevember.org/conduct')
+  }
 
   _handlePressTwitterButton = async () => {
     try {
-      await Linking.openURL(`twitter://user?screen_name=nodevember`);
+      await Linking.openURL(`twitter://user?screen_name=nodevember`)
     } catch (e) {
-      WebBrowser.openBrowserAsync('https://twitter.com/nodevember');
+      WebBrowser.openBrowserAsync('https://twitter.com/nodevember')
     }
-  };
+  }
 
   _handlePressMapButton = () => {
-    let url = Asset.fromModule(require('../assets/nodevember-map.pdf')).uri;
+    let url = Asset.fromModule(require('../assets/nodevember-map.pdf')).uri
     if (Platform.OS === 'android') {
-      Linking.openURL(url);
+      Linking.openURL(url)
     } else {
-      WebBrowser.openBrowserAsync(url);
+      WebBrowser.openBrowserAsync(url)
     }
-  };
+  }
 }
 
 const OverscrollView = () => (
@@ -242,7 +242,7 @@ const OverscrollView = () => (
       backgroundColor: '#187f65',
     }}
   />
-);
+)
 
 const ClipBorderRadius = ({ children, style }) => {
   return (
@@ -254,10 +254,10 @@ const ClipBorderRadius = ({ children, style }) => {
     >
       {children}
     </View>
-  );
-};
+  )
+}
 
-const BORDER_RADIUS = 3;
+const BORDER_RADIUS = 3
 
 const styles = StyleSheet.create({
   headerContent: {
@@ -305,6 +305,6 @@ const styles = StyleSheet.create({
     fontSize: FontSizes.normalButton,
     color: Colors.green,
   },
-});
+})
 
-export default Home;
+export default Home

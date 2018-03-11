@@ -1,14 +1,14 @@
-import React from 'react';
-import { Platform } from 'react-native';
-import { BorderlessButton } from 'react-native-gesture-handler';
-import { Ionicons } from '@expo/vector-icons';
-import { Colors, Icons } from '../constants';
-import { toggleSaved, withSaveState } from '../utils/storage';
+import React from 'react'
+import { Platform } from 'react-native'
+import { BorderlessButton } from 'react-native-gesture-handler'
+import { Ionicons } from '@expo/vector-icons'
+import { Colors, Icons } from '../constants'
+import { toggleSaved, withSaveState } from '../utils/storage'
 
 @withSaveState
 export default class SaveButton extends React.Component {
   render() {
-    const { saved } = this.props;
+    const { saved } = this.props
 
     return (
       <BorderlessButton
@@ -28,10 +28,10 @@ export default class SaveButton extends React.Component {
           style={{ backgroundColor: 'transparent' }}
         />
       </BorderlessButton>
-    );
+    )
   }
 
   _handlePress = () => {
-    toggleSaved(this.props.talk);
+    toggleSaved(this.props.talk)
   }
 }

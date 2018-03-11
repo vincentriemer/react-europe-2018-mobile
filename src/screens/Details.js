@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import {
   Animated,
   Image,
@@ -8,27 +8,27 @@ import {
   Text,
   ScrollView,
   View,
-} from 'react-native';
-import { Constants, Video } from 'expo';
-import FadeIn from 'react-native-fade-in-image';
-import ReadMore from 'react-native-read-more-text';
-import { BorderlessButton } from 'react-native-gesture-handler';
-import { HeaderBackButton } from 'react-navigation';
-import { View as AnimatableView } from 'react-native-animatable';
-import _ from 'lodash';
+} from 'react-native'
+import { Constants, Video } from 'expo'
+import FadeIn from 'react-native-fade-in-image'
+import ReadMore from 'react-native-read-more-text'
+import { BorderlessButton } from 'react-native-gesture-handler'
+import { HeaderBackButton } from 'react-navigation'
+import { View as AnimatableView } from 'react-native-animatable'
+import _ from 'lodash'
 
-import AnimatedScrollView from '../components/AnimatedScrollView';
-import NavigationBar from '../components/NavigationBar';
-import { Colors, FontSizes, Icons, Layout } from '../constants';
-import { RegularText, BoldText, SemiBoldText } from '../components/StyledText';
-import { getSpeakerAvatarURL } from '../utils';
-import { findTalkData, findSpeakerData } from '../data';
-import SaveButton from '../components/SaveButton';
-import { Ionicons } from '@expo/vector-icons';
+import AnimatedScrollView from '../components/AnimatedScrollView'
+import NavigationBar from '../components/NavigationBar'
+import { Colors, FontSizes, Icons, Layout } from '../constants'
+import { RegularText, BoldText, SemiBoldText } from '../components/StyledText'
+import { getSpeakerAvatarURL } from '../utils'
+import { findTalkData, findSpeakerData } from '../data'
+import SaveButton from '../components/SaveButton'
+import { Ionicons } from '@expo/vector-icons'
 
 class SavedButtonNavigationItem extends React.Component {
   render() {
-    const { talk } = this.props;
+    const { talk } = this.props
 
     return (
       <View
@@ -40,44 +40,44 @@ class SavedButtonNavigationItem extends React.Component {
       >
         <SaveButton talk={talk} />
       </View>
-    );
+    )
   }
 }
 
 export default class Details extends React.Component {
   state = {
     scrollY: new Animated.Value(0),
-  };
+  }
 
   render() {
-    let params = this.props.navigation.state.params || {};
-    let speaker;
-    let talk;
+    let params = this.props.navigation.state.params || {}
+    let speaker
+    let talk
     if (params.scheduleSlot || params.talk) {
-      talk = params.scheduleSlot || params.talk;
-      speaker = findSpeakerData(talk.speaker);
+      talk = params.scheduleSlot || params.talk
+      speaker = findSpeakerData(talk.speaker)
     } else if (params.speaker) {
-      speaker = params.speaker;
-      talk = findTalkData(speaker.name);
+      speaker = params.speaker
+      talk = findTalkData(speaker.name)
     }
 
-    const { scrollY } = this.state;
+    const { scrollY } = this.state
     const scale = scrollY.interpolate({
       inputRange: [-300, 0, 1],
       outputRange: [2, 1, 1],
       extrapolate: 'clamp',
-    });
-    const translateX = 0;
+    })
+    const translateX = 0
     const translateY = scrollY.interpolate({
       inputRange: [-300, 0, 1],
       outputRange: [-50, 1, 1],
       extrapolate: 'clamp',
-    });
+    })
 
     const headerOpacity = scrollY.interpolate({
       inputRange: [0, 30, 200],
       outputRange: [0, 0, 1],
-    });
+    })
 
     return (
       <View style={{ flex: 1, backgroundColor: '#fff' }}>
@@ -202,7 +202,7 @@ export default class Details extends React.Component {
           renderRightButton={() => <SavedButtonNavigationItem talk={talk} />}
         />
       </View>
-    );
+    )
   }
 
   _renderTruncatedFooter = handlePress => {
@@ -215,8 +215,8 @@ export default class Details extends React.Component {
           Read more
         </SemiBoldText>
       </TouchableOpacity>
-    );
-  };
+    )
+  }
 
   _renderRevealedFooter = handlePress => {
     return (
@@ -228,8 +228,8 @@ export default class Details extends React.Component {
           Show less
         </SemiBoldText>
       </TouchableOpacity>
-    );
-  };
+    )
+  }
 }
 
 const styles = StyleSheet.create({
@@ -268,4 +268,4 @@ const styles = StyleSheet.create({
     marginTop: 15,
     marginBottom: 3,
   },
-});
+})

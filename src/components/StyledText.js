@@ -1,5 +1,5 @@
-import React from 'react';
-import { Text } from 'react-native';
+import React from 'react'
+import { Text } from 'react-native'
 
 export class RegularText extends React.Component {
   render() {
@@ -12,7 +12,7 @@ export class RegularText extends React.Component {
           { fontFamily: 'open-sans' },
         ]}
       />
-    );
+    )
   }
 }
 
@@ -27,7 +27,7 @@ export class SemiBoldText extends React.Component {
           { fontFamily: 'open-sans-semibold' },
         ]}
       />
-    );
+    )
   }
 }
 
@@ -42,6 +42,6 @@ export class BoldText extends React.Component {
           { fontFamily: 'open-sans-bold' },
         ]}
       />
-    );
+    )
   }
 }

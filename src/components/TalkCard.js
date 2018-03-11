@@ -1,23 +1,23 @@
-import React from 'react';
-import { Image, Platform, StyleSheet, View } from 'react-native';
-import { RectButton } from 'react-native-gesture-handler';
-import FadeIn from 'react-native-fade-in-image';
-import { withNavigation } from 'react-navigation';
+import React from 'react'
+import { Image, Platform, StyleSheet, View } from 'react-native'
+import { RectButton } from 'react-native-gesture-handler'
+import FadeIn from 'react-native-fade-in-image'
+import { withNavigation } from 'react-navigation'
 
-import SaveIconWhenSaved from './SaveIconWhenSaved';
-import { BoldText, RegularText, SemiBoldText } from './StyledText';
-import { conferenceHasEnded, getSpeakerAvatarURL } from '../utils';
-import { Colors, FontSizes } from '../constants';
-import { findSpeakerData } from '../data';
+import SaveIconWhenSaved from './SaveIconWhenSaved'
+import { BoldText, RegularText, SemiBoldText } from './StyledText'
+import { conferenceHasEnded, getSpeakerAvatarURL } from '../utils'
+import { Colors, FontSizes } from '../constants'
+import { findSpeakerData } from '../data'
 
 @withNavigation
 export default class TalkCard extends React.Component {
   render() {
-    const { talk } = this.props;
-    const speaker = findSpeakerData(talk.speaker);
+    const { talk } = this.props
+    const speaker = findSpeakerData(talk.speaker)
 
     if (!speaker) {
-      return this._renderPlaceholderForNextYear();
+      return this._renderPlaceholderForNextYear()
     }
 
     return (
@@ -56,20 +56,20 @@ export default class TalkCard extends React.Component {
           )}
         </View>
       </RectButton>
-    );
+    )
   }
 
   _handlePress = () => {
-    this.props.navigation.navigate('Details', { talk: this.props.talk });
-  };
+    this.props.navigation.navigate('Details', { talk: this.props.talk })
+  }
 
   _renderPlaceholderForNextYear = () => {
     return (
       <View style={[styles.button, this.props.style]}>
         <RegularText style={styles.nextYear}>See you in 2018!</RegularText>
       </View>
-    );
-  };
+    )
+  }
 }
 
 const styles = StyleSheet.create({
@@ -125,4 +125,4 @@ const styles = StyleSheet.create({
       },
     }),
   },
-});
+})

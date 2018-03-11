@@ -1,14 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 import {
   TabRouter,
   TabNavigator,
   StackNavigator,
   createNavigator,
   createNavigationContainer,
-} from 'react-navigation';
-import withCachedChildNavigation from 'react-navigation/src/withCachedChildNavigation';
-import SceneView from 'react-navigation/src/views/SceneView';
+} from 'react-navigation'
+import withCachedChildNavigation from 'react-navigation/src/withCachedChildNavigation'
+import SceneView from 'react-navigation/src/views/SceneView'
 import {
   BackHandler,
   Platform,
@@ -17,25 +17,25 @@ import {
   StyleSheet,
   StatusBar,
   View,
-} from 'react-native';
-import { Constants } from 'expo';
-import { TabViewAnimated } from 'react-native-tab-view';
+} from 'react-native'
+import { Constants } from 'expo'
+import { TabViewAnimated } from 'react-native-tab-view'
 import {
   DrawerLayoutAndroid,
   BorderlessButton,
   RectButton,
-} from 'react-native-gesture-handler';
-import DrawerLayout from 'react-native-gesture-handler/DrawerLayout';
-import ResourceSavingContainer from 'react-native-resource-saving-container';
-import hoistStatics from 'hoist-non-react-statics';
+} from 'react-native-gesture-handler'
+import DrawerLayout from 'react-native-gesture-handler/DrawerLayout'
+import ResourceSavingContainer from 'react-native-resource-saving-container'
+import hoistStatics from 'hoist-non-react-statics'
 
-import { Colors, FontSizes, Layout } from './constants';
-import Screens from './screens';
-import TabBarBottom from './components/TabBarBottom';
-import { SemiBoldText, BoldText } from './components/StyledText';
+import { Colors, FontSizes, Layout } from './constants'
+import Screens from './screens'
+import TabBarBottom from './components/TabBarBottom'
+import { SemiBoldText, BoldText } from './components/StyledText'
 
 const DrawerComponent =
-  Platform.OS === 'android' ? DrawerLayoutAndroid : DrawerLayout;
+  Platform.OS === 'android' ? DrawerLayoutAndroid : DrawerLayout
 
 const ScheduleNavigation = TabNavigator(
   {
@@ -53,7 +53,7 @@ const ScheduleNavigation = TabNavigator(
     },
     Saturday: {
       screen: Screens.ScheduleDay({ day: 'Saturday', date: '19' }),
-    }
+    },
   },
   {
     lazy: true,
@@ -66,7 +66,7 @@ const ScheduleNavigation = TabNavigator(
       activeTintColor: '#fff',
     },
   }
-);
+)
 
 export function connectDrawerButton(WrappedComponent) {
   const ConnectedDrawerButton = (props, context) => {
@@ -77,23 +77,23 @@ export function connectDrawerButton(WrappedComponent) {
         closeDrawer={context.closeDrawer}
         toggleDrawer={context.toggleDrawer}
       />
-    );
-  };
+    )
+  }
 
   ConnectedDrawerButton.contextTypes = {
     openDrawer: PropTypes.func,
     closeDrawer: PropTypes.func,
     toggleDrawer: PropTypes.func,
-  };
+  }
 
-  return hoistStatics(ConnectedDrawerButton, WrappedComponent);
+  return hoistStatics(ConnectedDrawerButton, WrappedComponent)
 }
 
 const DefaultStackConfig = {
   cardStyle: {
     backgroundColor: '#fafafa',
   },
-};
+}
 
 const SpeakersNavigation = StackNavigator(
   {
@@ -102,7 +102,7 @@ const SpeakersNavigation = StackNavigator(
     },
   },
   DefaultStackConfig
-);
+)
 
 const CrewNavigation = StackNavigator(
   {
@@ -111,7 +111,7 @@ const CrewNavigation = StackNavigator(
     },
   },
   DefaultStackConfig
-);
+)
 
 const SponsorNavigation = StackNavigator(
   {
@@ -120,7 +120,7 @@ const SponsorNavigation = StackNavigator(
     },
   },
   DefaultStackConfig
-);
+)
 
 const DrawerRouteConfig = {
   Home: { screen: Screens.Home },
@@ -128,25 +128,25 @@ const DrawerRouteConfig = {
   Speakers: { screen: SpeakersNavigation },
   Crew: { screen: CrewNavigation },
   Sponsors: { screen: SponsorNavigation },
-};
+}
 
-const DrawerRouter = TabRouter(DrawerRouteConfig);
+const DrawerRouter = TabRouter(DrawerRouteConfig)
 
 class DrawerScene extends React.PureComponent {
   state = {
     visible: true,
-  };
+  }
 
   setVisible = visible => {
-    this.setState({ visible });
-  };
+    this.setState({ visible })
+  }
 
   render() {
-    const { route, screenProps } = this.props;
-    const childNavigation = this.props.childNavigationProps[route.key];
+    const { route, screenProps } = this.props
+    const childNavigation = this.props.childNavigationProps[route.key]
     const ScreenComponent = DrawerRouter.getComponentForRouteName(
       route.routeName
-    );
+    )
 
     return (
       <ResourceSavingContainer
@@ -159,66 +159,66 @@ class DrawerScene extends React.PureComponent {
           navigation={childNavigation}
         />
       </ResourceSavingContainer>
-    );
+    )
   }
 }
 
-const DRAWER_WIDTH = Math.min(Math.max(Layout.window.width - 80, 280), 350);
+const DRAWER_WIDTH = Math.min(Math.max(Layout.window.width - 80, 280), 350)
 @withCachedChildNavigation
 class DrawerView extends React.Component {
-  _isDrawerOpen = false;
-  _scenes = {};
+  _isDrawerOpen = false
+  _scenes = {}
 
   static childContextTypes = {
     openDrawer: PropTypes.func,
     closeDrawer: PropTypes.func,
     toggleDrawer: PropTypes.func,
-  };
+  }
 
   getChildContext() {
-    const openDrawer = options => this._drawerRef.openDrawer(options);
-    const closeDrawer = options => this._drawerRef.closeDrawer(options);
+    const openDrawer = options => this._drawerRef.openDrawer(options)
+    const closeDrawer = options => this._drawerRef.closeDrawer(options)
     const toggleDrawer = options =>
-      this._isDrawerOpen ? closeDrawer(options) : openDrawer(options);
+      this._isDrawerOpen ? closeDrawer(options) : openDrawer(options)
 
     return {
       openDrawer,
       closeDrawer,
       toggleDrawer,
-    };
+    }
   }
 
   componentDidMount() {
     if (Platform.OS === 'ios') {
-      return;
+      return
     }
 
-    BackHandler.addEventListener('hardwareBackPress', this._onBackPress);
+    BackHandler.addEventListener('hardwareBackPress', this._onBackPress)
   }
 
   componentWillUnmount() {
-    BackHandler.removeEventListener('hardwareBackPress', this._onBackPress);
+    BackHandler.removeEventListener('hardwareBackPress', this._onBackPress)
   }
 
   _onBackPress = () => {
     if (this._drawerIsOpen) {
-      this._drawerRef.closeDrawer();
-      return true;
+      this._drawerRef.closeDrawer()
+      return true
     }
 
-    return false;
-  };
+    return false
+  }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.navigation.state !== this.props.navigation.state) {
       const currentRoute = this.props.navigation.state.routes[
         this.props.navigation.state.index
-      ];
+      ]
       const nextRoute =
-        nextProps.navigation.state.routes[nextProps.navigation.state.index];
+        nextProps.navigation.state.routes[nextProps.navigation.state.index]
 
       if (currentRoute.key !== nextRoute.key) {
-        this._updateVisibility(currentRoute, nextRoute);
+        this._updateVisibility(currentRoute, nextRoute)
       }
     }
   }
@@ -227,26 +227,26 @@ class DrawerView extends React.Component {
     return (
       <DrawerScene
         ref={view => {
-          this._scenes[route.key] = view;
+          this._scenes[route.key] = view
         }}
         {...this.props}
         route={route}
       />
-    );
-  };
+    )
+  }
 
   render() {
     return (
       <View style={styles.container}>
         <DrawerComponent
           ref={view => {
-            this._drawerRef = view;
+            this._drawerRef = view
           }}
           onDrawerOpen={() => {
-            this._drawerIsOpen = true;
+            this._drawerIsOpen = true
           }}
           onDrawerClose={() => {
-            this._drawerIsOpen = false;
+            this._drawerIsOpen = false
           }}
           drawerWidth={DRAWER_WIDTH}
           keyboardDismissMode="on-drag"
@@ -291,7 +291,7 @@ class DrawerView extends React.Component {
 
         <StatusBar barStyle="light-content" />
       </View>
-    );
+    )
   }
 
   _renderNavigationView = () => {
@@ -343,11 +343,11 @@ class DrawerView extends React.Component {
           ])}
         </View>
       </View>
-    );
-  };
+    )
+  }
 
   _renderButtons = buttonConfig => {
-    const selectedIndex = this.props.navigation.state.index;
+    const selectedIndex = this.props.navigation.state.index
 
     return buttonConfig.map((config, i) => (
       <DrawerButton
@@ -357,33 +357,33 @@ class DrawerView extends React.Component {
       >
         {config.title}
       </DrawerButton>
-    ));
-  };
+    ))
+  }
 
   _updateVisibility = (currentRoute, nextRoute) => {
-    const currentScene = this._scenes[currentRoute.key];
-    const nextScene = this._scenes[nextRoute.key];
+    const currentScene = this._scenes[currentRoute.key]
+    const nextScene = this._scenes[nextRoute.key]
 
     if (nextScene) {
-      nextScene.setVisible(true);
+      nextScene.setVisible(true)
     }
     if (currentScene) {
-      currentScene.setVisible(false);
+      currentScene.setVisible(false)
     }
-  };
+  }
 
   _navigateToScreen = index => {
-    this._drawerRef.closeDrawer();
-    const nextRoute = this.props.navigation.state.routes[index];
-    this.props.navigation.navigate(nextRoute.routeName);
-  };
+    this._drawerRef.closeDrawer()
+    const nextRoute = this.props.navigation.state.routes[index]
+    this.props.navigation.navigate(nextRoute.routeName)
+  }
 }
 
 const DrawerNavigation = createNavigationContainer(
-  createNavigator(DrawerRouter, DrawerRouteConfig, {})(
-    props => <DrawerView {...props} />
-  )
-);
+  createNavigator(DrawerRouter, DrawerRouteConfig, {})(props => (
+    <DrawerView {...props} />
+  ))
+)
 
 class DrawerButton extends React.Component {
   render() {
@@ -409,7 +409,7 @@ class DrawerButton extends React.Component {
           </SemiBoldText>
         </View>
       </RectButton>
-    );
+    )
   }
 }
 
@@ -426,7 +426,7 @@ const styles = StyleSheet.create({
     paddingTop: 0,
   },
   drawerNavigationContainer: {},
-});
+})
 
 export default StackNavigator(
   {
@@ -437,4 +437,4 @@ export default StackNavigator(
     ...DefaultStackConfig,
     headerMode: 'none',
   }
-);
+)

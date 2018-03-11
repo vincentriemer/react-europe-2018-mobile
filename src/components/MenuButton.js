@@ -1,9 +1,9 @@
-import React from 'react';
-import { Platform } from 'react-native';
-import { connectDrawerButton } from '../Navigation';
-import { BorderlessButton } from 'react-native-gesture-handler';
-import { Ionicons } from '@expo/vector-icons';
-import { Layout } from '../constants';
+import React from 'react'
+import { Platform } from 'react-native'
+import { connectDrawerButton } from '../Navigation'
+import { BorderlessButton } from 'react-native-gesture-handler'
+import { Ionicons } from '@expo/vector-icons'
+import { Layout } from '../constants'
 
 @connectDrawerButton
 export default class MenuButton extends React.Component {
@@ -28,6 +28,6 @@ export default class MenuButton extends React.Component {
           color="#fff"
         />
       </BorderlessButton>
-    );
+    )
   }
 }

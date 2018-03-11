@@ -1,19 +1,19 @@
-import React from 'react';
-import { ActivityIndicator, Platform, View } from 'react-native';
-import { Colors } from '../constants';
+import React from 'react'
+import { ActivityIndicator, Platform, View } from 'react-native'
+import { Colors } from '../constants'
 
 // All this does is briefly render a loading indicator when you
 // first mount a component as a child of this component
 export default class LoadingPlaceholder extends React.Component {
   state = {
     isReady: false,
-  };
+  }
 
   componentDidMount() {
     if (!this.state.isReady) {
       setTimeout(() => {
-        this.setState({ isReady: true });
-      }, Platform.OS === 'ios' ? 250 : 500);
+        this.setState({ isReady: true })
+      }, Platform.OS === 'ios' ? 250 : 500)
     }
   }
 
@@ -28,9 +28,9 @@ export default class LoadingPlaceholder extends React.Component {
             size="large"
           />
         </View>
-      );
+      )
     } else {
-      return this.props.children;
+      return this.props.children
     }
   }
 }

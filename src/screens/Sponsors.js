@@ -1,37 +1,37 @@
-import React from 'react';
-import { Image, SectionList, StyleSheet, View, Text } from 'react-native';
-import FadeIn from 'react-native-fade-in-image';
-import { WebBrowser } from 'expo';
-import { ScrollView, RectButton } from 'react-native-gesture-handler';
+import React from 'react'
+import { Image, SectionList, StyleSheet, View, Text } from 'react-native'
+import FadeIn from 'react-native-fade-in-image'
+import { WebBrowser } from 'expo'
+import { ScrollView, RectButton } from 'react-native-gesture-handler'
 
-import { Layout, Colors } from '../constants';
-import MenuButton from '../components/MenuButton';
-import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
-import LoadingPlaceholder from '../components/LoadingPlaceholder';
+import { Layout, Colors } from '../constants'
+import MenuButton from '../components/MenuButton'
+import { BoldText, SemiBoldText, RegularText } from '../components/StyledText'
+import LoadingPlaceholder from '../components/LoadingPlaceholder'
 
-import _ from 'lodash';
+import _ from 'lodash'
 
-import SponsorData from '../data/sponsors.json';
-const SponsorsByLevelUnsorted = _.groupBy(SponsorData, data => data.level);
+import SponsorData from '../data/sponsors.json'
+const SponsorsByLevelUnsorted = _.groupBy(SponsorData, data => data.level)
 const SponsorsByLevel = [
   { title: 'Diamond', data: SponsorsByLevelUnsorted['Diamond'] },
   { title: 'Gold', data: SponsorsByLevelUnsorted['Gold'] },
   { title: 'Silver', data: SponsorsByLevelUnsorted['Silver'] },
   { title: 'Bronze', data: SponsorsByLevelUnsorted['Bronze'] },
   { title: 'Community', data: SponsorsByLevelUnsorted['Community'] },
-];
+]
 
 function getLogoURL(sponsor) {
   if (sponsor.logo.startsWith('/img')) {
-    return `http://nodevember.org${sponsor.logo}`;
+    return `http://nodevember.org${sponsor.logo}`
   } else {
-    return sponsor.logo;
+    return sponsor.logo
   }
 }
 
 class SponsorRow extends React.Component {
   render() {
-    const { item: sponsor } = this.props;
+    const { item: sponsor } = this.props
 
     return (
       <RectButton
@@ -51,7 +51,7 @@ class SponsorRow extends React.Component {
               },
             ]}
           >
-            <FadeIn placeholderStyle={{borderRadius: 3}}>
+            <FadeIn placeholderStyle={{ borderRadius: 3 }}>
               <Image
                 source={{ uri: getLogoURL(sponsor) }}
                 style={{
@@ -72,12 +72,12 @@ class SponsorRow extends React.Component {
           ) : null}
         </View>
       </RectButton>
-    );
+    )
   }
 
   _handlePress = () => {
-    WebBrowser.openBrowserAsync(this.props.item.url);
-  };
+    WebBrowser.openBrowserAsync(this.props.item.url)
+  }
 }
 
 export default class Sponsors extends React.Component {
@@ -89,7 +89,7 @@ export default class Sponsors extends React.Component {
     headerTitleStyle: {
       fontFamily: 'open-sans-bold',
     },
-  };
+  }
 
   render() {
     return (
@@ -104,7 +104,7 @@ export default class Sponsors extends React.Component {
           initialNumToRender={4}
         />
       </LoadingPlaceholder>
-    );
+    )
   }
 
   _renderSectionHeader = ({ section }) => {
@@ -112,12 +112,12 @@ export default class Sponsors extends React.Component {
       <View style={styles.sectionHeader}>
         <RegularText>{section.title}</RegularText>
       </View>
-    );
-  };
+    )
+  }
 
   _renderItem = ({ item }) => {
-    return <SponsorRow item={item} />;
-  };
+    return <SponsorRow item={item} />
+  }
 }
 
 const styles = StyleSheet.create({
@@ -143,4 +143,4 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#eee',
   },
-});
+})

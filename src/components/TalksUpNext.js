@@ -1,36 +1,36 @@
-import React from 'react';
-import { Image, Platform, StyleSheet, View } from 'react-native';
-import moment from 'moment-timezone';
+import React from 'react'
+import { Image, Platform, StyleSheet, View } from 'react-native'
+import moment from 'moment-timezone'
 
-import { BoldText, RegularText, SemiBoldText } from './StyledText';
-import TalkCard from './TalkCard';
-import { Colors, FontSizes } from '../constants';
-import { findRandomTalk, findNextTalksAfterDate } from '../data';
-import { conferenceHasEnded } from '../utils';
+import { BoldText, RegularText, SemiBoldText } from './StyledText'
+import TalkCard from './TalkCard'
+import { Colors, FontSizes } from '../constants'
+import { findRandomTalk, findNextTalksAfterDate } from '../data'
+import { conferenceHasEnded } from '../utils'
 
 export default class TalksUpNext extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     let nextTalks = conferenceHasEnded()
       ? findRandomTalk()
-      : findNextTalksAfterDate();
-    let dateTime;
-    let time;
+      : findNextTalksAfterDate()
+    let dateTime
+    let time
     if (nextTalks) {
-      dateTime = nextTalks[0].dateTime;
-      time = nextTalks[0].time;
+      dateTime = nextTalks[0].dateTime
+      time = nextTalks[0].time
     }
 
     this.state = {
       nextTalks,
       dateTime,
       time,
-    };
+    }
   }
 
   render() {
-    const { nextTalks } = this.state;
+    const { nextTalks } = this.state
 
     return (
       <View style={[{ marginHorizontal: 10 }, this.props.style]}>
@@ -46,15 +46,15 @@ export default class TalksUpNext extends React.Component {
           />
         ))}
       </View>
-    );
+    )
   }
 
   _renderDateTime() {
     if (conferenceHasEnded()) {
-      return null;
+      return null
     }
 
-    const { dateTime, time } = this.state;
+    const { dateTime, time } = this.state
 
     if (dateTime) {
       return (
@@ -63,7 +63,7 @@ export default class TalksUpNext extends React.Component {
             .tz('America/Chicago')
             .format('dddd, MMM Do')}, {time}
         </RegularText>
-      );
+      )
     } else {
       // handle after conf thing
     }
@@ -75,4 +75,4 @@ const styles = StyleSheet.create({
     color: Colors.faint,
     fontSize: FontSizes.subtitle,
   },
-});
+})

@@ -1,22 +1,22 @@
-import React from 'react';
-import { Image, FlatList, StyleSheet, View, Text } from 'react-native';
-import FadeIn from 'react-native-fade-in-image';
-import { ScrollView } from 'react-native-gesture-handler';
+import React from 'react'
+import { Image, FlatList, StyleSheet, View, Text } from 'react-native'
+import FadeIn from 'react-native-fade-in-image'
+import { ScrollView } from 'react-native-gesture-handler'
 
-import { Colors } from '../constants';
-import MenuButton from '../components/MenuButton';
-import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
-import LoadingPlaceholder from '../components/LoadingPlaceholder';
+import { Colors } from '../constants'
+import MenuButton from '../components/MenuButton'
+import { BoldText, SemiBoldText, RegularText } from '../components/StyledText'
+import LoadingPlaceholder from '../components/LoadingPlaceholder'
 
-import CrewData from '../data/crew.json';
+import CrewData from '../data/crew.json'
 
 function getAvatarURL(crew) {
-  return `http://nodevember.org${crew.avatar}`;
+  return `http://nodevember.org${crew.avatar}`
 }
 
 class CrewRow extends React.Component {
   render() {
-    const { item: crew } = this.props;
+    const { item: crew } = this.props
 
     return (
       <View style={styles.row}>
@@ -34,13 +34,13 @@ class CrewRow extends React.Component {
           <RegularText>{crew.bio}</RegularText>
         </View>
       </View>
-    );
+    )
   }
 
   _handlePress = () => {
     // do nothing for now
     // alert('pressed!')
-  };
+  }
 }
 
 export default class Crews extends React.Component {
@@ -52,7 +52,7 @@ export default class Crews extends React.Component {
     headerTitleStyle: {
       fontFamily: 'open-sans-bold',
     },
-  };
+  }
 
   render() {
     return (
@@ -64,12 +64,12 @@ export default class Crews extends React.Component {
           keyExtractor={(item, index) => index}
         />
       </LoadingPlaceholder>
-    );
+    )
   }
 
   _renderItem = ({ item }) => {
-    return <CrewRow item={item} />;
-  };
+    return <CrewRow item={item} />
+  }
 }
 
 const styles = StyleSheet.create({
@@ -89,4 +89,4 @@ const styles = StyleSheet.create({
   rowData: {
     flex: 1,
   },
-});
+})

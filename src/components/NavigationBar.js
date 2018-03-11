@@ -1,14 +1,14 @@
-import React from 'react';
-import { Animated, Platform, View, StyleSheet } from 'react-native';
-import { Constants } from 'expo';
-import { Colors, Layout } from '../constants';
+import React from 'react'
+import { Animated, Platform, View, StyleSheet } from 'react-native'
+import { Constants } from 'expo'
+import { Colors, Layout } from '../constants'
 
 export default class NavigationBar extends React.Component {
   render() {
     if (this.props.animatedBackgroundOpacity) {
-      return this._renderAnimated();
+      return this._renderAnimated()
     } else {
-      return this._renderStatic();
+      return this._renderStatic()
     }
   }
 
@@ -36,8 +36,8 @@ export default class NavigationBar extends React.Component {
           {this.props.renderRightButton && this.props.renderRightButton()}
         </View>
       </View>
-    );
-  };
+    )
+  }
 
   _renderStatic = () => {
     return (
@@ -54,13 +54,14 @@ export default class NavigationBar extends React.Component {
           {this.props.renderRightButton && this.props.renderRightButton()}
         </View>
       </View>
-    );
-  };
+    )
+  }
 }
 
 // Didn't want to investigate why I needed to offset this a bit, surely there is a good reason
-const MADE_UP_NUMBER = 7;
-const PADDING_TOP = Platform.OS === 'ios' ? Constants.statusBarHeight : MADE_UP_NUMBER;
+const MADE_UP_NUMBER = 7
+const PADDING_TOP =
+  Platform.OS === 'ios' ? Constants.statusBarHeight : MADE_UP_NUMBER
 
 const styles = StyleSheet.create({
   navigationBarContainer: {
@@ -91,4 +92,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     position: 'absolute',
   },
-});
+})
