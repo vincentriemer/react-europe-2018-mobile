@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import {
   Animated,
   Image,
@@ -7,84 +7,88 @@ import {
   TouchableOpacity,
   Text,
   ScrollView,
-  View,
-} from 'react-native'
-import { Constants, Video } from 'expo'
-import FadeIn from 'react-native-fade-in-image'
-import ReadMore from 'react-native-read-more-text'
-import { BorderlessButton } from 'react-native-gesture-handler'
-import { HeaderBackButton } from 'react-navigation'
-import { View as AnimatableView } from 'react-native-animatable'
-import _ from 'lodash'
+  View
+} from "react-native";
+import { Constants, Video } from "expo";
+import FadeIn from "react-native-fade-in-image";
+import ReadMore from "react-native-read-more-text";
+import { BorderlessButton } from "react-native-gesture-handler";
+import { HeaderBackButton } from "react-navigation";
+import { View as AnimatableView } from "react-native-animatable";
+import _ from "lodash";
 
-import AnimatedScrollView from '../components/AnimatedScrollView'
-import NavigationBar from '../components/NavigationBar'
-import { Colors, FontSizes, Icons, Layout } from '../constants'
-import { RegularText, BoldText, SemiBoldText } from '../components/StyledText'
-import { getSpeakerAvatarURL } from '../utils'
-import { findTalkData, findSpeakerData } from '../data'
-import SaveButton from '../components/SaveButton'
-import { Ionicons } from '@expo/vector-icons'
+import AnimatedScrollView from "../components/AnimatedScrollView";
+import NavigationBar from "../components/NavigationBar";
+import { Colors, FontSizes, Icons, Layout } from "../constants";
+import { RegularText, BoldText, SemiBoldText } from "../components/StyledText";
+import { getSpeakerTalk, convertUtcDateToEventTimezone } from "../utils";
+import { findTalkData, findSpeakerData } from "../data";
+import SaveButton from "../components/SaveButton";
+import { Ionicons } from "@expo/vector-icons";
+import { MarkdownView } from "react-native-markdown-view";
+export const Schedule = require("../data/schedule.json");
+const Event = Schedule.events[0];
 
 class SavedButtonNavigationItem extends React.Component {
   render() {
-    const { talk } = this.props
+    const { talk } = this.props;
 
     return (
       <View
         style={{
           // gross dumb things
-          paddingTop: Platform.OS === 'android' ? 17 : 0,
-          marginTop: Layout.notchHeight > 0 ? -5 : 0,
+          paddingTop: Platform.OS === "android" ? 17 : 0,
+          marginTop: Layout.notchHeight > 0 ? -5 : 0
         }}
       >
         <SaveButton talk={talk} />
       </View>
-    )
+    );
   }
 }
 
 export default class Details extends React.Component {
   state = {
-    scrollY: new Animated.Value(0),
-  }
+    scrollY: new Animated.Value(0)
+  };
 
   render() {
-    let params = this.props.navigation.state.params || {}
-    let speaker
-    let talk
-    if (params.scheduleSlot || params.talk) {
-      talk = params.scheduleSlot || params.talk
-      speaker = findSpeakerData(talk.speaker)
+    let params = this.props.navigation.state.params || {};
+    let speaker;
+    let talk;
+    const talkScreen = params.scheduleSlot || params.talk;
+    if (talkScreen) {
+      talk = params.scheduleSlot || params.talk;
+      speakers = talk.speakers;
     } else if (params.speaker) {
-      speaker = params.speaker
-      talk = findTalkData(speaker.name)
+      speaker = params.speaker;
+      talk = getSpeakerTalk(speaker);
     }
 
-    const { scrollY } = this.state
+    const { scrollY } = this.state;
     const scale = scrollY.interpolate({
       inputRange: [-300, 0, 1],
       outputRange: [2, 1, 1],
-      extrapolate: 'clamp',
-    })
-    const translateX = 0
+      extrapolate: "clamp"
+    });
+    const translateX = 0;
     const translateY = scrollY.interpolate({
       inputRange: [-300, 0, 1],
       outputRange: [-50, 1, 1],
-      extrapolate: 'clamp',
-    })
+      extrapolate: "clamp"
+    });
 
     const headerOpacity = scrollY.interpolate({
       inputRange: [0, 30, 200],
-      outputRange: [0, 0, 1],
-    })
+      outputRange: [0, 0, 1]
+    });
 
     return (
-      <View style={{ flex: 1, backgroundColor: '#fff' }}>
-        {Platform.OS === 'ios' ? (
+      <View style={{ flex: 1, backgroundColor: "#fff" }}>
+        {Platform.OS === "ios" ? (
           <Animated.View
             style={{
-              position: 'absolute',
+              position: "absolute",
               top: -350,
               left: 0,
               right: 0,
@@ -93,22 +97,22 @@ export default class Details extends React.Component {
                 {
                   translateY: scrollY.interpolate({
                     inputRange: [-1, 0, 1],
-                    outputRange: [1, 0, 0],
-                  }),
-                },
+                    outputRange: [1, 0, 0]
+                  })
+                }
               ],
-              backgroundColor: Colors.green,
+              backgroundColor: Colors.blue
             }}
           />
         ) : null}
         <AnimatedScrollView
-          style={{ flex: 1, backgroundColor: 'transparent' }}
+          style={{ flex: 1, backgroundColor: "transparent" }}
           scrollEventThrottle={1}
           onScroll={Animated.event(
             [
               {
-                nativeEvent: { contentOffset: { y: this.state.scrollY } },
-              },
+                nativeEvent: { contentOffset: { y: this.state.scrollY } }
+              }
             ],
             { useNativeDriver: true }
           )}
@@ -116,80 +120,152 @@ export default class Details extends React.Component {
           <View style={styles.headerContainer}>
             <Animated.View
               style={{
-                transform: [{ scale }, { translateX }, { translateY }],
+                transform: [{ scale }, { translateX }, { translateY }]
               }}
             >
-              <FadeIn placeholderStyle={{ backgroundColor: '#318A73' }}>
-                <Image
-                  source={{ uri: getSpeakerAvatarURL(speaker) }}
-                  style={styles.avatar}
-                />
+              <FadeIn placeholderStyle={{ backgroundColor: "#318A73" }}>
+                {talkScreen ? (
+                  <View>
+                    {speakers
+                      ? speakers.map((speaker, i) => (
+                          <View key={speaker.id}>
+                            <Image
+                              source={{ uri: speaker.avatarUrl }}
+                              style={styles.avatarMultiple}
+                              key={speaker.id + talk.title}
+                            />
+                            <SemiBoldText
+                              style={styles.headerText}
+                              key={"speakers" + speaker.id}
+                            >
+                              {speaker.name}
+                            </SemiBoldText>
+                          </View>
+                        ))
+                      : null}
+                  </View>
+                ) : (
+                  <Image
+                    source={{ uri: speaker.avatarUrl }}
+                    style={styles.avatar}
+                    key={speaker.avatarUrl}
+                  />
+                )}
               </FadeIn>
             </Animated.View>
-            <SemiBoldText style={styles.headerText}>
-              {speaker.name}
-            </SemiBoldText>
-            {speaker.organization ? (
+            {talkScreen ? null : (
+              <SemiBoldText style={styles.headerText} key={speaker.id}>
+                {speaker.name}
+              </SemiBoldText>
+            )}
+            {speaker && speaker.twitter ? (
               <RegularText style={styles.headerText}>
-                {speaker.organization}
+                @{speaker.twitter || speaker.github}
               </RegularText>
             ) : null}
-            <BoldText style={styles.talkTitleText}>{talk.title}</BoldText>
+            {talk ? (
+              <BoldText style={styles.talkTitleText}>{talk.title}</BoldText>
+            ) : null}
           </View>
           <AnimatableView
             animation="fadeIn"
             useNativeDriver
-            delay={Platform.OS === 'ios' ? 50 : 150}
+            delay={Platform.OS === "ios" ? 50 : 150}
             duration={500}
             style={styles.content}
           >
-            <SemiBoldText style={styles.sectionHeader}>Bio</SemiBoldText>
-            <ReadMore
-              numberOfLines={3}
-              renderTruncatedFooter={this._renderTruncatedFooter}
-              renderRevealedFooter={this._renderRevealedFooter}
-              onReady={this._handleTextReady}
-            >
-              <RegularText style={styles.bodyText}>{speaker.bio}</RegularText>
-            </ReadMore>
+            {talkScreen ? null : (
+              <View>
+                <SemiBoldText style={styles.sectionHeader}>Bio</SemiBoldText>
+                <ReadMore
+                  numberOfLines={3}
+                  renderTruncatedFooter={this._renderTruncatedFooter}
+                  renderRevealedFooter={this._renderRevealedFooter}
+                  onReady={this._handleTextReady}
+                >
+                  <RegularText style={styles.bodyText}>
+                    <MarkdownView style={styles.markdownBio}>
+                      {speaker.bio}
+                    </MarkdownView>
+                  </RegularText>
+                </ReadMore>
+              </View>
+            )}
+            {talk ? (
+              <SemiBoldText style={styles.sectionHeader}>
+                {talk && talk.type === 0
+                  ? "Talk description"
+                  : "Workshop description"}
+              </SemiBoldText>
+            ) : null}
+            {talk ? (
+              <ReadMore
+                numberOfLines={5}
+                renderTruncatedFooter={this._renderTruncatedFooter}
+                renderRevealedFooter={this._renderRevealedFooter}
+                onReady={this._handleTextReady}
+              >
+                <RegularText style={styles.bodyText}>
+                  <MarkdownView style={styles.markdownTalkDescription}>
+                    {talk.description}
+                  </MarkdownView>
+                </RegularText>
+              </ReadMore>
+            ) : null}
+            {talkScreen && speakers.length > 0 ? (
+              <View>
+                <SemiBoldText style={styles.sectionHeader}>
+                  {talk.type === 0 ? "Speakers" : "Trainers"}
+                </SemiBoldText>
 
-            <SemiBoldText style={styles.sectionHeader}>
-              Talk description
-            </SemiBoldText>
-            <ReadMore
-              numberOfLines={5}
-              renderTruncatedFooter={this._renderTruncatedFooter}
-              renderRevealedFooter={this._renderRevealedFooter}
-              onReady={this._handleTextReady}
-            >
-              <RegularText style={styles.bodyText}>
-                {speaker.description}
-              </RegularText>
-            </ReadMore>
-
-            <SemiBoldText style={styles.sectionHeader}>
-              Time and place
-            </SemiBoldText>
-            <RegularText>
-              {talk.day} {talk.time}
-            </RegularText>
-            <RegularText>{talk.room}</RegularText>
+                {speakers.map((speaker, i) => (
+                  <View key={speaker.id}>
+                    <SemiBoldText key={speaker.id + talk.title}>
+                      {speaker.name}
+                    </SemiBoldText>
+                    <ReadMore
+                      numberOfLines={3}
+                      renderTruncatedFooter={this._renderTruncatedFooter}
+                      renderRevealedFooter={this._renderRevealedFooter}
+                      onReady={this._handleTextReady}
+                    >
+                      <RegularText style={styles.bodyText}>
+                        <MarkdownView style={styles.markdownBio}>
+                          {speaker.bio}
+                        </MarkdownView>
+                      </RegularText>
+                    </ReadMore>
+                  </View>
+                ))}
+              </View>
+            ) : null}
+            {talk ? (
+              <View>
+                <SemiBoldText style={styles.sectionHeader}>
+                  Time and place
+                </SemiBoldText>
+                <RegularText>
+                  {convertUtcDateToEventTimezone(talk.startDate)}
+                </RegularText>
+                <RegularText>{talk.room}</RegularText>
+              </View>
+            ) : null}
           </AnimatableView>
         </AnimatedScrollView>
 
         <NavigationBar
           animatedBackgroundOpacity={headerOpacity}
           style={[
-            Platform.OS === 'android'
+            Platform.OS === "android"
               ? { height: Layout.headerHeight + Constants.statusBarHeight }
-              : null,
+              : null
           ]}
           renderLeftButton={() => (
             <View
               style={{
                 // gross dumb things
-                paddingTop: Platform.OS === 'android' ? 17 : 0,
-                marginTop: Layout.notchHeight > 0 ? -5 : 0,
+                paddingTop: Platform.OS === "android" ? 17 : 0,
+                marginTop: Layout.notchHeight > 0 ? -5 : 0
               }}
             >
               <HeaderBackButton
@@ -199,10 +275,12 @@ export default class Details extends React.Component {
               />
             </View>
           )}
-          renderRightButton={() => <SavedButtonNavigationItem talk={talk} />}
+          renderRightButton={() => {
+            talk ? <SavedButtonNavigationItem talk={talk} /> : null;
+          }}
         />
       </View>
-    )
+    );
   }
 
   _renderTruncatedFooter = handlePress => {
@@ -211,12 +289,12 @@ export default class Details extends React.Component {
         hitSlop={{ top: 15, left: 15, right: 15, bottom: 15 }}
         onPress={handlePress}
       >
-        <SemiBoldText style={{ color: Colors.green, marginTop: 5 }}>
+        <SemiBoldText style={{ color: Colors.blue, marginTop: 5 }}>
           Read more
         </SemiBoldText>
       </TouchableOpacity>
-    )
-  }
+    );
+  };
 
   _renderRevealedFooter = handlePress => {
     return (
@@ -224,12 +302,12 @@ export default class Details extends React.Component {
         hitSlop={{ top: 15, left: 15, right: 15, bottom: 15 }}
         onPress={handlePress}
       >
-        <SemiBoldText style={{ color: Colors.green, marginTop: 5 }}>
+        <SemiBoldText style={{ color: Colors.blue, marginTop: 5 }}>
           Show less
         </SemiBoldText>
       </TouchableOpacity>
-    )
-  }
+    );
+  };
 }
 
 const styles = StyleSheet.create({
@@ -238,34 +316,54 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 50,
-    marginBottom: 10,
+    marginBottom: 10
+  },
+  avatarMultiple: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    marginBottom: 10
   },
   content: {
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
+    paddingBottom: 20,
+    paddingHorizontal: 20
+  },
+  markdownBio: {
+    backgroundColor: "#fff",
     paddingBottom: 20,
     paddingHorizontal: 20,
+    width: 300,
+    height: 200
+  },
+  markdownTalkDescription: {
+    backgroundColor: "#fff",
+    paddingBottom: 20,
+    paddingHorizontal: 20,
+    width: 300,
+    height: 600
   },
   headerContainer: {
-    backgroundColor: Colors.green,
+    backgroundColor: Colors.blue,
     paddingTop: Constants.statusBarHeight + Layout.notchHeight + 20,
     paddingBottom: 20,
     paddingHorizontal: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center"
   },
   headerText: {
-    color: '#fff',
-    fontSize: FontSizes.subtitle,
+    color: "#fff",
+    fontSize: FontSizes.subtitle
   },
   talkTitleText: {
-    color: '#fff',
+    color: "#fff",
     fontSize: FontSizes.title,
-    textAlign: 'center',
-    marginTop: 10,
+    textAlign: "center",
+    marginTop: 10
   },
   sectionHeader: {
     fontSize: FontSizes.bodyTitle,
     marginTop: 15,
-    marginBottom: 3,
-  },
-})
+    marginBottom: 3
+  }
+});

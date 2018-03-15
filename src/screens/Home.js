@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import {
   Animated,
   Linking,
@@ -8,43 +8,45 @@ import {
   TouchableOpacity,
   ScrollView,
   StyleSheet,
-  View,
-} from 'react-native'
-import { Asset, LinearGradient, WebBrowser, Video } from 'expo'
-import { BorderlessButton, RectButton } from 'react-native-gesture-handler'
-import { NavigationActions } from 'react-navigation'
-import FadeIn from 'react-native-fade-in-image'
-import { View as AnimatableView } from 'react-native-animatable'
-import { Ionicons } from '@expo/vector-icons'
-import { withNavigation } from 'react-navigation'
+  View
+} from "react-native";
+import { Asset, LinearGradient, WebBrowser, Video } from "expo";
+import { BorderlessButton, RectButton } from "react-native-gesture-handler";
+import { NavigationActions } from "react-navigation";
+import FadeIn from "react-native-fade-in-image";
+import { View as AnimatableView } from "react-native-animatable";
+import { Ionicons } from "@expo/vector-icons";
+import { withNavigation } from "react-navigation";
 
-import AnimatedScrollView from '../components/AnimatedScrollView'
-import NavigationBar from '../components/NavigationBar'
-import TalksUpNext from '../components/TalksUpNext'
-import MenuButton from '../components/MenuButton'
-import VideoBackground from '../components/VideoBackground'
-import { BoldText, SemiBoldText } from '../components/StyledText'
-import { connectDrawerButton } from '../Navigation'
-import { Colors, FontSizes, Layout } from '../constants'
-import { Speakers, Talks } from '../data'
+import AnimatedScrollView from "../components/AnimatedScrollView";
+import NavigationBar from "../components/NavigationBar";
+import TalksUpNext from "../components/TalksUpNext";
+import MenuButton from "../components/MenuButton";
+import VideoBackground from "../components/VideoBackground";
+import { BoldText, SemiBoldText } from "../components/StyledText";
+import { connectDrawerButton } from "../Navigation";
+import { Colors, FontSizes, Layout } from "../constants";
+import { Speakers, Talks } from "../data";
 import {
   HideWhenConferenceHasStarted,
   HideWhenConferenceHasEnded,
-  ShowWhenConferenceHasEnded,
-} from '../utils'
+  ShowWhenConferenceHasEnded
+} from "../utils";
+export const Schedule = require("../data/schedule.json");
+const Event = Schedule.events[0];
 
 class Home extends React.Component {
   state = {
-    scrollY: new Animated.Value(0),
-  }
+    scrollY: new Animated.Value(0)
+  };
 
   render() {
-    const { scrollY } = this.state
+    const { scrollY } = this.state;
     const headerOpacity = scrollY.interpolate({
       inputRange: [0, 150],
       outputRange: [0, 1],
-      extrapolate: 'clamp',
-    })
+      extrapolate: "clamp"
+    });
 
     return (
       <View style={{ flex: 1 }}>
@@ -55,24 +57,24 @@ class Home extends React.Component {
           onScroll={Animated.event(
             [
               {
-                nativeEvent: { contentOffset: { y: scrollY } },
-              },
+                nativeEvent: { contentOffset: { y: scrollY } }
+              }
             ],
             { useNativeDriver: true }
           )}
         >
           <View
             style={{
-              backgroundColor: '#4d5fab',
+              backgroundColor: "#4d5fab",
               padding: 10,
               paddingTop: Layout.headerHeight - 10,
-              justifyContent: 'center',
-              alignItems: 'center',
+              justifyContent: "center",
+              alignItems: "center"
             }}
           >
             <Image
-              source={require('../assets/logo.png')}
-              style={{ width: 220, height: 60, resizeMode: 'contain' }}
+              source={require("../assets/logo.png")}
+              style={{ width: 220, height: 60, resizeMode: "contain" }}
               tintColor="#fff"
             />
             <View style={styles.headerContent}>
@@ -108,35 +110,33 @@ class Home extends React.Component {
           animatedBackgroundOpacity={headerOpacity}
         />
       </View>
-    )
+    );
   }
 
   _openTickets = () => {
-    Linking.openURL(
-      'https://www.eventbrite.com/e/nodevember-2017-tickets-34928136998'
-    )
-  }
+    Linking.openURL(Event.websiteUrl + "#tickets");
+  };
 }
 
 @withNavigation
 class DeferredHomeContent extends React.Component {
   state = {
-    ready: Platform.OS === 'android' ? false : true,
-  }
+    ready: Platform.OS === "android" ? false : true
+  };
 
   componentDidMount() {
     if (this.state.ready) {
-      return
+      return;
     }
 
     setTimeout(() => {
-      this.setState({ ready: true })
-    }, 200)
+      this.setState({ ready: true });
+    }, 200);
   }
 
   render() {
     if (!this.state.ready) {
-      return null
+      return null;
     }
     return (
       <AnimatableView animation="fadeIn" useNativeDriver duration={800}>
@@ -170,7 +170,7 @@ class DeferredHomeContent extends React.Component {
             underlayColor="#fff"
           >
             <SemiBoldText style={styles.bigButtonText}>
-              {Platform.OS === 'android' ? 'Download' : 'Open'} the conference
+              {Platform.OS === "android" ? "Download" : "Open"} the conference
               map
             </SemiBoldText>
           </RectButton>
@@ -186,125 +186,125 @@ class DeferredHomeContent extends React.Component {
               name="logo-twitter"
               size={23}
               style={{
-                color: '#fff',
+                color: "#fff",
                 marginTop: 3,
-                backgroundColor: 'transparent',
-                marginRight: 5,
+                backgroundColor: "transparent",
+                marginRight: 5
               }}
             />
             <SemiBoldText style={styles.bigButtonText}>
-              @nodevember
+              @{Event.twitterHandle}
             </SemiBoldText>
           </RectButton>
         </ClipBorderRadius>
       </AnimatableView>
-    )
+    );
   }
 
   _handlePressAllTalks = () => {
     this.props.navigation.dispatch(
       NavigationActions.navigate({
-        routeName: 'Schedule',
+        routeName: "Schedule"
       })
-    )
-  }
+    );
+  };
 
   _handlePressCOCButton = () => {
-    WebBrowser.openBrowserAsync('http://nodevember.org/conduct')
-  }
+    WebBrowser.openBrowserAsync(Event.cocUrl);
+  };
 
   _handlePressTwitterButton = async () => {
     try {
-      await Linking.openURL(`twitter://user?screen_name=nodevember`)
+      await Linking.openURL(
+        `twitter://user?screen_name=` + Event.twitterHandle
+      );
     } catch (e) {
-      WebBrowser.openBrowserAsync('https://twitter.com/nodevember')
+      WebBrowser.openBrowserAsync("https://twitter.com/" + Event.twitterHandle);
     }
-  }
+  };
 
   _handlePressMapButton = () => {
-    let url = Asset.fromModule(require('../assets/nodevember-map.pdf')).uri
-    if (Platform.OS === 'android') {
-      Linking.openURL(url)
-    } else {
-      WebBrowser.openBrowserAsync(url)
-    }
-  }
+    const params = encodeURIComponent(
+      Event.venueName + Event.venueCity + "," + Event.venueCountry
+    );
+    WebBrowser.openBrowserAsync("https://www.google.com/maps/search/" + params);
+  };
 }
 
 const OverscrollView = () => (
   <View
     style={{
-      position: 'absolute',
+      position: "absolute",
       top: -400,
       height: 400,
       left: 0,
       right: 0,
-      backgroundColor: '#187f65',
+      backgroundColor: Colors.blue
     }}
   />
-)
+);
 
 const ClipBorderRadius = ({ children, style }) => {
   return (
     <View
       style={[
-        { borderRadius: BORDER_RADIUS, overflow: 'hidden', marginTop: 10 },
-        style,
+        { borderRadius: BORDER_RADIUS, overflow: "hidden", marginTop: 10 },
+        style
       ]}
     >
       {children}
     </View>
-  )
-}
+  );
+};
 
-const BORDER_RADIUS = 3
+const BORDER_RADIUS = 3;
 
 const styles = StyleSheet.create({
   headerContent: {
-    alignItems: 'center',
+    alignItems: "center",
     marginTop: 5,
-    paddingVertical: 10,
+    paddingVertical: 10
   },
   headerVideoLayer: {
-    ...StyleSheet.absoluteFillObject,
+    ...StyleSheet.absoluteFillObject
   },
   headerVideoOverlay: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: Colors.green,
-    opacity: 0.8,
+    backgroundColor: Colors.blue,
+    opacity: 0.8
   },
   headerText: {
-    color: '#fff',
-    textAlign: 'center',
+    color: "#fff",
+    textAlign: "center",
     fontSize: 17,
-    lineHeight: 17 * 1.5,
+    lineHeight: 17 * 1.5
   },
   headerSmallText: {
-    color: '#fff',
-    textAlign: 'center',
+    color: "#fff",
+    textAlign: "center",
     fontSize: 7,
-    lineHeight: 7 * 1.5,
+    lineHeight: 7 * 1.5
   },
   bigButton: {
-    backgroundColor: Colors.green,
+    backgroundColor: Colors.blue,
     paddingHorizontal: 15,
     height: 50,
     marginHorizontal: 15,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     borderRadius: BORDER_RADIUS,
-    overflow: 'hidden',
-    flexDirection: 'row',
+    overflow: "hidden",
+    flexDirection: "row"
   },
   bigButtonText: {
     fontSize: FontSizes.normalButton,
-    color: '#fff',
-    textAlign: 'center',
+    color: "#fff",
+    textAlign: "center"
   },
   seeAllTalks: {
     fontSize: FontSizes.normalButton,
-    color: Colors.green,
-  },
-})
+    color: Colors.blue
+  }
+});
 
-export default Home
+export default Home;

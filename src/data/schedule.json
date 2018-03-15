@@ -1,157 +1,1442 @@
-[
-  {
-   "title": "Tuesday",
-    "date": "May 15, 2018",
-    "slots": [
+{
+    "events": [
       {
-        "talk" : false,
-        "keynote": false,
-        "room": "Rec Center",
-        "summary": "",
-        "time" : "8:00 - 9:00 am",
-        "title" : "Breakfast"
-      },
-      {
-        "talk" : false,
-        "keynote": false,
-        "room": "132 Commodore Ballroom, Student Life Center",
-        "summary": "",
-        "time" : "9:00 - 9:15 am",
-        "title" : "Opening Remarks"
-      },
-      {
-        "talk" : true,
-        "keynote": true,
-        "room": "132 Commodore Ballroom, Student Life Center",
-        "summary": "",
-        "time" : "9:15 - 10:15 am",
-        "title" : "Keynote - It's Not Dark Magic - Pulling Back the Curtains From Your Stylesheets",
-        "speaker": "Aimee Knight"
-      }
-    ]
-  },
-  {
-    "title": "Wednesday",
-    "date": "May 16, 2018",
-    "slots": [
-      {
-        "talk" : false,
-        "keynote": false,
-        "room": "Rec Center",
-        "summary": "",
-        "time" : "8:00 - 9:00 am",
-        "title" : "Breakfast"
-      },
-      {
-        "talk" : false,
-        "keynote": false,
-        "room": "132 Commodore Ballroom, Student Life Center",
-        "summary": "",
-        "time" : "9:00 - 9:15 am",
-        "title" : "Opening Remarks"
-      },
-      {
-        "talk" : true,
-        "keynote": true,
-        "room": "132 Commodore Ballroom, Student Life Center",
-        "summary": "",
-        "time" : "9:15 - 10:15 am",
-        "title" : "Keynote - It's Not Dark Magic - Pulling Back the Curtains From Your Stylesheets",
-        "speaker": "Aimee Knight"
-      }
-    ]
-  },
-  {
-    "title": "Thursday",
-    "date": "May 17, 2018",
-    "slots": [
-      {
-        "talk" : false,
-        "keynote": false,
-        "room": "Rec Center",
-        "summary": "",
-        "time" : "8:00 - 9:00 am",
-        "title" : "Breakfast"
-      },
-      {
-        "talk" : false,
-        "keynote": false,
-        "room": "132 Commodore Ballroom, Student Life Center",
-        "summary": "",
-        "time" : "9:00 - 9:15 am",
-        "title" : "Opening Remarks"
-      },
-      {
-        "talk" : true,
-        "keynote": true,
-        "room": "132 Commodore Ballroom, Student Life Center",
-        "summary": "",
-        "time" : "9:15 - 10:15 am",
-        "title" : "Keynote - It's Not Dark Magic - Pulling Back the Curtains From Your Stylesheets",
-        "speaker": "Aimee Knight"
-      }
-    ]
-  },
-  {
-    "title": "Friday",
-    "date": "May 18, 2018",
-    "slots": [
-      {
-        "talk" : false,
-        "keynote": false,
-        "room": "Rec Center",
-        "summary": "",
-        "time" : "8:00 - 9:00 am",
-        "title" : "Breakfast"
-      },
-      {
-        "talk" : false,
-        "keynote": false,
-        "room": "132 Commodore Ballroom, Student Life Center",
-        "summary": "",
-        "time" : "9:00 - 9:15 am",
-        "title" : "Opening Remarks"
-      },
-      {
-        "talk" : true,
-        "keynote": true,
-        "room": "132 Commodore Ballroom, Student Life Center",
-        "summary": "",
-        "time" : "9:15 - 10:15 am",
-        "title" : "Keynote - It's Not Dark Magic - Pulling Back the Curtains From Your Stylesheets",
-        "speaker": "Aimee Knight"
-      }
-    ]
-  },
-  {
-    "title": "Saturday",
-    "date": "May 19, 2018",
-    "slots": [
-      {
-        "talk" : false,
-        "keynote": false,
-        "room": "Rec Center",
-        "summary": "",
-        "time" : "8:00 - 9:00 am",
-        "title" : "Breakfast"
-      },
-      {
-        "talk" : false,
-        "keynote": false,
-        "room": "132 Commodore Ballroom, Student Life Center",
-        "summary": "",
-        "time" : "9:00 - 9:15 am",
-        "title" : "Opening Remarks"
-      },
-      {
-        "talk" : true,
-        "keynote": true,
-        "room": "132 Commodore Ballroom, Student Life Center",
-        "summary": "",
-        "time" : "9:15 - 10:15 am",
-        "title" : "Keynote - It's Not Dark Magic - Pulling Back the Curtains From Your Stylesheets",
-        "speaker": "Aimee Knight"
+        "cocUrl": "http://confcodeofconduct.com/",
+        "collaborators": [
+          {
+            "avatarUrl": "https://api.eventlama.com/avatars/events/158/collaborators/68/avatar.png",
+            "firstName": "Katiuska",
+            "github": "katcita",
+            "id": 68,
+            "lastName": "Gamero",
+            "role": "co-organizer",
+            "twitter": "katy_gca",
+            "url": null
+          },
+          {
+            "avatarUrl": "https://api.eventlama.com/avatars/events/158/collaborators/69/avatar.png",
+            "firstName": "Patrick",
+            "github": "patcito",
+            "id": 69,
+            "lastName": "Aljord",
+            "role": "organizer",
+            "twitter": "patcito",
+            "url": null
+          }
+        ],
+        "description": "ReactEurope is back on 17-18 May 2018 to bring you the best and most passionate people from the very **core team** to the coolest people from the community we love.\n\nAfter changing the way we think about state management in JavaScript applications, the way we write native mobile apps with React Native, how we interact with remote data with GraphQL or even how we manage CSS, the React community keeps innovating and its ecosystem growing.\n\nAt this conference, you will learn how new projects such as ReasonML will bring web and mobile React Native apps to the next level and how projects such as React Native Web, React Primitive and Expo make it easy to write, deploy and share code on all platforms quickly. The conference aims to give talks that inspire and explore new futuristic ideas dealing with all the techs we enjoy from the React ecosystem such as **React.js, React Native, GraphQL, Relay, Universal apps, ReasonML, Webpack, inline CSS and more**.\n\nReactEurope is also a great occasion to socialize, meet new people and old friends, hack together, taste delicious food and have fun in the beautiful city of Paris.\n\n**Join us at ReactEurope Conf to shape the future of client-side, mobile and universal applications!**",
+        "endDate": "Fri May 18 17:00:00 +0000 2018",
+        "groupedSchedule": [
+          {
+            "date": "Tue May 15 06:30:00 +0000 2018",
+            "slots": [
+              {
+                "description": "Make sure to get in early.",
+                "id": 915,
+                "keynote": null,
+                "length": 60,
+                "room": null,
+                "speakers": [],
+                "startDate": "Tue May 15 06:30:00 +0000 2018",
+                "tags": null,
+                "talk": null,
+                "title": "Workshop Checkin & French Breakfast",
+                "type": 3
+              },
+              {
+                "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\nDay 1\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\nDay 2\n\n- Start from a simple template, review it.\n- Build the camera screen.\n- Apply image filters.\n- Add stickers on top of the filters (drag, scale, rotate).\n- Build list screen.\n- Make list screen work on web.\n- Support offline usage.",
+                "id": 917,
+                "keynote": null,
+                "length": 480,
+                "room": null,
+                "speakers": [
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/879/avatar.png",
+                    "bio": "Front-end web/mobile developer working on [Expo](https://expo.io) and one of **React Native** top committers.",
+                    "github": "brentvatne",
+                    "id": 879,
+                    "name": "Brent Vatne",
+                    "twitter": "notbrent"
+                  },
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/917/avatar.png",
+                    "bio": "Tech lead on the UI team at **Major League Soccer**. Node, React, React Native, and GraphQL enthusiast. Organizer of GraphQL NYC.",
+                    "github": "kkemple",
+                    "id": 917,
+                    "name": "Kurtis Kemple",
+                    "twitter": "kurtiskemple"
+                  }
+                ],
+                "startDate": "Tue May 15 07:30:00 +0000 2018",
+                "tags": "workshop,react native,navigation,styling,flex box",
+                "talk": null,
+                "title": "React Native Workshop with Brent Vatne and Expo Team - Day 1",
+                "type": 1
+              },
+              {
+                "description": "In this workshop we will dive into the basics and more advanced usage patterns of mobx-state-tree. It is a tool that helps you to model complex problem domains and combines the best features of the modern state technologies out there. \n\n**Click here to see covered subjects**\n\n0. The state tree philosophy. \n1. Modelling your data structures and state\n2. Views & actions\n3. Asynchronous processes\n4. Composing trees and types\n5. Connecting to GraphQL\n6. Writing your own middleware",
+                "id": 961,
+                "keynote": null,
+                "length": 480,
+                "room": null,
+                "speakers": [
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/934/avatar.png",
+                    "bio": "Dedicated yet mediocre (due to a lack of time) contributor to JS fatigue. **Author of MobX, MobX-state-tree**. Tech Lead at Mendix",
+                    "github": "mweststrate",
+                    "id": 934,
+                    "name": "Michel Weststrate",
+                    "twitter": "mweststrate"
+                  }
+                ],
+                "startDate": "Tue May 15 07:30:00 +0000 2018",
+                "tags": "mobx, react, mobx-state-tree",
+                "talk": null,
+                "title": "Modelling your state with Mobx-state-tree Workshop",
+                "type": 1
+              },
+              {
+                "description": "This workshop requires an intermediary level in React.js.\n\nThis 2-day workshop will skip the basics and get straight to teaching patterns and techniques that apply directly to developing professionally with React. Using real-world examples, we will cover how to take advantage of React and some of its community packages' features to build maintainable, performant applications. \n\n**Click here to see covered subjects**\n\n- Project Architecture\n- Component Design\n- Patterns for Props\n- setState Master Class\n- Using Context Responsibly\n- HoC’s\n- Routing\n- Redux Patterns\n- Forms\n- SSR\n- Perf & Optimization\n- Scalable CSS-in-JS\n- Testing\n- Render Props\n- Static Typing with Flow\n- Universal Components\n- Error Boundaries\n- Portals\n- Utilizing Developer Tools",
+                "id": 971,
+                "keynote": null,
+                "length": 480,
+                "room": null,
+                "speakers": [
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/932/avatar.png",
+                    "bio": "Ken is the Director of Open Source at Formidable, the author of several popular open source libraries, and a frequent conference speaker often focusing on alternative uses of React. He is the creator of libraries such as **Spectacle, urql, react-music, react-game-kit and Webpack Dashboard**. He also maintains a healthy Twitter presence, and enjoys red meat, whiskey and recreational archery.",
+                    "github": "kenwheeler",
+                    "id": 932,
+                    "name": "Ken Wheeler",
+                    "twitter": "ken_wheeler"
+                  },
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/939/avatar.png",
+                    "bio": "Brandon is a core contributor to React and the testing library Enzyme. As the author of react-perimeter, react-animations, react-image-palette and more, he is an active open source author and advocate. When he’s not on Github you might find him camping in the backcountry of Yosemite, or planning his next road trip. Brandon recently joined Facebook as a software engineer.",
+                    "github": "aweary",
+                    "id": 939,
+                    "name": "Brandon Dail",
+                    "twitter": "aweary"
+                  },
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1312/avatar.png",
+                    "bio": "Emma Brillhart is a Software Engineer at Formidable, where she's worked on projects with Starbucks and Viacom, as well as on OSS projects, like Victory. She's also Lead Organizer at SeattleJS, Seattle's largest JavaScript meet up. When she's not writing code or wrangling sponsors, she's cooking and baking, hand lettering, or snuggling with her dog, Leo.",
+                    "github": "ebrillhart",
+                    "id": 1312,
+                    "name": "Emma Brillhart",
+                    "twitter": "emmabrillhart"
+                  }
+                ],
+                "startDate": "Tue May 15 07:30:00 +0000 2018",
+                "tags": "react,routing,redux,patterns, props,setState,hoc,ssr,perf,testing,portals,flow",
+                "talk": null,
+                "title": "React.js Workshop with Ken Wheeler, Brandon Dail and Emma Brillhart - Day 1",
+                "type": 1
+              }
+            ],
+            "title": "Tuesday"
+          },
+          {
+            "date": "Wed May 16 06:30:00 +0000 2018",
+            "slots": [
+              {
+                "description": "Make sure to get in early.",
+                "id": 916,
+                "keynote": null,
+                "length": 60,
+                "room": null,
+                "speakers": [],
+                "startDate": "Wed May 16 06:30:00 +0000 2018",
+                "tags": null,
+                "talk": null,
+                "title": "Workshop Checkin & French Breakfast",
+                "type": 3
+              },
+              {
+                "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\nDay 1\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\nDay 2\n\n- Start from a simple template, review it.\n- Build the camera screen.\n- Apply image filters.\n- Add stickers on top of the filters (drag, scale, rotate).\n- Build list screen.\n- Make list screen work on web.\n- Support offline usage.",
+                "id": 918,
+                "keynote": null,
+                "length": 480,
+                "room": null,
+                "speakers": [
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/879/avatar.png",
+                    "bio": "Front-end web/mobile developer working on [Expo](https://expo.io) and one of **React Native** top committers.",
+                    "github": "brentvatne",
+                    "id": 879,
+                    "name": "Brent Vatne",
+                    "twitter": "notbrent"
+                  },
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/917/avatar.png",
+                    "bio": "Tech lead on the UI team at **Major League Soccer**. Node, React, React Native, and GraphQL enthusiast. Organizer of GraphQL NYC.",
+                    "github": "kkemple",
+                    "id": 917,
+                    "name": "Kurtis Kemple",
+                    "twitter": "kurtiskemple"
+                  }
+                ],
+                "startDate": "Wed May 16 07:30:00 +0000 2018",
+                "tags": "workshop,react native,navigation,styling,flex box",
+                "talk": null,
+                "title": "React Native Workshop with Brent Vatne and Expo Team - Day 2",
+                "type": 1
+              },
+              {
+                "description": "This one-day workshop will teach you everything you need to know to incorporate GraphQL into your application. First, we'll start by building a GraphQL server, covering best practices for architecting your schema, error handling, and caching. You'll also be exposed to some advanced backend topics such as schema stitching.\n\nNext, we'll connect our GraphQL server to a React application with Apollo Client. We'll break down the modular architecture of the client and teach you how to customize your own network interface through Apollo Link. We'll also dive into server-side rendering and building query components with React Apollo. Throughout the course of the workshop, you'll learn practical tips for using GraphQL in production from the engineers at Formidable Labs.\n\nThis workshop assumes participants have basic knowledge of GraphQL and intermediate knowledge of React.",
+                "id": 968,
+                "keynote": null,
+                "length": 480,
+                "room": null,
+                "speakers": [
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/877/avatar.png",
+                    "bio": "Exploring the world through code, travel, and music ✨ **Open Source Engineer @apollographql**.",
+                    "github": "peggyrayzis",
+                    "id": 877,
+                    "name": "Peggy Rayzis",
+                    "twitter": "peggyrayzis"
+                  },
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/942/avatar.png",
+                    "bio": "Imran is a software engineer at Formidable, JavaScripter, and early adopter of React and GraphQL. He transitioned to a career as a software developer via an immersive bootcamp and continued on to instruct successive bootcamp novices on how to code. His unique perspective means he is able to relate to the pains of novice learners. Since joining Formidable, he has worked on a number of React and React Native apps, as well as contributing to Formidable’s open source software library; Victory.",
+                    "github": "imranolas",
+                    "id": 942,
+                    "name": "Imran Sulemanji",
+                    "twitter": "imranolas"
+                  }
+                ],
+                "startDate": "Wed May 16 07:30:00 +0000 2018",
+                "tags": "GraphQL, APIs, Apollo,",
+                "talk": null,
+                "title": "Fullstack GraphQL with Apollo and Formidable Labs Workshop",
+                "type": 1
+              },
+              {
+                "description": "This workshop requires an intermediary level in React.js.\n\nThis 2-day workshop will skip the basics and get straight to teaching patterns and techniques that apply directly to developing professionally with React. Using real-world examples, we will cover how to take advantage of React and some of its community packages' features to build maintainable, performant applications. \n\n**Click here to see covered subjects**\n\n- Project Architecture\n- Component Design\n- Patterns for Props\n- setState Master Class\n- Using Context Responsibly\n- HoC’s\n- Routing\n- Redux Patterns\n- Forms\n- SSR\n- Perf & Optimization\n- Scalable CSS-in-JS\n- Testing\n- Render Props\n- Static Typing with Flow\n- Universal Components\n- Error Boundaries\n- Portals\n- Utilizing Developer Tools",
+                "id": 972,
+                "keynote": null,
+                "length": 480,
+                "room": null,
+                "speakers": [
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/932/avatar.png",
+                    "bio": "Ken is the Director of Open Source at Formidable, the author of several popular open source libraries, and a frequent conference speaker often focusing on alternative uses of React. He is the creator of libraries such as **Spectacle, urql, react-music, react-game-kit and Webpack Dashboard**. He also maintains a healthy Twitter presence, and enjoys red meat, whiskey and recreational archery.",
+                    "github": "kenwheeler",
+                    "id": 932,
+                    "name": "Ken Wheeler",
+                    "twitter": "ken_wheeler"
+                  },
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/939/avatar.png",
+                    "bio": "Brandon is a core contributor to React and the testing library Enzyme. As the author of react-perimeter, react-animations, react-image-palette and more, he is an active open source author and advocate. When he’s not on Github you might find him camping in the backcountry of Yosemite, or planning his next road trip. Brandon recently joined Facebook as a software engineer.",
+                    "github": "aweary",
+                    "id": 939,
+                    "name": "Brandon Dail",
+                    "twitter": "aweary"
+                  },
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1312/avatar.png",
+                    "bio": "Emma Brillhart is a Software Engineer at Formidable, where she's worked on projects with Starbucks and Viacom, as well as on OSS projects, like Victory. She's also Lead Organizer at SeattleJS, Seattle's largest JavaScript meet up. When she's not writing code or wrangling sponsors, she's cooking and baking, hand lettering, or snuggling with her dog, Leo.",
+                    "github": "ebrillhart",
+                    "id": 1312,
+                    "name": "Emma Brillhart",
+                    "twitter": "emmabrillhart"
+                  }
+                ],
+                "startDate": "Wed May 16 07:30:00 +0000 2018",
+                "tags": "react,routing,redux,patterns, props,setState,hoc,ssr,perf,testing,portals,flow",
+                "talk": null,
+                "title": "React.js Workshop with Ken Wheeler, Brandon Dail and  and Emma Brillhart - Day 2",
+                "type": 1
+              }
+            ],
+            "title": "Wednesday"
+          },
+          {
+            "date": "Thu May 17 06:30:00 +0000 2018",
+            "slots": [
+              {
+                "description": "Make sure to get in early at 323bis Rue de Charenton, 75012 Paris https://goo.gl/maps/t4FKT93C25u",
+                "id": 1460,
+                "keynote": null,
+                "length": 90,
+                "room": null,
+                "speakers": [],
+                "startDate": "Thu May 17 06:30:00 +0000 2018",
+                "tags": null,
+                "talk": null,
+                "title": "Registration",
+                "type": 8
+              },
+              {
+                "description": "Your typical French breakfast with croissants, coffee and more.",
+                "id": 1461,
+                "keynote": null,
+                "length": 75,
+                "room": null,
+                "speakers": [],
+                "startDate": "Thu May 17 06:45:00 +0000 2018",
+                "tags": null,
+                "talk": null,
+                "title": "Breakfast",
+                "type": 3
+              },
+              {
+                "description": "More details coming soon",
+                "id": 1450,
+                "keynote": null,
+                "length": 25,
+                "room": null,
+                "speakers": [
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/932/avatar.png",
+                    "bio": "Ken is the Director of Open Source at Formidable, the author of several popular open source libraries, and a frequent conference speaker often focusing on alternative uses of React. He is the creator of libraries such as **Spectacle, urql, react-music, react-game-kit and Webpack Dashboard**. He also maintains a healthy Twitter presence, and enjoys red meat, whiskey and recreational archery.",
+                    "github": "kenwheeler",
+                    "id": 932,
+                    "name": "Ken Wheeler",
+                    "twitter": "ken_wheeler"
+                  }
+                ],
+                "startDate": "Thu May 17 08:00:00 +0000 2018",
+                "tags": null,
+                "talk": null,
+                "title": "Keynote",
+                "type": 0
+              },
+              {
+                "description": "I'm a sucker for web apps that make me smile.\n\nThis talk explores various ways that we, as front-end developers, can make our products more delightful to use. While it's design's job to give us static mock-ups, it's our job to bring those designs to life.\n\nFor example, at Khan Academy, we fill the user's screen with confetti rain when they get 100% correct on an exercise. I'll talk about how we drew on 2D physics to make the confetti feel real.\n\nMake no mistake; while this talk straddles the line between engineering and UX design, this is very much a React talk. I'll show how to abstract motion and whimsical behaviour into reusable components, and how to do SVG/canvas animation in a React-friendly way. I'll tear down some of my favourite examples from across the web, and show how to implement them in React.",
+                "id": 1038,
+                "keynote": null,
+                "length": 25,
+                "room": null,
+                "speakers": [
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/999/avatar.png",
+                    "bio": "Software engineer at Khan Academy.\nTechnological craftsman. Contributes to many [open source projects](https://github.com/joshwcomeau).\nCat person.",
+                    "github": "joshwcomeau",
+                    "id": 999,
+                    "name": "Joshua Comeau",
+                    "twitter": "joshwcomeau"
+                  }
+                ],
+                "startDate": "Thu May 17 08:30:00 +0000 2018",
+                "tags": "animation, UX, reusable components, case study",
+                "talk": null,
+                "title": "The Case for Whimsy",
+                "type": 0
+              },
+              {
+                "description": "Socialize, have some coffee or other drinks.",
+                "id": 1462,
+                "keynote": null,
+                "length": 30,
+                "room": null,
+                "speakers": [],
+                "startDate": "Thu May 17 09:00:00 +0000 2018",
+                "tags": null,
+                "talk": null,
+                "title": "Coffee Break",
+                "type": 2
+              },
+              {
+                "description": "nc",
+                "id": 1453,
+                "keynote": null,
+                "length": 25,
+                "room": null,
+                "speakers": [
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/899/avatar.png",
+                    "bio": "Caleb is improving JavaScript on the **Flow team at Facebook**. He has worked on Apollo Client, contracted with G2i, and **authored PostGraphQL**.",
+                    "github": "calebmer",
+                    "id": 899,
+                    "name": "Caleb Meredith",
+                    "twitter": "calebmer"
+                  }
+                ],
+                "startDate": "Thu May 17 09:30:00 +0000 2018",
+                "tags": null,
+                "talk": null,
+                "title": "On Flow and JS (final title coming soon)",
+                "type": 0
+              },
+              {
+                "description": "For the past year Krzysztof has been working on react-native-gesture-handler – a library that exposes low level platform native capabilities related to gesture and touch handling to React Native. This library made it possible to recreate lots of interesting components like swipeable rows, drawer or image gallery by only writing Javascript code. In his talk will to highlight the differences between three possible approaches of building interactable components. He will also  show where it makes sense to design pure JS APIs (for customizability ease) and where it is needed for platform native mechanisms to be used. He will show where are the limits of what can be implemented in pure JS.",
+                "id": 1266,
+                "keynote": null,
+                "length": 25,
+                "room": null,
+                "speakers": [
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1235/avatar.png",
+                    "bio": "Ex-facebooker and **co-creator of React Native**. Now as a head of mobile at Software Mansion working on performance focused improvements for animations and gesture handling to React Native and Expo.",
+                    "github": "kmagiera",
+                    "id": 1235,
+                    "name": "Krzysztof Magiera",
+                    "twitter": "kzzzf"
+                  }
+                ],
+                "startDate": "Thu May 17 10:00:00 +0000 2018",
+                "tags": "mobile, react, reactnative, gestures, navigation",
+                "talk": null,
+                "title": "Native vs Javascript",
+                "type": 0
+              },
+              {
+                "description": "Lunch time! Socialize while eating at our delicious buffet.",
+                "id": 1463,
+                "keynote": null,
+                "length": 90,
+                "room": null,
+                "speakers": [],
+                "startDate": "Thu May 17 10:30:00 +0000 2018",
+                "tags": null,
+                "talk": null,
+                "title": "French Buffet",
+                "type": 4
+              },
+              {
+                "description": "nc",
+                "id": 1452,
+                "keynote": null,
+                "length": 25,
+                "room": null,
+                "speakers": [
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/877/avatar.png",
+                    "bio": "Exploring the world through code, travel, and music ✨ **Open Source Engineer @apollographql**.",
+                    "github": "peggyrayzis",
+                    "id": 877,
+                    "name": "Peggy Rayzis",
+                    "twitter": "peggyrayzis"
+                  }
+                ],
+                "startDate": "Thu May 17 12:00:00 +0000 2018",
+                "tags": "graphql,apollo",
+                "talk": null,
+                "title": "On Apollo (final title coming soon)",
+                "type": 0
+              },
+              {
+                "description": "Redux's reified events, serializable actions and state, middleware, side effect free functional reducers and time travel super powers make it well suited for building simple, networked, testable decoupled simulations. This talk shows how to put those pieces together to build networked ReactVR applications and how it might be useful in a wide variety of other domains.",
+                "id": 1041,
+                "keynote": null,
+                "length": 25,
+                "room": null,
+                "speakers": [
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1025/avatar.png",
+                    "bio": "Builder of **Oculus**, **Facebook**, **EVE Online** and **Second Life** software.",
+                    "github": "jimpurbrick",
+                    "id": 1025,
+                    "name": "Jim Purbrick",
+                    "twitter": "JimPurbrick"
+                  }
+                ],
+                "startDate": "Thu May 17 12:30:00 +0000 2018",
+                "tags": "ReactVR react redux replication optimistic consistency networking synchronisation latency",
+                "talk": null,
+                "title": "Replicated Redux",
+                "type": 0
+              },
+              {
+                "description": "Socialize, have some coffee or other drinks.",
+                "id": 1464,
+                "keynote": null,
+                "length": 30,
+                "room": null,
+                "speakers": [],
+                "startDate": "Thu May 17 13:00:00 +0000 2018",
+                "tags": null,
+                "talk": null,
+                "title": "Coffee Break",
+                "type": 2
+              },
+              {
+                "description": "nc",
+                "id": 1024,
+                "keynote": null,
+                "length": 25,
+                "room": null,
+                "speakers": [
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1002/avatar.png",
+                    "bio": "Maja is a frontend **software engineer at Airbnb**. Her focus is on shared UI systems and writing sustainable code, and **she maintains Airbnb's [react-dates library](https://github.com/airbnb/react-dates) and contributes to many other open-source repos as well**.",
+                    "github": "majapw",
+                    "id": 1002,
+                    "name": "Maja Wichrowska",
+                    "twitter": "majapw"
+                  }
+                ],
+                "startDate": "Thu May 17 13:30:00 +0000 2018",
+                "tags": "react, rtl, css-in-js",
+                "talk": null,
+                "title": "nc",
+                "type": 0
+              },
+              {
+                "description": "React fundamentally changed how we build UI in JavaScript, yet the principles behind React are equally powerful outside the JavaScript ecosystem. What if we could build a design tool based on these principles, allowing us to design flexible, composable component systems? What if we could transpile these components into any language on any platform, such as a Swift components on iOS, or Kotlin components on Android?\n\nIn this talk, he ll demonstrate how React could fundamentally alter design and native development, just like it did for JavaScript.",
+                "id": 1459,
+                "keynote": null,
+                "length": 25,
+                "room": null,
+                "speakers": [
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1418/avatar.png",
+                    "bio": "Devin aims to bridge the gap between design and engineering through tooling. He currently works on [Lona](https://github.com/airbnb/Lona) at Airbnb as a design technologist. He's co-author of [Full Stack React Native](https://www.fullstackreact.com/react-native/), and previously created the open source projects [Deco IDE](https://www.decoide.org/), [React Express](http://www.react.express/) and [React Native Express](http://www.reactnativeexpress.com/).",
+                    "github": "dabbott",
+                    "id": 1418,
+                    "name": "Devin Abbott",
+                    "twitter": "dvnabbott"
+                  }
+                ],
+                "startDate": "Thu May 17 14:00:00 +0000 2018",
+                "tags": "react, ui,",
+                "talk": null,
+                "title": "Beyond React",
+                "type": 0
+              },
+              {
+                "description": "Socialize, have some coffee or other drinks.",
+                "id": 1465,
+                "keynote": null,
+                "length": 30,
+                "room": null,
+                "speakers": [],
+                "startDate": "Thu May 17 14:30:00 +0000 2018",
+                "tags": null,
+                "talk": null,
+                "title": "Coffee Break",
+                "type": 2
+              },
+              {
+                "description": "nc",
+                "id": 1458,
+                "keynote": null,
+                "length": 25,
+                "room": null,
+                "speakers": [
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1419/avatar.png",
+                    "bio": "Eric is a self-taught web developer who has been working on **React Native** and apps at Facebook since joining in 2014, now freelancing. He now focuses on the needs of the **React Native open-source community**.",
+                    "github": "ericvicenti",
+                    "id": 1419,
+                    "name": "Eric Vicenti",
+                    "twitter": "ericvicenti"
+                  }
+                ],
+                "startDate": "Thu May 17 15:00:00 +0000 2018",
+                "tags": null,
+                "talk": null,
+                "title": "On React Navigation (final title coming soon)",
+                "type": 0
+              },
+              {
+                "description": "Universal components aren't just an idea anymore. Tools like Webpack, Babel, and React have opened a door to reusability that wasn't previously possible. In this talk I will walk attendees through exactly how to get started with universal components, what to watch out for, and how to optimize for multiple platforms.",
+                "id": 1014,
+                "keynote": null,
+                "length": 25,
+                "room": null,
+                "speakers": [
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/917/avatar.png",
+                    "bio": "Tech lead on the UI team at **Major League Soccer**. Node, React, React Native, and GraphQL enthusiast. Organizer of GraphQL NYC.",
+                    "github": "kkemple",
+                    "id": 917,
+                    "name": "Kurtis Kemple",
+                    "twitter": "kurtiskemple"
+                  },
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/919/avatar.png",
+                    "bio": "Software Engineer at **Major League Soccer** blending the gap between web and mobile development through **universal components**. By day Samantha codes and is a DIY’er. At night she sleeps.",
+                    "github": "samanthabretous",
+                    "id": 919,
+                    "name": "Samantha Bretous",
+                    "twitter": "samanthabretous"
+                  }
+                ],
+                "startDate": "Thu May 17 15:30:00 +0000 2018",
+                "tags": "react, react native, universal components, webpack, babel, npm, storybook",
+                "talk": null,
+                "title": "Up and Running with Universal Components",
+                "type": 0
+              },
+              {
+                "description": "More details coming soon.",
+                "id": 1466,
+                "keynote": null,
+                "length": 45,
+                "room": null,
+                "speakers": [],
+                "startDate": "Thu May 17 16:00:00 +0000 2018",
+                "tags": null,
+                "talk": null,
+                "title": "Lightning talks session",
+                "type": 0
+              },
+              {
+                "description": "Drinks, food, socializing, music.",
+                "id": 1467,
+                "keynote": null,
+                "length": 90,
+                "room": null,
+                "speakers": [],
+                "startDate": "Thu May 17 17:00:00 +0000 2018",
+                "tags": null,
+                "talk": null,
+                "title": "Dinner",
+                "type": 5
+              }
+            ],
+            "title": "Thursday"
+          },
+          {
+            "date": "Fri May 18 06:30:00 +0000 2018",
+            "slots": [
+              {
+                "description": "Make sure to get in early.",
+                "id": 1468,
+                "keynote": null,
+                "length": 90,
+                "room": null,
+                "speakers": [],
+                "startDate": "Fri May 18 06:30:00 +0000 2018",
+                "tags": null,
+                "talk": null,
+                "title": "Check-in",
+                "type": 8
+              },
+              {
+                "description": "Your typical French breakfast with croissants, coffee and more.",
+                "id": 1469,
+                "keynote": null,
+                "length": 75,
+                "room": null,
+                "speakers": [],
+                "startDate": "Fri May 18 06:45:00 +0000 2018",
+                "tags": null,
+                "talk": null,
+                "title": "Breakfast",
+                "type": 3
+              },
+              {
+                "description": "nc",
+                "id": 1451,
+                "keynote": null,
+                "length": 25,
+                "room": null,
+                "speakers": [
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/876/avatar.png",
+                    "bio": "**Engineer at Facebook.\nCo-creator of @fbinfer**, founder of Monoidics, reformed academic.\nInto developer experience, front-end, static analysis, language design.\n**Early @reasonml adopter, co-creator of ReasonReact**.",
+                    "github": "cristianoc",
+                    "id": 876,
+                    "name": "Cristiano Calcagno",
+                    "twitter": "ccrisccris"
+                  }
+                ],
+                "startDate": "Fri May 18 08:00:00 +0000 2018",
+                "tags": "reasonml, react, state",
+                "talk": null,
+                "title": "ReasonReact and local state",
+                "type": 0
+              },
+              {
+                "description": "nc",
+                "id": 1454,
+                "keynote": null,
+                "length": 25,
+                "room": null,
+                "speakers": [
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/900/avatar.png",
+                    "bio": "Sometimes Lego Artist, Design Technologist at Frog Design, and Expo #1 Fanboy. I try to get people excited about **React Native game development by open sourcing overly ambitious Expo apps**!",
+                    "github": "EvanBacon",
+                    "id": 900,
+                    "name": "Evan Bacon",
+                    "twitter": "Baconbrix"
+                  }
+                ],
+                "startDate": "Fri May 18 08:30:00 +0000 2018",
+                "tags": null,
+                "talk": null,
+                "title": "nc",
+                "type": 0
+              },
+              {
+                "description": "Socialize, have some coffee or other drinks.",
+                "id": 1470,
+                "keynote": null,
+                "length": 30,
+                "room": null,
+                "speakers": [],
+                "startDate": "Fri May 18 09:00:00 +0000 2018",
+                "tags": null,
+                "talk": null,
+                "title": "Coffee Break",
+                "type": 2
+              },
+              {
+                "description": "nc",
+                "id": 1457,
+                "keynote": null,
+                "length": 25,
+                "room": null,
+                "speakers": [
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1054/avatar.png",
+                    "bio": "Lin Clark is a **code cartoonist**... she turns software architectures into cartoons. When she's not drawing, **she's tinkering with WebAssembly, Rust, and Servo at Mozilla**. In past lives, she has hacked on **Firefox's developer tools, worked at npm, and has been a core maintainer on a number of open source projects**.",
+                    "github": "linclark",
+                    "id": 1054,
+                    "name": "Lin Clark",
+                    "twitter": "linclark"
+                  }
+                ],
+                "startDate": "Fri May 18 09:30:00 +0000 2018",
+                "tags": null,
+                "talk": null,
+                "title": "nc",
+                "type": 0
+              },
+              {
+                "description": "More details coming soon.",
+                "id": 1477,
+                "keynote": null,
+                "length": 30,
+                "room": null,
+                "speakers": [],
+                "startDate": "Fri May 18 10:00:00 +0000 2018",
+                "tags": null,
+                "talk": null,
+                "title": "Lightning talks session",
+                "type": 0
+              },
+              {
+                "description": "Lunch time! Socialize while eating at our delicious buffet.",
+                "id": 1471,
+                "keynote": null,
+                "length": 90,
+                "room": null,
+                "speakers": [],
+                "startDate": "Fri May 18 10:30:00 +0000 2018",
+                "tags": null,
+                "talk": null,
+                "title": "French Buffet",
+                "type": 4
+              },
+              {
+                "description": "nc",
+                "id": 1455,
+                "keynote": null,
+                "length": 25,
+                "room": null,
+                "speakers": [
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/901/avatar.png",
+                    "bio": "Making things at **Facebook** since 2008: React, **GraphQL co-creator, Immutable.js**, Mobile, JavaScript.",
+                    "github": "leebyron",
+                    "id": 901,
+                    "name": "Lee Byron",
+                    "twitter": "leeb"
+                  }
+                ],
+                "startDate": "Fri May 18 12:00:00 +0000 2018",
+                "tags": null,
+                "talk": null,
+                "title": "nc",
+                "type": 0
+              },
+              {
+                "description": "WebAssembly is still very young but is very promising. It outperforms the current web in many ways. Some says that it will replace JavaScript, but don't worry it will not happen.",
+                "id": 1162,
+                "keynote": null,
+                "length": 25,
+                "room": null,
+                "speakers": [
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1129/avatar.png",
+                    "bio": "Sven is a software engineer living in France and mostly working with Golang and JavaScript. OSS enthusiast and one of the persons behind **Babel as one of the maintainter of the project**, Sven is also **the author of [several cool open source projects](https://github.com/xtuc) such as [WebAssembly interpreter](https://github.com/xtuc/js-webassembly-interpreter)**.",
+                    "github": "xtuc",
+                    "id": 1129,
+                    "name": "Sven Sauleau",
+                    "twitter": "svensauleau"
+                  }
+                ],
+                "startDate": "Fri May 18 12:30:00 +0000 2018",
+                "tags": null,
+                "talk": null,
+                "title": "WebAssembly becoming the biggest platform",
+                "type": 0
+              },
+              {
+                "description": "Socialize, have some coffee or other drinks.",
+                "id": 1472,
+                "keynote": null,
+                "length": 30,
+                "room": null,
+                "speakers": [],
+                "startDate": "Fri May 18 13:00:00 +0000 2018",
+                "tags": null,
+                "talk": null,
+                "title": "Coffee Break",
+                "type": 2
+              },
+              {
+                "description": "The React `prop-types` package is a simple runtime type system that is used for property validation. But runtime type systems can do many more things than just data validation.\nBecause they are very flexible (as you can basically reuse the entire hosting language to express your types) it will be much less likely that you will run into structures that cannot be expressed in the type system. You can generate runtime types on the fly from other sources (json-schema, graphql etc) or compose them together.\n\nIn this talk I will walk you through some runtime type systems, like prop-types, tcomb and mobx-state-tree. But also show you how runtime- and compile-time typesystems like TypeScript or Flow can co-exist and leverage each other.\n\nIf you thought so far Higher Order Components or render callbacks where cool, in this talk I will show you that these patterns can be applied in general to any datastructure you have.",
+                "id": 1071,
+                "keynote": null,
+                "length": 25,
+                "room": null,
+                "speakers": [
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/934/avatar.png",
+                    "bio": "Dedicated yet mediocre (due to a lack of time) contributor to JS fatigue. **Author of MobX, MobX-state-tree**. Tech Lead at Mendix",
+                    "github": "mweststrate",
+                    "id": 934,
+                    "name": "Michel Weststrate",
+                    "twitter": "mweststrate"
+                  }
+                ],
+                "startDate": "Fri May 18 13:30:00 +0000 2018",
+                "tags": "TypeScript, propTypes, mobx-state-tree, tcomb, flow",
+                "talk": null,
+                "title": "The fun of runtime type systems (Or: \"Funtime type systems\")",
+                "type": 0
+              },
+              {
+                "description": "nc",
+                "id": 1456,
+                "keynote": null,
+                "length": 25,
+                "room": null,
+                "speakers": [
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/903/avatar.png",
+                    "bio": "Mad scientist at **Facebook**. Built websites for myntra, yahoo, visa, and others. Plays a blue guitar. **Author of [glamor](https://github.com/threepointone/glamor)**.",
+                    "github": "threepointone",
+                    "id": 903,
+                    "name": "Sunil Pai",
+                    "twitter": "threepointone"
+                  }
+                ],
+                "startDate": "Fri May 18 14:00:00 +0000 2018",
+                "tags": null,
+                "talk": null,
+                "title": "nc",
+                "type": 0
+              },
+              {
+                "description": "Socialize, have some coffee or other drinks.",
+                "id": 1473,
+                "keynote": null,
+                "length": 30,
+                "room": null,
+                "speakers": [],
+                "startDate": "Fri May 18 14:30:00 +0000 2018",
+                "tags": null,
+                "talk": null,
+                "title": "Coffee Break",
+                "type": 2
+              },
+              {
+                "description": "Two months ago, I was working on a React project with a lot of SVG icons. I started to convert them into React components. I quickly figured out that it was a bot job and I started to look for a solution to do it. I found tons of projects but none of them matched my needs, so I decided to create my library.\n\nI called it SVGR. The goal was simple, transforming a SVG into a React component. I coded it and I solved my problem, I saved a lot of time! I wanted to make it open source so I took the time to make a \"beautiful\" logo with a lion emoji and a good README. I also integrated Prettier in the project, I wanted to have a nice React code output out of the box. I tweeted it and got 40 stars and one contribution, I was happy.\n\nTwo weeks ago, Christopher Chedeau tweeted about my library, two hours later React Europe also tweeted it, later that day I got a star from Dan Abramov. Next thing you know I was trending on GitHub, getting 1K stars in one day!\n\nWhat is the future for SVGR?",
+                "id": 1029,
+                "keynote": null,
+                "length": 25,
+                "room": null,
+                "speakers": [
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1011/avatar.png",
+                    "bio": "I am a JavaScript and React lover, I am passionate about the web and I like coding projects. Recently I co-founded Smooth Code in Paris where I give React, JavaScript and GraphQL trainings. I am author of several successful libraries like Shipit or [SVGR](https://svgr.now.sh/). I am also maintaining **React Hot Loader**.",
+                    "github": "neoziro",
+                    "id": 1011,
+                    "name": "Greg Bergé",
+                    "twitter": "neoziro"
+                  }
+                ],
+                "startDate": "Fri May 18 15:00:00 +0000 2018",
+                "tags": "react, cli, svg, svgr, webpack",
+                "talk": null,
+                "title": "SVGR or how a simple problem became a 2K stars library",
+                "type": 0
+              },
+              {
+                "description": "This is your opportunity to ask questions to the team and speakers.",
+                "id": 1474,
+                "keynote": null,
+                "length": 60,
+                "room": null,
+                "speakers": [],
+                "startDate": "Fri May 18 15:30:00 +0000 2018",
+                "tags": null,
+                "talk": null,
+                "title": "Q&A Panel",
+                "type": 6
+              },
+              {
+                "description": "Have a last drink before saying good bye.",
+                "id": 1475,
+                "keynote": null,
+                "length": 120,
+                "room": null,
+                "speakers": [],
+                "startDate": "Fri May 18 16:30:00 +0000 2018",
+                "tags": null,
+                "talk": null,
+                "title": "Drink up",
+                "type": 2
+              }
+            ],
+            "title": "Friday"
+          },
+          {
+            "date": "Sat May 19 07:00:00 +0000 2018",
+            "slots": [
+              {
+                "description": "Our official ReactEurope Hackathon at Mozilla office in Paris from 9am to 9pm on May 19th. IMPORTANT: The address is \"16 Boulevard Montmartre, 75009 Paris, France (https://goo.gl/NLbvX1)\". Make sure to bring your own laptop and French AC adaptor. Registration to be announced soon.\n\nThe schedule of the hackathon is:\n\n- checkin and breakfast start at 9:00am\n- lunch at 12pm\n- people start presenting their projects at 7pm",
+                "id": 1476,
+                "keynote": null,
+                "length": 720,
+                "room": null,
+                "speakers": [],
+                "startDate": "Sat May 19 07:00:00 +0000 2018",
+                "tags": null,
+                "talk": null,
+                "title": "Hackathon at Mozilla from 9am to 9pm",
+                "type": 9
+              }
+            ],
+            "title": "Saturday"
+          }
+        ],
+        "id": 158,
+        "name": "ReactEurope 2018",
+        "offset": 7200,
+        "speakers": [
+          {
+            "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/876/avatar.png",
+            "bio": "**Engineer at Facebook.\nCo-creator of @fbinfer**, founder of Monoidics, reformed academic.\nInto developer experience, front-end, static analysis, language design.\n**Early @reasonml adopter, co-creator of ReasonReact**.",
+            "github": "cristianoc",
+            "id": 876,
+            "name": "Cristiano Calcagno",
+            "talks": [
+              {
+                "description": "nc",
+                "id": 1451,
+                "length": 25,
+                "startDate": "Fri May 18 08:00:00 +0000 2018",
+                "title": "ReasonReact and local state",
+                "type": 0
+              }
+            ],
+            "twitter": "ccrisccris"
+          },
+          {
+            "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/877/avatar.png",
+            "bio": "Exploring the world through code, travel, and music ✨ **Open Source Engineer @apollographql**.",
+            "github": "peggyrayzis",
+            "id": 877,
+            "name": "Peggy Rayzis",
+            "talks": [
+              {
+                "description": "This one-day workshop will teach you everything you need to know to incorporate GraphQL into your application. First, we'll start by building a GraphQL server, covering best practices for architecting your schema, error handling, and caching. You'll also be exposed to some advanced backend topics such as schema stitching.\n\nNext, we'll connect our GraphQL server to a React application with Apollo Client. We'll break down the modular architecture of the client and teach you how to customize your own network interface through Apollo Link. We'll also dive into server-side rendering and building query components with React Apollo. Throughout the course of the workshop, you'll learn practical tips for using GraphQL in production from the engineers at Formidable Labs.\n\nThis workshop assumes participants have basic knowledge of GraphQL and intermediate knowledge of React.",
+                "id": 968,
+                "length": 480,
+                "startDate": "Wed May 16 07:30:00 +0000 2018",
+                "title": "Fullstack GraphQL with Apollo and Formidable Labs Workshop",
+                "type": 1
+              },
+              {
+                "description": "nc",
+                "id": 1452,
+                "length": 25,
+                "startDate": "Thu May 17 12:00:00 +0000 2018",
+                "title": "On Apollo (final title coming soon)",
+                "type": 0
+              }
+            ],
+            "twitter": "peggyrayzis"
+          },
+          {
+            "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/879/avatar.png",
+            "bio": "Front-end web/mobile developer working on [Expo](https://expo.io) and one of **React Native** top committers.",
+            "github": "brentvatne",
+            "id": 879,
+            "name": "Brent Vatne",
+            "talks": [
+              {
+                "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\nDay 1\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\nDay 2\n\n- Start from a simple template, review it.\n- Build the camera screen.\n- Apply image filters.\n- Add stickers on top of the filters (drag, scale, rotate).\n- Build list screen.\n- Make list screen work on web.\n- Support offline usage.",
+                "id": 917,
+                "length": 480,
+                "startDate": "Tue May 15 07:30:00 +0000 2018",
+                "title": "React Native Workshop with Brent Vatne and Expo Team - Day 1",
+                "type": 1
+              },
+              {
+                "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\nDay 1\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\nDay 2\n\n- Start from a simple template, review it.\n- Build the camera screen.\n- Apply image filters.\n- Add stickers on top of the filters (drag, scale, rotate).\n- Build list screen.\n- Make list screen work on web.\n- Support offline usage.",
+                "id": 918,
+                "length": 480,
+                "startDate": "Wed May 16 07:30:00 +0000 2018",
+                "title": "React Native Workshop with Brent Vatne and Expo Team - Day 2",
+                "type": 1
+              }
+            ],
+            "twitter": "notbrent"
+          },
+          {
+            "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/899/avatar.png",
+            "bio": "Caleb is improving JavaScript on the **Flow team at Facebook**. He has worked on Apollo Client, contracted with G2i, and **authored PostGraphQL**.",
+            "github": "calebmer",
+            "id": 899,
+            "name": "Caleb Meredith",
+            "talks": [
+              {
+                "description": "nc",
+                "id": 1453,
+                "length": 25,
+                "startDate": "Thu May 17 09:30:00 +0000 2018",
+                "title": "On Flow and JS (final title coming soon)",
+                "type": 0
+              }
+            ],
+            "twitter": "calebmer"
+          },
+          {
+            "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/900/avatar.png",
+            "bio": "Sometimes Lego Artist, Design Technologist at Frog Design, and Expo #1 Fanboy. I try to get people excited about **React Native game development by open sourcing overly ambitious Expo apps**!",
+            "github": "EvanBacon",
+            "id": 900,
+            "name": "Evan Bacon",
+            "talks": [
+              {
+                "description": "nc",
+                "id": 1454,
+                "length": 25,
+                "startDate": "Fri May 18 08:30:00 +0000 2018",
+                "title": "nc",
+                "type": 0
+              }
+            ],
+            "twitter": "Baconbrix"
+          },
+          {
+            "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/901/avatar.png",
+            "bio": "Making things at **Facebook** since 2008: React, **GraphQL co-creator, Immutable.js**, Mobile, JavaScript.",
+            "github": "leebyron",
+            "id": 901,
+            "name": "Lee Byron",
+            "talks": [
+              {
+                "description": "nc",
+                "id": 1455,
+                "length": 25,
+                "startDate": "Fri May 18 12:00:00 +0000 2018",
+                "title": "nc",
+                "type": 0
+              }
+            ],
+            "twitter": "leeb"
+          },
+          {
+            "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/903/avatar.png",
+            "bio": "Mad scientist at **Facebook**. Built websites for myntra, yahoo, visa, and others. Plays a blue guitar. **Author of [glamor](https://github.com/threepointone/glamor)**.",
+            "github": "threepointone",
+            "id": 903,
+            "name": "Sunil Pai",
+            "talks": [
+              {
+                "description": "nc",
+                "id": 1456,
+                "length": 25,
+                "startDate": "Fri May 18 14:00:00 +0000 2018",
+                "title": "nc",
+                "type": 0
+              }
+            ],
+            "twitter": "threepointone"
+          },
+          {
+            "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/917/avatar.png",
+            "bio": "Tech lead on the UI team at **Major League Soccer**. Node, React, React Native, and GraphQL enthusiast. Organizer of GraphQL NYC.",
+            "github": "kkemple",
+            "id": 917,
+            "name": "Kurtis Kemple",
+            "talks": [
+              {
+                "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\nDay 1\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\nDay 2\n\n- Start from a simple template, review it.\n- Build the camera screen.\n- Apply image filters.\n- Add stickers on top of the filters (drag, scale, rotate).\n- Build list screen.\n- Make list screen work on web.\n- Support offline usage.",
+                "id": 917,
+                "length": 480,
+                "startDate": "Tue May 15 07:30:00 +0000 2018",
+                "title": "React Native Workshop with Brent Vatne and Expo Team - Day 1",
+                "type": 1
+              },
+              {
+                "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\nDay 1\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\nDay 2\n\n- Start from a simple template, review it.\n- Build the camera screen.\n- Apply image filters.\n- Add stickers on top of the filters (drag, scale, rotate).\n- Build list screen.\n- Make list screen work on web.\n- Support offline usage.",
+                "id": 918,
+                "length": 480,
+                "startDate": "Wed May 16 07:30:00 +0000 2018",
+                "title": "React Native Workshop with Brent Vatne and Expo Team - Day 2",
+                "type": 1
+              },
+              {
+                "description": "Universal components aren't just an idea anymore. Tools like Webpack, Babel, and React have opened a door to reusability that wasn't previously possible. In this talk I will walk attendees through exactly how to get started with universal components, what to watch out for, and how to optimize for multiple platforms.",
+                "id": 1014,
+                "length": 25,
+                "startDate": "Thu May 17 15:30:00 +0000 2018",
+                "title": "Up and Running with Universal Components",
+                "type": 0
+              }
+            ],
+            "twitter": "kurtiskemple"
+          },
+          {
+            "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/919/avatar.png",
+            "bio": "Software Engineer at **Major League Soccer** blending the gap between web and mobile development through **universal components**. By day Samantha codes and is a DIY’er. At night she sleeps.",
+            "github": "samanthabretous",
+            "id": 919,
+            "name": "Samantha Bretous",
+            "talks": [
+              {
+                "description": "Universal components aren't just an idea anymore. Tools like Webpack, Babel, and React have opened a door to reusability that wasn't previously possible. In this talk I will walk attendees through exactly how to get started with universal components, what to watch out for, and how to optimize for multiple platforms.",
+                "id": 1014,
+                "length": 25,
+                "startDate": "Thu May 17 15:30:00 +0000 2018",
+                "title": "Up and Running with Universal Components",
+                "type": 0
+              }
+            ],
+            "twitter": "samanthabretous"
+          },
+          {
+            "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/932/avatar.png",
+            "bio": "Ken is the Director of Open Source at Formidable, the author of several popular open source libraries, and a frequent conference speaker often focusing on alternative uses of React. He is the creator of libraries such as **Spectacle, urql, react-music, react-game-kit and Webpack Dashboard**. He also maintains a healthy Twitter presence, and enjoys red meat, whiskey and recreational archery.",
+            "github": "kenwheeler",
+            "id": 932,
+            "name": "Ken Wheeler",
+            "talks": [
+              {
+                "description": "This workshop requires an intermediary level in React.js.\n\nThis 2-day workshop will skip the basics and get straight to teaching patterns and techniques that apply directly to developing professionally with React. Using real-world examples, we will cover how to take advantage of React and some of its community packages' features to build maintainable, performant applications. \n\n**Click here to see covered subjects**\n\n- Project Architecture\n- Component Design\n- Patterns for Props\n- setState Master Class\n- Using Context Responsibly\n- HoC’s\n- Routing\n- Redux Patterns\n- Forms\n- SSR\n- Perf & Optimization\n- Scalable CSS-in-JS\n- Testing\n- Render Props\n- Static Typing with Flow\n- Universal Components\n- Error Boundaries\n- Portals\n- Utilizing Developer Tools",
+                "id": 971,
+                "length": 480,
+                "startDate": "Tue May 15 07:30:00 +0000 2018",
+                "title": "React.js Workshop with Ken Wheeler, Brandon Dail and Emma Brillhart - Day 1",
+                "type": 1
+              },
+              {
+                "description": "This workshop requires an intermediary level in React.js.\n\nThis 2-day workshop will skip the basics and get straight to teaching patterns and techniques that apply directly to developing professionally with React. Using real-world examples, we will cover how to take advantage of React and some of its community packages' features to build maintainable, performant applications. \n\n**Click here to see covered subjects**\n\n- Project Architecture\n- Component Design\n- Patterns for Props\n- setState Master Class\n- Using Context Responsibly\n- HoC’s\n- Routing\n- Redux Patterns\n- Forms\n- SSR\n- Perf & Optimization\n- Scalable CSS-in-JS\n- Testing\n- Render Props\n- Static Typing with Flow\n- Universal Components\n- Error Boundaries\n- Portals\n- Utilizing Developer Tools",
+                "id": 972,
+                "length": 480,
+                "startDate": "Wed May 16 07:30:00 +0000 2018",
+                "title": "React.js Workshop with Ken Wheeler, Brandon Dail and  and Emma Brillhart - Day 2",
+                "type": 1
+              },
+              {
+                "description": "More details coming soon",
+                "id": 1450,
+                "length": 25,
+                "startDate": "Thu May 17 08:00:00 +0000 2018",
+                "title": "Keynote",
+                "type": 0
+              }
+            ],
+            "twitter": "ken_wheeler"
+          },
+          {
+            "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/934/avatar.png",
+            "bio": "Dedicated yet mediocre (due to a lack of time) contributor to JS fatigue. **Author of MobX, MobX-state-tree**. Tech Lead at Mendix",
+            "github": "mweststrate",
+            "id": 934,
+            "name": "Michel Weststrate",
+            "talks": [
+              {
+                "description": "In this workshop we will dive into the basics and more advanced usage patterns of mobx-state-tree. It is a tool that helps you to model complex problem domains and combines the best features of the modern state technologies out there. \n\n**Click here to see covered subjects**\n\n0. The state tree philosophy. \n1. Modelling your data structures and state\n2. Views & actions\n3. Asynchronous processes\n4. Composing trees and types\n5. Connecting to GraphQL\n6. Writing your own middleware",
+                "id": 961,
+                "length": 480,
+                "startDate": "Tue May 15 07:30:00 +0000 2018",
+                "title": "Modelling your state with Mobx-state-tree Workshop",
+                "type": 1
+              },
+              {
+                "description": "The React `prop-types` package is a simple runtime type system that is used for property validation. But runtime type systems can do many more things than just data validation.\nBecause they are very flexible (as you can basically reuse the entire hosting language to express your types) it will be much less likely that you will run into structures that cannot be expressed in the type system. You can generate runtime types on the fly from other sources (json-schema, graphql etc) or compose them together.\n\nIn this talk I will walk you through some runtime type systems, like prop-types, tcomb and mobx-state-tree. But also show you how runtime- and compile-time typesystems like TypeScript or Flow can co-exist and leverage each other.\n\nIf you thought so far Higher Order Components or render callbacks where cool, in this talk I will show you that these patterns can be applied in general to any datastructure you have.",
+                "id": 1071,
+                "length": 25,
+                "startDate": "Fri May 18 13:30:00 +0000 2018",
+                "title": "The fun of runtime type systems (Or: \"Funtime type systems\")",
+                "type": 0
+              }
+            ],
+            "twitter": "mweststrate"
+          },
+          {
+            "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/992/avatar.png",
+            "bio": "Frontend developer with over 6 years of experience around various frameworks and libs knowledge in my basket (such as React+Redux, Polymer, Ember, Backbone). Always eager to go deeper ;D",
+            "github": "kajas90",
+            "id": 992,
+            "name": "Kasia Jastrzebska",
+            "talks": [],
+            "twitter": "kejt_bw"
+          },
+          {
+            "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/999/avatar.png",
+            "bio": "Software engineer at Khan Academy.\nTechnological craftsman. Contributes to many [open source projects](https://github.com/joshwcomeau).\nCat person.",
+            "github": "joshwcomeau",
+            "id": 999,
+            "name": "Joshua Comeau",
+            "talks": [
+              {
+                "description": "I'm a sucker for web apps that make me smile.\n\nThis talk explores various ways that we, as front-end developers, can make our products more delightful to use. While it's design's job to give us static mock-ups, it's our job to bring those designs to life.\n\nFor example, at Khan Academy, we fill the user's screen with confetti rain when they get 100% correct on an exercise. I'll talk about how we drew on 2D physics to make the confetti feel real.\n\nMake no mistake; while this talk straddles the line between engineering and UX design, this is very much a React talk. I'll show how to abstract motion and whimsical behaviour into reusable components, and how to do SVG/canvas animation in a React-friendly way. I'll tear down some of my favourite examples from across the web, and show how to implement them in React.",
+                "id": 1038,
+                "length": 25,
+                "startDate": "Thu May 17 08:30:00 +0000 2018",
+                "title": "The Case for Whimsy",
+                "type": 0
+              }
+            ],
+            "twitter": "joshwcomeau"
+          },
+          {
+            "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1002/avatar.png",
+            "bio": "Maja is a frontend **software engineer at Airbnb**. Her focus is on shared UI systems and writing sustainable code, and **she maintains Airbnb's [react-dates library](https://github.com/airbnb/react-dates) and contributes to many other open-source repos as well**.",
+            "github": "majapw",
+            "id": 1002,
+            "name": "Maja Wichrowska",
+            "talks": [
+              {
+                "description": "nc",
+                "id": 1024,
+                "length": 25,
+                "startDate": "Thu May 17 13:30:00 +0000 2018",
+                "title": "nc",
+                "type": 0
+              }
+            ],
+            "twitter": "majapw"
+          },
+          {
+            "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1011/avatar.png",
+            "bio": "I am a JavaScript and React lover, I am passionate about the web and I like coding projects. Recently I co-founded Smooth Code in Paris where I give React, JavaScript and GraphQL trainings. I am author of several successful libraries like Shipit or [SVGR](https://svgr.now.sh/). I am also maintaining **React Hot Loader**.",
+            "github": "neoziro",
+            "id": 1011,
+            "name": "Greg Bergé",
+            "talks": [
+              {
+                "description": "Two months ago, I was working on a React project with a lot of SVG icons. I started to convert them into React components. I quickly figured out that it was a bot job and I started to look for a solution to do it. I found tons of projects but none of them matched my needs, so I decided to create my library.\n\nI called it SVGR. The goal was simple, transforming a SVG into a React component. I coded it and I solved my problem, I saved a lot of time! I wanted to make it open source so I took the time to make a \"beautiful\" logo with a lion emoji and a good README. I also integrated Prettier in the project, I wanted to have a nice React code output out of the box. I tweeted it and got 40 stars and one contribution, I was happy.\n\nTwo weeks ago, Christopher Chedeau tweeted about my library, two hours later React Europe also tweeted it, later that day I got a star from Dan Abramov. Next thing you know I was trending on GitHub, getting 1K stars in one day!\n\nWhat is the future for SVGR?",
+                "id": 1029,
+                "length": 25,
+                "startDate": "Fri May 18 15:00:00 +0000 2018",
+                "title": "SVGR or how a simple problem became a 2K stars library",
+                "type": 0
+              }
+            ],
+            "twitter": "neoziro"
+          },
+          {
+            "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1025/avatar.png",
+            "bio": "Builder of **Oculus**, **Facebook**, **EVE Online** and **Second Life** software.",
+            "github": "jimpurbrick",
+            "id": 1025,
+            "name": "Jim Purbrick",
+            "talks": [
+              {
+                "description": "Redux's reified events, serializable actions and state, middleware, side effect free functional reducers and time travel super powers make it well suited for building simple, networked, testable decoupled simulations. This talk shows how to put those pieces together to build networked ReactVR applications and how it might be useful in a wide variety of other domains.",
+                "id": 1041,
+                "length": 25,
+                "startDate": "Thu May 17 12:30:00 +0000 2018",
+                "title": "Replicated Redux",
+                "type": 0
+              }
+            ],
+            "twitter": "JimPurbrick"
+          },
+          {
+            "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1054/avatar.png",
+            "bio": "Lin Clark is a **code cartoonist**... she turns software architectures into cartoons. When she's not drawing, **she's tinkering with WebAssembly, Rust, and Servo at Mozilla**. In past lives, she has hacked on **Firefox's developer tools, worked at npm, and has been a core maintainer on a number of open source projects**.",
+            "github": "linclark",
+            "id": 1054,
+            "name": "Lin Clark",
+            "talks": [
+              {
+                "description": "nc",
+                "id": 1457,
+                "length": 25,
+                "startDate": "Fri May 18 09:30:00 +0000 2018",
+                "title": "nc",
+                "type": 0
+              }
+            ],
+            "twitter": "linclark"
+          },
+          {
+            "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1129/avatar.png",
+            "bio": "Sven is a software engineer living in France and mostly working with Golang and JavaScript. OSS enthusiast and one of the persons behind **Babel as one of the maintainter of the project**, Sven is also **the author of [several cool open source projects](https://github.com/xtuc) such as [WebAssembly interpreter](https://github.com/xtuc/js-webassembly-interpreter)**.",
+            "github": "xtuc",
+            "id": 1129,
+            "name": "Sven Sauleau",
+            "talks": [
+              {
+                "description": "WebAssembly is still very young but is very promising. It outperforms the current web in many ways. Some says that it will replace JavaScript, but don't worry it will not happen.",
+                "id": 1162,
+                "length": 25,
+                "startDate": "Fri May 18 12:30:00 +0000 2018",
+                "title": "WebAssembly becoming the biggest platform",
+                "type": 0
+              }
+            ],
+            "twitter": "svensauleau"
+          },
+          {
+            "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1235/avatar.png",
+            "bio": "Ex-facebooker and **co-creator of React Native**. Now as a head of mobile at Software Mansion working on performance focused improvements for animations and gesture handling to React Native and Expo.",
+            "github": "kmagiera",
+            "id": 1235,
+            "name": "Krzysztof Magiera",
+            "talks": [
+              {
+                "description": "For the past year Krzysztof has been working on react-native-gesture-handler – a library that exposes low level platform native capabilities related to gesture and touch handling to React Native. This library made it possible to recreate lots of interesting components like swipeable rows, drawer or image gallery by only writing Javascript code. In his talk will to highlight the differences between three possible approaches of building interactable components. He will also  show where it makes sense to design pure JS APIs (for customizability ease) and where it is needed for platform native mechanisms to be used. He will show where are the limits of what can be implemented in pure JS.",
+                "id": 1266,
+                "length": 25,
+                "startDate": "Thu May 17 10:00:00 +0000 2018",
+                "title": "Native vs Javascript",
+                "type": 0
+              }
+            ],
+            "twitter": "kzzzf"
+          },
+          {
+            "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1289/avatar.png",
+            "bio": "Jared **interned on the React Native team, rewrote the React devtools**, and has given several talks on React & related technologies. He works at **Khan Academy on the mobile team**, using React Native alongside native Java and Swift. He loves type systems and learning new languages, and is** deeply invested in improving the experience of programming for everyone**.",
+            "github": "jaredly",
+            "id": 1289,
+            "name": "Jared Forsyth",
+            "talks": [],
+            "twitter": "jaredforsyth"
+          },
+          {
+            "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1418/avatar.png",
+            "bio": "Devin aims to bridge the gap between design and engineering through tooling. He currently works on [Lona](https://github.com/airbnb/Lona) at Airbnb as a design technologist. He's co-author of [Full Stack React Native](https://www.fullstackreact.com/react-native/), and previously created the open source projects [Deco IDE](https://www.decoide.org/), [React Express](http://www.react.express/) and [React Native Express](http://www.reactnativeexpress.com/).",
+            "github": "dabbott",
+            "id": 1418,
+            "name": "Devin Abbott",
+            "talks": [
+              {
+                "description": "React fundamentally changed how we build UI in JavaScript, yet the principles behind React are equally powerful outside the JavaScript ecosystem. What if we could build a design tool based on these principles, allowing us to design flexible, composable component systems? What if we could transpile these components into any language on any platform, such as a Swift components on iOS, or Kotlin components on Android?\n\nIn this talk, he ll demonstrate how React could fundamentally alter design and native development, just like it did for JavaScript.",
+                "id": 1459,
+                "length": 25,
+                "startDate": "Thu May 17 14:00:00 +0000 2018",
+                "title": "Beyond React",
+                "type": 0
+              }
+            ],
+            "twitter": "dvnabbott"
+          },
+          {
+            "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1419/avatar.png",
+            "bio": "Eric is a self-taught web developer who has been working on **React Native** and apps at Facebook since joining in 2014, now freelancing. He now focuses on the needs of the **React Native open-source community**.",
+            "github": "ericvicenti",
+            "id": 1419,
+            "name": "Eric Vicenti",
+            "talks": [
+              {
+                "description": "nc",
+                "id": 1458,
+                "length": 25,
+                "startDate": "Thu May 17 15:00:00 +0000 2018",
+                "title": "On React Navigation (final title coming soon)",
+                "type": 0
+              }
+            ],
+            "twitter": "ericvicenti"
+          }
+        ],
+        "sponsors": {
+          "diamond": [
+            {
+              "description": "comet connects the best tech & data freelancer to the most ambitious projects. We gather a vibrant tribe of freelancers composed of entrepreneurs, hackers, data scientists and full-stack developers. They love to share knowledge and meet at our local events. Join the tribe!",
+              "id": 27439,
+              "jobUrl": "https://www.hellocomet.co/en/freelancers",
+              "logoUrl": "https://api.eventlama.com/events/158/purchases/27439/logo.png",
+              "name": "comet",
+              "url": "https://www.hellocomet.co/"
+            },
+            {
+              "description": "Rangle is North America’s leading digital transformation consultancy that specializes in JavaScript development services and solutions. Coupled with strategy, Lean UX design, consulting, continuous delivery and Agile best practices, Rangle’s team of experts enables clients to create modern mobile and web applications to lead within their industries. In just over four years, Rangle has enabled over 50 companies in diverse industries to achieve success, including Uniqlo, Aldo, BMO, TD and Pacific Life to name a few.\nFrom innovative startups to leading enterprises, Rangle's unparalleled expertise with the Angular and React frameworks have set it apart in a crowded market. Clients consistently turn to Rangle to help expand and execute their vision.",
+              "id": 28605,
+              "jobUrl": "http://rangle.io/careers/",
+              "logoUrl": "https://api.eventlama.com/events/158/purchases/28605/logo.png",
+              "name": "Rangle",
+              "url": "http://rangle.io/"
+            }
+          ],
+          "gold": [
+            {
+              "description": "At leboncoin we modernized our web stack a year ago. We’ve chosen react/redux and are very happy with it. We’re commited to a high quality migration with 100% unit test coverage. Excited by this adventure? Join the crew!",
+              "id": 28107,
+              "jobUrl": "https://recrutement.leboncoin.fr/departments/it-data?utm_source=reacteurope&utm_medium=banner&utm_campaign=reacteurope-sponsor-banner",
+              "logoUrl": "https://api.eventlama.com/events/158/purchases/28107/logo.png",
+              "name": "leboncoin",
+              "url": "https://www.leboncoin.fr/?utm_source=reacteurope&utm_medium=banner&utm_campaign=reacteurope-sponsor-banner"
+            },
+            {
+              "description": "Fabernovel Technologies // Zengularity creates and develops digital applications & platforms. We’ve learnt a lot from our work with industry giants such as LinkedIn, Twitter, Gilt and we’ve built successful products as Play! or prismic.io. We love technology and React makes part of our favourite ones.",
+              "id": 28274,
+              "jobUrl": "https://technologies.fabernovel.com/en/nous-rejoindre?utm_source=reacteurope&utm_medium=banner&utm_campaign=reacteurope-sponsor-banner",
+              "logoUrl": "https://api.eventlama.com/events/158/purchases/28274/logo.png",
+              "name": "Fabernobel",
+              "url": "https://technologies.fabernovel.com/?utm_source=reacteurope&utm_medium=banner&utm_campaign=reacteurope-sponsor-bannerhttps://technologies.fabernovel.c"
+            },
+            {
+              "description": "Vente Privée",
+              "id": 35373,
+              "jobUrl": "http://group.vente-privee.com/JobsOffers.aspx",
+              "logoUrl": "https://api.eventlama.com/events/158/purchases/35373/logo.png",
+              "name": "Vente Privée",
+              "url": "https://secure.uk.vente-privee.com/authentication/portal/EN"
+            },
+            {
+              "description": "Formidable is a Seattle & London-based JavaScript consultancy and open source software group, specializing in React, React Native, and GraphQL. Our team works with companies ranging in size from startups to Fortune 100s to build quality software and level up engineering teams.",
+              "id": 33650,
+              "jobUrl": null,
+              "logoUrl": "https://api.eventlama.com/events/158/purchases/33650/logo.png",
+              "name": "Formidable",
+              "url": "https://formidable.com/?utm_source=reacteurope&utm_medium=banner&utm_campaign=reacteurope-sponsor-banner"
+            },
+            {
+              "description": "BuilderX is a screen design tool that codes React Native for you effortlessly and lets you design for different platforms / devices / custom conditions, all in a single screen. This bi-directional design tool lets you Design and Code at the same time.",
+              "id": 35901,
+              "jobUrl": "https://geekyants.com/hire",
+              "logoUrl": "https://api.eventlama.com/events/158/purchases/35901/logo.png",
+              "name": "BuilderX",
+              "url": "https://builderx.io/?utm_source=reacteurope&utm_medium=banner&utm_campaign=reacteurope-sponsor-banner"
+            }
+          ],
+          "partner": [],
+          "platinum": [
+            {
+              "description": "comparethemarket.com was launched in 2006 and is one of the UK’s most loved price comparison websites. Providing customers with an easy way to make the right choice on a wide range of products and actively works with its brand partners to provide great services to customers.",
+              "id": 36224,
+              "jobUrl": "https://www.bglgroup.co.uk/careers/search-and-apply?utm_source=reacteurope&utm_medium=banner&utm_campaign=reacteurope-sponsor-banner",
+              "logoUrl": "https://api.eventlama.com/events/158/purchases/36224/logo.png",
+              "name": "comparethemarket.com",
+              "url": "https://www.comparethemarket.com/?utm_source=reacteurope&utm_medium=banner&utm_campaign=reacteurope-sponsor-banner"
+            },
+            {
+              "description": "We want to take the pain out of developing and testing for the web on Windows ― whether you're building your sites on a Windows PC, trying to test in Edge on a Mac, or just curious about our roadmap. Come find us on the conference floor, or online at dev.microsoftedge.com - we're here to help!",
+              "id": 36565,
+              "jobUrl": "https://developer.microsoft.com/en-us/microsoft-edge/community/careers/",
+              "logoUrl": "https://api.eventlama.com/events/158/purchases/36565/logo.png",
+              "name": "Microsoft Edge",
+              "url": "https://developer.microsoft.com/en-us/microsoft-edge/"
+            }
+          ]
+        },
+        "startDate": "Thu May 17 06:30:00 +0000 2018",
+        "timezoneId": "Europe/Paris",
+        "twitterHandle": "ReactEurope",
+        "venueCity": "Paris",
+        "venueCountry": "France",
+        "venueName": "Espace Charenton",
+        "websiteUrl": "https://www.react-europe.org/"
       }
     ]
   }
-]
