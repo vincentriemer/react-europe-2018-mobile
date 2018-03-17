@@ -21,11 +21,11 @@ import AnimatedScrollView from "../components/AnimatedScrollView";
 import NavigationBar from "../components/NavigationBar";
 import { Colors, FontSizes, Icons, Layout } from "../constants";
 import { RegularText, BoldText, SemiBoldText } from "../components/StyledText";
-import { getSpeakerTalk, convertUtcDateToEventTimezone } from "../utils";
+import { getSpeakerTalk, convertUtcDateToEventTimezoneHour } from "../utils";
 import { findTalkData, findSpeakerData } from "../data";
 import SaveButton from "../components/SaveButton";
 import { Ionicons } from "@expo/vector-icons";
-import { MarkdownView } from "react-native-markdown-view";
+import Markdown from "react-native-simple-markdown";
 export const Schedule = require("../data/schedule.json");
 const Event = Schedule.events[0];
 
@@ -177,18 +177,7 @@ export default class Details extends React.Component {
             {talkScreen ? null : (
               <View>
                 <SemiBoldText style={styles.sectionHeader}>Bio</SemiBoldText>
-                <ReadMore
-                  numberOfLines={3}
-                  renderTruncatedFooter={this._renderTruncatedFooter}
-                  renderRevealedFooter={this._renderRevealedFooter}
-                  onReady={this._handleTextReady}
-                >
-                  <RegularText style={styles.bodyText}>
-                    <MarkdownView style={styles.markdownBio}>
-                      {speaker.bio}
-                    </MarkdownView>
-                  </RegularText>
-                </ReadMore>
+                <Markdown styles={markdownStyles}>{speaker.bio}</Markdown>
               </View>
             )}
             {talk ? (
@@ -199,18 +188,7 @@ export default class Details extends React.Component {
               </SemiBoldText>
             ) : null}
             {talk ? (
-              <ReadMore
-                numberOfLines={5}
-                renderTruncatedFooter={this._renderTruncatedFooter}
-                renderRevealedFooter={this._renderRevealedFooter}
-                onReady={this._handleTextReady}
-              >
-                <RegularText style={styles.bodyText}>
-                  <MarkdownView style={styles.markdownTalkDescription}>
-                    {talk.description}
-                  </MarkdownView>
-                </RegularText>
-              </ReadMore>
+              <Markdown styles={markdownStyles}>{talk.description}</Markdown>
             ) : null}
             {talkScreen && speakers.length > 0 ? (
               <View>
@@ -223,18 +201,7 @@ export default class Details extends React.Component {
                     <SemiBoldText key={speaker.id + talk.title}>
                       {speaker.name}
                     </SemiBoldText>
-                    <ReadMore
-                      numberOfLines={3}
-                      renderTruncatedFooter={this._renderTruncatedFooter}
-                      renderRevealedFooter={this._renderRevealedFooter}
-                      onReady={this._handleTextReady}
-                    >
-                      <RegularText style={styles.bodyText}>
-                        <MarkdownView style={styles.markdownBio}>
-                          {speaker.bio}
-                        </MarkdownView>
-                      </RegularText>
-                    </ReadMore>
+                    <Markdown styles={markdownStyles}>{speaker.bio}</Markdown>
                   </View>
                 ))}
               </View>
@@ -245,7 +212,7 @@ export default class Details extends React.Component {
                   Time and place
                 </SemiBoldText>
                 <RegularText>
-                  {convertUtcDateToEventTimezone(talk.startDate)}
+                  {convertUtcDateToEventTimezoneHour(talk.startDate)}
                 </RegularText>
                 <RegularText>{talk.room}</RegularText>
               </View>
@@ -309,7 +276,9 @@ export default class Details extends React.Component {
     );
   };
 }
-
+const markdownStyles = {
+  text: {}
+};
 const styles = StyleSheet.create({
   container: {},
   avatar: {

@@ -10,6 +10,7 @@ import { Colors, Layout } from "../constants";
 import MenuButton from "../components/MenuButton";
 import SaveIconWhenSaved from "../components/SaveIconWhenSaved";
 import moment from "moment";
+import { convertUtcDateToEventTimezoneHour } from "../utils";
 
 import Schedule from "../data/schedule.json";
 const FullSchedule = Schedule.events[0].groupedSchedule;
@@ -19,7 +20,7 @@ class ScheduleRow extends React.Component {
     const { item } = this.props;
 
     const content = (
-      <View style={[styles.row, !item.talk && styles.rowStatic]}>
+      <View style={[styles.row, item.talk && styles.rowStatic]}>
         <BoldText>
           <SaveIconWhenSaved talk={item} />
           {item.title}
@@ -61,7 +62,7 @@ export default function ScheduleDay(options) {
 
   const slotsByTime = _.groupBy(schedule.slots, slot => slot.startDate);
   const slotsData = _.map(slotsByTime, (data, time) => {
-    return { data, title: time };
+    return { data, title: convertUtcDateToEventTimezoneHour(time) };
   });
 
   class ScheduleDayComponent extends React.Component {

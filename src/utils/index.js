@@ -14,8 +14,13 @@ export function getSpeakerTalk(speaker) {
 }
 
 export function convertUtcDateToEventTimezone(date) {
-  console.log(date);
-  return moment.tz(date, Event.timezoneId).format("MM/DD/YYYY h:mm A");
+  let d = new Date(date);
+  return moment.tz(d, Event.timezoneId);
+}
+
+export function convertUtcDateToEventTimezoneHour(date) {
+  let d = new Date(date);
+  return moment.tz(d, Event.timezoneId).format("hh:mma");
 }
 
 const CONFERENCE_START_TIME = convertUtcDateToEventTimezone(Event.startDate);
