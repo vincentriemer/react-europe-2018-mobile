@@ -1,13 +1,27 @@
-export const ScheduleQuery = `
 {
   events(slug: "reacteurope-2018") {
     id
     description
+    websiteUrl
     name
+    venueName
+    venueCountry
+    venueCity
+    cocUrl
+    twitterHandle
+    offset
+    startDate
+    endDate
+    timezoneId
     collaborators {
       id
       firstName
       lastName
+      twitter
+      github
+      url
+      role
+      avatarUrl
     }
     speakers {
       id
@@ -19,26 +33,57 @@ export const ScheduleQuery = `
       talks {
         id
         title
+        type
         description
         length
         startDate
       }
     }
-    schedule {
-      id
+    groupedSchedule {
       title
-      description
-      length
-      startDate
-      tags
-      speakers {
+      date
+      slots {
         id
-        name
-        twitter
-        github
-        avatarUrl
-        bio
+        title
+        description
+        length
+        startDate
+        tags
+        type
+        room
+        talk
+        keynote
+        speakers {
+          id
+          name
+          twitter
+          github
+          avatarUrl
+          bio
+        }
       }
+    }
+    schedule {
+
+        id
+        title
+        description
+        length
+        startDate
+        tags
+        type
+        room
+        talk
+        keynote
+        speakers {
+          id
+          name
+          twitter
+          github
+          avatarUrl
+          bio
+        }
+
     }
     sponsors {
       diamond {
@@ -47,6 +92,7 @@ export const ScheduleQuery = `
         description
         url
         logoUrl
+        jobUrl
       }
       platinum {
         id
@@ -54,6 +100,7 @@ export const ScheduleQuery = `
         description
         url
         logoUrl
+        jobUrl
       }
       gold {
         id
@@ -61,6 +108,7 @@ export const ScheduleQuery = `
         description
         url
         logoUrl
+        jobUrl
       }
       partner {
         id
@@ -68,8 +116,9 @@ export const ScheduleQuery = `
         description
         url
         logoUrl
+        jobUrl
       }
     }
   }
 }
-`;
+
