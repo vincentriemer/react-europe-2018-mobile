@@ -118,41 +118,37 @@ export default class Details extends React.Component {
           )}
         >
           <View style={styles.headerContainer}>
-            <Animated.View
-              style={{
-                transform: [{ scale }, { translateX }, { translateY }]
-              }}
-            >
-              <FadeIn placeholderStyle={{ backgroundColor: "#318A73" }}>
-                {talkScreen ? (
-                  <View>
-                    {speakers
-                      ? speakers.map((speaker, i) => (
-                          <View key={speaker.id}>
-                            <Image
-                              source={{ uri: speaker.avatarUrl }}
-                              style={styles.avatarMultiple}
-                              key={speaker.id + talk.title}
-                            />
+            {talkScreen ? (
+              <View style={styles.headerRowSpeaker}>
+                {speakers
+                  ? speakers.map((speaker, i) => (
+                      <View key={speaker.id} style={styles.headerColumnSpeaker}>
+                        <Image
+                          source={{ uri: speaker.avatarUrl }}
+                          style={styles.avatarMultiple}
+                          key={speaker.id + talk.title}
+                        />
+                        {speaker.name.split(" ").map((name, index) => (
+                          <View key={index}>
                             <SemiBoldText
                               style={styles.headerText}
-                              key={"speakers" + speaker.id}
+                              key={"speakers" + speaker.id + name}
                             >
-                              {speaker.name}
+                              {name}
                             </SemiBoldText>
-                          </View>
-                        ))
-                      : null}
-                  </View>
-                ) : (
-                  <Image
-                    source={{ uri: speaker.avatarUrl }}
-                    style={styles.avatar}
-                    key={speaker.avatarUrl}
-                  />
-                )}
-              </FadeIn>
-            </Animated.View>
+                          </View>)
+                        )}
+                      </View>
+                    ))
+                  : null}
+              </View>
+            ) : (
+              <Image
+                source={{ uri: speaker.avatarUrl }}
+                style={styles.avatar}
+                key={speaker.avatarUrl}
+              />
+            )}
             {talkScreen ? null : (
               <SemiBoldText style={styles.headerText} key={speaker.id}>
                 {speaker.name}
@@ -311,6 +307,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     width: 300,
     height: 600
+  },
+  headerRowSpeaker : {
+    flexDirection: 'row',
+    height: 140
+  },
+  headerColumnSpeaker : {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   headerContainer: {
     backgroundColor: Colors.blue,
