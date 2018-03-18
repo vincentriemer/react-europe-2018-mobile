@@ -1,3 +1,4 @@
+export const ScheduleQuery = `
 {
   events(slug: "reacteurope-2018") {
     id
@@ -121,4 +122,4 @@
     }
   }
 }
-
+`;
