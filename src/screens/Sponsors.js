@@ -18,7 +18,7 @@ const SponsorsData = Schedule.events[0].sponsors;
 const SponsorsByLevel = [
   { title: "Diamond", data: SponsorsData["diamond"] },
   { title: "Platinum", data: SponsorsData["platinum"] },
-  { title: "Gold", data: SponsorsData["gold"] }
+  { title: "Gold", data: SponsorsData["gold"] },
 ];
 
 const ClipBorderRadius = ({ children, style }) => {
@@ -26,7 +26,7 @@ const ClipBorderRadius = ({ children, style }) => {
     <View
       style={[
         { borderRadius: BORDER_RADIUS, overflow: "hidden", marginTop: 10 },
-        style
+        style,
       ]}
     >
       {children}
@@ -54,8 +54,8 @@ class SponsorRow extends React.Component {
                 alignItems: "center",
                 justifyContent: "center",
                 marginBottom: sponsor.description ? 15 : 5,
-                marginTop: 10
-              }
+                marginTop: 10,
+              },
             ]}
           >
             <FadeIn placeholderStyle={{ borderRadius: 3 }}>
@@ -65,7 +65,7 @@ class SponsorRow extends React.Component {
                   width: Layout.window.width / 2,
                   height: 80,
                   borderRadius: 0,
-                  resizeMode: "contain"
+                  resizeMode: "contain",
                 }}
               />
             </FadeIn>
@@ -103,15 +103,15 @@ class SponsorRow extends React.Component {
 }
 
 export default class Sponsors extends React.Component {
-  static navigationOptions = {
+  static navigationOptions = ({ navigation }) => ({
     title: "Sponsors",
     headerStyle: { backgroundColor: Colors.blue },
     headerTintColor: "white",
-    headerLeft: <MenuButton />,
+    headerLeft: <MenuButton navigation={navigation} />,
     headerTitleStyle: {
-      fontFamily: "open-sans-bold"
-    }
-  };
+      fontFamily: "open-sans-bold",
+    },
+  });
 
   render() {
     return (
@@ -152,26 +152,26 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderRadius: BORDER_RADIUS,
     overflow: "hidden",
-    flexDirection: "row"
+    flexDirection: "row",
   },
   bigButtonText: {
     fontSize: FontSizes.normalButton,
     color: "#fff",
-    textAlign: "center"
+    textAlign: "center",
   },
   row: {
     flex: 1,
     padding: 10,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderColor: "#eee"
+    borderColor: "#eee",
   },
   rowAvatarContainer: {
     paddingVertical: 5,
     paddingRight: 10,
-    paddingLeft: 0
+    paddingLeft: 0,
   },
   rowData: {
-    flex: 1
+    flex: 1,
   },
   sectionHeader: {
     paddingHorizontal: 10,
@@ -179,6 +179,6 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
     backgroundColor: "#eee",
     borderWidth: 1,
-    borderColor: "#eee"
-  }
+    borderColor: "#eee",
+  },
 });

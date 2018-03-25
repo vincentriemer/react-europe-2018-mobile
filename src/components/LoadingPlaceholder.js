@@ -6,7 +6,7 @@ import { Colors } from "../constants";
 // first mount a component as a child of this component
 export default class LoadingPlaceholder extends React.Component {
   state = {
-    isReady: false
+    isReady: false,
   };
 
   componentDidMount() {
@@ -24,7 +24,11 @@ export default class LoadingPlaceholder extends React.Component {
           style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
         >
           <ActivityIndicator
-            color={Platform.OS === "android" ? Colors.blue : "#888"}
+            color={
+              Platform.OS === "android" || Platform.OS === "dom"
+                ? Colors.blue
+                : "#888"
+            }
             size="large"
           />
         </View>

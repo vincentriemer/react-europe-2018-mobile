@@ -75,39 +75,39 @@ export default class TalkCard extends React.Component {
 
 const styles = StyleSheet.create({
   headerRow: {
-    flexDirection: "row"
+    flexDirection: "row",
   },
   headerRowAvatarContainer: {
-    paddingRight: 10
+    paddingRight: 10,
   },
   headerRowInfoContainer: {
     flex: 1,
     flexDirection: "column",
     justifyContent: "center",
-    paddingBottom: 5
+    paddingBottom: 5,
   },
   speakerName: {
-    fontSize: FontSizes.bodyTitle
+    fontSize: FontSizes.bodyTitle,
   },
   organizationName: {
     color: Colors.faint,
-    fontSize: FontSizes.bodyLarge
+    fontSize: FontSizes.bodyLarge,
   },
   talkInfoRow: {
-    paddingTop: 10
+    paddingTop: 10,
   },
   talkTitle: {
-    fontSize: FontSizes.bodyLarge
+    fontSize: FontSizes.bodyLarge,
   },
   talkLocation: {
     fontSize: FontSizes.bodyLarge,
     color: Colors.faint,
-    marginTop: 10
+    marginTop: 10,
   },
   nextYear: {
     textAlign: "center",
     fontSize: FontSizes.title,
-    marginVertical: 10
+    marginVertical: 10,
   },
   button: {
     padding: 15,
@@ -118,12 +118,19 @@ const styles = StyleSheet.create({
         shadowColor: "#000",
         shadowOpacity: 0.1,
         shadowRadius: 4,
-        shadowOffset: { width: 2, height: 2 }
+        shadowOffset: { width: 2, height: 2 },
       },
       android: {
         backgroundColor: "#fff",
-        elevation: 2
-      }
-    })
-  }
+        elevation: 2,
+      },
+      dom: {
+        backgroundColor: "#fff",
+        shadowColor: "#000",
+        shadowOpacity: 0.1,
+        shadowRadius: 4,
+        shadowOffset: { width: 2, height: 2 },
+      },
+    }),
+  },
 });

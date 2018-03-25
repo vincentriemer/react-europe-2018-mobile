@@ -7,7 +7,8 @@ import {
   TouchableOpacity,
   Text,
   ScrollView,
-  View
+  View,
+  Linking,
 } from "react-native";
 import { Constants, Video } from "expo";
 import FadeIn from "react-native-fade-in-image";
@@ -25,9 +26,23 @@ import { getSpeakerTalk, convertUtcDateToEventTimezoneHour } from "../utils";
 import { findTalkData, findSpeakerData } from "../data";
 import SaveButton from "../components/SaveButton";
 import { Ionicons } from "@expo/vector-icons";
-import Markdown from "react-native-simple-markdown";
+import Markdown from "react-native-easy-markdown";
 export const Schedule = require("../data/schedule.json");
 const Event = Schedule.events[0];
+
+const CustomLink = (href, title, children) => (
+  <Text
+    key={title + href}
+    style={{ textDecorationLine: "underline" }}
+    onPress={() => Linking.openURL(href)}
+  >
+    {children}
+  </Text>
+);
+
+const CustomizedMarkdown = ({ children, ...restProps }) => (
+  <Markdown renderLink={CustomLink}>{children}</Markdown>
+);
 
 class SavedButtonNavigationItem extends React.Component {
   render() {
@@ -38,7 +53,7 @@ class SavedButtonNavigationItem extends React.Component {
         style={{
           // gross dumb things
           paddingTop: Platform.OS === "android" ? 17 : 0,
-          marginTop: Layout.notchHeight > 0 ? -5 : 0
+          marginTop: Layout.notchHeight > 0 ? -5 : 0,
         }}
       >
         <SaveButton talk={talk} />
@@ -49,7 +64,7 @@ class SavedButtonNavigationItem extends React.Component {
 
 export default class Details extends React.Component {
   state = {
-    scrollY: new Animated.Value(0)
+    scrollY: new Animated.Value(0),
   };
 
   render() {
@@ -69,23 +84,23 @@ export default class Details extends React.Component {
     const scale = scrollY.interpolate({
       inputRange: [-300, 0, 1],
       outputRange: [2, 1, 1],
-      extrapolate: "clamp"
+      extrapolate: "clamp",
     });
     const translateX = 0;
     const translateY = scrollY.interpolate({
       inputRange: [-300, 0, 1],
       outputRange: [-50, 1, 1],
-      extrapolate: "clamp"
+      extrapolate: "clamp",
     });
 
     const headerOpacity = scrollY.interpolate({
       inputRange: [0, 30, 200],
-      outputRange: [0, 0, 1]
+      outputRange: [0, 0, 1],
     });
 
     return (
       <View style={{ flex: 1, backgroundColor: "#fff" }}>
-        {Platform.OS === "ios" ? (
+        {Platform.OS === "ios" || Platform.OS === "dom" ? (
           <Animated.View
             style={{
               position: "absolute",
@@ -97,11 +112,11 @@ export default class Details extends React.Component {
                 {
                   translateY: scrollY.interpolate({
                     inputRange: [-1, 0, 1],
-                    outputRange: [1, 0, 0]
-                  })
-                }
+                    outputRange: [1, 0, 0],
+                  }),
+                },
               ],
-              backgroundColor: Colors.blue
+              backgroundColor: Colors.blue,
             }}
           />
         ) : null}
@@ -111,8 +126,8 @@ export default class Details extends React.Component {
           onScroll={Animated.event(
             [
               {
-                nativeEvent: { contentOffset: { y: this.state.scrollY } }
-              }
+                nativeEvent: { contentOffset: { y: this.state.scrollY } },
+              },
             ],
             { useNativeDriver: true }
           )}
@@ -120,7 +135,7 @@ export default class Details extends React.Component {
           <View style={styles.headerContainer}>
             <Animated.View
               style={{
-                transform: [{ scale }, { translateX }, { translateY }]
+                transform: [{ scale }, { translateX }, { translateY }],
               }}
             >
               <FadeIn placeholderStyle={{ backgroundColor: "transparent" }}>
@@ -184,7 +199,7 @@ export default class Details extends React.Component {
             {talkScreen ? null : (
               <View>
                 <SemiBoldText style={styles.sectionHeader}>Bio</SemiBoldText>
-                <Markdown styles={markdownStyles}>{speaker.bio}</Markdown>
+                <CustomizedMarkdown>{speaker.bio}</CustomizedMarkdown>
               </View>
             )}
             {talk ? (
@@ -195,7 +210,7 @@ export default class Details extends React.Component {
               </SemiBoldText>
             ) : null}
             {talk ? (
-              <Markdown styles={markdownStyles}>{talk.description}</Markdown>
+              <CustomizedMarkdown>{talk.description}</CustomizedMarkdown>
             ) : null}
             {talkScreen && speakers.length > 0 ? (
               <View>
@@ -208,7 +223,7 @@ export default class Details extends React.Component {
                     <SemiBoldText key={speaker.id + talk.title}>
                       {speaker.name}
                     </SemiBoldText>
-                    <Markdown styles={markdownStyles}>{speaker.bio}</Markdown>
+                    <CustomizedMarkdown>{speaker.bio}</CustomizedMarkdown>
                   </View>
                 ))}
               </View>
@@ -232,14 +247,14 @@ export default class Details extends React.Component {
           style={[
             Platform.OS === "android"
               ? { height: Layout.headerHeight + Constants.statusBarHeight }
-              : null
+              : null,
           ]}
           renderLeftButton={() => (
             <View
               style={{
                 // gross dumb things
                 paddingTop: Platform.OS === "android" ? 17 : 0,
-                marginTop: Layout.notchHeight > 0 ? -5 : 0
+                marginTop: Layout.notchHeight > 0 ? -5 : 0,
               }}
             >
               <HeaderBackButton
@@ -284,7 +299,7 @@ export default class Details extends React.Component {
   };
 }
 const markdownStyles = {
-  text: {}
+  text: {},
 };
 const styles = StyleSheet.create({
   container: {},
@@ -292,40 +307,41 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 50,
-    marginBottom: 10
+    marginBottom: 10,
   },
   avatarMultiple: {
     width: 50,
     height: 50,
     borderRadius: 25,
-    marginBottom: 10
+    marginBottom: 10,
   },
   content: {
     backgroundColor: "#fff",
     paddingBottom: 20,
-    paddingHorizontal: 20
+    paddingHorizontal: 20,
+    justifyContent: "flex-start",
   },
   markdownBio: {
     backgroundColor: "#fff",
     paddingBottom: 20,
     paddingHorizontal: 20,
     width: 300,
-    height: 200
+    height: 200,
   },
   markdownTalkDescription: {
     backgroundColor: "#fff",
     paddingBottom: 20,
     paddingHorizontal: 20,
     width: 300,
-    height: 600
+    height: 600,
   },
   headerRowSpeaker: {
     flexDirection: "row",
-    height: 140
+    height: 140,
   },
   headerColumnSpeaker: {
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   headerContainer: {
     backgroundColor: Colors.blue,
@@ -333,21 +349,21 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     paddingHorizontal: 20,
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   headerText: {
     color: "#fff",
-    fontSize: FontSizes.subtitle
+    fontSize: FontSizes.subtitle,
   },
   talkTitleText: {
     color: "#fff",
     fontSize: FontSizes.title,
     textAlign: "center",
-    marginTop: 10
+    marginTop: 10,
   },
   sectionHeader: {
     fontSize: FontSizes.bodyTitle,
     marginTop: 15,
-    marginBottom: 3
-  }
+    marginBottom: 3,
+  },
 });

@@ -1,40 +1,62 @@
 {
+  "name": "ReactEurope2018",
   "private": true,
-  "main": "./node_modules/expo/AppEntry.js",
   "jest": {
     "preset": "jest-expo"
   },
   "scripts": {
+    "start": "react-native start",
     "test": "jest",
-    "devtools": "react-devtools"
+    "devtools": "react-devtools",
+    "prebuild:dom": "rimraf dom/dist && mkdir -p dom/dist",
+    "build:dom":
+      "NODE_ENV=production yarn build:dom:native && yarn build:dom:js",
+    "build:dom:native":
+      "react-native bundle --config $(pwd)/rn-cli.config.js --dev false --entry-file ./dom/bootstrap.js --bundle-output ./dom/dist/bootstrap.bundle --platform dom --reset-cache",
+    "build:dom:js":
+      "react-native bundle --config $(pwd)/rn-cli.config.js --dev false --entry-file ./dom/entry.js --bundle-output ./dom/dist/entry.bundle --platform dom --assets-dest ./dom/dist --reset-cache",
+    "postbuild:dom": "cp ./dom/index.html ./dom/dist/index.html"
   },
   "dependencies": {
+    "@expo/vector-icons": "^6.3.1",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-expo": "^4.0.0",
+    "babel-runtime": "^6.26.0",
     "exp": "^49.2.2",
     "expo": "^25.0.0",
     "fbemitter": "^2.1.1",
+    "fontfaceobserver": "^2.0.13",
     "global": "^4.3.2",
+    "hammerjs": "^2.0.8",
     "hoist-non-react-statics": "^2.3.1",
     "lodash": "^4.17.4",
     "moment": "2.21.0",
     "moment-timezone": "^0.5.14",
     "prettier": "^1.11.1",
     "react": "16.2.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-25.0.0.tar.gz",
+    "react-native": "~0.54.0",
     "react-native-animatable": "^1.2.4",
-    "react-native-fade-in-image": "1.3.0",
-	"react-native-simple-markdown": "1.1.0",
+    "react-native-dom": "file:.yalc/react-native-dom",
+    "react-native-easy-markdown": "^1.1.9",
+    "react-native-fade-in-image":
+      "file:./local-forks/react-native-fade-in-image",
     "react-native-read-more-text": "^1.0.0",
     "react-native-resource-saving-container": "^1.0.2",
+    "react-native-vector-icons": "^4.5.0",
     "react-navigation": "1.1.0-rc.4",
     "urql": "^0.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-react-native": "^4.0.0",
     "eslint": "^4.5.0",
     "eslint-plugin-react": "^7.3.0",
     "eslint-plugin-react-native": "^3.0.1",
+    "flow-bin": "^0.68.0",
     "jest-expo": "~23.0.0",
     "react-devtools": "^3.0.0",
-    "react-test-renderer": "16.0.0"
+    "react-test-renderer": "16.0.0",
+    "rnpm-plugin-dom": "^0.0.3"
   }
 }

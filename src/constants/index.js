@@ -1,5 +1,4 @@
 import { Dimensions, Platform } from "react-native";
-import { Constants } from "expo";
 import { Header } from "react-navigation";
 
 const X_WIDTH = 375;
@@ -14,22 +13,22 @@ const isSmallDevice = D_WIDTH < 326;
 export const Layout = {
   window: {
     width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height
+    height: Dimensions.get("window").height,
   },
   notchHeight,
   isSmallDevice,
   headerHeight:
-    Platform.OS === "android" ? Header.HEIGHT : Header.HEIGHT + notchHeight
+    Platform.OS === "android" ? Header.HEIGHT : Header.HEIGHT + notchHeight,
 };
 
 export const Colors = {
   blue: "#4d5fab",
-  faint: "#7a7a7a"
+  faint: "#7a7a7a",
 };
 
 export const Icons = {
   favorite: `ios-bookmark-outline`,
-  favoriteActive: `ios-bookmark`
+  favoriteActive: `ios-bookmark`,
 };
 
 export const FontSizes = {
@@ -37,5 +36,5 @@ export const FontSizes = {
   subtitle: isSmallDevice ? 14 : 16,
   bodyLarge: 14,
   bodyTitle: isSmallDevice ? 14 : 15,
-  normalButton: isSmallDevice ? 15 : 16
+  normalButton: isSmallDevice ? 15 : 16,
 };

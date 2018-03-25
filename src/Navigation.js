@@ -5,7 +5,8 @@ import {
   TabNavigator,
   StackNavigator,
   createNavigator,
-  createNavigationContainer
+  createNavigationContainer,
+  DrawerNavigator,
 } from "react-navigation";
 import withCachedChildNavigation from "react-navigation/src/withCachedChildNavigation";
 import SceneView from "react-navigation/src/views/SceneView";
@@ -16,16 +17,11 @@ import {
   Text,
   StyleSheet,
   StatusBar,
-  View
+  View,
 } from "react-native";
 import { Constants } from "expo";
 import { TabViewAnimated } from "react-native-tab-view";
-import {
-  DrawerLayoutAndroid,
-  BorderlessButton,
-  RectButton
-} from "react-native-gesture-handler";
-import DrawerLayout from "react-native-gesture-handler/DrawerLayout";
+import { BorderlessButton, RectButton } from "react-native-gesture-handler";
 import ResourceSavingContainer from "react-native-resource-saving-container";
 import hoistStatics from "hoist-non-react-statics";
 
@@ -37,30 +33,27 @@ import _ from "lodash";
 import Schedule from "./data/schedule.json";
 import moment from "moment";
 
-const DrawerComponent =
-  Platform.OS === "android" ? DrawerLayoutAndroid : DrawerLayout;
-
 const FullSchedule = Schedule.events[0].groupedSchedule;
 let navSchedule = {};
 _.each(FullSchedule, (day, i) => {
   navSchedule[day.title] = {
     screen: Screens.ScheduleDay({
       day: day.title,
-      date: moment(day.date).format("D")
-    })
+      date: moment(day.date).format("D"),
+    }),
   };
 });
 
 const ScheduleNavigation = TabNavigator(navSchedule, {
   lazy: true,
-  swipeEnabled: false,
-  animationEnabled: false,
+  swipeEnabled: true,
+  animationEnabled: true,
   tabBarComponent: TabBarBottom,
   tabBarPosition: "bottom",
   tabBarOptions: {
     style: { backgroundColor: "#333" },
-    activeTintColor: "#fff"
-  }
+    activeTintColor: "#fff",
+  },
 });
 
 export function connectDrawerButton(WrappedComponent) {
@@ -68,17 +61,11 @@ export function connectDrawerButton(WrappedComponent) {
     return (
       <WrappedComponent
         {...props}
-        openDrawer={context.openDrawer}
-        closeDrawer={context.closeDrawer}
-        toggleDrawer={context.toggleDrawer}
+        openDrawer={() => props.navigation.navigate("DrawerOpen")}
+        closeDrawer={() => props.navigation.navigate("DrawerClose")}
+        toggleDrawer={() => props.navigation.navigate("DrawerToggle")}
       />
     );
-  };
-
-  ConnectedDrawerButton.contextTypes = {
-    openDrawer: PropTypes.func,
-    closeDrawer: PropTypes.func,
-    toggleDrawer: PropTypes.func
   };
 
   return hoistStatics(ConnectedDrawerButton, WrappedComponent);
@@ -86,15 +73,15 @@ export function connectDrawerButton(WrappedComponent) {
 
 const DefaultStackConfig = {
   cardStyle: {
-    backgroundColor: "#fafafa"
-  }
+    backgroundColor: "#fafafa",
+  },
 };
 
 const SpeakersNavigation = StackNavigator(
   {
     SpeakerList: {
-      screen: Screens.Speakers
-    }
+      screen: Screens.Speakers,
+    },
   },
   DefaultStackConfig
 );
@@ -102,8 +89,8 @@ const SpeakersNavigation = StackNavigator(
 const CrewNavigation = StackNavigator(
   {
     CrewList: {
-      screen: Screens.Crew
-    }
+      screen: Screens.Crew,
+    },
   },
   DefaultStackConfig
 );
@@ -111,8 +98,8 @@ const CrewNavigation = StackNavigator(
 const SponsorNavigation = StackNavigator(
   {
     SponsorList: {
-      screen: Screens.Sponsors
-    }
+      screen: Screens.Sponsors,
+    },
   },
   DefaultStackConfig
 );
@@ -122,14 +109,14 @@ const DrawerRouteConfig = {
   Schedule: { screen: ScheduleNavigation },
   Speakers: { screen: SpeakersNavigation },
   Crew: { screen: CrewNavigation },
-  Sponsors: { screen: SponsorNavigation }
+  Sponsors: { screen: SponsorNavigation },
 };
 
-const DrawerRouter = TabRouter(DrawerRouteConfig);
+const DrawerNavigation = DrawerNavigator(DrawerRouteConfig);
 
 class DrawerScene extends React.PureComponent {
   state = {
-    visible: true
+    visible: true,
   };
 
   setVisible = visible => {
@@ -167,7 +154,7 @@ class DrawerView extends React.Component {
   static childContextTypes = {
     openDrawer: PropTypes.func,
     closeDrawer: PropTypes.func,
-    toggleDrawer: PropTypes.func
+    toggleDrawer: PropTypes.func,
   };
 
   getChildContext() {
@@ -179,12 +166,12 @@ class DrawerView extends React.Component {
     return {
       openDrawer,
       closeDrawer,
-      toggleDrawer
+      toggleDrawer,
     };
   }
 
   componentDidMount() {
-    if (Platform.OS === "ios") {
+    if (Platform.OS === "ios" || Platform.OS === "dom") {
       return;
     }
 
@@ -257,7 +244,7 @@ class DrawerView extends React.Component {
               style={{
                 flex: 1,
                 paddingTop:
-                  Platform.OS === "android" ? Constants.statusBarHeight : 0
+                  Platform.OS === "android" ? Constants.statusBarHeight : 0,
               }}
             >
               <TabViewAnimated
@@ -278,7 +265,7 @@ class DrawerView extends React.Component {
                 right: 0,
                 height:
                   Platform.OS === "android" ? Constants.statusBarHeight : 0,
-                backgroundColor: Colors.blue
+                backgroundColor: Colors.blue,
               }}
             />
           </View>
@@ -298,13 +285,13 @@ class DrawerView extends React.Component {
             style={{
               height: 140 + Layout.notchHeight,
               width: DRAWER_WIDTH,
-              resizeMode: "cover"
+              resizeMode: "cover",
             }}
           />
           <View
             style={[
               StyleSheet.absoluteFill,
-              { backgroundColor: "rgba(23, 127, 100, 0.57)" }
+              { backgroundColor: "rgba(23, 127, 100, 0.57)" },
             ]}
           />
           <View
@@ -313,8 +300,8 @@ class DrawerView extends React.Component {
               {
                 alignItems: "center",
                 justifyContent: "center",
-                paddingTop: Layout.notchHeight + 20
-              }
+                paddingTop: Layout.notchHeight + 20,
+              },
             ]}
           >
             <Image
@@ -322,7 +309,7 @@ class DrawerView extends React.Component {
               style={{
                 width: 200,
                 height: 50,
-                resizeMode: "contain"
+                resizeMode: "contain",
               }}
             />
           </View>
@@ -334,7 +321,7 @@ class DrawerView extends React.Component {
             { route: "Schedule", title: "Schedule" },
             { route: "Speakers", title: "Speakers" },
             { route: "Crew", title: "Crew" },
-            { route: "Sponsors", title: "Sponsors" }
+            { route: "Sponsors", title: "Sponsors" },
           ])}
         </View>
       </View>
@@ -374,12 +361,6 @@ class DrawerView extends React.Component {
   };
 }
 
-const DrawerNavigation = createNavigationContainer(
-  createNavigator(DrawerRouter, DrawerRouteConfig, {})(props => (
-    <DrawerView {...props} />
-  ))
-);
-
 class DrawerButton extends React.Component {
   render() {
     return (
@@ -388,7 +369,7 @@ class DrawerButton extends React.Component {
         style={{
           backgroundColor: this.props.selected
             ? "rgba(255,255,255,0.1)"
-            : "#333333"
+            : "#333333",
         }}
       >
         <View
@@ -396,7 +377,7 @@ class DrawerButton extends React.Component {
             height: 50,
             width: DRAWER_WIDTH,
             justifyContent: "center",
-            paddingHorizontal: 5
+            paddingHorizontal: 5,
           }}
         >
           <SemiBoldText style={styles.drawerButtonText}>
@@ -410,26 +391,26 @@ class DrawerButton extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   drawerButtonText: {
     color: "#fff",
     fontSize: FontSizes.normalButton,
-    padding: 10
+    padding: 10,
   },
   drawerButtons: {
-    paddingTop: 0
+    paddingTop: 0,
   },
-  drawerNavigationContainer: {}
+  drawerNavigationContainer: {},
 });
 
 export default StackNavigator(
   {
     Primary: { screen: DrawerNavigation },
-    Details: { screen: Screens.Details }
+    Details: { screen: Screens.Details },
   },
   {
     ...DefaultStackConfig,
-    headerMode: "none"
+    headerMode: "none",
   }
 );

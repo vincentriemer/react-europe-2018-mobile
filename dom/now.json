@@ -1,0 +1,9 @@
+{
+  "files": [
+    "bootstrap.bundle",
+    "entry.bundle",
+    "index.html",
+    "assets/src",
+    "assets/node_modules"
+  ]
+}

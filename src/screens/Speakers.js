@@ -55,15 +55,15 @@ class SpeakerRow extends React.Component {
 }
 
 export default class Speakers extends React.Component {
-  static navigationOptions = {
+  static navigationOptions = ({ navigation }) => ({
     title: "Speakers",
     headerStyle: { backgroundColor: Colors.blue },
     headerTintColor: "white",
-    headerLeft: <MenuButton />,
+    headerLeft: <MenuButton navigation={navigation} />,
     headerTitleStyle: {
-      fontFamily: "open-sans-bold"
-    }
-  };
+      fontFamily: "open-sans-bold",
+    },
+  });
 
   render() {
     return (
@@ -103,15 +103,15 @@ const styles = StyleSheet.create({
     padding: 10,
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderColor: "#eee",
-    flexDirection: "row"
+    flexDirection: "row",
   },
   rowAvatarContainer: {
     paddingVertical: 5,
     paddingRight: 10,
-    paddingLeft: 0
+    paddingLeft: 0,
   },
   rowData: {
-    flex: 1
+    flex: 1,
   },
   sectionHeader: {
     paddingHorizontal: 10,
@@ -119,6 +119,6 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
     backgroundColor: "#eee",
     borderWidth: 1,
-    borderColor: "#eee"
-  }
+    borderColor: "#eee",
+  },
 });

@@ -1,5 +1,5 @@
 import React from "react";
-import { Asset, AppLoading, Font } from "expo";
+import { Asset, AppLoading, Font } from "./src/expo";
 import { Platform, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { loadSavedTalksAsync } from "./src/utils/storage";
@@ -12,14 +12,14 @@ if (Platform.OS === "android") {
 }
 
 const client = new Client({
-  url: "https://www.react-europe.org/gql"
+  url: "https://www.react-europe.org/gql",
 });
 
 import Navigation from "./src/Navigation";
 
 export default class App extends React.Component {
   state = {
-    fontLoaded: false
+    fontLoaded: false,
   };
 
   _loadResourcesAsync = () => {
@@ -36,12 +36,12 @@ export default class App extends React.Component {
         "open-sans-bold": require("./src/assets/OpenSans-Bold.ttf"),
         "open-sans": require("./src/assets/OpenSans-Regular.ttf"),
         "open-sans-semibold": require("./src/assets/OpenSans-SemiBold.ttf"),
-        ...Ionicons.font
+        ...Ionicons.font,
       }),
       Asset.fromModule(require("./src/assets/logo.png")).downloadAsync(),
       Asset.fromModule(
         require("react-navigation/src/views/assets/back-icon.png")
-      ).downloadAsync()
+      ).downloadAsync(),
     ]);
   };
 

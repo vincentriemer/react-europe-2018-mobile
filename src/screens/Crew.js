@@ -44,15 +44,15 @@ class CrewRow extends React.Component {
 }
 
 export default class Crews extends React.Component {
-  static navigationOptions = {
+  static navigationOptions = ({ navigation }) => ({
     title: "Crew",
     headerStyle: { backgroundColor: Colors.blue },
     headerTintColor: "white",
-    headerLeft: <MenuButton />,
+    headerLeft: <MenuButton navigation={navigation} />,
     headerTitleStyle: {
-      fontFamily: "open-sans-bold"
-    }
-  };
+      fontFamily: "open-sans-bold",
+    },
+  });
 
   render() {
     return (
@@ -79,14 +79,14 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderColor: "#eee",
     backgroundColor: "#fff",
-    flexDirection: "row"
+    flexDirection: "row",
   },
   rowAvatarContainer: {
     paddingVertical: 5,
     paddingRight: 10,
-    paddingLeft: 0
+    paddingLeft: 0,
   },
   rowData: {
-    flex: 1
-  }
+    flex: 1,
+  },
 });

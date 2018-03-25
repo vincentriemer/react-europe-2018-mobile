@@ -20,8 +20,8 @@ export default class NavigationBar extends React.Component {
             StyleSheet.absoluteFill,
             {
               backgroundColor: Colors.blue,
-              opacity: this.props.animatedBackgroundOpacity
-            }
+              opacity: this.props.animatedBackgroundOpacity,
+            },
           ]}
         />
         <View style={styles.navigationBarLeftButton}>
@@ -71,17 +71,17 @@ const styles = StyleSheet.create({
     paddingTop: PADDING_TOP,
     top: 0,
     left: 0,
-    right: 0
+    right: 0,
   },
   navigationBarTitleContainer: {
     flex: 1,
     flexDirection: "row",
     paddingHorizontal: 20,
     alignItems: "center",
-    justifyContent: Platform.OS === "ios" ? "center" : "flex-start"
+    justifyContent: Platform.OS === "ios" ? "center" : "flex-start",
   },
   navigationBarLeftButton: {
-    width: 80
+    width: 80,
   },
   navigationBarRightButton: {
     top: PADDING_TOP,
@@ -90,6 +90,6 @@ const styles = StyleSheet.create({
     bottom: 0,
     alignItems: "flex-end",
     justifyContent: "center",
-    position: "absolute"
-  }
+    position: "absolute",
+  },
 });

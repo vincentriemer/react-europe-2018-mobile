@@ -66,18 +66,18 @@ export default function ScheduleDay(options) {
   });
 
   class ScheduleDayComponent extends React.Component {
-    static navigationOptions = {
+    static navigationOptions = ({ navigation }) => ({
       title: Layout.isSmallDevice ? options.day : `${options.day} Schedule`,
       headerStyle: { backgroundColor: Colors.blue },
       headerTintColor: "white",
-      headerLeft: <MenuButton />,
+      headerLeft: <MenuButton navigation={navigation} />,
       tabBarLabel: options.day,
       tabBarIcon: ({ tintColor }) => (
         <BoldText style={{ fontSize: 20, color: tintColor }}>
           {options.date}
         </BoldText>
-      )
-    };
+      ),
+    });
 
     render() {
       return (
@@ -115,18 +115,18 @@ export default function ScheduleDay(options) {
   return StackNavigator(
     {
       Day: {
-        screen: ScheduleDayComponent
-      }
+        screen: ScheduleDayComponent,
+      },
     },
     {
       cardStyle: {
-        backgroundColor: "#fafafa"
+        backgroundColor: "#fafafa",
       },
       navigationOptions: {
         headerTitleStyle: {
-          fontFamily: "open-sans-bold"
-        }
-      }
+          fontFamily: "open-sans-bold",
+        },
+      },
     }
   );
 }
@@ -136,11 +136,11 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderColor: "#eee"
+    borderColor: "#eee",
   },
   rowStatic: {
     backgroundColor: "#f5f5f5",
-    opacity: 0.5
+    opacity: 0.5,
   },
   sectionHeader: {
     paddingHorizontal: 10,
@@ -148,6 +148,6 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
     backgroundColor: "#eee",
     borderWidth: 1,
-    borderColor: "#eee"
-  }
+    borderColor: "#eee",
+  },
 });
