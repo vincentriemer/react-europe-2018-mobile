@@ -1,6 +1,6 @@
 {
   "name": "react-native-dom",
-  "version": "0.0.12-712025a6",
+  "version": "0.0.12-48934bb9",
   "main": "lib/index.js",
   "dependencies": {
     "babel-runtime": "^6.26.0",
@@ -34,8 +34,8 @@
     "local-cli/runDom"
   ],
   "peerDependencies": {
-    "react": "^16.3.0-alpha.1",
-    "react-native": "0.54.0"
+    "react": "16.2.0",
+    "react-native": "~0.52.0"
   },
   "scripts": {
     "prestart": "cd Examples/NavigationPlayground && yarn",

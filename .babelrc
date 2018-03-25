@@ -6,7 +6,10 @@
       {
         "alias": {
           "expo": "./src/expo",
-          "react-native-gesture-handler": "./src/gesture-handler"
+          "original-expo": "expo",
+          "react-native-gesture-handler": "./src/gesture-handler",
+          "original-react-native-gesture-handler":
+            "react-native-gesture-handler"
         }
       }
     ],

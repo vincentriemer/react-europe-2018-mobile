@@ -1,3 +1,4 @@
+import "expo";
 import React from "react";
 import { Asset, AppLoading, Font } from "./src/expo";
 import { Platform, View } from "react-native";
