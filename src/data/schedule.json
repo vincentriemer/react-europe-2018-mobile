@@ -454,6 +454,28 @@
                 "type": 2
               },
               {
+                "description": "React Native has come a long way since its announcement 3 years ago, but what if its future meant looking even further into its past?",
+                "id": 1507,
+                "keynote": null,
+                "length": 25,
+                "room": null,
+                "speakers": [
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1315/avatar.png",
+                    "bio": "Creator of io808.com and software engineer at Symantec with a **passion for JavaScript, web animations, and producing music**.",
+                    "github": "vincentriemer",
+                    "id": 1315,
+                    "name": "Vincent Riemer",
+                    "twitter": "vincentriemer"
+                  }
+                ],
+                "startDate": "Thu May 17 13:30:00 +0000 2018",
+                "tags": null,
+                "talk": null,
+                "title": "Bridging React Native Back to its Roots",
+                "type": 0
+              },
+              {
                 "description": "nc",
                 "id": 1024,
                 "keynote": null,
@@ -469,11 +491,24 @@
                     "twitter": "majapw"
                   }
                 ],
-                "startDate": "Thu May 17 13:30:00 +0000 2018",
+                "startDate": "Thu May 17 14:00:00 +0000 2018",
                 "tags": "react, rtl, css-in-js",
                 "talk": null,
                 "title": "nc",
                 "type": 0
+              },
+              {
+                "description": "Socialize, have some coffee or other drinks.",
+                "id": 1465,
+                "keynote": null,
+                "length": 30,
+                "room": null,
+                "speakers": [],
+                "startDate": "Thu May 17 14:30:00 +0000 2018",
+                "tags": null,
+                "talk": null,
+                "title": "Coffee Break",
+                "type": 2
               },
               {
                 "description": "React fundamentally changed how we build UI in JavaScript, yet the principles behind React are equally powerful outside the JavaScript ecosystem. What if we could build a design tool based on these principles, allowing us to design flexible, composable component systems? What if we could transpile these components into any language on any platform, such as a Swift components on iOS, or Kotlin components on Android?\n\nIn this talk, he ll demonstrate how React could fundamentally alter design and native development, just like it did for JavaScript.",
@@ -491,45 +526,10 @@
                     "twitter": "dvnabbott"
                   }
                 ],
-                "startDate": "Thu May 17 14:00:00 +0000 2018",
+                "startDate": "Thu May 17 15:00:00 +0000 2018",
                 "tags": "react, ui,",
                 "talk": null,
                 "title": "Beyond React",
-                "type": 0
-              },
-              {
-                "description": "Socialize, have some coffee or other drinks.",
-                "id": 1465,
-                "keynote": null,
-                "length": 30,
-                "room": null,
-                "speakers": [],
-                "startDate": "Thu May 17 14:30:00 +0000 2018",
-                "tags": null,
-                "talk": null,
-                "title": "Coffee Break",
-                "type": 2
-              },
-              {
-                "description": "nc",
-                "id": 1458,
-                "keynote": null,
-                "length": 25,
-                "room": null,
-                "speakers": [
-                  {
-                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1419/avatar.png",
-                    "bio": "Eric is a self-taught web developer who has been working on **React Native** and apps at Facebook since joining in 2014, now freelancing. He now focuses on the needs of the **React Native open-source community**.",
-                    "github": "ericvicenti",
-                    "id": 1419,
-                    "name": "Eric Vicenti",
-                    "twitter": "ericvicenti"
-                  }
-                ],
-                "startDate": "Thu May 17 15:00:00 +0000 2018",
-                "tags": null,
-                "talk": null,
-                "title": "On React Navigation (final title coming soon)",
                 "type": 0
               },
               {
@@ -568,16 +568,7 @@
                 "keynote": null,
                 "length": 45,
                 "room": null,
-                "speakers": [
-                  {
-                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/992/avatar.png",
-                    "bio": "Frontend developer with over 6 years of experience around various frameworks and libs knowledge in my basket (such as React+Redux, Polymer, Ember, Backbone). Always eager to go deeper ;D",
-                    "github": "kajas90",
-                    "id": 992,
-                    "name": "Kasia Jastrzebska",
-                    "twitter": "kejt_bw"
-                  }
-                ],
+                "speakers": [],
                 "startDate": "Thu May 17 16:00:00 +0000 2018",
                 "tags": null,
                 "talk": null,
@@ -714,16 +705,7 @@
                 "keynote": null,
                 "length": 30,
                 "room": null,
-                "speakers": [
-                  {
-                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1256/avatar.png",
-                    "bio": "Software Engineer, React convert. Working on ultimate user experiences, cross platform development and developer platforms for over 10 years on devices ranging from embedded through mobile to desktop, for companies like Microsoft, Nokia and Hewlett Packard.",
-                    "github": "achipa",
-                    "id": 1256,
-                    "name": "Attila Csipa",
-                    "twitter": "achipa"
-                  }
-                ],
+                "speakers": [],
                 "startDate": "Fri May 18 10:00:00 +0000 2018",
                 "tags": null,
                 "talk": null,
@@ -858,6 +840,28 @@
                 "type": 2
               },
               {
+                "description": "nc",
+                "id": 1458,
+                "keynote": null,
+                "length": 25,
+                "room": null,
+                "speakers": [
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1419/avatar.png",
+                    "bio": "Eric is a self-taught web developer who has been working on **React Native** and apps at Facebook since joining in 2014, now freelancing. He now focuses on the needs of the **React Native open-source community**.",
+                    "github": "ericvicenti",
+                    "id": 1419,
+                    "name": "Eric Vicenti",
+                    "twitter": "ericvicenti"
+                  }
+                ],
+                "startDate": "Fri May 18 15:00:00 +0000 2018",
+                "tags": null,
+                "talk": null,
+                "title": "On React Navigation (final title coming soon)",
+                "type": 0
+              },
+              {
                 "description": "Two months ago, I was working on a React project with a lot of SVG icons. I started to convert them into React components. I quickly figured out that it was a bot job and I started to look for a solution to do it. I found tons of projects but none of them matched my needs, so I decided to create my library.\n\nI called it SVGR. The goal was simple, transforming a SVG into a React component. I coded it and I solved my problem, I saved a lot of time! I wanted to make it open source so I took the time to make a \"beautiful\" logo with a lion emoji and a good README. I also integrated Prettier in the project, I wanted to have a nice React code output out of the box. I tweeted it and got 40 stars and one contribution, I was happy.\n\nTwo weeks ago, Christopher Chedeau tweeted about my library, two hours later React Europe also tweeted it, later that day I got a star from Dan Abramov. Next thing you know I was trending on GitHub, getting 1K stars in one day!\n\nWhat is the future for SVGR?",
                 "id": 1029,
                 "keynote": null,
@@ -873,10 +877,32 @@
                     "twitter": "neoziro"
                   }
                 ],
-                "startDate": "Fri May 18 15:00:00 +0000 2018",
+                "startDate": "Fri May 18 15:30:00 +0000 2018",
                 "tags": "react, cli, svg, svgr, webpack",
                 "talk": null,
                 "title": "SVGR or how a simple problem became a 2K stars library",
+                "type": 0
+              },
+              {
+                "description": "Nc",
+                "id": 1509,
+                "keynote": null,
+                "length": 25,
+                "room": null,
+                "speakers": [
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1289/avatar.png",
+                    "bio": "Jared **interned on the React Native team, rewrote the React devtools**, and has given several talks on React & related technologies. He works at **Khan Academy on the mobile team**, using React Native alongside native Java and Swift. He loves type systems and learning new languages, and is** deeply invested in improving the experience of programming for everyone**.",
+                    "github": "jaredly",
+                    "id": 1289,
+                    "name": "Jared Forsyth",
+                    "twitter": "jaredforsyth"
+                  }
+                ],
+                "startDate": "Fri May 18 16:00:00 +0000 2018",
+                "tags": null,
+                "talk": null,
+                "title": "Nc",
                 "type": 0
               },
               {
@@ -886,7 +912,7 @@
                 "length": 60,
                 "room": null,
                 "speakers": [],
-                "startDate": "Fri May 18 15:30:00 +0000 2018",
+                "startDate": "Fri May 18 16:30:00 +0000 2018",
                 "tags": null,
                 "talk": null,
                 "title": "Q&A Panel",
@@ -899,7 +925,7 @@
                 "length": 120,
                 "room": null,
                 "speakers": [],
-                "startDate": "Fri May 18 16:30:00 +0000 2018",
+                "startDate": "Fri May 18 17:00:00 +0000 2018",
                 "tags": null,
                 "talk": null,
                 "title": "Drink up",
@@ -1344,6 +1370,28 @@
             "type": 2
           },
           {
+            "description": "React Native has come a long way since its announcement 3 years ago, but what if its future meant looking even further into its past?",
+            "id": 1507,
+            "keynote": null,
+            "length": 25,
+            "room": null,
+            "speakers": [
+              {
+                "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1315/avatar.png",
+                "bio": "Creator of io808.com and software engineer at Symantec with a **passion for JavaScript, web animations, and producing music**.",
+                "github": "vincentriemer",
+                "id": 1315,
+                "name": "Vincent Riemer",
+                "twitter": "vincentriemer"
+              }
+            ],
+            "startDate": "Thu May 17 13:30:00 +0000 2018",
+            "tags": null,
+            "talk": null,
+            "title": "Bridging React Native Back to its Roots",
+            "type": 0
+          },
+          {
             "description": "nc",
             "id": 1024,
             "keynote": null,
@@ -1359,11 +1407,24 @@
                 "twitter": "majapw"
               }
             ],
-            "startDate": "Thu May 17 13:30:00 +0000 2018",
+            "startDate": "Thu May 17 14:00:00 +0000 2018",
             "tags": "react, rtl, css-in-js",
             "talk": null,
             "title": "nc",
             "type": 0
+          },
+          {
+            "description": "Socialize, have some coffee or other drinks.",
+            "id": 1465,
+            "keynote": null,
+            "length": 30,
+            "room": null,
+            "speakers": [],
+            "startDate": "Thu May 17 14:30:00 +0000 2018",
+            "tags": null,
+            "talk": null,
+            "title": "Coffee Break",
+            "type": 2
           },
           {
             "description": "React fundamentally changed how we build UI in JavaScript, yet the principles behind React are equally powerful outside the JavaScript ecosystem. What if we could build a design tool based on these principles, allowing us to design flexible, composable component systems? What if we could transpile these components into any language on any platform, such as a Swift components on iOS, or Kotlin components on Android?\n\nIn this talk, he ll demonstrate how React could fundamentally alter design and native development, just like it did for JavaScript.",
@@ -1381,45 +1442,10 @@
                 "twitter": "dvnabbott"
               }
             ],
-            "startDate": "Thu May 17 14:00:00 +0000 2018",
+            "startDate": "Thu May 17 15:00:00 +0000 2018",
             "tags": "react, ui,",
             "talk": null,
             "title": "Beyond React",
-            "type": 0
-          },
-          {
-            "description": "Socialize, have some coffee or other drinks.",
-            "id": 1465,
-            "keynote": null,
-            "length": 30,
-            "room": null,
-            "speakers": [],
-            "startDate": "Thu May 17 14:30:00 +0000 2018",
-            "tags": null,
-            "talk": null,
-            "title": "Coffee Break",
-            "type": 2
-          },
-          {
-            "description": "nc",
-            "id": 1458,
-            "keynote": null,
-            "length": 25,
-            "room": null,
-            "speakers": [
-              {
-                "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1419/avatar.png",
-                "bio": "Eric is a self-taught web developer who has been working on **React Native** and apps at Facebook since joining in 2014, now freelancing. He now focuses on the needs of the **React Native open-source community**.",
-                "github": "ericvicenti",
-                "id": 1419,
-                "name": "Eric Vicenti",
-                "twitter": "ericvicenti"
-              }
-            ],
-            "startDate": "Thu May 17 15:00:00 +0000 2018",
-            "tags": null,
-            "talk": null,
-            "title": "On React Navigation (final title coming soon)",
             "type": 0
           },
           {
@@ -1458,16 +1484,7 @@
             "keynote": null,
             "length": 45,
             "room": null,
-            "speakers": [
-              {
-                "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/992/avatar.png",
-                "bio": "Frontend developer with over 6 years of experience around various frameworks and libs knowledge in my basket (such as React+Redux, Polymer, Ember, Backbone). Always eager to go deeper ;D",
-                "github": "kajas90",
-                "id": 992,
-                "name": "Kasia Jastrzebska",
-                "twitter": "kejt_bw"
-              }
-            ],
+            "speakers": [],
             "startDate": "Thu May 17 16:00:00 +0000 2018",
             "tags": null,
             "talk": null,
@@ -1598,16 +1615,7 @@
             "keynote": null,
             "length": 30,
             "room": null,
-            "speakers": [
-              {
-                "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1256/avatar.png",
-                "bio": "Software Engineer, React convert. Working on ultimate user experiences, cross platform development and developer platforms for over 10 years on devices ranging from embedded through mobile to desktop, for companies like Microsoft, Nokia and Hewlett Packard.",
-                "github": "achipa",
-                "id": 1256,
-                "name": "Attila Csipa",
-                "twitter": "achipa"
-              }
-            ],
+            "speakers": [],
             "startDate": "Fri May 18 10:00:00 +0000 2018",
             "tags": null,
             "talk": null,
@@ -1742,6 +1750,28 @@
             "type": 2
           },
           {
+            "description": "nc",
+            "id": 1458,
+            "keynote": null,
+            "length": 25,
+            "room": null,
+            "speakers": [
+              {
+                "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1419/avatar.png",
+                "bio": "Eric is a self-taught web developer who has been working on **React Native** and apps at Facebook since joining in 2014, now freelancing. He now focuses on the needs of the **React Native open-source community**.",
+                "github": "ericvicenti",
+                "id": 1419,
+                "name": "Eric Vicenti",
+                "twitter": "ericvicenti"
+              }
+            ],
+            "startDate": "Fri May 18 15:00:00 +0000 2018",
+            "tags": null,
+            "talk": null,
+            "title": "On React Navigation (final title coming soon)",
+            "type": 0
+          },
+          {
             "description": "Two months ago, I was working on a React project with a lot of SVG icons. I started to convert them into React components. I quickly figured out that it was a bot job and I started to look for a solution to do it. I found tons of projects but none of them matched my needs, so I decided to create my library.\n\nI called it SVGR. The goal was simple, transforming a SVG into a React component. I coded it and I solved my problem, I saved a lot of time! I wanted to make it open source so I took the time to make a \"beautiful\" logo with a lion emoji and a good README. I also integrated Prettier in the project, I wanted to have a nice React code output out of the box. I tweeted it and got 40 stars and one contribution, I was happy.\n\nTwo weeks ago, Christopher Chedeau tweeted about my library, two hours later React Europe also tweeted it, later that day I got a star from Dan Abramov. Next thing you know I was trending on GitHub, getting 1K stars in one day!\n\nWhat is the future for SVGR?",
             "id": 1029,
             "keynote": null,
@@ -1757,10 +1787,32 @@
                 "twitter": "neoziro"
               }
             ],
-            "startDate": "Fri May 18 15:00:00 +0000 2018",
+            "startDate": "Fri May 18 15:30:00 +0000 2018",
             "tags": "react, cli, svg, svgr, webpack",
             "talk": null,
             "title": "SVGR or how a simple problem became a 2K stars library",
+            "type": 0
+          },
+          {
+            "description": "Nc",
+            "id": 1509,
+            "keynote": null,
+            "length": 25,
+            "room": null,
+            "speakers": [
+              {
+                "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1289/avatar.png",
+                "bio": "Jared **interned on the React Native team, rewrote the React devtools**, and has given several talks on React & related technologies. He works at **Khan Academy on the mobile team**, using React Native alongside native Java and Swift. He loves type systems and learning new languages, and is** deeply invested in improving the experience of programming for everyone**.",
+                "github": "jaredly",
+                "id": 1289,
+                "name": "Jared Forsyth",
+                "twitter": "jaredforsyth"
+              }
+            ],
+            "startDate": "Fri May 18 16:00:00 +0000 2018",
+            "tags": null,
+            "talk": null,
+            "title": "Nc",
             "type": 0
           },
           {
@@ -1770,7 +1822,7 @@
             "length": 60,
             "room": null,
             "speakers": [],
-            "startDate": "Fri May 18 15:30:00 +0000 2018",
+            "startDate": "Fri May 18 16:30:00 +0000 2018",
             "tags": null,
             "talk": null,
             "title": "Q&A Panel",
@@ -1783,7 +1835,7 @@
             "length": 120,
             "room": null,
             "speakers": [],
-            "startDate": "Fri May 18 16:30:00 +0000 2018",
+            "startDate": "Fri May 18 17:00:00 +0000 2018",
             "tags": null,
             "talk": null,
             "title": "Drink up",
@@ -2105,7 +2157,7 @@
                 "description": "nc",
                 "id": 1024,
                 "length": 25,
-                "startDate": "Thu May 17 13:30:00 +0000 2018",
+                "startDate": "Thu May 17 14:00:00 +0000 2018",
                 "title": "nc",
                 "type": 0
               }
@@ -2123,7 +2175,7 @@
                 "description": "Two months ago, I was working on a React project with a lot of SVG icons. I started to convert them into React components. I quickly figured out that it was a bot job and I started to look for a solution to do it. I found tons of projects but none of them matched my needs, so I decided to create my library.\n\nI called it SVGR. The goal was simple, transforming a SVG into a React component. I coded it and I solved my problem, I saved a lot of time! I wanted to make it open source so I took the time to make a \"beautiful\" logo with a lion emoji and a good README. I also integrated Prettier in the project, I wanted to have a nice React code output out of the box. I tweeted it and got 40 stars and one contribution, I was happy.\n\nTwo weeks ago, Christopher Chedeau tweeted about my library, two hours later React Europe also tweeted it, later that day I got a star from Dan Abramov. Next thing you know I was trending on GitHub, getting 1K stars in one day!\n\nWhat is the future for SVGR?",
                 "id": 1029,
                 "length": 25,
-                "startDate": "Fri May 18 15:00:00 +0000 2018",
+                "startDate": "Fri May 18 15:30:00 +0000 2018",
                 "title": "SVGR or how a simple problem became a 2K stars library",
                 "type": 0
               }
@@ -2208,8 +2260,35 @@
             "github": "jaredly",
             "id": 1289,
             "name": "Jared Forsyth",
-            "talks": [],
+            "talks": [
+              {
+                "description": "Nc",
+                "id": 1509,
+                "length": 25,
+                "startDate": "Fri May 18 16:00:00 +0000 2018",
+                "title": "Nc",
+                "type": 0
+              }
+            ],
             "twitter": "jaredforsyth"
+          },
+          {
+            "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1315/avatar.png",
+            "bio": "Creator of io808.com and software engineer at Symantec with a **passion for JavaScript, web animations, and producing music**.",
+            "github": "vincentriemer",
+            "id": 1315,
+            "name": "Vincent Riemer",
+            "talks": [
+              {
+                "description": "React Native has come a long way since its announcement 3 years ago, but what if its future meant looking even further into its past?",
+                "id": 1507,
+                "length": 25,
+                "startDate": "Thu May 17 13:30:00 +0000 2018",
+                "title": "Bridging React Native Back to its Roots",
+                "type": 0
+              }
+            ],
+            "twitter": "vincentriemer"
           },
           {
             "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1418/avatar.png",
@@ -2222,7 +2301,7 @@
                 "description": "React fundamentally changed how we build UI in JavaScript, yet the principles behind React are equally powerful outside the JavaScript ecosystem. What if we could build a design tool based on these principles, allowing us to design flexible, composable component systems? What if we could transpile these components into any language on any platform, such as a Swift components on iOS, or Kotlin components on Android?\n\nIn this talk, he ll demonstrate how React could fundamentally alter design and native development, just like it did for JavaScript.",
                 "id": 1459,
                 "length": 25,
-                "startDate": "Thu May 17 14:00:00 +0000 2018",
+                "startDate": "Thu May 17 15:00:00 +0000 2018",
                 "title": "Beyond React",
                 "type": 0
               }
@@ -2240,7 +2319,7 @@
                 "description": "nc",
                 "id": 1458,
                 "length": 25,
-                "startDate": "Thu May 17 15:00:00 +0000 2018",
+                "startDate": "Fri May 18 15:00:00 +0000 2018",
                 "title": "On React Navigation (final title coming soon)",
                 "type": 0
               }
