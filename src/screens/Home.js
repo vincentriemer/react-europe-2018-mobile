@@ -217,6 +217,7 @@ class DeferredHomeContent extends React.Component {
 
   _handlePressTwitterButton = async () => {
     try {
+      if (Platform.OS === "dom") throw "don't even bother trying";
       await Linking.openURL(
         `twitter://user?screen_name=` + Event.twitterHandle
       );

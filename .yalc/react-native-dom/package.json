@@ -1,6 +1,6 @@
 {
   "name": "react-native-dom",
-  "version": "0.0.12-48934bb9",
+  "version": "0.0.12-3c9bab33",
   "main": "lib/index.js",
   "dependencies": {
     "babel-runtime": "^6.26.0",

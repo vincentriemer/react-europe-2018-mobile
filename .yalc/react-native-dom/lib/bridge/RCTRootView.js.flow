@@ -90,8 +90,11 @@ class RCTRootView extends UIView {
     this.updateHostStyle({
       WebkitTapHighlightColor: "transparent",
       userSelect: "none",
+      overflow: "hidden",
       position: "fixed"
     });
+
+    this.preventDocumentFromScrolling();
 
     this.ticking = false;
   }
@@ -105,6 +108,8 @@ class RCTRootView extends UIView {
   }
 
   set reactTag(value: number) {}
+
+  preventDocumentFromScrolling() {}
 
   bundleFinishedLoading() {
     this.runApplication();
