@@ -6402,7 +6402,7 @@ react-native-dismiss-keyboard@1.0.0:
   resolved "https://registry.yarnpkg.com/react-native-dismiss-keyboard/-/react-native-dismiss-keyboard-1.0.0.tgz#32886242b3f2317e121f3aeb9b0a585e2b879b49"
 
 "react-native-dom@file:.yalc/react-native-dom":
-  version "0.0.12-5b7b04a9"
+  version "0.0.2-c07129d2"
   dependencies:
     babel-runtime "^6.26.0"
     bezier-easing "^2.0.3"
@@ -6412,7 +6412,6 @@ react-native-dismiss-keyboard@1.0.0:
     fast-memoize "^2.2.7"
     fbjs "^0.8.12"
     glob "^7.1.2"
-    hammerjs "^2.0.8"
     hyperhtml-element "^1.2.1"
     idb-keyval "^2.3.0"
     inline-style-prefixer "^3.0.8"

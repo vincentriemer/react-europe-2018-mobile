@@ -13,10 +13,11 @@
     "build:dom":
       "NODE_ENV=production yarn build:dom:native && yarn build:dom:js",
     "build:dom:native":
-      "react-native bundle --config $(pwd)/rn-cli.config.js --dev false --entry-file ./dom/bootstrap.js --bundle-output ./dom/dist/bootstrap.bundle --platform dom --reset-cache",
+      "react-native bundle --config $(pwd)/rn-cli.config.js --dev false --entry-file ./dom/bootstrap.js --bundle-output ./dom/dist/bootstrap.bundle --platform dom",
     "build:dom:js":
-      "react-native bundle --config $(pwd)/rn-cli.config.js --dev false --entry-file ./dom/entry.js --bundle-output ./dom/dist/entry.bundle --platform dom --assets-dest ./dom/dist --reset-cache",
-    "postbuild:dom": "cp ./dom/index.html ./dom/dist/index.html"
+      "react-native bundle --config $(pwd)/rn-cli.config.js --dev false --entry-file ./dom/entry.js --bundle-output ./dom/dist/entry.bundle --platform dom --assets-dest ./dom/dist",
+    "postbuild:dom":
+      "cp ./dom/index.html ./dom/dist/index.html && cp ./dom/now.json ./dom/dist/now.json"
   },
   "dependencies": {
     "@expo/vector-icons": "^6.3.1",

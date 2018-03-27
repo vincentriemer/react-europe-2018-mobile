@@ -39,6 +39,16 @@ const TOUCH_LISTENER_OPTIONS = detectIt.passiveEvents
   ? { passive: true, capture: false }
   : false;
 
+function getFirstParentUIView(target: any) {
+  while (target.parentElement) {
+    if (target instanceof UIView || target instanceof UIChildContainerView) {
+      return target;
+    }
+    target = target.parentElement;
+  }
+  return target;
+}
+
 class RCTTouchHandler {
   eventDispatcher: RCTEventDispatcher;
 
@@ -65,13 +75,7 @@ class RCTTouchHandler {
     rawEvent: TouchEvent | MouseEvent
   ): ?Array<UITouch> {
     if (rawEvent instanceof MouseEvent) {
-      // rawEvent.preventDefault();
-      const target = rawEvent.target;
-
-      invariant(
-        target instanceof UIView || target instanceof UIChildContainerView,
-        "Cannot normalize interaction event on object which does not inherit from UIView"
-      );
+      const target: UIView = getFirstParentUIView(rawEvent.target);
 
       if ("which" in rawEvent && rawEvent.which === 3) {
         return null;
@@ -96,12 +100,7 @@ class RCTTouchHandler {
 
       for (let i = 0; i < rawTouches.length; i++) {
         const rawTouch = rawTouches[i];
-        const target = rawTouch.target;
-
-        invariant(
-          target instanceof UIView || target instanceof UIChildContainerView,
-          "Cannot normalize interaction event on object which does not inherit from UIView"
-        );
+        const target: UIView = getFirstParentUIView(rawTouch.target);
 
         const rect = target.getBoundingClientRect();
 
@@ -383,7 +382,6 @@ class RCTTouchHandler {
   }
 
   touchesCanceled(touches: Array<UITouch>) {
-    console.log("touches canceled");
     this.updateAndDispatchTouches(touches, "touchCancel");
     this.recordRemovedTouches(touches);
   }
