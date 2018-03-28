@@ -325,7 +325,8 @@ const styles = StyleSheet.create({
   },
   headerColumnSpeaker: {
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    paddingHorizontal: 5
   },
   headerContainer: {
     backgroundColor: Colors.blue,
