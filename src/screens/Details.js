@@ -62,7 +62,9 @@ export default class Details extends React.Component {
       speakers = talk.speakers;
     } else if (params.speaker) {
       speaker = params.speaker;
-      talk = getSpeakerTalk(speaker);
+      if (speaker.talks && speaker.talks.length > 0) {
+        talk = getSpeakerTalk(speaker);
+      }
     }
 
     const { scrollY } = this.state;
@@ -132,19 +134,31 @@ export default class Details extends React.Component {
                             key={speaker.id}
                             style={styles.headerColumnSpeaker}
                           >
-                            <Image
-                              source={{ uri: speaker.avatarUrl }}
-                              style={styles.avatarMultiple}
-                              key={speaker.id + talk.title}
-                            />
+                            <TouchableOpacity
+                              key={speaker.id}
+                              onPress={() => this._handlePressSpeaker(speaker)}
+                            >
+                              <Image
+                                source={{ uri: speaker.avatarUrl }}
+                                style={styles.avatarMultiple}
+                                key={speaker.id + talk.title}
+                              />
+                            </TouchableOpacity>
                             {speaker.name.split(" ").map((name, index) => (
                               <View key={index}>
-                                <SemiBoldText
-                                  style={styles.headerText}
-                                  key={"speakers" + speaker.id + name}
+                                <TouchableOpacity
+                                  key={speaker.id}
+                                  onPress={() =>
+                                    this._handlePressSpeaker(speaker)
+                                  }
                                 >
-                                  {name}
-                                </SemiBoldText>
+                                  <SemiBoldText
+                                    style={styles.headerText}
+                                    key={"speakers" + speaker.id + name}
+                                  >
+                                    {name}
+                                  </SemiBoldText>
+                                </TouchableOpacity>
                               </View>
                             ))}
                           </View>
@@ -281,6 +295,10 @@ export default class Details extends React.Component {
         </SemiBoldText>
       </TouchableOpacity>
     );
+  };
+
+  _handlePressSpeaker = speaker => {
+    this.props.navigation.navigate("Details", { speaker });
   };
 }
 const markdownStyles = {
