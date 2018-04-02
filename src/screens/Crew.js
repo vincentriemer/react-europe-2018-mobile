@@ -1,5 +1,13 @@
 import React from "react";
-import { Image, FlatList, StyleSheet, View, Text } from "react-native";
+import {
+  Image,
+  FlatList,
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  Linking
+} from "react-native";
 import FadeIn from "react-native-fade-in-image";
 import { ScrollView } from "react-native-gesture-handler";
 
@@ -31,15 +39,18 @@ class CrewRow extends React.Component {
             {crew.firstName} {crew.lastName}
           </BoldText>
           {crew.role ? <SemiBoldText>{crew.role}</SemiBoldText> : null}
-          <RegularText>@{crew.twitter}</RegularText>
+          <TouchableOpacity
+            onPress={() => this._handlePressCrewTwitter(crew.twitter)}
+          >
+            <RegularText>@{crew.twitter}</RegularText>
+          </TouchableOpacity>
         </View>
       </View>
     );
   }
 
-  _handlePress = () => {
-    // do nothing for now
-    // alert('pressed!')
+  _handlePressCrewTwitter = twitter => {
+    Linking.openURL("https://twitter.com/" + twitter);
   };
 }
 

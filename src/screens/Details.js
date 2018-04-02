@@ -7,7 +7,8 @@ import {
   TouchableOpacity,
   Text,
   ScrollView,
-  View
+  View,
+  Linking
 } from "react-native";
 import { Constants, Video } from "expo";
 import FadeIn from "react-native-fade-in-image";
@@ -180,9 +181,13 @@ export default class Details extends React.Component {
               </SemiBoldText>
             )}
             {speaker && speaker.twitter ? (
-              <RegularText style={styles.headerText}>
-                @{speaker.twitter || speaker.github}
-              </RegularText>
+              <TouchableOpacity
+                onPress={() => this._handlePressSpeakerTwitter(speaker.twitter)}
+              >
+                <RegularText style={styles.headerText}>
+                  @{speaker.twitter}
+                </RegularText>
+              </TouchableOpacity>
             ) : null}
             {talk ? (
               <BoldText style={styles.talkTitleText}>{talk.title}</BoldText>
@@ -299,6 +304,10 @@ export default class Details extends React.Component {
 
   _handlePressSpeaker = speaker => {
     this.props.navigation.navigate("Details", { speaker });
+  };
+
+  _handlePressSpeakerTwitter = twitter => {
+    Linking.openURL("https://twitter.com/" + twitter);
   };
 }
 const markdownStyles = {
