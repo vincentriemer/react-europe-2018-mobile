@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import FadeIn from "react-native-fade-in-image";
 import { ScrollView } from "react-native-gesture-handler";
+import { WebBrowser } from "expo";
 
 import { Colors } from "../constants";
 import MenuButton from "../components/MenuButton";
@@ -49,8 +50,12 @@ class CrewRow extends React.Component {
     );
   }
 
-  _handlePressCrewTwitter = twitter => {
-    Linking.openURL("https://twitter.com/" + twitter);
+  _handlePressCrewTwitter = async twitter => {
+    try {
+      await Linking.openURL(`twitter://user?screen_name=` + twitter);
+    } catch (e) {
+      WebBrowser.openBrowserAsync("https://twitter.com/" + twitter);
+    }
   };
 }
 

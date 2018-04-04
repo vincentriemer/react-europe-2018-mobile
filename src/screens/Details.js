@@ -10,7 +10,7 @@ import {
   View,
   Linking
 } from "react-native";
-import { Constants, Video } from "expo";
+import { Constants, Video, WebBrowser } from "expo";
 import FadeIn from "react-native-fade-in-image";
 import ReadMore from "react-native-read-more-text";
 import { BorderlessButton } from "react-native-gesture-handler";
@@ -306,8 +306,12 @@ export default class Details extends React.Component {
     this.props.navigation.navigate("Details", { speaker });
   };
 
-  _handlePressSpeakerTwitter = twitter => {
-    Linking.openURL("https://twitter.com/" + twitter);
+  _handlePressSpeakerTwitter = async twitter => {
+    try {
+      await Linking.openURL(`twitter://user?screen_name=` + twitter);
+    } catch (e) {
+      WebBrowser.openBrowserAsync("https://twitter.com/" + twitter);
+    }
   };
 }
 const markdownStyles = {
