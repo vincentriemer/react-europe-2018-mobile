@@ -20,7 +20,7 @@ import { withNavigation } from "react-navigation";
 
 import AnimatedScrollView from "../components/AnimatedScrollView";
 import NavigationBar from "../components/NavigationBar";
-import TalksUpNext from "../components/TalksUpNext";
+import Tickets from "../components/Tickets";
 import MenuButton from "../components/MenuButton";
 import VideoBackground from "../components/VideoBackground";
 import { BoldText, SemiBoldText } from "../components/StyledText";
@@ -35,7 +35,7 @@ import {
 export const Schedule = require("../data/schedule.json");
 const Event = Schedule.events[0];
 
-class Home extends React.Component {
+class Profile extends React.Component {
   state = {
     scrollY: new Animated.Value(0),
     hasCameraPermission: null
@@ -83,35 +83,7 @@ class Home extends React.Component {
               justifyContent: "center",
               alignItems: "center"
             }}
-          >
-            <Image
-              source={require("../assets/logo.png")}
-              style={{ width: 220, height: 60, resizeMode: "contain" }}
-              tintColor="#fff"
-            />
-            <View style={styles.headerContent}>
-              <ShowWhenConferenceHasEnded>
-                <SemiBoldText style={styles.headerText}>
-                  Thank you for joining us!
-                </SemiBoldText>
-                <SemiBoldText style={styles.headerTextSmall}>
-                  See you in May, 2019!
-                </SemiBoldText>
-              </ShowWhenConferenceHasEnded>
-
-              <HideWhenConferenceHasEnded>
-                <SemiBoldText style={styles.headerText}>
-                  May 17th to 18th (Conference)
-                </SemiBoldText>
-                <SemiBoldText style={styles.headerText}>
-                  May 15th to 16th (Workshops)
-                </SemiBoldText>
-                <SemiBoldText style={styles.headerText}>
-                  Paris, France
-                </SemiBoldText>
-              </HideWhenConferenceHasEnded>
-            </View>
-          </View>
+          />
 
           <DeferredHomeContent />
           <OverscrollView />
@@ -152,16 +124,9 @@ class DeferredHomeContent extends React.Component {
     }
     return (
       <AnimatableView animation="fadeIn" useNativeDriver duration={800}>
-        <TalksUpNext
+        <Tickets
           style={{ marginTop: 20, marginHorizontal: 15, marginBottom: 2 }}
         />
-        <View style={{ marginHorizontal: 15, marginBottom: 20 }}>
-          <TouchableOpacity onPress={this._handlePressAllTalks}>
-            <SemiBoldText style={styles.seeAllTalks}>
-              See all talks →
-            </SemiBoldText>
-          </TouchableOpacity>
-        </View>
 
         <ClipBorderRadius>
           <RectButton
@@ -171,53 +136,6 @@ class DeferredHomeContent extends React.Component {
           >
             <SemiBoldText style={styles.bigButtonText}>
               Scan your ticket QR code
-            </SemiBoldText>
-          </RectButton>
-        </ClipBorderRadius>
-
-        <ClipBorderRadius>
-          <RectButton
-            style={styles.bigButton}
-            onPress={this._handlePressCOCButton}
-            underlayColor="#fff"
-          >
-            <SemiBoldText style={styles.bigButtonText}>
-              Read the code of conduct
-            </SemiBoldText>
-          </RectButton>
-        </ClipBorderRadius>
-
-        <ClipBorderRadius>
-          <RectButton
-            style={styles.bigButton}
-            onPress={this._handlePressMapButton}
-            underlayColor="#fff"
-          >
-            <SemiBoldText style={styles.bigButtonText}>
-              {Platform.OS === "android" ? "Download" : "Open"} the conference
-              map
-            </SemiBoldText>
-          </RectButton>
-        </ClipBorderRadius>
-
-        <ClipBorderRadius>
-          <RectButton
-            style={styles.bigButton}
-            onPress={this._handlePressTwitterButton}
-            underlayColor="#fff"
-          >
-            <Ionicons
-              name="logo-twitter"
-              size={23}
-              style={{
-                color: "#fff",
-                marginTop: 3,
-                backgroundColor: "transparent",
-                marginRight: 5
-              }}
-            />
-            <SemiBoldText style={styles.bigButtonText}>
-              @{Event.twitterHandle}
             </SemiBoldText>
           </RectButton>
         </ClipBorderRadius>
@@ -335,4 +253,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Home;
+export default Profile;

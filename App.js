@@ -67,7 +67,7 @@ export default class App extends React.Component {
               if (loaded) {
                 //console.log(data.events[0].name)
               }
-              return <Navigation schedule={data} />;
+              return <Navigation schedule={data} client={client} />;
             }}
           />
         </View>

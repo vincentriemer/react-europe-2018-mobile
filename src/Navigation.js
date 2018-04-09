@@ -16,9 +16,12 @@ import {
   Text,
   StyleSheet,
   StatusBar,
-  View
+  View,
+  Button,
+  Alert,
+  AsyncStorage
 } from "react-native";
-import { Constants } from "expo";
+import { Constants, BarCodeScanner, Permissions } from "expo";
 import { TabViewAnimated } from "react-native-tab-view";
 import {
   DrawerLayoutAndroid,
@@ -36,10 +39,43 @@ import { SemiBoldText, BoldText } from "./components/StyledText";
 import _ from "lodash";
 import Schedule from "./data/schedule.json";
 import moment from "moment";
+import { Provider, Client, Connect, query } from "urql";
 
 const DrawerComponent =
   Platform.OS === "android" ? DrawerLayoutAndroid : DrawerLayout;
+const client = new Client({
+  url: "http://192.168.1.32:4449/gql"
+});
+const qrQuery = `
+query events($slug: String!, $uuid: String!){
+  events(slug: $slug) {
+	me(uuid: $uuid){
+	  answers {
+		id
+        value
+        question {
+          id
+		  title
+        }
+	  }
+	  firstName
+	  lastName
+	  email
+	  ref
+	  shareInfo
 
+checkinLists {
+        id
+        name
+        mainEvent
+      }
+
+
+
+	}
+  }
+}
+`;
 const FullSchedule = Schedule.events[0].groupedSchedule;
 let navSchedule = {};
 _.each(FullSchedule, (day, i) => {
@@ -122,14 +158,16 @@ const DrawerRouteConfig = {
   Schedule: { screen: ScheduleNavigation },
   Speakers: { screen: SpeakersNavigation },
   Crew: { screen: CrewNavigation },
-  Sponsors: { screen: SponsorNavigation }
+  Sponsors: { screen: SponsorNavigation },
+  Profile: { screen: Screens.Profile }
 };
 
 const DrawerRouter = TabRouter(DrawerRouteConfig);
 
 class DrawerScene extends React.PureComponent {
   state = {
-    visible: true
+    visible: true,
+    me: null
   };
 
   setVisible = visible => {
@@ -334,7 +372,8 @@ class DrawerView extends React.Component {
             { route: "Schedule", title: "Schedule" },
             { route: "Speakers", title: "Speakers" },
             { route: "Crew", title: "Crew" },
-            { route: "Sponsors", title: "Sponsors" }
+            { route: "Sponsors", title: "Sponsors" },
+            { route: "Profile", title: "Profile" }
           ])}
         </View>
       </View>
@@ -381,6 +420,14 @@ const DrawerNavigation = createNavigationContainer(
 );
 
 class DrawerButton extends React.Component {
+  state = {
+    me: null
+  };
+  componentDidMount() {
+    AsyncStorage.getItem("@MySuperStore:tickets").then(value => {
+      const mytickets = value;
+    });
+  }
   render() {
     return (
       <RectButton
@@ -408,6 +455,78 @@ class DrawerButton extends React.Component {
   }
 }
 
+class QRScannerModalNavigation extends React.Component {
+  state = {
+    hasCameraPermission: null
+  };
+  _requestCameraPermission = async () => {
+    const { status } = await Permissions.askAsync(Permissions.CAMERA);
+    this.setState({
+      hasCameraPermission: status === "granted"
+    });
+  };
+  componentDidMount() {
+    this._requestCameraPermission();
+  }
+  _handleBarCodeRead = data => {
+    Alert.alert("Scan successful!", JSON.stringify(data));
+    let variables = { slug: "cluster-test", uuid: data.data };
+    client.executeQuery(query(qrQuery, variables), true).then(function(value) {
+      console.log(value.data.events[0].me.ref);
+      console.log(value.data.events[0].me.firstName);
+      console.log(value.data.events[0].me.lastName);
+      let me = value.data.events[0].me;
+      AsyncStorage.getItem("@MySuperStore:tickets").then(value => {
+        let tickets = null;
+        let newTickets = [];
+        let found = false;
+        if (value === null) {
+          tickets = [me];
+        } else {
+          let existingTickets = JSON.parse(value);
+          existingTickets.map((ticket, i) => {
+            if (ticket.ref === me.ref) {
+              found = true;
+              newTickets.push(me);
+            } else {
+              newTickets.push(ticket);
+            }
+          });
+          if (!found) {
+            newTickets.push(me);
+          }
+          tickets = newTickets;
+        }
+        let stringifiedTickets = JSON.stringify(tickets);
+        AsyncStorage.setItem("@MySuperStore:tickets", stringifiedTickets)
+          //AsyncStorage.removeItem('@MySuperStore:tickets')
+          .then(value => {});
+      });
+      // expected output: Array [1, 2, 3]
+    });
+  };
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <Text style={{ fontSize: 30 }}>Scan your ticket QR code!</Text>
+        <BarCodeScanner
+          onBarCodeRead={this._handleBarCodeRead}
+          style={{
+            flex: 1,
+            alignItems: "center",
+            justifyContent: "center",
+            alignSelf: "stretch"
+          }}
+        />
+        <Button
+          onPress={() => this.props.navigation.goBack()}
+          title="Dismiss"
+        />
+      </View>
+    );
+  }
+}
+
 const styles = StyleSheet.create({
   container: {
     flex: 1
@@ -426,10 +545,12 @@ const styles = StyleSheet.create({
 export default StackNavigator(
   {
     Primary: { screen: DrawerNavigation },
-    Details: { screen: Screens.Details }
+    Details: { screen: Screens.Details },
+    QRScanner: { screen: QRScannerModalNavigation }
   },
   {
     ...DefaultStackConfig,
-    headerMode: "none"
+    headerMode: "none",
+    mode: "modal"
   }
 );
