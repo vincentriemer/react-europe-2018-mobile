@@ -63,6 +63,7 @@ query events($slug: String!, $uuid: String!){
 	  email
 	  ref
 	  shareInfo
+      uuid
 
 checkinLists {
         id
@@ -473,6 +474,7 @@ class QRScannerModalNavigation extends React.Component {
     let navigation = this.props.navigation;
     client.executeQuery(query(qrQuery, variables), true).then(function(value) {
       console.log(value.data.events[0].me.ref);
+      console.log(value.data.events[0].me.uuid);
       console.log(value.data.events[0].me.firstName);
       console.log(value.data.events[0].me.lastName);
       let me = value.data.events[0].me;

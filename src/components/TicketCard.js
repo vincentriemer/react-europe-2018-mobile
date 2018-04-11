@@ -28,7 +28,7 @@ export default class TicketCard extends React.Component {
             {ticket.checkinLists.map(ch => ch.name).join(" and ")}. ref:{" "}
             {ticket.ref}
           </RegularText>
-          <QRCode style={{ flex: 1 }} value={ticket.ref} size={300} />
+          <QRCode style={{ flex: 1 }} value={ticket.uuid} size={300} />
         </View>
       </RectButton>
     );
