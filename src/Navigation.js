@@ -470,6 +470,7 @@ class QRScannerModalNavigation extends React.Component {
   }
   _handleBarCodeRead = data => {
     let variables = { slug: "reacteurope-2018", uuid: data.data };
+    let navigation = this.props.navigation;
     client.executeQuery(query(qrQuery, variables), true).then(function(value) {
       console.log(value.data.events[0].me.ref);
       console.log(value.data.events[0].me.firstName);
@@ -499,7 +500,9 @@ class QRScannerModalNavigation extends React.Component {
         let stringifiedTickets = JSON.stringify(tickets);
         AsyncStorage.setItem("@MySuperStore:tickets", stringifiedTickets)
           //AsyncStorage.removeItem('@MySuperStore:tickets')
-          .then(value => {});
+          .then(value => {
+            navigation.navigate("Profile");
+          });
       });
       // expected output: Array [1, 2, 3]
     });
