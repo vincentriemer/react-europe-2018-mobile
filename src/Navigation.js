@@ -44,7 +44,7 @@ import { Provider, Client, Connect, query } from "urql";
 const DrawerComponent =
   Platform.OS === "android" ? DrawerLayoutAndroid : DrawerLayout;
 const client = new Client({
-  url: "http://192.168.1.32:4449/gql"
+  url: "https://www.react-europe.org/gql"
 });
 const qrQuery = `
 query events($slug: String!, $uuid: String!){
@@ -469,8 +469,7 @@ class QRScannerModalNavigation extends React.Component {
     this._requestCameraPermission();
   }
   _handleBarCodeRead = data => {
-    Alert.alert("Scan successful!", JSON.stringify(data));
-    let variables = { slug: "cluster-test", uuid: data.data };
+    let variables = { slug: "reacteurope-2018", uuid: data.data };
     client.executeQuery(query(qrQuery, variables), true).then(function(value) {
       console.log(value.data.events[0].me.ref);
       console.log(value.data.events[0].me.firstName);

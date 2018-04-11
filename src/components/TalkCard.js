@@ -15,7 +15,7 @@ export default class TalkCard extends React.Component {
     const { talk } = this.props;
     const speakers = talk.speakers;
 
-    if (!speakers || speakers.length === 0) {
+    if (conferenceHasEnded() && (!speakers || speakers.length === 0)) {
       return this._renderPlaceholderForNextYear();
     }
 

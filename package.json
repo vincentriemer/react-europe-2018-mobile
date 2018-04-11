@@ -9,7 +9,7 @@
     "devtools": "react-devtools"
   },
   "dependencies": {
-    "exp": "^49.2.2",
+    "exp": "^51.4.0",
     "expo": "^25.0.0",
     "fbemitter": "^2.1.1",
     "global": "^4.3.2",
