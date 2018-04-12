@@ -85,7 +85,7 @@ class Profile extends React.Component {
             }}
           />
 
-          <DeferredHomeContent />
+          <DeferredProfileContent />
           <OverscrollView />
         </AnimatedScrollView>
 
@@ -103,11 +103,10 @@ class Profile extends React.Component {
 }
 
 @withNavigation
-class DeferredHomeContent extends React.Component {
+class DeferredProfileContent extends React.Component {
   state = {
     ready: Platform.OS === "android" ? false : true
   };
-
   componentDidMount() {
     if (this.state.ready) {
       return;
