@@ -143,37 +143,8 @@ class DeferredHomeContent extends React.Component {
     );
   }
 
-  _handlePressAllTalks = () => {
-    this.props.navigation.dispatch(
-      NavigationActions.navigate({
-        routeName: "Schedule"
-      })
-    );
-  };
-
-  _handlePressCOCButton = () => {
-    WebBrowser.openBrowserAsync(Event.cocUrl);
-  };
-
   _handlePressQRButton = () => {
     this.props.navigation.navigate("QRScanner");
-  };
-
-  _handlePressTwitterButton = async () => {
-    try {
-      await Linking.openURL(
-        `twitter://user?screen_name=` + Event.twitterHandle
-      );
-    } catch (e) {
-      WebBrowser.openBrowserAsync("https://twitter.com/" + Event.twitterHandle);
-    }
-  };
-
-  _handlePressMapButton = () => {
-    const params = encodeURIComponent(
-      Event.venueName + Event.venueCity + "," + Event.venueCountry
-    );
-    WebBrowser.openBrowserAsync("https://www.google.com/maps/search/" + params);
   };
 }
 
