@@ -8,7 +8,8 @@ import {
   TouchableOpacity,
   ScrollView,
   StyleSheet,
-  View
+  View,
+  AsyncStorage
 } from "react-native";
 import { Asset, LinearGradient, WebBrowser, Video } from "expo";
 import { BorderlessButton, RectButton } from "react-native-gesture-handler";
@@ -105,8 +106,24 @@ class Profile extends React.Component {
 @withNavigation
 class DeferredProfileContent extends React.Component {
   state = {
+    tickets: [],
     ready: Platform.OS === "android" ? false : true
   };
+  async getTickets() {
+    try {
+      const value = await AsyncStorage.getItem("@MySuperStore:tickets");
+      this.setState({ tickets: JSON.parse(value) });
+    } catch (err) {
+      console.log(err);
+      return [];
+    }
+  }
+
+  constructor(props) {
+    super(props);
+    this.getTickets();
+  }
+
   componentDidMount() {
     if (this.state.ready) {
       return;
@@ -118,6 +135,7 @@ class DeferredProfileContent extends React.Component {
   }
 
   render() {
+    let tickets = this.state.tickets;
     if (!this.state.ready) {
       return null;
     }
@@ -134,7 +152,9 @@ class DeferredProfileContent extends React.Component {
             underlayColor="#fff"
           >
             <SemiBoldText style={styles.bigButtonText}>
-              Scan your ticket QR code
+              {tickets.length > 0
+                ? "Scan another ticket QR code"
+                : "Scan your ticket QR code"}
             </SemiBoldText>
           </RectButton>
         </ClipBorderRadius>
