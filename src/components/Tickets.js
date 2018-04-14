@@ -17,7 +17,7 @@ export default class Tickets extends React.Component {
   };
   async getTickets() {
     try {
-      const value = await AsyncStorage.getItem("@MySuperStore:tickets");
+      const value = await AsyncStorage.getItem("@ReactEuropeStore:tickets");
       this.setState({ tickets: JSON.parse(value) });
     } catch (err) {
       return [];
@@ -31,7 +31,7 @@ export default class Tickets extends React.Component {
   }
   componentDidMount() {}
   render() {
-    const tix = this.state.tickets;
+    const tix = this.state.tickets || [];
     return (
       <View style={[{ marginHorizontal: 10 }, this.props.style]}>
         <SemiBoldText style={{ fontSize: FontSizes.title }}>
