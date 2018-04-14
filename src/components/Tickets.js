@@ -10,6 +10,7 @@ import {
   convertUtcDateToEventTimezoneDaytime,
   conferenceHasEnded
 } from "../utils";
+import { Title } from "react-native-paper";
 
 export default class Tickets extends React.Component {
   state = {
@@ -33,9 +34,7 @@ export default class Tickets extends React.Component {
     const tix = this.state.tickets || [];
     return (
       <View style={[{ marginHorizontal: 10 }, this.props.style]}>
-        <SemiBoldText style={{ fontSize: FontSizes.title }}>
-          My tickets
-        </SemiBoldText>
+        <Title>My Tickets</Title>
         {tix.map(
           ticket => (
             <TicketCard

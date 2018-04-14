@@ -10,6 +10,14 @@ import SaveIconWhenSaved from "./SaveIconWhenSaved";
 import { BoldText, RegularText, SemiBoldText } from "./StyledText";
 import { conferenceHasEnded, getSpeakerAvatarURL } from "../utils";
 import { Colors, FontSizes } from "../constants";
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  Title,
+  Paragraph
+} from "react-native-paper";
 
 @withNavigation
 export default class TicketCard extends React.Component {
@@ -17,19 +25,15 @@ export default class TicketCard extends React.Component {
     const { ticket } = this.props;
 
     return (
-      <RectButton
-        style={[styles.button, this.props.style]}
-        activeOpacity={0.05}
-      >
-        <View style={styles.ticketInfoRow}>
-          <RegularText style={styles.ticketTitle}>
-            This ticket gives you access to{" "}
-            {ticket.checkinLists.map(ch => ch.name).join(" and ")}. ref:{" "}
-            {ticket.ref}
-          </RegularText>
+      <Card key={ticket.id}>
+        <CardContent>
+          <Title>This ticket gives you access to:</Title>
+          {ticket.checkinLists.map(ch => (
+            <Title key={ch.id}>✓ {ch.name}</Title>
+          ))}
           <QRCode style={{ flex: 1 }} value={ticket.ref} size={300} />
-        </View>
-      </RectButton>
+        </CardContent>
+      </Card>
     );
   }
 
