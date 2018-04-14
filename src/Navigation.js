@@ -64,16 +64,50 @@ query events($slug: String!, $uuid: String!){
 	  ref
 	  shareInfo
       uuid
-
+      id
 checkinLists {
         id
         name
         mainEvent
       }
-
-
-
 	}
+  }
+}
+`;
+/*const qrContactQuery = `
+query events {
+  events(slug: "reacteurope-2018") {
+    attendees(uuid: "a2753a5e-0ab7-4185-8647-d58da6285192", q: "13PH-1"){
+      lastName
+      firstName
+      email
+      answers {
+        id
+        question{
+          title
+        }
+        value
+      }
+    }
+  }
+}*/
+const qrContactQuery = `
+query events($slug: String!, $uuid: String!, $q: String!){
+  events(slug: $slug) {
+    attendees(uuid: $uuid, q: $q){
+      lastName
+      firstName
+      id
+      email
+      answers {
+        id
+        question{
+          id
+          title
+        }
+        value
+      }
+    }
   }
 }
 `;
@@ -160,7 +194,8 @@ const DrawerRouteConfig = {
   Speakers: { screen: SpeakersNavigation },
   Crew: { screen: CrewNavigation },
   Sponsors: { screen: SponsorNavigation },
-  Profile: { screen: Screens.Profile }
+  Profile: { screen: Screens.Profile },
+  Contacts: { screen: Screens.Contacts }
 };
 
 const DrawerRouter = TabRouter(DrawerRouteConfig);
@@ -374,7 +409,8 @@ class DrawerView extends React.Component {
             { route: "Speakers", title: "Speakers" },
             { route: "Crew", title: "Crew" },
             { route: "Sponsors", title: "Sponsors" },
-            { route: "Profile", title: "Profile" }
+            { route: "Profile", title: "Profile" },
+            { route: "Contacts", title: "Contacts" }
           ])}
         </View>
       </View>
@@ -473,10 +509,6 @@ class QRScannerModalNavigation extends React.Component {
     let variables = { slug: "reacteurope-2018", uuid: data.data };
     let navigation = this.props.navigation;
     client.executeQuery(query(qrQuery, variables), true).then(function(value) {
-      console.log(value.data.events[0].me.ref);
-      console.log(value.data.events[0].me.uuid);
-      console.log(value.data.events[0].me.firstName);
-      console.log(value.data.events[0].me.lastName);
       let me = value.data.events[0].me;
       AsyncStorage.getItem("@MySuperStore:tickets").then(value => {
         let tickets = null;
@@ -531,6 +563,101 @@ class QRScannerModalNavigation extends React.Component {
   }
 }
 
+class QRContactScannerModalNavigation extends React.Component {
+  state = {
+    hasCameraPermission: null
+  };
+  _requestCameraPermission = async () => {
+    const { status } = await Permissions.askAsync(Permissions.CAMERA);
+    this.setState({
+      hasCameraPermission: status === "granted"
+    });
+  };
+  componentDidMount() {
+    this._requestCameraPermission();
+  }
+  _handleContactBarCodeRead = data => {
+    let navigation = this.props.navigation;
+    AsyncStorage.getItem("@MySuperStore:tickets").then(value => {
+      let tickets = JSON.parse(value);
+      let uuid = "";
+      let contactRef = data.data;
+      tickets.map(ticket => {
+        ticket.checkinLists.map(ch => {
+          if (ch.mainEvent) {
+            uuid = ticket.uuid;
+          }
+        });
+      });
+      let variables = { slug: "reacteurope-2018", uuid: uuid, q: contactRef };
+      client
+        .executeQuery(query(qrContactQuery, variables), true)
+        .then(function(scannedContact) {
+          let contact = scannedContact.data.events[0].attendees[0];
+          console.log("new contact", contact);
+          AsyncStorage.getItem("@MySuperStore:contacts").then(
+            storedContacts => {
+              let contacts = null;
+              let newContacts = [];
+              let found = false;
+              if (storedContacts === null && contact && contact.firstName) {
+                contacts = [contact];
+              } else {
+                let existingContacts = JSON.parse(storedContacts);
+                console.log(
+                  "how many existing contacts",
+                  existingContacts.length
+                );
+                existingContacts.map((existingContact, i) => {
+                  console.log("existing contact", existingContact);
+                  if (existingContact.id === contact.id) {
+                    found = true;
+                    newContacts.push(contact);
+                  } else {
+                    newContacts.push(existingContact);
+                  }
+                });
+                if (!found) {
+                  newContacts.push(contact);
+                }
+                contacts = newContacts;
+              }
+              let stringifiedContacts = JSON.stringify(contacts);
+              AsyncStorage.setItem(
+                "@MySuperStore:contacts",
+                stringifiedContacts
+              )
+                //AsyncStorage.removeItem('@MySuperStore:tickets')
+                .then(value => {
+                  navigation.navigate("Contacts");
+                });
+            }
+          );
+        });
+    });
+  };
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <Text style={{ fontSize: 30 }}>Scan a badge's QR code!</Text>
+        <BarCodeScanner
+          onBarCodeRead={this._handleContactBarCodeRead}
+          style={{
+            flex: 1,
+            alignItems: "center",
+            justifyContent: "center",
+            alignSelf: "stretch"
+          }}
+        />
+        <Button
+          onPress={() => this.props.navigation.goBack()}
+          title="Dismiss"
+        />
+      </View>
+    );
+  }
+}
+
 const styles = StyleSheet.create({
   container: {
     flex: 1
@@ -550,7 +677,8 @@ export default StackNavigator(
   {
     Primary: { screen: DrawerNavigation },
     Details: { screen: Screens.Details },
-    QRScanner: { screen: QRScannerModalNavigation }
+    QRScanner: { screen: QRScannerModalNavigation },
+    QRContactScanner: { screen: QRContactScannerModalNavigation }
   },
   {
     ...DefaultStackConfig,

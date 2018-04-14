@@ -111,7 +111,7 @@ class DeferredProfileContent extends React.Component {
   };
   async getTickets() {
     try {
-      const value = await AsyncStorage.getItem("@ReactEuropeStore:tickets");
+      const value = await AsyncStorage.getItem("@MySuperStore:tickets");
       this.setState({ tickets: JSON.parse(value) });
     } catch (err) {
       console.log(err);

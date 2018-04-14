@@ -3,7 +3,7 @@ import { Image, Platform, StyleSheet, View, AsyncStorage } from "react-native";
 import moment from "moment-timezone";
 
 import { BoldText, RegularText, SemiBoldText } from "./StyledText";
-import TicketCard from "./TicketCard";
+import ContactCard from "./ContactCard";
 import { Colors, FontSizes } from "../constants";
 import _ from "lodash";
 import {
@@ -11,14 +11,14 @@ import {
   conferenceHasEnded
 } from "../utils";
 
-export default class Tickets extends React.Component {
+export default class MyContacts extends React.Component {
   state = {
-    tickets: []
+    contacts: []
   };
-  async getTickets() {
+  async getContacts() {
     try {
-      const value = await AsyncStorage.getItem("@MySuperStore:tickets");
-      this.setState({ tickets: JSON.parse(value) });
+      const value = await AsyncStorage.getItem("@MySuperStore:contacts");
+      this.setState({ contacts: JSON.parse(value) });
     } catch (err) {
       return [];
     }
@@ -26,45 +26,24 @@ export default class Tickets extends React.Component {
 
   constructor(props) {
     super(props);
-    this.getTickets();
+    this.contacts = [];
+    this.getContacts();
   }
   componentDidMount() {}
   render() {
-    const tix = this.state.tickets || [];
+    const contacts = this.state.contacts || [];
     return (
       <View style={[{ marginHorizontal: 10 }, this.props.style]}>
         <SemiBoldText style={{ fontSize: FontSizes.title }}>
-          My tickets
+          My Contacts
         </SemiBoldText>
-        {tix.map(
-          ticket => (
-            <TicketCard
-              key={ticket.ref}
-              ticket={ticket}
-              style={{ marginTop: 10, marginBottom: 10 }}
-            />
-          ) /*{
-                ticket.checkinLists.map( ch => {
-                    (
-                        <View style={[{ marginHorizontal: 10 }, this.props.style]}>
-                        <SemiBoldText style={{ fontSize: FontSizes.title }}>
-                        lol
-                        </SemiBoldText>
-                        <TicketCard
-                    key={ticket.ref}
-                    ticket={ticket}
-                    style={{ marginTop: 10, marginBottom: 10 }}
-                        />
-                        </View>
-
-                )
-                })
-
-
-            }i*/ /*(
-
-        )*/
-        )}
+        {contacts.map(contact => (
+          <ContactCard
+            key={contact.id + contact.email}
+            contact={contact}
+            style={{ marginTop: 10, marginBottom: 10 }}
+          />
+        ))}
       </View>
     );
   }

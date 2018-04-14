@@ -5,6 +5,7 @@ import ScheduleDay from "./ScheduleDay";
 import Speakers from "./Speakers";
 import Sponsors from "./Sponsors";
 import Profile from "./Profile";
+import Contacts from "./Contacts";
 
 export default {
   Home,
@@ -13,5 +14,6 @@ export default {
   ScheduleDay,
   Speakers,
   Sponsors,
-  Profile
+  Profile,
+  Contacts
 };
