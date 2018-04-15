@@ -32,7 +32,7 @@ import DrawerLayout from "react-native-gesture-handler/DrawerLayout";
 import ResourceSavingContainer from "react-native-resource-saving-container";
 import hoistStatics from "hoist-non-react-statics";
 
-import { Colors, FontSizes, Layout } from "./constants";
+import { Colors, FontSizes, Layout, GQL } from "./constants";
 import Screens from "./screens";
 import TabBarBottom from "./components/TabBarBottom";
 import { SemiBoldText, BoldText } from "./components/StyledText";
@@ -44,12 +44,13 @@ import { Provider, Client, Connect, query } from "urql";
 const DrawerComponent =
   Platform.OS === "android" ? DrawerLayoutAndroid : DrawerLayout;
 const client = new Client({
-  url: "https://www.react-europe.org/gql"
+  url: GQL.uri
 });
 const qrQuery = `
 query events($slug: String!, $uuid: String!){
   events(slug: $slug) {
 	me(uuid: $uuid){
+      mobileMessage
 	  answers {
 		id
         value
@@ -74,23 +75,7 @@ checkinLists {
   }
 }
 `;
-/*const qrContactQuery = `
-query events {
-  events(slug: "reacteurope-2018") {
-    attendees(uuid: "a2753a5e-0ab7-4185-8647-d58da6285192", q: "13PH-1"){
-      lastName
-      firstName
-      email
-      answers {
-        id
-        question{
-          title
-        }
-        value
-      }
-    }
-  }
-}*/
+
 const qrContactQuery = `
 query events($slug: String!, $uuid: String!, $q: String!){
   events(slug: $slug) {
@@ -506,7 +491,7 @@ class QRScannerModalNavigation extends React.Component {
     this._requestCameraPermission();
   }
   _handleBarCodeRead = data => {
-    let variables = { slug: "reacteurope-2018", uuid: data.data };
+    let variables = { slug: GQL.slug, uuid: data.data };
     let navigation = this.props.navigation;
     client.executeQuery(query(qrQuery, variables), true).then(function(value) {
       let me = value.data.events[0].me;
@@ -589,7 +574,7 @@ class QRContactScannerModalNavigation extends React.Component {
           }
         });
       });
-      let variables = { slug: "reacteurope-2018", uuid: uuid, q: contactRef };
+      let variables = { slug: GQL.slug, uuid: uuid, q: contactRef };
       client
         .executeQuery(query(qrContactQuery, variables), true)
         .then(function(scannedContact) {
@@ -677,6 +662,7 @@ export default StackNavigator(
   {
     Primary: { screen: DrawerNavigation },
     Details: { screen: Screens.Details },
+    TicketInstructions: { screen: Screens.TicketInstructions },
     QRScanner: { screen: QRScannerModalNavigation },
     QRContactScanner: { screen: QRContactScannerModalNavigation }
   },

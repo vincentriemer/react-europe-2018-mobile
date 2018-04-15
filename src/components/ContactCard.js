@@ -31,7 +31,9 @@ export default class ContactCard extends React.Component {
           {bio === "" ? null : <Paragraph>{bio}</Paragraph>}
         </CardContent>
         <CardActions>
-          <Button onPress={this._handlePressTwitterButton}>@{twitter}</Button>
+          {twitter !== "" ? (
+            <Button onPress={this._handlePressTwitterButton}>@{twitter}</Button>
+          ) : null}
           <Button onPress={this._handlePressEmailButton}>Email</Button>
         </CardActions>
       </Card>

@@ -10,6 +10,7 @@
     "icon": "./src/assets/icon-ios.png",
     "orientation": "portrait",
     "sdkVersion": "25.0.0",
+    "scheme": "reacteurope",
     "splash": {
       "image": "./src/assets/splash-icon.png",
       "resizeMode": "contain",

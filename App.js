@@ -6,13 +6,14 @@ import { loadSavedTalksAsync } from "./src/utils/storage";
 import { SafeAreaView } from "react-navigation";
 import { Provider, Client, Connect, query } from "urql";
 import { ScheduleQuery } from "./src/data/schedulequery";
+import { GQL } from "./src/constants";
 
 if (Platform.OS === "android") {
   SafeAreaView.setStatusBarHeight(0);
 }
 
 const client = new Client({
-  url: "https://www.react-europe.org/gql"
+  url: GQL.uri
 });
 
 import Navigation from "./src/Navigation";

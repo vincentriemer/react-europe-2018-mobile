@@ -6,6 +6,7 @@ import Speakers from "./Speakers";
 import Sponsors from "./Sponsors";
 import Profile from "./Profile";
 import Contacts from "./Contacts";
+import TicketInstructions from "./TicketInstructions";
 
 export default {
   Home,
@@ -15,5 +16,6 @@ export default {
   Speakers,
   Sponsors,
   Profile,
-  Contacts
+  Contacts,
+  TicketInstructions
 };

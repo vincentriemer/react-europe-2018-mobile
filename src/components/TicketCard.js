@@ -32,11 +32,17 @@ export default class TicketCard extends React.Component {
             <Title key={ch.id}>✓ {ch.name}</Title>
           ))}
           <QRCode style={{ flex: 1 }} value={ticket.ref} size={300} />
+          <Button onPress={this._handlePress}>Read useful info</Button>
         </CardContent>
       </Card>
     );
   }
 
+  _handlePress = () => {
+    this.props.navigation.navigate("TicketInstructions", {
+      ticket: this.props.ticket
+    });
+  };
   _renderPlaceholderForNextYear = () => {
     return (
       <View style={[styles.button, this.props.style]}>
