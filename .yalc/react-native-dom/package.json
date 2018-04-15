@@ -1,8 +1,9 @@
 {
   "name": "react-native-dom",
-  "version": "0.0.2-c07129d2",
+  "version": "0.0.2-80c42efb",
   "main": "lib/index.js",
   "dependencies": {
+    "@webcomponents/webcomponentsjs": "^1.1.1",
     "babel-runtime": "^6.26.0",
     "bezier-easing": "^2.0.3",
     "debounce": "^1.0.2",
@@ -21,6 +22,7 @@
     "proxy-polyfill": "^0.1.7",
     "rebound": "^0.0.15",
     "tinycolor2": "^1.4.1",
+    "web-animations-js": "^2.3.1",
     "wolfy87-eventemitter": "^5.1.0",
     "yeoman-environment": "^1.5.3",
     "yeoman-generator": "^0.21.2",
@@ -33,14 +35,13 @@
     "local-cli/runDom"
   ],
   "peerDependencies": {
-    "react": "16.2.0",
-    "react-native": "~0.52.0"
+    "react-native": "~0.55.0"
   },
   "scripts": {
     "prestart": "cd Examples/NavigationPlayground && yarn",
     "flow": "flow",
     "flow:coverage": "flow-coverage-report -i 'ReactDom/**/*.js' -t html -t text",
-    "build": "BABEL_ENV=lib babel ReactDom --out-dir lib --source-maps inline",
+    "build": "BABEL_ENV=lib babel ReactDom --out-dir lib --source-maps",
     "prebuild": "rimraf lib",
     "postbuild": "flow-copy-source ReactDom lib",
     "start": "react-native start",
@@ -83,6 +84,7 @@
     "babel-plugin-replace-require": "^0.0.4",
     "babel-plugin-syntax-object-rest-spread": "^6.13.0",
     "babel-plugin-syntax-trailing-function-commas": "^6.22.0",
+    "babel-plugin-transform-builtin-classes": "^0.6.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-plugin-transform-es2015-classes": "^6.24.1",
@@ -102,8 +104,8 @@
     "jest": "^20.0.4",
     "lint-staged": "^6.0.0",
     "prettier": "^1.9.0",
-    "react": "^16.3.0-alpha.1",
-    "react-native": "0.54.0",
+    "react": "^16.3.1",
+    "react-native": "~0.55.0",
     "rimraf": "^2.6.1",
     "rollup": "^0.50.0",
     "rollup-plugin-babel": "^3.0.2",

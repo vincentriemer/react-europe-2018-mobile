@@ -23,6 +23,7 @@ import type {
   RCTModuleStatics,
   NativeModuleImports
 } from "RCTModule";
+import type RCTRedBox from "RCTRedBox";
 
 import typeof _RCTUIManager from "RCTUIManager";
 type RCTUIManager = $Call<$await<_RCTUIManager>>;
@@ -132,6 +133,12 @@ function generateModuleConfig(name: string, bridgeModule: RCTModule) {
   return [name, constants, allMethods, promiseMethods, syncMethods];
 }
 
+type ModuleData = {
+  name: string,
+  methods: string[],
+  constants: { [string]: any }
+};
+
 export default class RCTBridge {
   nativeModules: NativeModuleImports;
 
@@ -140,6 +147,7 @@ export default class RCTBridge {
   moduleConfigs: Array<ModuleConfig> = [];
   bundleFinishedLoading: ?() => void;
   messages: Array<NativeCall> = [];
+  moduleDataForName: { [name: string]: ModuleData } = {};
   moduleName: string;
   bundleLocation: string;
   loading: boolean;
@@ -150,6 +158,7 @@ export default class RCTBridge {
   _deviceInfo: ?RCTDeviceInfo;
   _devLoadingView: ?RCTDevLoadingView;
   _devSettings: ?RCTDevSettings;
+  _redBox: ?RCTRedBox;
 
   constructor(
     moduleName: string,
@@ -295,15 +304,23 @@ export default class RCTBridge {
         }
       }
     });
-    this.moduleConfigs.push(
-      moduleConfigFactory(
-        name,
-        constants,
-        allMethods,
-        promiseMethods,
-        syncMethods
-      )
+
+    this.moduleDataForName[name] = {
+      name,
+      constants: constants || {},
+      methods: allMethods
+    };
+
+    const moduleConfig = moduleConfigFactory(
+      name,
+      constants,
+      allMethods,
+      promiseMethods,
+      syncMethods
     );
+
+    this.moduleConfigs.push(moduleConfig);
+
     return [name, constants, allMethods, promiseMethods, syncMethods];
   }
 
@@ -396,6 +413,14 @@ export default class RCTBridge {
       this._devSettings = devSettings;
     }
     return this._devSettings;
+  }
+
+  get redBox(): RCTRedBox {
+    if (!this._redBox) {
+      const redBox: any = this.modulesByName["RedBox"];
+      this._redBox = redBox;
+    }
+    return this._redBox;
   }
 
   async frame() {

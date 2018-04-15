@@ -53,8 +53,8 @@ _.each(FullSchedule, (day, i) => {
 
 const ScheduleNavigation = TabNavigator(navSchedule, {
   lazy: true,
-  swipeEnabled: Platform.OS !== "ios",
-  animationEnabled: Platform.OS !== "ios",
+  swipeEnabled: false,
+  animationEnabled: false,
   tabBarComponent: TabBarBottom,
   tabBarPosition: "bottom",
   tabBarOptions: {

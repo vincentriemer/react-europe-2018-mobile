@@ -305,12 +305,12 @@ class RCTLayoutAnimationManager {
           fill: "none"
         };
 
-        view.style.willChange = "opacity";
         view.frame = layout;
+        view.addWillChange("opacity");
 
         animations.push(new KeyframeEffect(view, keyframes, config));
         cleanup.push(() => {
-          view.style.willChange = "";
+          view.removeWillChange("opacity");
         });
       } else {
         // skip layout update animation
@@ -320,7 +320,10 @@ class RCTLayoutAnimationManager {
         }
 
         const shadowView = this.manager.shadowViewRegistry.get(reactTag);
-        invariant(shadowView, "shadowView does not exist");
+        invariant(
+          shadowView,
+          `shadowView does not exist with tag: ${reactTag}`
+        );
 
         if (!registry.hasOwnProperty(reactTag)) {
           registry[reactTag] = this.transformAnimationConfigFactory(
@@ -373,6 +376,31 @@ class RCTLayoutAnimationManager {
 
           registry[reactTag][0] = newFrames;
         }
+
+        const parentLayout = shadowView.previousLayout;
+        view.reactSubviews.forEach((subView, index) => {
+          if (addedNodes.includes(subView.reactTag)) {
+            const previousLayout =
+              shadowView.reactSubviews[index].previousLayout;
+            const [originalKeyframes, { duration }] = registry[reactTag];
+
+            const adjustedKeyframes = originalKeyframes.map(
+              ({ translateX, translateY }) => ({
+                transform: `translateX(${-translateX +
+                  parentLayout.left +
+                  previousLayout.left}px) translateY(${-translateY +
+                  parentLayout.top +
+                  previousLayout.top}px)`
+              })
+            );
+
+            const config = { duration, fill: "none" };
+
+            animations.push(
+              new KeyframeEffect(subView, adjustedKeyframes, config)
+            );
+          }
+        });
 
         let childContainerTransform = this.childContainerAnimationConfigFactory(
           updateKeyConfig.keyframes.length
@@ -471,12 +499,11 @@ class RCTLayoutAnimationManager {
 
       const config = { duration, fill: "none" };
 
-      const prevWillChange = view.style.willChange;
-      view.style.willChange = "transform";
+      view.addWillChange("transform");
       view.frame = layout;
       animations.push(new KeyframeEffect(view, keyframes, config));
       cleanup.push(() => {
-        view.style.willChange = prevWillChange;
+        view.removeWillChange("transform");
       });
     });
 
@@ -484,8 +511,6 @@ class RCTLayoutAnimationManager {
     this.removedNodes.forEach((reactTag) => {
       const view = this.manager.viewRegistry.get(reactTag);
       invariant(view, "view does not exist");
-
-      const cleanUpRemovedNode = () => {};
 
       if (deleteKeyConfig == null) {
         if (view.reactSuperview) {
@@ -519,7 +544,7 @@ class RCTLayoutAnimationManager {
         fill: "forwards"
       };
 
-      view.style.willChange = "opacity";
+      view.addWillChange("opacity");
       animations.push(new KeyframeEffect(view, keyframes, config));
       cleanup.push(() => {
         if (view.reactSuperview) {

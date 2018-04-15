@@ -1,12 +1,17 @@
 import "expo";
 import React from "react";
 import { Asset, AppLoading, Font } from "./src/expo";
-import { Platform, View } from "react-native";
+import { Platform, View, YellowBox } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { loadSavedTalksAsync } from "./src/utils/storage";
 import { SafeAreaView } from "react-navigation";
 import { Provider, Client, Connect, query } from "urql";
 import { ScheduleQuery } from "./src/data/schedulequery";
+
+YellowBox.ignoreWarnings([
+  "Warning: isMounted(...) is deprecated",
+  "Module RCTImageLoader",
+]);
 
 if (Platform.OS === "android") {
   SafeAreaView.setStatusBarHeight(0);

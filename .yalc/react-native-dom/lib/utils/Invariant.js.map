@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../ReactDom/utils/Invariant.js"],"names":[],"mappings":"yDAKA,oC","file":"Invariant.js","sourcesContent":["/**\n * @providesModule Invariant\n * @flow\n */\n\nimport Invariant from \"invariant\";\n\nexport default Invariant;\n"]}

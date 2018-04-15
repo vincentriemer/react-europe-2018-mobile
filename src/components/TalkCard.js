@@ -125,6 +125,7 @@ const styles = StyleSheet.create({
         elevation: 2,
       },
       dom: {
+        borderRadius: 5,
         backgroundColor: "#fff",
         shadowColor: "#000",
         shadowOpacity: 0.1,

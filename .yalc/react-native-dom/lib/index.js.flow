@@ -3,6 +3,10 @@
  * @flow
  */
 
+// Polyfills
+import "@webcomponents/webcomponentsjs/webcomponents-sd-ce.js";
+import "web-animations-js/web-animations-next.min";
+
 global.process = global.process || {};
 global.process.env = global.process.env || {};
 if (!global.process.env.NODE_ENV) {
@@ -25,6 +29,7 @@ import UIView from "UIView";
 import RCTView from "RCTView";
 import RCTViewManager from "RCTViewManager";
 import RCTEventEmitter from "RCTNativeEventEmitter";
+import CustomElement from "CustomElement";
 
 export {
   RCT_EXPORT_MODULE,
@@ -35,7 +40,8 @@ export {
   RCTView,
   RCTViewManager,
   RCTEventEmitter,
-  UIView
+  UIView,
+  CustomElement
 };
 
 // Export type definitions useful for native module development
@@ -49,6 +55,7 @@ export type { RCTUIManager, RCTEventDispatcher, RCTBridge };
 
 // Register Built-in Native Modules
 const builtInNativeModules: any[] = [
+  require("RCTSourceCode"),
   require("RCTEventDispatcher"),
   require("RCTDeviceInfo"),
   require("RCTPlatform"),
@@ -63,7 +70,6 @@ const builtInNativeModules: any[] = [
   require("RCTAsyncLocalStorage"),
   require("RCTImageViewManager"),
   require("RCTLinkingManager"),
-  require("RCTSourceCode"),
   require("RCTTextInputManager"),
   require("RCTImageLoader"),
   require("RCTActivityIndicatorViewManager"),
@@ -72,7 +78,10 @@ const builtInNativeModules: any[] = [
   require("RCTSafeAreaViewManager"),
   require("RCTSwitchManager"),
   require("RCTStatusBarManager"),
-  require("RCTDeviceEventManager")
+  require("RCTDeviceEventManager"),
+  require("RCTKeyboardObserver"),
+  require("RCTExceptionsManager"),
+  require("RCTRedBox")
 ];
 
 // Development Specific Native Modules
