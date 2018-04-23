@@ -7,7 +7,8 @@ import Sponsors from "./Sponsors";
 import Profile from "./Profile";
 import Contacts from "./Contacts";
 import TicketInstructions from "./TicketInstructions";
-
+import StaffCheckinLists from "./StaffCheckinLists";
+import CheckedInAttendeeInfo from "./CheckedInAttendeeInfo";
 export default {
   Home,
   Crew,
@@ -17,5 +18,7 @@ export default {
   Sponsors,
   Profile,
   Contacts,
-  TicketInstructions
+  TicketInstructions,
+  StaffCheckinLists,
+  CheckedInAttendeeInfo
 };

@@ -11,7 +11,7 @@ import {
   AsyncStorage,
   View
 } from "react-native";
-import { Asset, LinearGradient, WebBrowser, Video } from "expo";
+import { Asset, LinearGradient, WebBrowser, Video, Permissions } from "expo";
 import { BorderlessButton, RectButton } from "react-native-gesture-handler";
 import { NavigationActions } from "react-navigation";
 import FadeIn from "react-native-fade-in-image";
@@ -157,9 +157,29 @@ class DeferredHomeContent extends React.Component {
     if (!this.state.ready) {
       return null;
     }
-    const tix = this.state.tickets;
+    const tix = this.state.tickets || [];
+    let staffCheckinLists = [];
+    let isStaff = false;
+    tix.map(ticket => {
+      if (ticket && ticket.type === 4) {
+        isStaff = true;
+      }
+    });
     return (
       <AnimatableView animation="fadeIn" useNativeDriver duration={800}>
+        {isStaff ? (
+          <ClipBorderRadius>
+            <RectButton
+              style={styles.bigButton}
+              onPress={this._handlePressStaffCheckinListsButton}
+              underlayColor="#fff"
+            >
+              <SemiBoldText style={styles.bigButtonText}>
+                Go to checkin
+              </SemiBoldText>
+            </RectButton>
+          </ClipBorderRadius>
+        ) : null}
         {tix && tix.length === 0 ? (
           <ClipBorderRadius>
             <RectButton
@@ -257,8 +277,23 @@ class DeferredHomeContent extends React.Component {
     WebBrowser.openBrowserAsync(Event.cocUrl);
   };
 
+  _requestCameraPermission = async () => {
+    const { status } = await Permissions.askAsync(Permissions.CAMERA);
+    this.setState({
+      hasCameraPermission: status === "granted"
+    });
+  };
+
   _handlePressQRButton = () => {
-    this.props.navigation.navigate("QRScanner");
+    this._requestCameraPermission();
+    Permissions.askAsync(Permissions.CAMERA).then(() => {
+      this.props.navigation.navigate("QRScanner");
+    });
+  };
+
+  _handlePressStaffCheckinListsButton = () => {
+    console.log("handle press checkinlists");
+    this.props.navigation.navigate("StaffCheckinLists");
   };
 
   _handlePressTwitterButton = async () => {

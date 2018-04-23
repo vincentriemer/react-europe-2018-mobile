@@ -66,6 +66,12 @@ query events($slug: String!, $uuid: String!){
 	  shareInfo
       uuid
       id
+      type
+staffCheckinLists {
+    id
+    name
+    mainEvent
+}
 checkinLists {
         id
         name
@@ -96,6 +102,30 @@ query events($slug: String!, $uuid: String!, $q: String!){
   }
 }
 `;
+
+const qrCheckinQuery = `
+mutation createCheckin($uuid: String!, $checkinListId: Int!, $ref: String!) {
+  createCheckin(uuid: $uuid, checkinListId: $checkinListId, ref: $ref) {
+    firstName
+    lastName
+    id
+    type
+    ref
+    ticket {
+      id
+      name
+    }
+    email
+    checkinMessage
+    checkins {
+      checkinListId
+      createdAt
+      id
+    }
+  }
+}
+`;
+
 const FullSchedule = Schedule.events[0].groupedSchedule;
 let navSchedule = {};
 _.each(FullSchedule, (day, i) => {
@@ -173,6 +203,15 @@ const SponsorNavigation = StackNavigator(
   DefaultStackConfig
 );
 
+const StaffCheckinListsNavigation = StackNavigator(
+  {
+    StaffCheckinListsList: {
+      screen: Screens.StaffCheckinLists
+    }
+  },
+  DefaultStackConfig
+);
+
 const DrawerRouteConfig = {
   Home: { screen: Screens.Home },
   Schedule: { screen: ScheduleNavigation },
@@ -180,7 +219,8 @@ const DrawerRouteConfig = {
   Crew: { screen: CrewNavigation },
   Sponsors: { screen: SponsorNavigation },
   Profile: { screen: Screens.Profile },
-  Contacts: { screen: Screens.Contacts }
+  Contacts: { screen: Screens.Contacts },
+  StaffCheckinLists: { screen: StaffCheckinListsNavigation }
 };
 
 const DrawerRouter = TabRouter(DrawerRouteConfig);
@@ -395,7 +435,12 @@ class DrawerView extends React.Component {
             { route: "Crew", title: "Crew" },
             { route: "Sponsors", title: "Sponsors" },
             { route: "Profile", title: "Profile" },
-            { route: "Contacts", title: "Contacts" }
+            { route: "Contacts", title: "Contacts" },
+            {
+              route: "StaffCheckinLists",
+              title: "StaffCheckinLists",
+              hidden: true
+            }
           ])}
         </View>
       </View>
@@ -405,15 +450,18 @@ class DrawerView extends React.Component {
   _renderButtons = buttonConfig => {
     const selectedIndex = this.props.navigation.state.index;
 
-    return buttonConfig.map((config, i) => (
-      <DrawerButton
-        key={i}
-        onPress={() => this._navigateToScreen(i)}
-        selected={selectedIndex === i}
-      >
-        {config.title}
-      </DrawerButton>
-    ));
+    return buttonConfig.map(
+      (config, i) =>
+        config.hidden ? null : (
+          <DrawerButton
+            key={i}
+            onPress={() => this._navigateToScreen(i)}
+            selected={selectedIndex === i}
+          >
+            {config.title}
+          </DrawerButton>
+        )
+    );
   };
 
   _updateVisibility = (currentRoute, nextRoute) => {
@@ -487,7 +535,8 @@ class QRScannerModalNavigation extends React.Component {
       hasCameraPermission: status === "granted"
     });
   };
-  componentDidMount() {
+  constructor(props) {
+    super(props);
     this._requestCameraPermission();
   }
   _handleBarCodeRead = data => {
@@ -499,12 +548,12 @@ class QRScannerModalNavigation extends React.Component {
         let tickets = null;
         let newTickets = [];
         let found = false;
-        if (value === null) {
+        if (value === null && me !== null) {
           tickets = [me];
         } else {
           let existingTickets = JSON.parse(value);
           existingTickets.map((ticket, i) => {
-            if (ticket.ref === me.ref) {
+            if (ticket && me && me.ref && ticket.ref === me.ref) {
               found = true;
               newTickets.push(me);
             } else {
@@ -515,6 +564,9 @@ class QRScannerModalNavigation extends React.Component {
             newTickets.push(me);
           }
           tickets = newTickets;
+          if (tickets[0] === [null]) {
+            tickets = [];
+          }
         }
         let stringifiedTickets = JSON.stringify(tickets);
         AsyncStorage.setItem("@MySuperStore:tickets", stringifiedTickets)
@@ -532,6 +584,105 @@ class QRScannerModalNavigation extends React.Component {
         <Text style={{ fontSize: 30 }}>Scan your ticket QR code!</Text>
         <BarCodeScanner
           onBarCodeRead={this._handleBarCodeRead}
+          style={{
+            flex: 1,
+            alignItems: "center",
+            justifyContent: "center",
+            alignSelf: "stretch"
+          }}
+        />
+        <Button
+          onPress={() => this.props.navigation.goBack()}
+          title="Dismiss"
+        />
+      </View>
+    );
+  }
+}
+
+class QRCheckinScannerModalNavigation extends React.Component {
+  state = {
+    hasCameraPermission: null,
+    checkinList: { name: "" },
+    checkRef: true,
+    uuid: null
+  };
+  constructor(props) {
+    super(props);
+    AsyncStorage.removeItem("@MySuperStore:lastCheckedInRef");
+  }
+  _requestCameraPermission = async () => {
+    const { status } = await Permissions.askAsync(Permissions.CAMERA);
+    this.setState({
+      hasCameraPermission: status === "granted"
+    });
+  };
+  componentDidMount() {
+    this._requestCameraPermission();
+    const params = this.props.navigation.state.params || {};
+
+    const checkinList = params.checkinList;
+    const uuid = params.uuid;
+    console.log("uuid is", uuid);
+    console.log("checkinList is", checkinList);
+    this.setState({
+      uuid: uuid,
+      checkinList: checkinList
+    });
+  }
+  _handleCheckinBarCodeRead = data => {
+    AsyncStorage.getItem("@MySuperStore:lastCheckedInRef").then(value => {
+      AsyncStorage.setItem("@MySuperStore:lastCheckedInRef", data.data);
+
+      if (data.data !== value) {
+        let state = this;
+        let variables = {
+          uuid: this.state.uuid,
+          checkinListId: this.state.checkinList.id,
+          ref: data.data
+        }; //{ slug: GQL.slug, uuid: data.data };
+        let navigation = this.props.navigation;
+        console.log("Scanned!", data.data);
+        console.log("variables", variables);
+        console.log("uuid state is", this.state.uuid);
+        console.log("checkinlist state is", this.state.checkinList);
+        client
+          .executeQuery(query(qrCheckinQuery, variables), true)
+          .then(function(value) {
+            console.log("checkin mutation value", value);
+            if (value && value.data && value.data.createCheckin === null) {
+              Alert.alert(
+                "This reference could not be found, make sure you selected the right Checkin List!"
+              );
+            } else if (value && value.data && value.data.createCheckin) {
+              if (
+                value.data.createCheckin.checkinMessage ===
+                "Already checked-in today"
+              ) {
+                Alert.alert(
+                  "This reference has already been checked today! The person cannot get in as their ticket has already been used by someone else."
+                );
+              }
+
+              //            navigation.replace("CheckedInAttendeeInfo", {checkedInAttendee: value.data.createCheckin})
+              //    navigation.navigate("Home")
+              navigation.navigate("CheckedInAttendeeInfo", {
+                checkedInAttendee: value.data.createCheckin
+              });
+            }
+            //            // expected output: Array [1, 2, 3]
+          });
+      }
+    });
+  };
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <Text style={{ fontSize: 30 }}>
+          Checking {this.state.checkinList.name}
+        </Text>
+        <BarCodeScanner
+          onBarCodeRead={this._handleCheckinBarCodeRead}
           style={{
             flex: 1,
             alignItems: "center",
@@ -595,14 +746,20 @@ class QRContactScannerModalNavigation extends React.Component {
                 );
                 existingContacts.map((existingContact, i) => {
                   console.log("existing contact", existingContact);
-                  if (existingContact.id === contact.id) {
+                  if (
+                    existingContact &&
+                    existingContact.id &&
+                    contact &&
+                    contact.id &&
+                    existingContact.id === contact.id
+                  ) {
                     found = true;
                     newContacts.push(contact);
-                  } else {
+                  } else if (existingContact && existingContact.id) {
                     newContacts.push(existingContact);
                   }
                 });
-                if (!found) {
+                if (!found && contact && contact.id) {
                   newContacts.push(contact);
                 }
                 contacts = newContacts;
@@ -663,7 +820,9 @@ export default StackNavigator(
     Primary: { screen: DrawerNavigation },
     Details: { screen: Screens.Details },
     TicketInstructions: { screen: Screens.TicketInstructions },
+    CheckedInAttendeeInfo: { screen: Screens.CheckedInAttendeeInfo },
     QRScanner: { screen: QRScannerModalNavigation },
+    QRCheckinScanner: { screen: QRCheckinScannerModalNavigation },
     QRContactScanner: { screen: QRContactScannerModalNavigation }
   },
   {
