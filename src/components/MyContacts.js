@@ -27,9 +27,10 @@ export default class MyContacts extends React.Component {
   constructor(props) {
     super(props);
     this.contacts = [];
+  }
+  componentDidMount() {
     this.getContacts();
   }
-  componentDidMount() {}
   render() {
     const contacts = this.state.contacts || [];
     return (
@@ -47,29 +48,4 @@ export default class MyContacts extends React.Component {
       </View>
     );
   }
-
-  _renderDateTime() {
-    if (conferenceHasEnded()) {
-      return null;
-    }
-
-    const { dateTime, time } = this.state;
-
-    if (dateTime) {
-      return (
-        <RegularText style={styles.time}>
-          {convertUtcDateToEventTimezoneDaytime(dateTime)}
-        </RegularText>
-      );
-    } else {
-      // handle after conf thing
-    }
-  }
 }
-
-const styles = StyleSheet.create({
-  time: {
-    color: Colors.faint,
-    fontSize: FontSizes.subtitle
-  }
-});

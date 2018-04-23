@@ -109,10 +109,10 @@ class DeferredContactsContent extends React.Component {
   constructor(props) {
     super(props);
     this.tickets = [];
-    this.getTickets();
   }
 
   componentDidMount() {
+    this.getTickets();
     if (this.state.ready) {
       return;
     }

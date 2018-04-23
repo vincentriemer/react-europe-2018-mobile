@@ -96,11 +96,15 @@ export default class StaffCheckinLists extends React.Component {
     try {
       const value = await AsyncStorage.getItem("@MySuperStore:tickets");
       console.log("tickets", value);
-      const json = JSON.parse(value);
+      const json = JSON.parse(value) || [];
       let staffCheckinListsArray = [];
       let uuid = "";
       json.map(ticket => {
-        if (ticket.staffCheckinLists && ticket.staffCheckinLists.length > 0) {
+        if (
+          ticket &&
+          ticket.staffCheckinLists &&
+          ticket.staffCheckinLists.length > 0
+        ) {
           staffCheckinListsArray = ticket.staffCheckinLists;
           uuid = ticket.uuid;
         }

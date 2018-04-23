@@ -524,7 +524,27 @@ class DrawerButton extends React.Component {
     );
   }
 }
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
 
+  componentDidCatch(error, info) {
+    // Display fallback UI
+    this.setState({ hasError: true });
+    // You can also log the error to an error reporting service
+    console.log("ERROR", error, info);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      // You can render any custom fallback UI
+      return null;
+    }
+    return this.props.children;
+  }
+}
 class QRScannerModalNavigation extends React.Component {
   state = {
     hasCameraPermission: null
@@ -543,54 +563,63 @@ class QRScannerModalNavigation extends React.Component {
     let variables = { slug: GQL.slug, uuid: data.data };
     let navigation = this.props.navigation;
     client.executeQuery(query(qrQuery, variables), true).then(function(value) {
-      let me = value.data.events[0].me;
-      AsyncStorage.getItem("@MySuperStore:tickets").then(value => {
-        let tickets = null;
-        let newTickets = [];
-        let found = false;
-        if (value === null && me !== null) {
-          tickets = [me];
-        } else {
-          let existingTickets = JSON.parse(value);
-          existingTickets.map((ticket, i) => {
-            if (ticket && me && me.ref && ticket.ref === me.ref) {
-              found = true;
+      if (value && value.data && value.data.events && value.data.events[0]) {
+        let me = value.data.events[0].me;
+        AsyncStorage.getItem("@MySuperStore:tickets").then(value => {
+          let tickets = null;
+          let newTickets = [];
+          let found = false;
+          if (value === null && me !== null) {
+            tickets = [me];
+          } else {
+            let existingTickets = JSON.parse(value) || [];
+            existingTickets.map((ticket, i) => {
+              if (ticket && me && me.ref && ticket.ref === me.ref) {
+                found = true;
+                newTickets.push(me);
+              } else {
+                if (ticket) {
+                  newTickets.push(ticket);
+                }
+              }
+            });
+            if (!found && me) {
               newTickets.push(me);
-            } else {
-              newTickets.push(ticket);
             }
-          });
-          if (!found) {
-            newTickets.push(me);
+            tickets = newTickets;
+            if (!tickets || tickets[0] === [null]) {
+              tickets = [];
+            }
           }
-          tickets = newTickets;
-          if (tickets[0] === [null]) {
-            tickets = [];
+          if (tickets && tickets !== null && tickets !== []) {
+            let stringifiedTickets = JSON.stringify(tickets);
+            AsyncStorage.setItem("@MySuperStore:tickets", stringifiedTickets)
+              //AsyncStorage.removeItem('@MySuperStore:tickets')
+              .then(value => {
+                navigation.navigate("Profile");
+              });
           }
-        }
-        let stringifiedTickets = JSON.stringify(tickets);
-        AsyncStorage.setItem("@MySuperStore:tickets", stringifiedTickets)
-          //AsyncStorage.removeItem('@MySuperStore:tickets')
-          .then(value => {
-            navigation.navigate("Profile");
-          });
-      });
-      // expected output: Array [1, 2, 3]
+        });
+        // expected output: Array [1, 2, 3]
+      }
     });
   };
   render() {
     return (
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Text style={{ fontSize: 30 }}>Scan your ticket QR code!</Text>
-        <BarCodeScanner
-          onBarCodeRead={this._handleBarCodeRead}
-          style={{
-            flex: 1,
-            alignItems: "center",
-            justifyContent: "center",
-            alignSelf: "stretch"
-          }}
-        />
+        <ErrorBoundary>
+          <BarCodeScanner
+            onBarCodeRead={this._handleBarCodeRead}
+            style={{
+              flex: 1,
+              alignItems: "center",
+              justifyContent: "center",
+              alignSelf: "stretch"
+            }}
+          />
+        </ErrorBoundary>
+
         <Button
           onPress={() => this.props.navigation.goBack()}
           title="Dismiss"
@@ -715,7 +744,7 @@ class QRContactScannerModalNavigation extends React.Component {
   _handleContactBarCodeRead = data => {
     let navigation = this.props.navigation;
     AsyncStorage.getItem("@MySuperStore:tickets").then(value => {
-      let tickets = JSON.parse(value);
+      let tickets = JSON.parse(value) || [];
       let uuid = "";
       let contactRef = data.data;
       tickets.map(ticket => {
@@ -729,52 +758,64 @@ class QRContactScannerModalNavigation extends React.Component {
       client
         .executeQuery(query(qrContactQuery, variables), true)
         .then(function(scannedContact) {
-          let contact = scannedContact.data.events[0].attendees[0];
-          console.log("new contact", contact);
-          AsyncStorage.getItem("@MySuperStore:contacts").then(
-            storedContacts => {
-              let contacts = null;
-              let newContacts = [];
-              let found = false;
-              if (storedContacts === null && contact && contact.firstName) {
-                contacts = [contact];
-              } else {
-                let existingContacts = JSON.parse(storedContacts);
-                console.log(
-                  "how many existing contacts",
-                  existingContacts.length
-                );
-                existingContacts.map((existingContact, i) => {
-                  console.log("existing contact", existingContact);
-                  if (
-                    existingContact &&
-                    existingContact.id &&
-                    contact &&
-                    contact.id &&
-                    existingContact.id === contact.id
-                  ) {
-                    found = true;
+          if (
+            scannedContact &&
+            scannedContact.data &&
+            scannedContact.data.events &&
+            scannedContact.data.events[0] &&
+            scannedContact.data.events[0].attendees &&
+            scannedContact.data.events[0].attendees[0]
+          ) {
+            let contact = scannedContact.data.events[0].attendees[0];
+            console.log("new contact", contact);
+            AsyncStorage.getItem("@MySuperStore:contacts").then(
+              storedContacts => {
+                let contacts = null;
+                let newContacts = [];
+                let found = false;
+                if (storedContacts === null && contact && contact.firstName) {
+                  contacts = [contact];
+                } else {
+                  let existingContacts = JSON.parse(storedContacts) || [];
+                  console.log(
+                    "how many existing contacts",
+                    existingContacts.length
+                  );
+                  existingContacts.map((existingContact, i) => {
+                    console.log("existing contact", existingContact);
+                    if (
+                      existingContact &&
+                      existingContact.id &&
+                      contact &&
+                      contact.id &&
+                      existingContact.id === contact.id
+                    ) {
+                      found = true;
+                      newContacts.push(contact);
+                    } else if (existingContact && existingContact.id) {
+                      newContacts.push(existingContact);
+                    }
+                  });
+                  if (!found && contact && contact.id) {
                     newContacts.push(contact);
-                  } else if (existingContact && existingContact.id) {
-                    newContacts.push(existingContact);
                   }
-                });
-                if (!found && contact && contact.id) {
-                  newContacts.push(contact);
+                  contacts = newContacts;
                 }
-                contacts = newContacts;
+                if (contacts === [null]) {
+                  contacts = [];
+                }
+                let stringifiedContacts = JSON.stringify(contacts);
+                AsyncStorage.setItem(
+                  "@MySuperStore:contacts",
+                  stringifiedContacts
+                )
+                  //AsyncStorage.removeItem('@MySuperStore:tickets')
+                  .then(value => {
+                    navigation.navigate("Contacts");
+                  });
               }
-              let stringifiedContacts = JSON.stringify(contacts);
-              AsyncStorage.setItem(
-                "@MySuperStore:contacts",
-                stringifiedContacts
-              )
-                //AsyncStorage.removeItem('@MySuperStore:tickets')
-                .then(value => {
-                  navigation.navigate("Contacts");
-                });
-            }
-          );
+            );
+          }
         });
     });
   };
