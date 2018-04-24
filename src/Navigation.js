@@ -547,24 +547,37 @@ class ErrorBoundary extends React.Component {
 }
 class QRScannerModalNavigation extends React.Component {
   state = {
-    hasCameraPermission: null
-  };
-  _requestCameraPermission = async () => {
-    const { status } = await Permissions.askAsync(Permissions.CAMERA);
-    this.setState({
-      hasCameraPermission: status === "granted"
-    });
+    showQRScanner: true
   };
   constructor(props) {
     super(props);
-    this._requestCameraPermission();
+    console.log(7);
   }
+  async setTickets(tickets) {
+    try {
+      const value = await AsyncStorage.setItem(
+        "@MySuperStore:tickets",
+        tickets
+      );
+    } catch (err) {
+      console.log(err);
+      return [];
+    }
+  }
+
   _handleBarCodeRead = data => {
+    console.log(8);
     let variables = { slug: GQL.slug, uuid: data.data };
     let navigation = this.props.navigation;
+    let that = this;
     client.executeQuery(query(qrQuery, variables), true).then(function(value) {
       if (value && value.data && value.data.events && value.data.events[0]) {
         let me = value.data.events[0].me;
+        if (me === null) {
+          Alert.alert("Ticket not found!");
+
+          return;
+        }
         AsyncStorage.getItem("@MySuperStore:tickets").then(value => {
           let tickets = null;
           let newTickets = [];
@@ -593,11 +606,12 @@ class QRScannerModalNavigation extends React.Component {
           }
           if (tickets && tickets !== null && tickets !== []) {
             let stringifiedTickets = JSON.stringify(tickets);
-            AsyncStorage.setItem("@MySuperStore:tickets", stringifiedTickets)
-              //AsyncStorage.removeItem('@MySuperStore:tickets')
-              .then(value => {
-                navigation.navigate("Profile");
-              });
+            that.setTickets(stringifiedTickets);
+            //AsyncStorage.setItem("@MySuperStore:tickets", stringifiedTickets)
+            //AsyncStorage.removeItem('@MySuperStore:tickets')
+            //.then(value => {
+            navigation.navigate("Profile");
+            //});
           }
         });
         // expected output: Array [1, 2, 3]
@@ -605,20 +619,36 @@ class QRScannerModalNavigation extends React.Component {
     });
   };
   render() {
+    const didBlurSubscription = this.props.navigation.addListener(
+      "didBlur",
+      payload => {
+        console.debug("didBlur", payload);
+        this.setState({ showQRScanner: false });
+      }
+    );
+    const didFocusSubscription = this.props.navigation.addListener(
+      "didFocus",
+      payload => {
+        console.debug("didfocus", payload);
+        this.setState({ showQRScanner: true });
+      }
+    );
     return (
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Text style={{ fontSize: 30 }}>Scan your ticket QR code!</Text>
-        <ErrorBoundary>
-          <BarCodeScanner
-            onBarCodeRead={this._handleBarCodeRead}
-            style={{
-              flex: 1,
-              alignItems: "center",
-              justifyContent: "center",
-              alignSelf: "stretch"
-            }}
-          />
-        </ErrorBoundary>
+        {this.state.showQRScanner ? (
+          <ErrorBoundary>
+            <BarCodeScanner
+              onBarCodeRead={this._handleBarCodeRead}
+              style={{
+                flex: 1,
+                alignItems: "center",
+                justifyContent: "center",
+                alignSelf: "stretch"
+              }}
+            />
+          </ErrorBoundary>
+        ) : null}
 
         <Button
           onPress={() => this.props.navigation.goBack()}
@@ -633,6 +663,7 @@ class QRCheckinScannerModalNavigation extends React.Component {
   state = {
     hasCameraPermission: null,
     checkinList: { name: "" },
+    showQRScanner: true,
     checkRef: true,
     uuid: null
   };
@@ -662,7 +693,8 @@ class QRCheckinScannerModalNavigation extends React.Component {
   _handleCheckinBarCodeRead = data => {
     AsyncStorage.getItem("@MySuperStore:lastCheckedInRef").then(value => {
       AsyncStorage.setItem("@MySuperStore:lastCheckedInRef", data.data);
-
+      console.log("DATA", data);
+      console.log("VALUE", value);
       if (data.data !== value) {
         let state = this;
         let variables = {
@@ -671,10 +703,10 @@ class QRCheckinScannerModalNavigation extends React.Component {
           ref: data.data
         }; //{ slug: GQL.slug, uuid: data.data };
         let navigation = this.props.navigation;
-        console.log("Scanned!", data.data);
-        console.log("variables", variables);
-        console.log("uuid state is", this.state.uuid);
-        console.log("checkinlist state is", this.state.checkinList);
+        //console.log("Scanned!", data.data);
+        //console.log("variables", variables);
+        //console.log("uuid state is", this.state.uuid);
+        //console.log("checkinlist state is", this.state.checkinList);
         client
           .executeQuery(query(qrCheckinQuery, variables), true)
           .then(function(value) {
@@ -692,9 +724,6 @@ class QRCheckinScannerModalNavigation extends React.Component {
                   "This reference has already been checked today! The person cannot get in as their ticket has already been used by someone else."
                 );
               }
-
-              //            navigation.replace("CheckedInAttendeeInfo", {checkedInAttendee: value.data.createCheckin})
-              //    navigation.navigate("Home")
               navigation.navigate("CheckedInAttendeeInfo", {
                 checkedInAttendee: value.data.createCheckin
               });
@@ -705,20 +734,37 @@ class QRCheckinScannerModalNavigation extends React.Component {
     });
   };
   render() {
+    const didBlurSubscription = this.props.navigation.addListener(
+      "didBlur",
+      payload => {
+        console.debug("didBlur", payload);
+        this.setState({ showQRScanner: false });
+      }
+    );
+    const didFocusSubscription = this.props.navigation.addListener(
+      "didFocus",
+      payload => {
+        console.debug("didfocus", payload);
+        this.setState({ showQRScanner: true });
+      }
+    );
+
     return (
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Text style={{ fontSize: 30 }}>
           Checking {this.state.checkinList.name}
         </Text>
-        <BarCodeScanner
-          onBarCodeRead={this._handleCheckinBarCodeRead}
-          style={{
-            flex: 1,
-            alignItems: "center",
-            justifyContent: "center",
-            alignSelf: "stretch"
-          }}
-        />
+        {this.state.showQRScanner ? (
+          <BarCodeScanner
+            onBarCodeRead={this._handleCheckinBarCodeRead}
+            style={{
+              flex: 1,
+              alignItems: "center",
+              justifyContent: "center",
+              alignSelf: "stretch"
+            }}
+          />
+        ) : null}
         <Button
           onPress={() => this.props.navigation.goBack()}
           title="Dismiss"
@@ -730,7 +776,8 @@ class QRCheckinScannerModalNavigation extends React.Component {
 
 class QRContactScannerModalNavigation extends React.Component {
   state = {
-    hasCameraPermission: null
+    hasCameraPermission: null,
+    showQRScanner: true
   };
   _requestCameraPermission = async () => {
     const { status } = await Permissions.askAsync(Permissions.CAMERA);
@@ -820,18 +867,34 @@ class QRContactScannerModalNavigation extends React.Component {
     });
   };
   render() {
+    const didBlurSubscription = this.props.navigation.addListener(
+      "didBlur",
+      payload => {
+        console.debug("didBlur", payload);
+        this.setState({ showQRScanner: false });
+      }
+    );
+    const didFocusSubscription = this.props.navigation.addListener(
+      "didFocus",
+      payload => {
+        console.debug("didfocus", payload);
+        this.setState({ showQRScanner: true });
+      }
+    );
     return (
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Text style={{ fontSize: 30 }}>Scan a badge's QR code!</Text>
-        <BarCodeScanner
-          onBarCodeRead={this._handleContactBarCodeRead}
-          style={{
-            flex: 1,
-            alignItems: "center",
-            justifyContent: "center",
-            alignSelf: "stretch"
-          }}
-        />
+        {this.state.showQRScanner ? (
+          <BarCodeScanner
+            onBarCodeRead={this._handleContactBarCodeRead}
+            style={{
+              flex: 1,
+              alignItems: "center",
+              justifyContent: "center",
+              alignSelf: "stretch"
+            }}
+          />
+        ) : null}
         <Button
           onPress={() => this.props.navigation.goBack()}
           title="Dismiss"

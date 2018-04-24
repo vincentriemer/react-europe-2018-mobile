@@ -123,6 +123,7 @@ class Home extends React.Component {
 class DeferredHomeContent extends React.Component {
   state = {
     ready: Platform.OS === "android" ? false : true,
+    hasCameraPermission: null,
     tickets: []
   };
 
@@ -193,6 +194,19 @@ class DeferredHomeContent extends React.Component {
             </RectButton>
           </ClipBorderRadius>
         ) : null}
+        {tix && tix.length > 0 && !isStaff ? (
+          <ClipBorderRadius>
+            <RectButton
+              style={styles.bigButton}
+              onPress={() => this.props.navigation.navigate("Profile")}
+              underlayColor="#fff"
+            >
+              <SemiBoldText style={styles.bigButtonText}>
+                Check my Ticket
+              </SemiBoldText>
+            </RectButton>
+          </ClipBorderRadius>
+        ) : null}
 
         <TalksUpNext
           style={{ marginTop: 20, marginHorizontal: 15, marginBottom: 2 }}
@@ -204,17 +218,45 @@ class DeferredHomeContent extends React.Component {
             </SemiBoldText>
           </TouchableOpacity>
         </View>
-        <ClipBorderRadius>
-          <RectButton
-            style={styles.bigButton}
-            onPress={this._handlePressQRButton}
-            underlayColor="#fff"
-          >
-            <SemiBoldText style={styles.bigButtonText}>
-              Scan your conference ticket QR code
-            </SemiBoldText>
-          </RectButton>
-        </ClipBorderRadius>
+        {tix && tix.length > 0 ? (
+          <ClipBorderRadius>
+            <RectButton
+              style={styles.bigButton}
+              onPress={() => this.props.navigation.navigate("Profile")}
+              underlayColor="#fff"
+            >
+              <SemiBoldText style={styles.bigButtonText}>
+                Check my Ticket
+              </SemiBoldText>
+            </RectButton>
+          </ClipBorderRadius>
+        ) : null}
+        {tix && tix.length === 0 ? (
+          <ClipBorderRadius>
+            <RectButton
+              style={styles.bigButton}
+              onPress={this._handlePressQRButton}
+              underlayColor="#fff"
+            >
+              <SemiBoldText style={styles.bigButtonText}>
+                Scan your conference ticket QR code
+              </SemiBoldText>
+            </RectButton>
+          </ClipBorderRadius>
+        ) : null}
+        {tix && tix.length > 0 ? (
+          <ClipBorderRadius>
+            <RectButton
+              style={styles.bigButton}
+              onPress={this._handlePressQRButton}
+              underlayColor="#fff"
+            >
+              <SemiBoldText style={styles.bigButtonText}>
+                Scan another ticket QR code
+              </SemiBoldText>
+            </RectButton>
+          </ClipBorderRadius>
+        ) : null}
         <ClipBorderRadius>
           <RectButton
             style={styles.bigButton}

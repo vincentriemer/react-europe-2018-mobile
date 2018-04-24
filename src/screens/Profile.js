@@ -11,7 +11,7 @@ import {
   View,
   AsyncStorage
 } from "react-native";
-import { Asset, LinearGradient, WebBrowser, Video } from "expo";
+import { Asset, LinearGradient, WebBrowser, Video, Permissions } from "expo";
 import { BorderlessButton, RectButton } from "react-native-gesture-handler";
 import { NavigationActions } from "react-navigation";
 import FadeIn from "react-native-fade-in-image";
@@ -40,17 +40,6 @@ class Profile extends React.Component {
   state = {
     scrollY: new Animated.Value(0),
     hasCameraPermission: null
-  };
-
-  _requestCameraPermission = async () => {
-    const { status } = await Permissions.askAsync(Permissions.CAMERA);
-    this.setState({
-      hasCameraPermission: status === "granted"
-    });
-  };
-
-  _handleBarCodeRead = data => {
-    Alert.alert("Scan successful!", JSON.stringify(data));
   };
 
   render() {
@@ -161,9 +150,25 @@ class DeferredProfileContent extends React.Component {
       </AnimatableView>
     );
   }
+  _requestCameraPermission = async () => {
+    console.log(1);
+    const { status } = await Permissions.askAsync(Permissions.CAMERA);
+    console.log(2);
+    this.setState({
+      hasCameraPermission: status === "granted"
+    });
+  };
 
   _handlePressQRButton = () => {
-    this.props.navigation.navigate("QRScanner");
+    console.log(0);
+    this._requestCameraPermission();
+    console.log(3);
+    Permissions.askAsync(Permissions.CAMERA).then(() => {
+      console.log(4);
+      this.props.navigation.navigate("QRScanner");
+      console.log(5);
+      return;
+    });
   };
 }
 
