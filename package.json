@@ -34,6 +34,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
+    "babel-plugin-transform-remove-console": "^6.9.1",
     "eslint": "^4.5.0",
     "eslint-plugin-react": "^7.3.0",
     "eslint-plugin-react-native": "^3.0.1",
