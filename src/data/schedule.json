@@ -1,4 +1,4 @@
-{
+  {
     "events": [
       {
         "cocUrl": "http://confcodeofconduct.com/",
@@ -1564,6 +1564,7 @@
               "id": 917,
               "speakers": [
                 {
+                  "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/879/avatar.png",
                   "bio": "Front-end web/mobile developer working on [Expo](https://expo.io) and one of **React Native** top committers.",
                   "id": 879,
                   "name": "Brent Vatne",
@@ -1584,6 +1585,7 @@
                   "twitter": "notbrent"
                 },
                 {
+                  "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/917/avatar.png",
                   "bio": "React / React Native / GraphQL enthusiast 🙌 Co-organizer of @NYCGraphQL 🗓 Technical Writer 🖋 Mentor 🎓 Fine Dancer🕺",
                   "id": 917,
                   "name": "Kurtis Kemple",
@@ -1618,6 +1620,7 @@
               "id": 961,
               "speakers": [
                 {
+                  "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/934/avatar.png",
                   "bio": "Dedicated yet mediocre (due to a lack of time) contributor to JS fatigue. **Author of MobX, MobX-state-tree**. Tech Lead at Mendix",
                   "id": 934,
                   "name": "Michel Weststrate",
@@ -1646,6 +1649,7 @@
               "id": 971,
               "speakers": [
                 {
+                  "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/932/avatar.png",
                   "bio": "Ken is the Director of Open Source at Formidable, the author of several popular open source libraries, and a frequent conference speaker often focusing on alternative uses of React. He is the creator of libraries such as **Spectacle, urql, react-music, react-game-kit and Webpack Dashboard**. He also maintains a healthy Twitter presence, and enjoys red meat, whiskey and recreational archery.",
                   "id": 932,
                   "name": "Ken Wheeler",
@@ -1672,6 +1676,7 @@
                   "twitter": "ken_wheeler"
                 },
                 {
+                  "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/939/avatar.png",
                   "bio": "Brandon is a core contributor to React and the testing library Enzyme. As the author of react-perimeter, react-animations, react-image-palette and more, he is an active open source author and advocate. When he’s not on Github you might find him camping in the backcountry of Yosemite, or planning his next road trip. Brandon recently joined Facebook as a software engineer.",
                   "id": 939,
                   "name": "Brandon Dail",
@@ -1692,6 +1697,7 @@
                   "twitter": "aweary"
                 },
                 {
+                  "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1312/avatar.png",
                   "bio": "Emma Brillhart is a Software Engineer at Formidable, where she's worked on projects with Starbucks and Viacom, as well as on OSS projects, like Victory. She's also Lead Organizer at SeattleJS, Seattle's largest JavaScript meet up. When she's not writing code or wrangling sponsors, she's cooking and baking, hand lettering, or snuggling with her dog, Leo.",
                   "id": 1312,
                   "name": "Emma Brillhart",
@@ -1734,4 +1740,3 @@
       }
     ]
   }
-

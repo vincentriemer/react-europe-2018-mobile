@@ -23,6 +23,7 @@ export const ScheduleQuery = `
         id
         title
         description
+		avatarUrl
         startDate
         speakers {
           id
