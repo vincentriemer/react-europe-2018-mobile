@@ -51,13 +51,20 @@ export default class ContactCard extends React.Component {
   _handlePressEmailButton = () => {
     const contact = this.props.contact;
     const email = contact.email;
+    const { tickets } = this.props;
+    let me = { firstName: "", lastName: "" };
+    if (tickets && tickets[0] && tickets[0].firstName) {
+      me = tickets[0];
+    }
     Linking.openURL(
       "mailto:" +
         email +
         "?subject=hey it's" +
-        contact.firstName +
         " " +
-        contact.firstName +
+        me.firstName +
+        " " +
+        me.lastName +
+        " " +
         "from ReactEurope&body=ping"
     );
   };

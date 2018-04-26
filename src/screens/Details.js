@@ -214,7 +214,12 @@ export default class Details extends React.Component {
               </SemiBoldText>
             ) : null}
             {talk ? (
-              <Markdown styles={markdownStyles}>{talk.description}</Markdown>
+              <Markdown styles={markdownStyles}>
+                {talk.description.replace(
+                  "**Click here to see covered subjects**",
+                  ""
+                )}
+              </Markdown>
             ) : null}
             {talkScreen && speakers.length > 0 ? (
               <View>
@@ -234,9 +239,7 @@ export default class Details extends React.Component {
             ) : null}
             {talk ? (
               <View>
-                <SemiBoldText style={styles.sectionHeader}>
-                  Time and place
-                </SemiBoldText>
+                <SemiBoldText style={styles.sectionHeader}>Time</SemiBoldText>
                 <RegularText>
                   {convertUtcDateToEventTimezoneHour(talk.startDate)}
                 </RegularText>

@@ -44,6 +44,6 @@ export const GQL = {
   uri: "https://www.react-europe.org/gql",
   slug: "reacteurope-2018"
   // uri: "http://192.168.1.32:4449/gql",
-  //  uri: "https://864157da.ngrok.io/gql",
-  //  slug: "cluster-test"
+  //    uri: "https://a6bb05ac.ngrok.io",
+  //    slug: "cluster-test"
 };

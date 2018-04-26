@@ -547,7 +547,7 @@ class ErrorBoundary extends React.Component {
 }
 class QRScannerModalNavigation extends React.Component {
   state = {
-    showQRScanner: true
+    showQRScanner: false
   };
   constructor(props) {
     super(props);
@@ -575,7 +575,6 @@ class QRScannerModalNavigation extends React.Component {
         let me = value.data.events[0].me;
         if (me === null) {
           Alert.alert("Ticket not found!");
-
           return;
         }
         AsyncStorage.getItem("@MySuperStore:tickets").then(value => {
@@ -677,6 +676,11 @@ class QRCheckinScannerModalNavigation extends React.Component {
       hasCameraPermission: status === "granted"
     });
   };
+  _delay = async time => {
+    return new Promise(function(resolve, reject) {
+      setTimeout(() => resolve(), time);
+    });
+  };
   componentDidMount() {
     this._requestCameraPermission();
     const params = this.props.navigation.state.params || {};
@@ -691,12 +695,11 @@ class QRCheckinScannerModalNavigation extends React.Component {
     });
   }
   _handleCheckinBarCodeRead = data => {
+    let { state } = this;
+    this.setState({ showQRScanner: false });
     AsyncStorage.getItem("@MySuperStore:lastCheckedInRef").then(value => {
       AsyncStorage.setItem("@MySuperStore:lastCheckedInRef", data.data);
-      console.log("DATA", data);
-      console.log("VALUE", value);
       if (data.data !== value) {
-        let state = this;
         let variables = {
           uuid: this.state.uuid,
           checkinListId: this.state.checkinList.id,
@@ -707,29 +710,35 @@ class QRCheckinScannerModalNavigation extends React.Component {
         //console.log("variables", variables);
         //console.log("uuid state is", this.state.uuid);
         //console.log("checkinlist state is", this.state.checkinList);
-        client
-          .executeQuery(query(qrCheckinQuery, variables), true)
-          .then(function(value) {
-            console.log("checkin mutation value", value);
-            if (value && value.data && value.data.createCheckin === null) {
-              Alert.alert(
-                "This reference could not be found, make sure you selected the right Checkin List!"
-              );
-            } else if (value && value.data && value.data.createCheckin) {
-              if (
-                value.data.createCheckin.checkinMessage ===
-                "Already checked-in today"
-              ) {
-                Alert.alert(
-                  "This reference has already been checked today! The person cannot get in as their ticket has already been used by someone else."
-                );
+        console.log("showQRSCanner", state.showQRScanner);
+        if (state.showQRScanner) {
+          client
+            .executeQuery(query(qrCheckinQuery, variables), true)
+            .then(function(value) {
+              if (state.showQRScanner) {
+                console.log("checkin mutation value", value);
+                if (value && value.data && value.data.createCheckin === null) {
+                  Alert.alert(
+                    "This reference could not be found, make sure you selected the right Checkin List!"
+                  );
+                  this.setState({ showQRScanner: true });
+                } else if (value && value.data && value.data.createCheckin) {
+                  if (
+                    value.data.createCheckin.checkinMessage ===
+                    "Already checked-in today"
+                  ) {
+                    Alert.alert(
+                      "This reference has already been checked today! The person cannot get in as their ticket has already been used by someone else."
+                    );
+                  }
+                  navigation.navigate("CheckedInAttendeeInfo", {
+                    checkedInAttendee: value.data.createCheckin
+                  });
+                }
+                //            // expected output: Array [1, 2, 3]
               }
-              navigation.navigate("CheckedInAttendeeInfo", {
-                checkedInAttendee: value.data.createCheckin
-              });
-            }
-            //            // expected output: Array [1, 2, 3]
-          });
+            });
+        }
       }
     });
   };

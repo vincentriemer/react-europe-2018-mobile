@@ -60,7 +60,7 @@ export default class App extends React.Component {
     }
 
     return (
-      <Provider client={client}>
+      /*      <Provider client={client}>
         <View style={{ flex: 1 }}>
           <Connect
             query={query(ScheduleQuery)}
@@ -72,7 +72,10 @@ export default class App extends React.Component {
             }}
           />
         </View>
-      </Provider>
+      </Provider>*/
+      <View style={{ flex: 1 }}>
+        <Navigation />
+      </View>
     );
   }
 }

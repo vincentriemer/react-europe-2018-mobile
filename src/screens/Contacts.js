@@ -131,6 +131,7 @@ class DeferredContactsContent extends React.Component {
     return (
       <AnimatableView animation="fadeIn" useNativeDriver duration={800}>
         <MyContacts
+          tickets={this.state.tickets}
           style={{ marginTop: 20, marginHorizontal: 15, marginBottom: 2 }}
         />
         {tix && tix.length > 0 ? (

@@ -27,6 +27,8 @@ export default class MyContacts extends React.Component {
   constructor(props) {
     super(props);
     this.contacts = [];
+    this.tickets = this.props.tickets;
+    console.log("tickets from MyContacts", this.tickets);
   }
   componentDidMount() {
     this.getContacts();
@@ -42,6 +44,7 @@ export default class MyContacts extends React.Component {
           <ContactCard
             key={contact.id + contact.email}
             contact={contact}
+            tickets={this.props.tickets}
             style={{ marginTop: 10, marginBottom: 10 }}
           />
         ))}

@@ -181,6 +181,20 @@ class DeferredHomeContent extends React.Component {
             </RectButton>
           </ClipBorderRadius>
         ) : null}
+        {tix && tix.length > 0 ? (
+          <ClipBorderRadius>
+            <RectButton
+              style={styles.bigButton}
+              onPress={() => this.props.navigation.navigate("Profile")}
+              underlayColor="#fff"
+            >
+              <SemiBoldText style={styles.bigButtonText}>
+                My Tickets
+              </SemiBoldText>
+            </RectButton>
+          </ClipBorderRadius>
+        ) : null}
+
         {tix && tix.length === 0 ? (
           <ClipBorderRadius>
             <RectButton
@@ -202,7 +216,7 @@ class DeferredHomeContent extends React.Component {
               underlayColor="#fff"
             >
               <SemiBoldText style={styles.bigButtonText}>
-                Check my Ticket
+                My tickets
               </SemiBoldText>
             </RectButton>
           </ClipBorderRadius>
@@ -226,7 +240,7 @@ class DeferredHomeContent extends React.Component {
               underlayColor="#fff"
             >
               <SemiBoldText style={styles.bigButtonText}>
-                Check my Ticket
+                My Tickets
               </SemiBoldText>
             </RectButton>
           </ClipBorderRadius>
