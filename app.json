@@ -25,6 +25,9 @@
       "bundleIdentifier": "reacteurope",
       "supportsTablet": true,
       "loadJSInBackgroundExperimental": true
+      "infoPlist": {
+        "NSLocationAlwaysUsageDescription": "We don't track your location but some of the app modules have this feature though they are not used by the app.",
+      }
     }
   }
 }
