@@ -289,7 +289,8 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
   icon: {
-    flexGrow: 1
+    flex: 1,
+    minWidth: 30,
   },
   label: {
     textAlign: "center",

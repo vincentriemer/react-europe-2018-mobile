@@ -77,7 +77,7 @@ export default class Crews extends React.Component {
           renderScrollComponent={props => <ScrollView {...props} />}
           renderItem={this._renderItem}
           data={CrewData}
-          keyExtractor={(item, index) => index}
+          keyExtractor={(item, index) => index.toString()}
         />
       </LoadingPlaceholder>
     );

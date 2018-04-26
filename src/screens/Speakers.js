@@ -74,7 +74,7 @@ export default class Speakers extends React.Component {
           renderItem={this._renderItem}
           renderSectionHeader={this._renderSectionHeader}
           sections={SpeakersData}
-          keyExtractor={(item, index) => index}
+          keyExtractor={(item, index) => index.toString()}
         />
       </LoadingPlaceholder>
     );

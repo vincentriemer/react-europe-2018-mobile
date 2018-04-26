@@ -9,8 +9,9 @@
     "primaryColor": "#4d5fab",
     "icon": "./src/assets/icon-ios.png",
     "orientation": "portrait",
-    "sdkVersion": "25.0.0",
+    "sdkVersion": "27.0.0",
     "scheme": "reacteurope",
+    "assetBundlePatterns": ["**/*"],
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -27,7 +28,6 @@
     "ios": {
       "bundleIdentifier": "reacteurope",
       "supportsTablet": true,
-      "assetBundlePatterns": ["**/*"],
       "loadJSInBackgroundExperimental": true,
       "infoPlist": {
         "NSLocationAlwaysUsageDescription":

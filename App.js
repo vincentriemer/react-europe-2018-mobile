@@ -1,6 +1,6 @@
 import React from 'react';
 import { Asset, AppLoading, Font, Updates } from 'expo';
-import { Platform, View } from 'react-native';
+import { Alert, Platform, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { loadSavedTalksAsync } from './src/utils/storage';
 import { SafeAreaView } from 'react-navigation';
@@ -18,14 +18,36 @@ export default class App extends React.Component {
   };
 
   componentDidMount() {
-    // Updates.addListener(({ type }) => {
-    //   if (type === Updates.EventType.DOWNLOAD_FINISHED) {
-    //     // update available, prompt user then call the following when they want
-    //     // to apply update:
-    //     // Updates.reload()
-    //   }
-    // });
+    Updates.addListener(({ type }) => {
+      if (type === Updates.EventType.DOWNLOAD_FINISHED) {
+        if (this.state.appIsReady) {
+          this._promptForReload();
+        } else {
+          this._shouldPromptForReload = true;
+        }
+      }
+    });
   }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (!prevState.appIsReady && this.state.appIsReady) {
+      if (this._shouldPromptForReload) {
+        this._shouldPromptForReload = false;
+        setTimeout(this._promptForReload, 1000);
+      }
+    }
+  }
+
+  _promptForReload = () => {
+    Alert.alert(
+      'A schedule update is available',
+      'You need to restart the app to get the new schedule.',
+      [
+        { text: 'Restart the app now', onPress: () => Updates.reload() },
+        { text: "I'll do it later", onPress: () => {} },
+      ]
+    );
+  };
 
   _loadResourcesAsync = () => {
     return Promise.all([this._loadAssetsAsync(), this._loadDataAsync()]);

@@ -28,7 +28,7 @@ export default class MyContacts extends React.Component {
     super(props);
     this.contacts = [];
     this.tickets = this.props.tickets;
-    console.log("tickets from MyContacts", this.tickets);
+    // console.log("tickets from MyContacts", this.tickets);
   }
   componentDidMount() {
     this.getContacts();

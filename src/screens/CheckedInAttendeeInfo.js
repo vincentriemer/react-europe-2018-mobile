@@ -94,8 +94,8 @@ class CheckinCard extends React.Component {
   }
   render() {
     const { checkins } = this.props;
-    console.log("props", this.props);
-    console.log("checkins", checkins);
+    // console.log("props", this.props);
+    // console.log("checkins", checkins);
     return <Text>Date: {checkins[0].createdAt}</Text>;
   }
 }

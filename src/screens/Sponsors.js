@@ -123,7 +123,7 @@ export default class Sponsors extends React.Component {
           sections={SponsorsByLevel}
           renderSectionHeader={this._renderSectionHeader}
           renderItem={this._renderItem}
-          keyExtractor={(item, index) => index}
+          keyExtractor={(item, index) => index.toString()}
           initialNumToRender={4}
         />
       </LoadingPlaceholder>
