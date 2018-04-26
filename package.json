@@ -9,6 +9,7 @@
     "devtools": "react-devtools"
   },
   "dependencies": {
+    "crypto-js": "^3.1.9-1",
     "exp": "^52.0.3",
     "expo": "^25.0.0",
     "fbemitter": "^2.1.1",

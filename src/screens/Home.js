@@ -43,7 +43,7 @@ class Home extends React.Component {
 
   render() {
     const { scrollY } = this.state;
-    const headerOpacity = scrollY.interpolate({
+      const headerOpacity = scrollY.interpolate({
       inputRange: [0, 150],
       outputRange: [0, 1],
       extrapolate: "clamp"

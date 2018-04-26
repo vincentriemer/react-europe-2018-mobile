@@ -35,6 +35,7 @@ import hoistStatics from "hoist-non-react-statics";
 import { Colors, FontSizes, Layout, GQL } from "./constants";
 import Screens from "./screens";
 import TabBarBottom from "./components/TabBarBottom";
+import CachedImage from "./components/CachedImage";
 import { SemiBoldText, BoldText } from "./components/StyledText";
 import _ from "lodash";
 import Schedule from "./data/schedule.json";
@@ -392,7 +393,7 @@ class DrawerView extends React.Component {
     return (
       <View style={styles.drawerContainer}>
         <View style={styles.drawerHeader}>
-          <Image
+          <CachedImage
             source={require("./assets/hero.png")}
             style={{
               height: 140 + Layout.notchHeight,

@@ -11,6 +11,9 @@
     "orientation": "portrait",
     "sdkVersion": "25.0.0",
     "scheme": "reacteurope",
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
     "splash": {
       "image": "./src/assets/splash-icon.png",
       "resizeMode": "contain",
@@ -19,14 +22,16 @@
     "android": {
       "package": "hr.apps.n6574",
       "icon": "./src/assets/icon-android.png",
-      "versionCode": 12,
+      "versionCode": 12
     },
     "ios": {
       "bundleIdentifier": "reacteurope",
       "supportsTablet": true,
+      "assetBundlePatterns": ["**/*"],
       "loadJSInBackgroundExperimental": true,
       "infoPlist": {
-        "NSLocationAlwaysUsageDescription": "We don't track your location but some of the app modules have this feature though they are not used by the app.",
+        "NSLocationAlwaysUsageDescription":
+          "We don't track your location but some of the app modules have this feature though they are not used by the app."
       }
     }
   }

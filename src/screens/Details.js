@@ -25,6 +25,7 @@ import { RegularText, BoldText, SemiBoldText } from "../components/StyledText";
 import { getSpeakerTalk, convertUtcDateToEventTimezoneHour } from "../utils";
 import { findTalkData, findSpeakerData } from "../data";
 import SaveButton from "../components/SaveButton";
+import CachedImage from "../components/CachedImage";
 import { Ionicons } from "@expo/vector-icons";
 import Markdown from "react-native-simple-markdown";
 export const Schedule = require("../data/schedule.json");
@@ -139,7 +140,7 @@ export default class Details extends React.Component {
                               key={speaker.id}
                               onPress={() => this._handlePressSpeaker(speaker)}
                             >
-                              <Image
+                              <CachedImage
                                 source={{ uri: speaker.avatarUrl }}
                                 style={styles.avatarMultiple}
                                 key={speaker.id + talk.title}
@@ -167,7 +168,7 @@ export default class Details extends React.Component {
                       : null}
                   </View>
                 ) : (
-                  <Image
+                  <CachedImage
                     source={{ uri: speaker.avatarUrl }}
                     style={styles.avatar}
                     key={speaker.avatarUrl}
