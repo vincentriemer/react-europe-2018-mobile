@@ -24,7 +24,10 @@ export default (async () => {
       let cur = this.reactSuperview;
       while (cur) {
         cur.isDirty = true;
-        typeof cur.markTextDirty === "function" && cur.markTextDirty();
+        // $FlowFixMe
+        if (typeof cur.markTextDirty === "function") {
+          cur.markTextDirty();
+        }
         cur = cur.reactSuperview;
       }
     }

@@ -32,11 +32,11 @@ const CONFERENCE_START_TIME = convertUtcDateToEventTimezone(Event.startDate);
 const CONFERENCE_END_TIME = convertUtcDateToEventTimezone(Event.endDate);
 
 export function conferenceHasStarted() {
-  return moment.tz(Event.timezoneId).isAfter(CONFERENCE_START_TIME);
+  return Event.status.hasStarted;
 }
 
 export function conferenceHasEnded() {
-  return moment.tz(Event.timezoneId).isAfter(CONFERENCE_END_TIME);
+  return Event.status.hasEnded;
 }
 
 export function HideWhenConferenceHasStarted({ children }) {

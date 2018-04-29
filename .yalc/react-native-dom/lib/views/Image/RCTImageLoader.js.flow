@@ -26,6 +26,10 @@ class RCTImageLoader {
       const image = new Image();
       image.src = url;
 
+      // skip decoding/loading on data uris
+      if (url.startsWith("data:")) return resolve(image);
+
+      // $FlowFixMe: libdef
       if (typeof image.decode === "function") {
         image
           .decode()

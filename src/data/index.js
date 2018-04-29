@@ -10,14 +10,7 @@ const Event = Schedule.events[0];
 export const Talks = Schedule.events[0].schedule;
 
 export function findNextTalksAfterDate(date = new Date(), allTalks = Talks) {
-  let talks = _.filter(
-    Talks,
-    talk =>
-      (talk.type === 0 || talk.type === 1) &&
-      moment
-        .tz(Event.timezoneId)
-        .isBefore(convertUtcDateToEventTimezone(talk.startDate))
-  );
+  let talks = Event.status.nextFiveScheduledItems;
   return talks.slice(0, 3);
 }
 

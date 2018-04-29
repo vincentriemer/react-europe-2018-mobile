@@ -38,3 +38,10 @@ export const FontSizes = {
   bodyTitle: isSmallDevice ? 14 : 15,
   normalButton: isSmallDevice ? 15 : 16,
 };
+
+export const GQL = {
+  uri: "https://www.react-europe.org/gql",
+  slug: "reacteurope-2018"
+  //uri: "http://192.168.1.32:4449/gql",
+  //slug: "cluster-test"
+};

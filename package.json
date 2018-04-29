@@ -10,46 +10,47 @@
     "test": "jest",
     "devtools": "react-devtools",
     "prebuild:dom": "rimraf dom/dist && mkdir -p dom/dist",
-    "build:dom":
-      "NODE_ENV=production yarn build:dom:native && yarn build:dom:js",
-    "build:dom:native":
-      "react-native bundle --config $(pwd)/rn-cli.config.js --dev false --entry-file ./dom/bootstrap.js --bundle-output ./dom/dist/bootstrap.bundle --platform dom",
-    "build:dom:js":
-      "react-native bundle --config $(pwd)/rn-cli.config.js --dev false --entry-file ./dom/entry.js --bundle-output ./dom/dist/entry.bundle --platform dom --assets-dest ./dom/dist",
-    "postbuild:dom":
-      "cp ./dom/index.html ./dom/dist/index.html && cp ./dom/now.json ./dom/dist/now.json"
+    "build:dom": "NODE_ENV=production yarn build:dom:native && yarn build:dom:js",
+    "build:dom:native": "react-native bundle --config $(pwd)/rn-cli.config.js --dev false --entry-file ./dom/bootstrap.js --bundle-output ./dom/dist/bootstrap.bundle --platform dom",
+    "build:dom:js": "react-native bundle --config $(pwd)/rn-cli.config.js --dev false --entry-file ./dom/entry.js --bundle-output ./dom/dist/entry.bundle --platform dom --assets-dest ./dom/dist",
+    "postbuild:dom": "cp ./dom/index.html ./dom/dist/index.html && cp ./dom/now.json ./dom/dist/now.json"
   },
   "dependencies": {
     "@expo/vector-icons": "^6.3.1",
     "babel-polyfill": "^6.26.0",
     "babel-preset-expo": "^4.0.0",
     "babel-runtime": "^6.26.0",
-    "exp": "^51.4.0",
-    "expo": "^26.0.0",
+    "exp": "^52.0.3",
+    "expo": "^25.0.0",
     "fbemitter": "^2.1.1",
     "fontfaceobserver": "^2.0.13",
     "global": "^4.3.2",
     "hammerjs": "^2.0.8",
     "hoist-non-react-statics": "^2.3.1",
+    "jsqr": "^1.0.4",
     "lodash": "^4.17.4",
     "moment": "2.21.0",
     "moment-timezone": "^0.5.14",
+    "path": "^0.12.7",
     "prettier": "^1.11.1",
     "react": "^16.3.0",
     "react-native": "~0.55.0",
     "react-native-animatable": "^1.2.4",
     "react-native-dom": "file:.yalc/react-native-dom",
     "react-native-easy-markdown": "^1.1.9",
-    "react-native-fade-in-image":
-      "file:./local-forks/react-native-fade-in-image",
+    "react-native-fade-in-image": "file:local-forks/react-native-fade-in-image",
+    "react-native-paper": "file:local-forks/react-native-paper",
+    "react-native-qrcode-svg": "^5.0.6",
+    "react-native-qrcode":"^0.2.6",
     "react-native-read-more-text": "^1.0.0",
     "react-native-resource-saving-container": "^1.0.2",
-    "react-native-vector-icons": "^4.5.0",
-    "react-navigation": "1.1.0-rc.4",
-    "urql": "^0.2.0"
+    "react-navigation": "1.5.2",
+    "urql": "^0.2.0",
+    "prop-types": "^15.6.1"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
+    "babel-plugin-transform-builtin-classes": "^0.6.1",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-react-native": "^4.0.0",
     "eslint": "^4.5.0",

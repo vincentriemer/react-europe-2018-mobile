@@ -8,9 +8,9 @@ import {
   Text,
   ScrollView,
   View,
-  Linking,
+  Linking
 } from "react-native";
-import { Constants, Video } from "expo";
+import { Constants, Video, WebBrowser } from "expo";
 import FadeIn from "react-native-fade-in-image";
 import ReadMore from "react-native-read-more-text";
 import { BorderlessButton } from "react-native-gesture-handler";
@@ -77,7 +77,9 @@ export default class Details extends React.Component {
       speakers = talk.speakers;
     } else if (params.speaker) {
       speaker = params.speaker;
-      talk = getSpeakerTalk(speaker);
+      if (speaker.talks && speaker.talks.length > 0) {
+        talk = getSpeakerTalk(speaker);
+      }
     }
 
     const { scrollY } = this.state;
@@ -147,19 +149,31 @@ export default class Details extends React.Component {
                             key={speaker.id}
                             style={styles.headerColumnSpeaker}
                           >
-                            <Image
-                              source={{ uri: speaker.avatarUrl }}
-                              style={styles.avatarMultiple}
-                              key={speaker.id + talk.title}
-                            />
+                            <TouchableOpacity
+                              key={speaker.id}
+                              onPress={() => this._handlePressSpeaker(speaker)}
+                            >
+                              <Image
+                                source={{ uri: speaker.avatarUrl }}
+                                style={styles.avatarMultiple}
+                                key={speaker.id + talk.title}
+                              />
+                            </TouchableOpacity>
                             {speaker.name.split(" ").map((name, index) => (
                               <View key={index}>
-                                <SemiBoldText
-                                  style={styles.headerText}
-                                  key={"speakers" + speaker.id + name}
+                                <TouchableOpacity
+                                  key={speaker.id}
+                                  onPress={() =>
+                                    this._handlePressSpeaker(speaker)
+                                  }
                                 >
-                                  {name}
-                                </SemiBoldText>
+                                  <SemiBoldText
+                                    style={styles.headerText}
+                                    key={"speakers" + speaker.id + name}
+                                  >
+                                    {name}
+                                  </SemiBoldText>
+                                </TouchableOpacity>
                               </View>
                             ))}
                           </View>
@@ -181,9 +195,13 @@ export default class Details extends React.Component {
               </SemiBoldText>
             )}
             {speaker && speaker.twitter ? (
-              <RegularText style={styles.headerText}>
-                @{speaker.twitter || speaker.github}
-              </RegularText>
+              <TouchableOpacity
+                onPress={() => this._handlePressSpeakerTwitter(speaker.twitter)}
+              >
+                <RegularText style={styles.headerText}>
+                  @{speaker.twitter}
+                </RegularText>
+              </TouchableOpacity>
             ) : null}
             {talk ? (
               <BoldText style={styles.talkTitleText}>{talk.title}</BoldText>
@@ -297,6 +315,18 @@ export default class Details extends React.Component {
       </TouchableOpacity>
     );
   };
+
+  _handlePressSpeaker = speaker => {
+    this.props.navigation.navigate("Details", { speaker });
+  };
+
+  _handlePressSpeakerTwitter = async twitter => {
+    try {
+      await Linking.openURL(`twitter://user?screen_name=` + twitter);
+    } catch (e) {
+      WebBrowser.openBrowserAsync("https://twitter.com/" + twitter);
+    }
+  };
 }
 const markdownStyles = {
   text: {},
@@ -342,6 +372,7 @@ const styles = StyleSheet.create({
   headerColumnSpeaker: {
     alignItems: "center",
     justifyContent: "center",
+    paddingHorizontal: 5
   },
   headerContainer: {
     backgroundColor: Colors.blue,

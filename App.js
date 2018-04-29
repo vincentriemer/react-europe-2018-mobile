@@ -7,6 +7,8 @@ import { loadSavedTalksAsync } from "./src/utils/storage";
 import { SafeAreaView } from "react-navigation";
 import { Provider, Client, Connect, query } from "urql";
 import { ScheduleQuery } from "./src/data/schedulequery";
+import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
+import { GQL } from "./src/constants";
 
 YellowBox.ignoreWarnings([
   "Warning: isMounted(...) is deprecated",
@@ -17,8 +19,18 @@ if (Platform.OS === "android") {
   SafeAreaView.setStatusBarHeight(0);
 }
 
+const theme = {
+  ...DefaultTheme,
+  fonts: {
+    thin: "open-sans",
+    light: "open-sans",
+    regular: "open-sans-semibold",
+    medium: "open-sans-bold"
+  }
+};
+
 const client = new Client({
-  url: "https://www.react-europe.org/gql",
+  url: GQL.uri
 });
 
 import Navigation from "./src/Navigation";
@@ -66,17 +78,19 @@ export default class App extends React.Component {
 
     return (
       <Provider client={client}>
-        <View style={{ flex: 1 }}>
-          <Connect
-            query={query(ScheduleQuery)}
-            children={({ loaded, data, addTodo, removeTodo, refetch }) => {
-              if (loaded) {
-                //console.log(data.events[0].name)
-              }
-              return <Navigation schedule={data} />;
-            }}
-          />
-        </View>
+        <PaperProvider theme={theme}>
+          <View style={{ flex: 1 }}>
+            <Connect
+              query={query(ScheduleQuery)}
+              children={({ loaded, data, addTodo, removeTodo, refetch }) => {
+                if (loaded) {
+                  //console.log(data.events[0].name)
+                }
+                return <Navigation schedule={data} client={client} />;
+              }}
+            />
+          </View>
+        </PaperProvider>
       </Provider>
     );
   }

@@ -17,7 +17,7 @@ export default class SaveButton extends React.Component {
           alignSelf: "flex-start",
           backgroundColor: "transparent",
           paddingLeft: 15,
-          paddingRight: 15,
+          paddingRight: 15
         }}
         hitSlop={{ left: 30, top: 30, right: 30, bottom: 30 }}
       >

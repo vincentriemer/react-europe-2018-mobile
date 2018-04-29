@@ -5,7 +5,7 @@ import {
   StyleSheet,
   View,
   Platform,
-  Keyboard,
+  Keyboard
 } from "react-native";
 import SafeAreaView from "react-native-safe-area-view";
 import { BorderlessButton } from "react-native-gesture-handler";
@@ -28,7 +28,7 @@ class TabBarBottom extends React.PureComponent {
     showLabel: true,
     showIcon: true,
     allowFontScaling: true,
-    adaptive: isIOS11,
+    adaptive: isIOS11
   };
 
   _renderLabel = scene => {
@@ -41,7 +41,7 @@ class TabBarBottom extends React.PureComponent {
       showLabel,
       showIcon,
       isLandscape,
-      allowFontScaling,
+      allowFontScaling
     } = this.props;
     if (showLabel === false) {
       return null;
@@ -55,7 +55,7 @@ class TabBarBottom extends React.PureComponent {
     );
     const color = position.interpolate({
       inputRange,
-      outputRange: outputRange,
+      outputRange: outputRange
     });
 
     const tintColor = scene.focused ? activeTintColor : inactiveTintColor;
@@ -71,7 +71,7 @@ class TabBarBottom extends React.PureComponent {
             showIcon && this._shouldUseHorizontalTabs()
               ? styles.labelBeside
               : styles.labelBeneath,
-            labelStyle,
+            labelStyle
           ]}
           allowFontScaling={allowFontScaling}
         >
@@ -95,7 +95,7 @@ class TabBarBottom extends React.PureComponent {
       inactiveTintColor,
       renderIcon,
       showIcon,
-      showLabel,
+      showLabel
     } = this.props;
     if (showIcon === false) {
       return null;
@@ -189,7 +189,7 @@ class TabBarBottom extends React.PureComponent {
       style,
       animateStyle,
       tabStyle,
-      isLandscape,
+      isLandscape
     } = this.props;
     const { routes } = navigation.state;
     const previousScene = routes[navigation.state.index];
@@ -201,7 +201,7 @@ class TabBarBottom extends React.PureComponent {
       this._shouldUseHorizontalTabs() && !Platform.isPad
         ? styles.tabBarCompact
         : styles.tabBarRegular,
-      style,
+      style
     ];
 
     return (
@@ -222,7 +222,7 @@ class TabBarBottom extends React.PureComponent {
             );
             const backgroundColor = position.interpolate({
               inputRange,
-              outputRange: outputRange,
+              outputRange: outputRange
             });
 
             const justifyContent = this.props.showIcon ? "flex-end" : "center";
@@ -247,7 +247,7 @@ class TabBarBottom extends React.PureComponent {
                       this._shouldUseHorizontalTabs()
                         ? styles.tabLandscape
                         : styles.tabPortrait,
-                      tabStyle,
+                      tabStyle
                     ]}
                   >
                     {this._renderIcon(scene)}
@@ -268,41 +268,41 @@ const styles = StyleSheet.create({
     backgroundColor: "#F7F7F7", // Default background color in iOS 10
     borderTopWidth: StyleSheet.hairlineWidth,
     borderTopColor: "rgba(0, 0, 0, .3)",
-    flexDirection: "row",
+    flexDirection: "row"
   },
   tabBarCompact: {
-    height: 29,
+    height: 29
   },
   tabBarRegular: {
-    height: 49,
+    height: 49
   },
   tab: {
     flex: 1,
-    alignItems: isIos ? "center" : "stretch",
+    alignItems: isIos ? "center" : "stretch"
   },
   tabPortrait: {
     justifyContent: "flex-end",
-    flexDirection: "column",
+    flexDirection: "column"
   },
   tabLandscape: {
     justifyContent: "center",
-    flexDirection: "row",
+    flexDirection: "row"
   },
   icon: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   label: {
     textAlign: "center",
-    backgroundColor: "transparent",
+    backgroundColor: "transparent"
   },
   labelBeneath: {
     fontSize: 10,
-    marginBottom: 1.5,
+    marginBottom: 1.5
   },
   labelBeside: {
     fontSize: 13,
-    marginLeft: 20,
-  },
+    marginLeft: 20
+  }
 });
 
 export default withOrientation(TabBarBottom);

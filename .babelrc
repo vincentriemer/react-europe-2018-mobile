@@ -22,6 +22,12 @@
         "regenerator": true
       }
     ],
+    [
+      "babel-plugin-transform-builtin-classes",
+      {
+        "globals": ["HTMLElement"]
+      }
+    ],
     "transform-exponentiation-operator",
     "transform-export-extensions"
   ],

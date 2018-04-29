@@ -5,7 +5,7 @@ import { View as AnimatableView } from "react-native-animatable";
 
 export default class VideoBackground extends React.Component {
   state = {
-    videoLoaded: false,
+    videoLoaded: false
   };
 
   async componentDidMount() {

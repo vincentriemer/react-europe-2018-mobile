@@ -1,7 +1,16 @@
 import React from "react";
-import { Image, FlatList, StyleSheet, View, Text } from "react-native";
+import {
+  Image,
+  FlatList,
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  Linking
+} from "react-native";
 import FadeIn from "react-native-fade-in-image";
 import { ScrollView } from "react-native-gesture-handler";
+import { WebBrowser } from "expo";
 
 import { Colors } from "../constants";
 import MenuButton from "../components/MenuButton";
@@ -31,15 +40,22 @@ class CrewRow extends React.Component {
             {crew.firstName} {crew.lastName}
           </BoldText>
           {crew.role ? <SemiBoldText>{crew.role}</SemiBoldText> : null}
-          <RegularText>@{crew.twitter}</RegularText>
+          <TouchableOpacity
+            onPress={() => this._handlePressCrewTwitter(crew.twitter)}
+          >
+            <RegularText>@{crew.twitter}</RegularText>
+          </TouchableOpacity>
         </View>
       </View>
     );
   }
 
-  _handlePress = () => {
-    // do nothing for now
-    // alert('pressed!')
+  _handlePressCrewTwitter = async twitter => {
+    try {
+      await Linking.openURL(`twitter://user?screen_name=` + twitter);
+    } catch (e) {
+      WebBrowser.openBrowserAsync("https://twitter.com/" + twitter);
+    }
   };
 }
 

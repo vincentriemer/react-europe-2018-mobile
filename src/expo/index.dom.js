@@ -9,6 +9,7 @@ import {
   ActivityIndicator,
 } from "react-native";
 import resolveAssetSource from "resolveAssetSource";
+import * as Permissions from "./Permissions";
 
 const FontLoader = NativeModules.FontLoader;
 
@@ -92,3 +93,9 @@ export class AppLoading extends React.Component<*> {
     );
   }
 }
+
+// export const BarCodeScanner = (props) => <View {...props} />;
+
+import BarCodeScanner from "./BarCodeScanner";
+
+export { Permissions, BarCodeScanner };

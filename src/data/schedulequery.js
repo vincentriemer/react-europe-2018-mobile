@@ -14,6 +14,7 @@ export const ScheduleQuery = `
     startDate
     endDate
     timezoneId
+    slug
     collaborators {
       id
       firstName

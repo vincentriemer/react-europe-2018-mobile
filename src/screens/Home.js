@@ -8,7 +8,8 @@ import {
   TouchableOpacity,
   ScrollView,
   StyleSheet,
-  View,
+  AsyncStorage,
+  View
 } from "react-native";
 import { Asset, WebBrowser, Video } from "expo";
 import { BorderlessButton, RectButton } from "react-native-gesture-handler";
@@ -124,7 +125,25 @@ class Home extends React.Component {
 class DeferredHomeContent extends React.Component {
   state = {
     ready: Platform.OS === "android" ? false : true,
+    tickets: []
   };
+
+  async getTickets() {
+    try {
+      const value = await AsyncStorage.getItem("@MySuperStore:tickets");
+      console.log("tickets", value);
+      this.setState({ tickets: JSON.parse(value) });
+      this.tickets = JSON.parse(value);
+    } catch (err) {
+      console.log(err);
+      return [];
+    }
+  }
+
+  constructor(props) {
+    super(props);
+    this.getTickets();
+  }
 
   componentDidMount() {
     if (this.state.ready) {
@@ -140,8 +159,23 @@ class DeferredHomeContent extends React.Component {
     if (!this.state.ready) {
       return null;
     }
+    const tix = this.state.tickets;
     return (
       <AnimatableView animation="fadeIn" useNativeDriver duration={800}>
+        {tix && tix.length === 0 ? (
+          <ClipBorderRadius>
+            <RectButton
+              style={styles.bigButton}
+              onPress={this._handlePressQRButton}
+              underlayColor="#fff"
+            >
+              <SemiBoldText style={styles.bigButtonText}>
+                Scan your conference ticket QR code
+              </SemiBoldText>
+            </RectButton>
+          </ClipBorderRadius>
+        ) : null}
+
         <TalksUpNext
           style={{ marginTop: 20, marginHorizontal: 15, marginBottom: 2 }}
         />
@@ -152,7 +186,17 @@ class DeferredHomeContent extends React.Component {
             </SemiBoldText>
           </TouchableOpacity>
         </View>
-
+        <ClipBorderRadius>
+          <RectButton
+            style={styles.bigButton}
+            onPress={this._handlePressQRButton}
+            underlayColor="#fff"
+          >
+            <SemiBoldText style={styles.bigButtonText}>
+              Scan your conference ticket QR code
+            </SemiBoldText>
+          </RectButton>
+        </ClipBorderRadius>
         <ClipBorderRadius>
           <RectButton
             style={styles.bigButton}
@@ -213,6 +257,10 @@ class DeferredHomeContent extends React.Component {
 
   _handlePressCOCButton = () => {
     WebBrowser.openBrowserAsync(Event.cocUrl);
+  };
+
+  _handlePressQRButton = () => {
+    this.props.navigation.navigate("QRScanner");
   };
 
   _handlePressTwitterButton = async () => {

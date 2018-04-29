@@ -6,6 +6,7 @@ import { BoldText, RegularText, SemiBoldText } from "./StyledText";
 import TalkCard from "./TalkCard";
 import { Colors, FontSizes } from "../constants";
 import { findRandomTalk, findNextTalksAfterDate } from "../data";
+import _ from "lodash";
 import {
   convertUtcDateToEventTimezoneDaytime,
   conferenceHasEnded
@@ -21,7 +22,7 @@ export default class TalksUpNext extends React.Component {
         : findNextTalksAfterDate();
     let dateTime;
     let time;
-    if (nextTalks && nextTalks.length > 0) {
+    if (nextTalks && nextTalks.length > 0 && !_.isUndefined(nextTalks[0])) {
       dateTime = nextTalks[0].startDate;
       time = nextTalks[0].startDate;
     }

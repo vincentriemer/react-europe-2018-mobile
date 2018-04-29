@@ -193,16 +193,17 @@ class RCTImageView extends RCTView {
     }
 
     const scale = this.imageScale;
-    const targetImagePixels = size.width * size.height * scale * scale;
+    const targetImagePixels = size.width * size.height * scale;
 
     let bestSource: ?RCTImageSource = null;
     let bestFit: number = Infinity;
 
     for (let source of this._imageSources) {
       const imgSize = source.size;
-      const imagePixels =
-        imgSize.width * imgSize.height * source.scale * source.scale;
-      const fit = Math.abs(1 - imagePixels / targetImagePixels);
+      const imagePixels = imgSize.width * imgSize.height * source.scale;
+      const fit = Math.abs(imagePixels - targetImagePixels);
+
+      console.log(source.request, fit);
 
       if (fit < bestFit) {
         bestFit = fit;
