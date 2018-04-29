@@ -30,6 +30,8 @@ export default class ExponentBarCodeScanner extends RCTView {
     this.canvas = this.canvasCapture.getContext("2d");
 
     this.videoElement = document.createElement("video");
+    this.videoElement.setAttribute("muted", "true");
+    this.videoElement.setAttribute("playsinline", "");
     Object.assign(this.videoElement.style, {
       width: "100%",
       height: "100%",
@@ -44,7 +46,7 @@ export default class ExponentBarCodeScanner extends RCTView {
   }
 
   async attachCameraToVideo() {
-    const mediaStream = await navigator.mediaDevices.getUserMedia({ video: true });
+    const mediaStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
     this.videoElement.srcObject = mediaStream;
     this.videoElement.onloadedmetadata = e => {
       this.videoElement.play().then(() => {

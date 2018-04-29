@@ -8,6 +8,7 @@ import { Layout, FontSizes, Colors } from "../constants";
 import MenuButton from "../components/MenuButton";
 import { BoldText, SemiBoldText, RegularText } from "../components/StyledText";
 import LoadingPlaceholder from "../components/LoadingPlaceholder";
+import CachedImage from "../components/CachedImage";
 
 import _ from "lodash";
 
@@ -59,7 +60,7 @@ class SponsorRow extends React.Component {
             ]}
           >
             <FadeIn placeholderStyle={{ borderRadius: 3 }}>
-              <Image
+              <CachedImage
                 source={{ uri: sponsor.logoUrl }}
                 style={{
                   width: Layout.window.width / 2,
@@ -122,7 +123,7 @@ export default class Sponsors extends React.Component {
           sections={SponsorsByLevel}
           renderSectionHeader={this._renderSectionHeader}
           renderItem={this._renderItem}
-          keyExtractor={(item, index) => index}
+          keyExtractor={(item, index) => index.toString()}
           initialNumToRender={4}
         />
       </LoadingPlaceholder>

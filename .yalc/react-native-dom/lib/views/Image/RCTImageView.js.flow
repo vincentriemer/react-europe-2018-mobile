@@ -105,7 +105,7 @@ class RCTImageView extends RCTView {
       requestAnimationFrame(() => {
         this.imageElement.style.willChange = "transform";
         requestAnimationFrame(() => {
-          this.imageElement.style.willChange = "";
+          this.imageElement.style.willChange = "auto";
         });
       });
     }
@@ -193,17 +193,16 @@ class RCTImageView extends RCTView {
     }
 
     const scale = this.imageScale;
-    const targetImagePixels = size.width * size.height * scale;
+    const targetImagePixels = size.width * size.height * scale * scale;
 
     let bestSource: ?RCTImageSource = null;
     let bestFit: number = Infinity;
 
     for (let source of this._imageSources) {
       const imgSize = source.size;
-      const imagePixels = imgSize.width * imgSize.height * source.scale;
-      const fit = Math.abs(imagePixels - targetImagePixels);
-
-      console.log(source.request, fit);
+      const imagePixels =
+        imgSize.width * imgSize.height * source.scale * source.scale;
+      const fit = Math.abs(1 - imagePixels / targetImagePixels);
 
       if (fit < bestFit) {
         bestFit = fit;
@@ -267,6 +266,7 @@ class RCTImageView extends RCTView {
               null
             ]);
           }
+          this.updateFilter();
         });
     }
   }

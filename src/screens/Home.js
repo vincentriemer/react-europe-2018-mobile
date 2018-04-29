@@ -11,7 +11,7 @@ import {
   AsyncStorage,
   View
 } from "react-native";
-import { Asset, WebBrowser, Video } from "expo";
+import { Asset, LinearGradient, WebBrowser, Video, Permissions } from "expo";
 import { BorderlessButton, RectButton } from "react-native-gesture-handler";
 import { NavigationActions } from "react-navigation";
 import FadeIn from "react-native-fade-in-image";
@@ -43,7 +43,7 @@ class Home extends React.Component {
 
   render() {
     const { scrollY } = this.state;
-    const headerOpacity = scrollY.interpolate({
+      const headerOpacity = scrollY.interpolate({
       inputRange: [0, 150],
       outputRange: [0, 1],
       extrapolate: "clamp",
@@ -125,13 +125,14 @@ class Home extends React.Component {
 class DeferredHomeContent extends React.Component {
   state = {
     ready: Platform.OS === "android" ? false : true,
+    hasCameraPermission: null,
     tickets: []
   };
 
   async getTickets() {
     try {
       const value = await AsyncStorage.getItem("@MySuperStore:tickets");
-      console.log("tickets", value);
+      // console.log("tickets", value);
       this.setState({ tickets: JSON.parse(value) });
       this.tickets = JSON.parse(value);
     } catch (err) {
@@ -159,9 +160,44 @@ class DeferredHomeContent extends React.Component {
     if (!this.state.ready) {
       return null;
     }
-    const tix = this.state.tickets;
+    const tix = this.state.tickets || [];
+    let staffCheckinLists = [];
+    let isStaff = false;
+    tix.map(ticket => {
+      console.log(ticket);
+      if (ticket && ticket.type === 4) {
+        isStaff = true;
+      }
+    });
     return (
       <AnimatableView animation="fadeIn" useNativeDriver duration={800}>
+        {isStaff ? (
+          <ClipBorderRadius>
+            <RectButton
+              style={styles.bigButton}
+              onPress={this._handlePressStaffCheckinListsButton}
+              underlayColor="#fff"
+            >
+              <SemiBoldText style={styles.bigButtonText}>
+                Go to checkin
+              </SemiBoldText>
+            </RectButton>
+          </ClipBorderRadius>
+        ) : null}
+        {tix && tix.length > 0 ? (
+          <ClipBorderRadius>
+            <RectButton
+              style={styles.bigButton}
+              onPress={() => this.props.navigation.navigate("Profile")}
+              underlayColor="#fff"
+            >
+              <SemiBoldText style={styles.bigButtonText}>
+                My Tickets
+              </SemiBoldText>
+            </RectButton>
+          </ClipBorderRadius>
+        ) : null}
+
         {tix && tix.length === 0 ? (
           <ClipBorderRadius>
             <RectButton
@@ -171,6 +207,19 @@ class DeferredHomeContent extends React.Component {
             >
               <SemiBoldText style={styles.bigButtonText}>
                 Scan your conference ticket QR code
+              </SemiBoldText>
+            </RectButton>
+          </ClipBorderRadius>
+        ) : null}
+        {tix && tix.length > 0 && isStaff ? (
+          <ClipBorderRadius>
+            <RectButton
+              style={styles.bigButton}
+              onPress={() => this.props.navigation.navigate("Profile")}
+              underlayColor="#fff"
+            >
+              <SemiBoldText style={styles.bigButtonText}>
+                My tickets
               </SemiBoldText>
             </RectButton>
           </ClipBorderRadius>
@@ -186,17 +235,45 @@ class DeferredHomeContent extends React.Component {
             </SemiBoldText>
           </TouchableOpacity>
         </View>
-        <ClipBorderRadius>
-          <RectButton
-            style={styles.bigButton}
-            onPress={this._handlePressQRButton}
-            underlayColor="#fff"
-          >
-            <SemiBoldText style={styles.bigButtonText}>
-              Scan your conference ticket QR code
-            </SemiBoldText>
-          </RectButton>
-        </ClipBorderRadius>
+        {tix && tix.length > 0 ? (
+          <ClipBorderRadius>
+            <RectButton
+              style={styles.bigButton}
+              onPress={() => this.props.navigation.navigate("Profile")}
+              underlayColor="#fff"
+            >
+              <SemiBoldText style={styles.bigButtonText}>
+                My Tickets
+              </SemiBoldText>
+            </RectButton>
+          </ClipBorderRadius>
+        ) : null}
+        {tix && tix.length === 0 ? (
+          <ClipBorderRadius>
+            <RectButton
+              style={styles.bigButton}
+              onPress={this._handlePressQRButton}
+              underlayColor="#fff"
+            >
+              <SemiBoldText style={styles.bigButtonText}>
+                Scan your conference ticket QR code
+              </SemiBoldText>
+            </RectButton>
+          </ClipBorderRadius>
+        ) : null}
+        {tix && tix.length > 0 ? (
+          <ClipBorderRadius>
+            <RectButton
+              style={styles.bigButton}
+              onPress={this._handlePressQRButton}
+              underlayColor="#fff"
+            >
+              <SemiBoldText style={styles.bigButtonText}>
+                Scan another ticket QR code
+              </SemiBoldText>
+            </RectButton>
+          </ClipBorderRadius>
+        ) : null}
         <ClipBorderRadius>
           <RectButton
             style={styles.bigButton}
@@ -259,8 +336,23 @@ class DeferredHomeContent extends React.Component {
     WebBrowser.openBrowserAsync(Event.cocUrl);
   };
 
+  _requestCameraPermission = async () => {
+    const { status } = await Permissions.askAsync(Permissions.CAMERA);
+    this.setState({
+      hasCameraPermission: status === "granted"
+    });
+  };
+
   _handlePressQRButton = () => {
-    this.props.navigation.navigate("QRScanner");
+    // this._requestCameraPermission();
+    Permissions.askAsync(Permissions.CAMERA).then(() => {
+      this.props.navigation.navigate("QRScanner");
+    });
+  };
+
+  _handlePressStaffCheckinListsButton = () => {
+    // console.log("handle press checkinlists");
+    this.props.navigation.navigate("StaffCheckinLists");
   };
 
   _handlePressTwitterButton = async () => {

@@ -1,20 +1,21 @@
-import React from "react";
-import { Image, SectionList, StyleSheet, View, Text } from "react-native";
-import FadeIn from "react-native-fade-in-image";
-import { ScrollView, RectButton } from "react-native-gesture-handler";
-import { getSpeakerTalk } from "../utils";
+import React from 'react';
+import { Image, SectionList, StyleSheet, View, Text } from 'react-native';
+import FadeIn from 'react-native-fade-in-image';
+import { ScrollView, RectButton } from 'react-native-gesture-handler';
+import { getSpeakerTalk } from '../utils';
 
-import { Colors } from "../constants";
-import MenuButton from "../components/MenuButton";
-import { BoldText, SemiBoldText, RegularText } from "../components/StyledText";
-import LoadingPlaceholder from "../components/LoadingPlaceholder";
-import { getSpeakerAvatarURL } from "../utils";
+import { Colors } from '../constants';
+import MenuButton from '../components/MenuButton';
+import CachedImage from '../components/CachedImage';
+import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
+import LoadingPlaceholder from '../components/LoadingPlaceholder';
+import { getSpeakerAvatarURL } from '../utils';
 
-export const Schedule = require("../data/schedule.json");
+export const Schedule = require('../data/schedule.json');
 const FullSchedule = Schedule.events[0].groupedSchedule;
 
 const SpeakersAndTalks = Schedule.events[0].speakers;
-const SpeakersData = [{ data: SpeakersAndTalks, title: "Speakers" }];
+const SpeakersData = [{ data: SpeakersAndTalks, title: 'Speakers' }];
 
 class SpeakerRow extends React.Component {
   render() {
@@ -24,12 +25,11 @@ class SpeakerRow extends React.Component {
       <RectButton
         onPress={this._handlePress}
         activeOpacity={0.05}
-        style={{ flex: 1, backgroundColor: "#fff" }}
-      >
+        style={{ flex: 1, backgroundColor: '#fff' }}>
         <View style={styles.row}>
           <View style={styles.rowAvatarContainer}>
             <FadeIn>
-              <Image
+              <CachedImage
                 source={{ uri: speaker.avatarUrl }}
                 style={{ width: 50, height: 50, borderRadius: 25 }}
               />
@@ -55,15 +55,15 @@ class SpeakerRow extends React.Component {
 }
 
 export default class Speakers extends React.Component {
-  static navigationOptions = ({ navigation }) => ({
-    title: "Speakers",
+  static navigationOptions = {
+    title: 'Speakers',
     headerStyle: { backgroundColor: Colors.blue },
-    headerTintColor: "white",
-    headerLeft: <MenuButton navigation={navigation} />,
+    headerTintColor: 'white',
+    headerLeft: <MenuButton />,
     headerTitleStyle: {
-      fontFamily: "open-sans-bold",
+      fontFamily: 'open-sans-bold',
     },
-  });
+  };
 
   render() {
     return (
@@ -74,7 +74,7 @@ export default class Speakers extends React.Component {
           renderItem={this._renderItem}
           renderSectionHeader={this._renderSectionHeader}
           sections={SpeakersData}
-          keyExtractor={(item, index) => index}
+          keyExtractor={(item, index) => index.toString()}
         />
       </LoadingPlaceholder>
     );
@@ -93,7 +93,7 @@ export default class Speakers extends React.Component {
   };
 
   _handlePressRow = speaker => {
-    this.props.navigation.navigate("Details", { speaker });
+    this.props.navigation.navigate('Details', { speaker });
   };
 }
 
@@ -102,8 +102,8 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderColor: "#eee",
-    flexDirection: "row",
+    borderColor: '#eee',
+    flexDirection: 'row',
   },
   rowAvatarContainer: {
     paddingVertical: 5,
@@ -117,8 +117,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingTop: 7,
     paddingBottom: 5,
-    backgroundColor: "#eee",
+    backgroundColor: '#eee',
     borderWidth: 1,
-    borderColor: "#eee",
+    borderColor: '#eee',
   },
 });

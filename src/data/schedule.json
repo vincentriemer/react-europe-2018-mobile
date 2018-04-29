@@ -1,4 +1,4 @@
-{
+  {
     "events": [
       {
         "cocUrl": "http://confcodeofconduct.com/",
@@ -60,7 +60,7 @@
                   },
                   {
                     "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/917/avatar.png",
-                    "bio": "Tech lead on the UI team at **Major League Soccer**. Node, React, React Native, and GraphQL enthusiast. Organizer of GraphQL NYC.",
+                    "bio": "React / React Native / GraphQL enthusiast 🙌 Co-organizer of @NYCGraphQL 🗓 Technical Writer 🖋 Mentor 🎓 Fine Dancer🕺",
                     "github": "kkemple",
                     "id": 917,
                     "name": "Kurtis Kemple",
@@ -169,7 +169,7 @@
                   },
                   {
                     "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/917/avatar.png",
-                    "bio": "Tech lead on the UI team at **Major League Soccer**. Node, React, React Native, and GraphQL enthusiast. Organizer of GraphQL NYC.",
+                    "bio": "React / React Native / GraphQL enthusiast 🙌 Co-organizer of @NYCGraphQL 🗓 Technical Writer 🖋 Mentor 🎓 Fine Dancer🕺",
                     "github": "kkemple",
                     "id": 917,
                     "name": "Kurtis Kemple",
@@ -247,7 +247,7 @@
                 "startDate": "Wed May 16 07:30:00 +0000 2018",
                 "tags": "react,routing,redux,patterns, props,setState,hoc,ssr,perf,testing,portals,flow",
                 "talk": null,
-                "title": "React.js Workshop with Ken Wheeler, Brandon Dail and  and Emma Brillhart - Day 2",
+                "title": "React.js Workshop with Ken Wheeler, Brandon Dail and Emma Brillhart - Day 2",
                 "type": 1
               }
             ],
@@ -340,7 +340,7 @@
                 "type": 2
               },
               {
-                "description": "nc",
+                "description": "Let’s play a game. What’s the biggest difference between type systems for JavaScript and an ML inspired language like OCaml or Haskell? Subtyping! Subtyping allows runtime values of some type to be used as a different type, and how a language designer chooses to address subtyping deeply affects every other design decision in the language. From the way values are represented in the runtime, to how effective type inference algorithms are, to the supported polymorphic code patterns. Implicit runtime subtyping is common in today’s most popular languages like JavaScript, Java, C#, and Ruby but the tradeoffs aren’t well understood. Subtyping is useful, but in today’s programming environment subtyping is overrated.",
                 "id": 1453,
                 "keynote": null,
                 "length": 25,
@@ -348,7 +348,7 @@
                 "speakers": [
                   {
                     "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/899/avatar.png",
-                    "bio": "Caleb is improving JavaScript on the **Flow team at Facebook**. He has worked on Apollo Client, contracted with G2i, and **authored PostGraphQL**.",
+                    "bio": "Caleb is improving JavaScript on the **Oculus team at Facebook**. He has worked on Apollo Client, contracted with G2i, and **authored PostGraphQL**.",
                     "github": "calebmer",
                     "id": 899,
                     "name": "Caleb Meredith",
@@ -356,9 +356,9 @@
                   }
                 ],
                 "startDate": "Thu May 17 09:30:00 +0000 2018",
-                "tags": "",
+                "tags": "typing, types,subtyping,ml,ocaml,haskel,javascript",
                 "talk": null,
-                "title": "On Flow and JS (final title coming soon)",
+                "title": "Subtyping is Overrated",
                 "type": 0
               },
               {
@@ -533,7 +533,7 @@
                 "type": 0
               },
               {
-                "description": "Universal components aren't just an idea anymore. Tools like Webpack, Babel, and React have opened a door to reusability that wasn't previously possible. In this talk I will walk attendees through exactly how to get started with universal components, what to watch out for, and how to optimize for multiple platforms.",
+                "description": "Creating universal components isn’t just about reusability. Its about creating a development strategy. Without careful planning, your team can quickly end up in some pretty nasty spots. Join Samantha and Kurt as they walk through what universal components are, some best practices, and most importantly, some pitfalls to avoid!",
                 "id": 1014,
                 "keynote": null,
                 "length": 25,
@@ -541,7 +541,7 @@
                 "speakers": [
                   {
                     "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/917/avatar.png",
-                    "bio": "Tech lead on the UI team at **Major League Soccer**. Node, React, React Native, and GraphQL enthusiast. Organizer of GraphQL NYC.",
+                    "bio": "React / React Native / GraphQL enthusiast 🙌 Co-organizer of @NYCGraphQL 🗓 Technical Writer 🖋 Mentor 🎓 Fine Dancer🕺",
                     "github": "kkemple",
                     "id": 917,
                     "name": "Kurtis Kemple",
@@ -563,7 +563,7 @@
                 "type": 0
               },
               {
-                "description": "More details coming soon.",
+                "description": "- Declarative Data Fetching in React by [Charles Mangwa](https://twitter.com/Charles_Mangwa)\n- React Interface for Ledger Hardware Wallets by [Anastasia Poupeney](https://twitter.com/anastasiia_ser)\n- Web performance - All in one by [David Boyne](https://twitter.com/boyney123)\n- Design meets Code with BuilderX by [Sanket Sahu](https://twitter.com/sanketsahu)\n- React-admin, build an admin like you play Legos by [Francois Zaninotto](https://twitter.com/francoisz)\n- Introducing Backstage: deploy individual branches of your front-end app by [Jesse Pinho](https://twitter.com/jessepinho)",
                 "id": 1466,
                 "keynote": null,
                 "length": 45,
@@ -582,7 +582,7 @@
                 "length": 90,
                 "room": null,
                 "speakers": [],
-                "startDate": "Thu May 17 17:00:00 +0000 2018",
+                "startDate": "Thu May 17 16:45:00 +0000 2018",
                 "tags": "",
                 "talk": null,
                 "title": "Dinner",
@@ -665,7 +665,7 @@
                 "type": 0
               },
               {
-                "description": "Socialize, have some coffee or other drinks.",
+                "description": "Socialize, have some coffee or other drinks.\n\n**There will be two lightning talks at the end of this break at 11:20am**:\n\n- Running JS on Paper + A Programming atelier by [Sam Gwilym](https://twitter.com/sgwil)\n- GraphQL API stitching with Apollo by [Christoffer Niska](https://twitter.com/Crisu83)",
                 "id": 1470,
                 "keynote": null,
                 "length": 30,
@@ -678,29 +678,29 @@
                 "type": 2
               },
               {
-                "description": "nc",
-                "id": 1457,
+                "description": "CodeSandbox recently turned one year old, I will tell about what happened along the way and what I've learned from building CodeSandbox.",
+                "id": 1512,
                 "keynote": null,
                 "length": 25,
                 "room": null,
                 "speakers": [
                   {
-                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1054/avatar.png",
-                    "bio": "Lin Clark is a **code cartoonist**... she turns software architectures into cartoons. When she's not drawing, **she's tinkering with WebAssembly, Rust, and Servo at Mozilla**. In past lives, she has hacked on **Firefox's developer tools, worked at npm, and has been a core maintainer on a number of open source projects**.",
-                    "github": "linclark",
-                    "id": 1054,
-                    "name": "Lin Clark",
-                    "twitter": "linclark"
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1452/avatar.png",
+                    "bio": "Developer, traveler, tech enthusiast, working on codesandbox.io and at a great company called @catawiki.",
+                    "github": "CompuIves",
+                    "id": 1452,
+                    "name": "Ives van Hoorne",
+                    "twitter": "CompuIves"
                   }
                 ],
                 "startDate": "Fri May 18 09:30:00 +0000 2018",
-                "tags": "",
+                "tags": "codesandbox,editor,web",
                 "talk": null,
-                "title": "nc",
+                "title": "A year of CodeSandbox",
                 "type": 0
               },
               {
-                "description": "More details coming soon.",
+                "description": "- Refactor. The hard part by [Kasia Jastrzebska](https://twitter.com/kejt_bw)\n- redux without boilerplate [Jan-Jan Van Der Vyver](https://github.com/Jan-Jan)\n- React in Battlefield 1 by [Markus Thurlin](https://twitter.com/truppo)\n- GatsbyJS — building fast modern websites with React [Kyle Mathews](https://twitter.com/kylemathews)\n- Powerful declarative apps with State Machines [Bhargav Ponnapalli](https://twitter.com/imbhargav5)\n- React: smiling while you're styling! by [Bruce Lawson](https://twitter.com/brucel)",
                 "id": 1477,
                 "keynote": null,
                 "length": 30,
@@ -770,7 +770,7 @@
                 "type": 0
               },
               {
-                "description": "Socialize, have some coffee or other drinks.",
+                "description": "Socialize, have some coffee or other drinks.\n\n**There will be two lightning talks at the end of this break at 3:20pm**:\n\n- Funny code and how to write it by [Charlie Jackson](https://twitter.com/charliejackson)\n- Redux over the wire by [Nicolas Barray](https://twitter.com/yahwastaken)",
                 "id": 1472,
                 "keynote": null,
                 "length": 30,
@@ -827,7 +827,7 @@
                 "type": 0
               },
               {
-                "description": "Socialize, have some coffee or other drinks.",
+                "description": "Socialize, have some coffee or other drinks.\n\n**There will be one lightning talk at the end of this break at 4:55pm**:\n\n- Static Analysis Tools for Components Era by [Andrey Okonetchnikov](https://twitter.com/okonetchnikov)",
                 "id": 1473,
                 "keynote": null,
                 "length": 30,
@@ -840,7 +840,7 @@
                 "type": 2
               },
               {
-                "description": "nc",
+                "description": "In this expo symposium (exposium) 🎙 we shall cordially discuss the usage of recreational cyber-gaming frameworks and their place in the native development environment.📱👾",
                 "id": 1454,
                 "keynote": null,
                 "length": 25,
@@ -856,9 +856,9 @@
                   }
                 ],
                 "startDate": "Fri May 18 15:00:00 +0000 2018",
-                "tags": "",
+                "tags": "gaming,expo,react native",
                 "talk": null,
-                "title": "nc",
+                "title": "Using lit APIs to make dope games with Expo",
                 "type": 0
               },
               {
@@ -909,7 +909,7 @@
                 "description": "This is your opportunity to ask questions to the team and speakers.",
                 "id": 1474,
                 "keynote": null,
-                "length": 60,
+                "length": 30,
                 "room": null,
                 "speakers": [],
                 "startDate": "Fri May 18 16:30:00 +0000 2018",
@@ -925,7 +925,7 @@
                 "length": 120,
                 "room": null,
                 "speakers": [],
-                "startDate": "Fri May 18 17:30:00 +0000 2018",
+                "startDate": "Fri May 18 17:00:00 +0000 2018",
                 "tags": "",
                 "talk": null,
                 "title": "Drink up",
@@ -938,7 +938,7 @@
             "date": "Sat May 19 07:00:00 +0000 2018",
             "slots": [
               {
-                "description": "Our official ReactEurope Hackathon at Mozilla office in Paris from 9am to 9pm on May 19th. IMPORTANT: The address is \"16 Boulevard Montmartre, 75009 Paris, France (https://goo.gl/NLbvX1)\". Make sure to bring your own laptop and French AC adaptor. Registration to be announced soon.\n\nThe schedule of the hackathon is:\n\n- checkin and breakfast start at 9:00am\n- lunch at 12pm\n- people start presenting their projects at 7pm",
+                "description": "Our official ReactEurope Hackathon at Mozilla office in Paris from 9am to 9pm on May 19th. IMPORTANT: The address is \"16 Boulevard Montmartre, 75009 Paris, France (https://goo.gl/NLbvX1)\". Make sure to bring your own laptop and French AC adaptor. Registration now open.\n\nThe schedule of the hackathon is:\n\n- checkin and breakfast start at 9:00am\n- lunch at 12pm\n- people start presenting their projects at 7pm",
                 "id": 1476,
                 "keynote": null,
                 "length": 720,
@@ -1031,17 +1031,17 @@
           },
           {
             "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/899/avatar.png",
-            "bio": "Caleb is improving JavaScript on the **Flow team at Facebook**. He has worked on Apollo Client, contracted with G2i, and **authored PostGraphQL**.",
+            "bio": "Caleb is improving JavaScript on the **Oculus team at Facebook**. He has worked on Apollo Client, contracted with G2i, and **authored PostGraphQL**.",
             "github": "calebmer",
             "id": 899,
             "name": "Caleb Meredith",
             "talks": [
               {
-                "description": "nc",
+                "description": "Let’s play a game. What’s the biggest difference between type systems for JavaScript and an ML inspired language like OCaml or Haskell? Subtyping! Subtyping allows runtime values of some type to be used as a different type, and how a language designer chooses to address subtyping deeply affects every other design decision in the language. From the way values are represented in the runtime, to how effective type inference algorithms are, to the supported polymorphic code patterns. Implicit runtime subtyping is common in today’s most popular languages like JavaScript, Java, C#, and Ruby but the tradeoffs aren’t well understood. Subtyping is useful, but in today’s programming environment subtyping is overrated.",
                 "id": 1453,
                 "length": 25,
                 "startDate": "Thu May 17 09:30:00 +0000 2018",
-                "title": "On Flow and JS (final title coming soon)",
+                "title": "Subtyping is Overrated",
                 "type": 0
               }
             ],
@@ -1055,11 +1055,11 @@
             "name": "Evan Bacon",
             "talks": [
               {
-                "description": "nc",
+                "description": "In this expo symposium (exposium) 🎙 we shall cordially discuss the usage of recreational cyber-gaming frameworks and their place in the native development environment.📱👾",
                 "id": 1454,
                 "length": 25,
                 "startDate": "Fri May 18 15:00:00 +0000 2018",
-                "title": "nc",
+                "title": "Using lit APIs to make dope games with Expo",
                 "type": 0
               }
             ],
@@ -1103,7 +1103,7 @@
           },
           {
             "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/917/avatar.png",
-            "bio": "Tech lead on the UI team at **Major League Soccer**. Node, React, React Native, and GraphQL enthusiast. Organizer of GraphQL NYC.",
+            "bio": "React / React Native / GraphQL enthusiast 🙌 Co-organizer of @NYCGraphQL 🗓 Technical Writer 🖋 Mentor 🎓 Fine Dancer🕺",
             "github": "kkemple",
             "id": 917,
             "name": "Kurtis Kemple",
@@ -1125,7 +1125,7 @@
                 "type": 1
               },
               {
-                "description": "Universal components aren't just an idea anymore. Tools like Webpack, Babel, and React have opened a door to reusability that wasn't previously possible. In this talk I will walk attendees through exactly how to get started with universal components, what to watch out for, and how to optimize for multiple platforms.",
+                "description": "Creating universal components isn’t just about reusability. Its about creating a development strategy. Without careful planning, your team can quickly end up in some pretty nasty spots. Join Samantha and Kurt as they walk through what universal components are, some best practices, and most importantly, some pitfalls to avoid!",
                 "id": 1014,
                 "length": 25,
                 "startDate": "Thu May 17 15:30:00 +0000 2018",
@@ -1143,7 +1143,7 @@
             "name": "Samantha Bretous",
             "talks": [
               {
-                "description": "Universal components aren't just an idea anymore. Tools like Webpack, Babel, and React have opened a door to reusability that wasn't previously possible. In this talk I will walk attendees through exactly how to get started with universal components, what to watch out for, and how to optimize for multiple platforms.",
+                "description": "Creating universal components isn’t just about reusability. Its about creating a development strategy. Without careful planning, your team can quickly end up in some pretty nasty spots. Join Samantha and Kurt as they walk through what universal components are, some best practices, and most importantly, some pitfalls to avoid!",
                 "id": 1014,
                 "length": 25,
                 "startDate": "Thu May 17 15:30:00 +0000 2018",
@@ -1173,7 +1173,7 @@
                 "id": 972,
                 "length": 480,
                 "startDate": "Wed May 16 07:30:00 +0000 2018",
-                "title": "React.js Workshop with Ken Wheeler, Brandon Dail and  and Emma Brillhart - Day 2",
+                "title": "React.js Workshop with Ken Wheeler, Brandon Dail and Emma Brillhart - Day 2",
                 "type": 1
               },
               {
@@ -1221,7 +1221,7 @@
             "name": "Kasia Jastrzebska",
             "talks": [
               {
-                "description": "More details coming soon.",
+                "description": "- Declarative Data Fetching in React by [Charles Mangwa](https://twitter.com/Charles_Mangwa)\n- React Interface for Ledger Hardware Wallets by [Anastasia Poupeney](https://twitter.com/anastasiia_ser)\n- Web performance - All in one by [David Boyne](https://twitter.com/boyney123)\n- Design meets Code with BuilderX by [Sanket Sahu](https://twitter.com/sanketsahu)\n- React-admin, build an admin like you play Legos by [Francois Zaninotto](https://twitter.com/francoisz)\n- Introducing Backstage: deploy individual branches of your front-end app by [Jesse Pinho](https://twitter.com/jessepinho)",
                 "id": 1466,
                 "length": 45,
                 "startDate": "Thu May 17 16:00:00 +0000 2018",
@@ -1309,16 +1309,7 @@
             "github": "linclark",
             "id": 1054,
             "name": "Lin Clark",
-            "talks": [
-              {
-                "description": "nc",
-                "id": 1457,
-                "length": 25,
-                "startDate": "Fri May 18 09:30:00 +0000 2018",
-                "title": "nc",
-                "type": 0
-              }
-            ],
+            "talks": [],
             "twitter": "linclark"
           },
           {
@@ -1428,6 +1419,51 @@
               }
             ],
             "twitter": "ericvicenti"
+          },
+          {
+            "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1434/avatar.png",
+            "bio": "React Native at heart but hyped for ReasonML ヽ(⌐■_■)ノ♪♬",
+            "github": "CharlesMangwa",
+            "id": 1434,
+            "name": "Charles Mangwa",
+            "talks": [],
+            "twitter": "Charles_Mangwa"
+          },
+          {
+            "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1452/avatar.png",
+            "bio": "Developer, traveler, tech enthusiast, working on codesandbox.io and at a great company called @catawiki.",
+            "github": "CompuIves",
+            "id": 1452,
+            "name": "Ives van Hoorne",
+            "talks": [
+              {
+                "description": "CodeSandbox recently turned one year old, I will tell about what happened along the way and what I've learned from building CodeSandbox.",
+                "id": 1512,
+                "length": 25,
+                "startDate": "Fri May 18 09:30:00 +0000 2018",
+                "title": "A year of CodeSandbox",
+                "type": 0
+              }
+            ],
+            "twitter": "CompuIves"
+          },
+          {
+            "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1456/avatar.png",
+            "bio": "Anastasia Poupeney is a senior frontend developer at Ledger - a security expert in cryptocurrencies, headquartered in Paris. Prior moving to France, Anastasia lived and worked in NYC. After working in a physics lab for 2 years and completing her engineering and physics degrees Anastasia transitioned to IT and graduated from a coding bootcamp. Anastasia was one of the main developers on the FidelityGo - a nationwide automated robo-investing platform under Fidelity Investment in the US.",
+            "github": "NastiaS",
+            "id": 1456,
+            "name": "Anastasia Poupeney",
+            "talks": [],
+            "twitter": "anastasiia_ser"
+          },
+          {
+            "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1467/avatar.png",
+            "bio": "MC. Google Developer Expert | Coding is fun | Just be awesome | Blogger Speaker Trainer Community Leader | @graphql_london",
+            "github": "gsans",
+            "id": 1467,
+            "name": "Gerard Sans",
+            "talks": [],
+            "twitter": "gerardsans"
           }
         ],
         "sponsors": {
@@ -1472,7 +1508,7 @@
               "jobUrl": "http://group.vente-privee.com/JobsOffers.aspx",
               "logoUrl": "https://api.eventlama.com/events/158/purchases/35373/logo.png",
               "name": "Vente Privée",
-              "url": "https://secure.uk.vente-privee.com/authentication/portal/EN"
+              "url": "https://tech.vente-privee.com/"
             },
             {
               "description": "Formidable is a Seattle & London-based JavaScript consultancy and open source software group, specializing in React, React Native, and GraphQL. Our team works with companies ranging in size from startups to Fortune 100s to build quality software and level up engineering teams.",
@@ -1550,7 +1586,7 @@
                 },
                 {
                   "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/917/avatar.png",
-                  "bio": "Tech lead on the UI team at **Major League Soccer**. Node, React, React Native, and GraphQL enthusiast. Organizer of GraphQL NYC.",
+                  "bio": "React / React Native / GraphQL enthusiast 🙌 Co-organizer of @NYCGraphQL 🗓 Technical Writer 🖋 Mentor 🎓 Fine Dancer🕺",
                   "id": 917,
                   "name": "Kurtis Kemple",
                   "talks": [
@@ -1567,7 +1603,7 @@
                       "title": "React Native Workshop with Brent Vatne and Expo Team - Day 2"
                     },
                     {
-                      "description": "Universal components aren't just an idea anymore. Tools like Webpack, Babel, and React have opened a door to reusability that wasn't previously possible. In this talk I will walk attendees through exactly how to get started with universal components, what to watch out for, and how to optimize for multiple platforms.",
+                      "description": "Creating universal components isn’t just about reusability. Its about creating a development strategy. Without careful planning, your team can quickly end up in some pretty nasty spots. Join Samantha and Kurt as they walk through what universal components are, some best practices, and most importantly, some pitfalls to avoid!",
                       "id": 1014,
                       "startDate": "Thu May 17 15:30:00 +0000 2018",
                       "title": "Up and Running with Universal Components"
@@ -1628,7 +1664,7 @@
                       "description": "This workshop requires an intermediary level in React.js.\n\nThis 2-day workshop will skip the basics and get straight to teaching patterns and techniques that apply directly to developing professionally with React. Using real-world examples, we will cover how to take advantage of React and some of its community packages' features to build maintainable, performant applications. \n\n**Click here to see covered subjects**\n\n- Project Architecture\n- Component Design\n- Patterns for Props\n- setState Master Class\n- Using Context Responsibly\n- HoC’s\n- Routing\n- Redux Patterns\n- Forms\n- SSR\n- Perf & Optimization\n- Scalable CSS-in-JS\n- Testing\n- Render Props\n- Static Typing with Flow\n- Universal Components\n- Error Boundaries\n- Portals\n- Utilizing Developer Tools",
                       "id": 972,
                       "startDate": "Wed May 16 07:30:00 +0000 2018",
-                      "title": "React.js Workshop with Ken Wheeler, Brandon Dail and  and Emma Brillhart - Day 2"
+                      "title": "React.js Workshop with Ken Wheeler, Brandon Dail and Emma Brillhart - Day 2"
                     },
                     {
                       "description": "More details coming soon",
@@ -1655,7 +1691,7 @@
                       "description": "This workshop requires an intermediary level in React.js.\n\nThis 2-day workshop will skip the basics and get straight to teaching patterns and techniques that apply directly to developing professionally with React. Using real-world examples, we will cover how to take advantage of React and some of its community packages' features to build maintainable, performant applications. \n\n**Click here to see covered subjects**\n\n- Project Architecture\n- Component Design\n- Patterns for Props\n- setState Master Class\n- Using Context Responsibly\n- HoC’s\n- Routing\n- Redux Patterns\n- Forms\n- SSR\n- Perf & Optimization\n- Scalable CSS-in-JS\n- Testing\n- Render Props\n- Static Typing with Flow\n- Universal Components\n- Error Boundaries\n- Portals\n- Utilizing Developer Tools",
                       "id": 972,
                       "startDate": "Wed May 16 07:30:00 +0000 2018",
-                      "title": "React.js Workshop with Ken Wheeler, Brandon Dail and  and Emma Brillhart - Day 2"
+                      "title": "React.js Workshop with Ken Wheeler, Brandon Dail and Emma Brillhart - Day 2"
                     }
                   ],
                   "twitter": "aweary"
@@ -1676,7 +1712,7 @@
                       "description": "This workshop requires an intermediary level in React.js.\n\nThis 2-day workshop will skip the basics and get straight to teaching patterns and techniques that apply directly to developing professionally with React. Using real-world examples, we will cover how to take advantage of React and some of its community packages' features to build maintainable, performant applications. \n\n**Click here to see covered subjects**\n\n- Project Architecture\n- Component Design\n- Patterns for Props\n- setState Master Class\n- Using Context Responsibly\n- HoC’s\n- Routing\n- Redux Patterns\n- Forms\n- SSR\n- Perf & Optimization\n- Scalable CSS-in-JS\n- Testing\n- Render Props\n- Static Typing with Flow\n- Universal Components\n- Error Boundaries\n- Portals\n- Utilizing Developer Tools",
                       "id": 972,
                       "startDate": "Wed May 16 07:30:00 +0000 2018",
-                      "title": "React.js Workshop with Ken Wheeler, Brandon Dail and  and Emma Brillhart - Day 2"
+                      "title": "React.js Workshop with Ken Wheeler, Brandon Dail and Emma Brillhart - Day 2"
                     }
                   ],
                   "twitter": "emmabrillhart"
@@ -1704,4 +1740,3 @@
       }
     ]
   }
-

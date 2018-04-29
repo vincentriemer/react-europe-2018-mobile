@@ -15,6 +15,31 @@ export const ScheduleQuery = `
     endDate
     timezoneId
     slug
+    status{
+      hasEnded
+      hasStarted
+      onGoing
+      nextFiveScheduledItems {
+        id
+        title
+        description
+		avatarUrl
+        startDate
+        speakers {
+          id
+          name
+          twitter
+          bio
+          talks {
+            id
+            description
+            title
+            startDate
+          }
+        }
+
+      }
+    }
     collaborators {
       id
       firstName
@@ -64,28 +89,6 @@ export const ScheduleQuery = `
           bio
         }
       }
-    }
-    schedule {
-
-        id
-        title
-        description
-        length
-        startDate
-        tags
-        type
-        room
-        talk
-        keynote
-        speakers {
-          id
-          name
-          twitter
-          github
-          avatarUrl
-          bio
-        }
-
     }
     sponsors {
       diamond {

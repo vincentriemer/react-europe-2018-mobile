@@ -42,6 +42,7 @@ export const FontSizes = {
 export const GQL = {
   uri: "https://www.react-europe.org/gql",
   slug: "reacteurope-2018"
-  //uri: "http://192.168.1.32:4449/gql",
-  //slug: "cluster-test"
+  // uri: "http://192.168.1.32:4449/gql",
+  //    uri: "https://a6bb05ac.ngrok.io",
+  //    slug: "cluster-test"
 };

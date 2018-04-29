@@ -1,23 +1,16 @@
-import "expo";
-import React from "react";
-import { Asset, AppLoading, Font } from "./src/expo";
-import { Platform, View, YellowBox } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import { loadSavedTalksAsync } from "./src/utils/storage";
-import { SafeAreaView } from "react-navigation";
-import { Provider, Client, Connect, query } from "urql";
-import { ScheduleQuery } from "./src/data/schedulequery";
+import React from 'react';
+import { Asset, AppLoading, Font, Updates } from 'expo';
+import { Alert, Platform, View, YellowBox } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { loadSavedTalksAsync } from './src/utils/storage';
+import { SafeAreaView } from 'react-navigation';
+import { ScheduleQuery } from './src/data/schedulequery';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
-import { GQL } from "./src/constants";
 
 YellowBox.ignoreWarnings([
   "Warning: isMounted(...) is deprecated",
   "Module RCTImageLoader",
 ]);
-
-if (Platform.OS === "android") {
-  SafeAreaView.setStatusBarHeight(0);
-}
 
 const theme = {
   ...DefaultTheme,
@@ -29,15 +22,47 @@ const theme = {
   }
 };
 
-const client = new Client({
-  url: GQL.uri
-});
+if (Platform.OS === 'android') {
+  SafeAreaView.setStatusBarHeight(0);
+}
 
-import Navigation from "./src/Navigation";
+import Navigation from './src/Navigation';
 
 export default class App extends React.Component {
   state = {
-    fontLoaded: false,
+    appIsReady: false,
+  };
+
+  componentDidMount() {
+    Updates.addListener(({ type }) => {
+      if (type === Updates.EventType.DOWNLOAD_FINISHED) {
+        if (this.state.appIsReady) {
+          this._promptForReload();
+        } else {
+          this._shouldPromptForReload = true;
+        }
+      }
+    });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (!prevState.appIsReady && this.state.appIsReady) {
+      if (this._shouldPromptForReload) {
+        this._shouldPromptForReload = false;
+        setTimeout(this._promptForReload, 1000);
+      }
+    }
+  }
+
+  _promptForReload = () => {
+    Alert.alert(
+      'A schedule update is available',
+      'You need to restart the app to get the new schedule.',
+      [
+        { text: 'Restart the app now', onPress: () => Updates.reload() },
+        { text: "I'll do it later", onPress: () => {} },
+      ]
+    );
   };
 
   _loadResourcesAsync = () => {
@@ -51,47 +76,31 @@ export default class App extends React.Component {
   _loadAssetsAsync = async () => {
     return Promise.all([
       Font.loadAsync({
-        "open-sans-bold": require("./src/assets/OpenSans-Bold.ttf"),
-        "open-sans": require("./src/assets/OpenSans-Regular.ttf"),
-        "open-sans-semibold": require("./src/assets/OpenSans-SemiBold.ttf"),
+        'open-sans-bold': require('./src/assets/OpenSans-Bold.ttf'),
+        'open-sans': require('./src/assets/OpenSans-Regular.ttf'),
+        'open-sans-semibold': require('./src/assets/OpenSans-SemiBold.ttf'),
         ...Ionicons.font,
       }),
-      Asset.fromModule(require("./src/assets/logo.png")).downloadAsync(),
+      Asset.fromModule(require('./src/assets/logo.png')).downloadAsync(),
       Asset.fromModule(
-        require("react-navigation/src/views/assets/back-icon.png")
+        require('react-navigation/src/views/assets/back-icon.png')
       ).downloadAsync(),
     ]);
   };
 
   render() {
-    if (!this.state.fontLoaded) {
+    if (!this.state.appIsReady) {
       return (
         <AppLoading
           startAsync={this._loadResourcesAsync}
           onError={console.error}
           onFinish={() => {
-            this.setState({ fontLoaded: true });
+            this.setState({ appIsReady: true });
           }}
         />
       );
     }
 
-    return (
-      <Provider client={client}>
-        <PaperProvider theme={theme}>
-          <View style={{ flex: 1 }}>
-            <Connect
-              query={query(ScheduleQuery)}
-              children={({ loaded, data, addTodo, removeTodo, refetch }) => {
-                if (loaded) {
-                  //console.log(data.events[0].name)
-                }
-                return <Navigation schedule={data} client={client} />;
-              }}
-            />
-          </View>
-        </PaperProvider>
-      </Provider>
-    );
+    return <PaperProvider theme={theme}><Navigation /></PaperProvider>;
   }
 }

@@ -31,7 +31,13 @@ export default class TicketCard extends React.Component {
           {ticket.checkinLists.map(ch => (
             <Title key={ch.id}>✓ {ch.name}</Title>
           ))}
-          <QRCode style={{ flex: 1 }} value={ticket.ref} size={300} />
+          <QRCode
+            style={{ flex: 1 }}
+            value={ticket.ref}
+            size={300}
+            bgColor="black"
+            fgColor="white"
+          />
           <Button onPress={this._handlePress}>Read useful info</Button>
         </CardContent>
       </Card>

@@ -5,27 +5,34 @@
       "Official react-europe app for the May 2018 conference, May 17-18 in Paris, France. Read the source or get the app store and play store links on Github: https://github.com/react-europe/react-europe-2018-mobile. Credits to Brent Vatne and Expo.",
     "slug": "reacteurope",
     "privacy": "public",
-    "version": "6.1.2",
+    "version": "6.8.9",
     "primaryColor": "#4d5fab",
     "icon": "./src/assets/icon-ios.png",
     "orientation": "portrait",
-    "sdkVersion": "26.0.0",
+    "sdkVersion": "27.0.0",
     "scheme": "reacteurope",
+    "assetBundlePatterns": ["**/*"],
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
     "splash": {
       "image": "./src/assets/splash-icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#4d5fab"
     },
     "android": {
-      "package": "org.reacteurope.app",
+      "package": "hr.apps.n6574",
       "icon": "./src/assets/icon-android.png",
-      "versionCode": 3,
-      "permissions": []
+      "versionCode": 12
     },
     "ios": {
       "bundleIdentifier": "reacteurope",
       "supportsTablet": true,
-      "loadJSInBackgroundExperimental": true
+      "loadJSInBackgroundExperimental": true,
+      "infoPlist": {
+        "NSLocationAlwaysUsageDescription":
+          "We don't track your location but some of the app modules have this feature though they are not used by the app."
+      }
     }
   }
 }

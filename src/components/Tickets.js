@@ -31,38 +31,19 @@ export default class Tickets extends React.Component {
   }
   componentDidMount() {}
   render() {
-    const tix = this.state.tickets || [];
+    let tix = this.state.tickets || [];
     return (
       <View style={[{ marginHorizontal: 10 }, this.props.style]}>
         <Title>My Tickets</Title>
         {tix.map(
-          ticket => (
-            <TicketCard
-              key={ticket.ref}
-              ticket={ticket}
-              style={{ marginTop: 10, marginBottom: 10 }}
-            />
-          ) /*{
-                ticket.checkinLists.map( ch => {
-                    (
-                        <View style={[{ marginHorizontal: 10 }, this.props.style]}>
-                        <SemiBoldText style={{ fontSize: FontSizes.title }}>
-                        lol
-                        </SemiBoldText>
-                        <TicketCard
-                    key={ticket.ref}
-                    ticket={ticket}
-                    style={{ marginTop: 10, marginBottom: 10 }}
-                        />
-                        </View>
-
-                )
-                })
-
-
-            }i*/ /*(
-
-        )*/
+          ticket =>
+            ticket ? (
+              <TicketCard
+                key={ticket.ref}
+                ticket={ticket}
+                style={{ marginTop: 10, marginBottom: 10 }}
+              />
+            ) : null
         )}
       </View>
     );

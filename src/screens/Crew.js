@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Image,
   FlatList,
@@ -6,18 +6,19 @@ import {
   View,
   Text,
   TouchableOpacity,
-  Linking
-} from "react-native";
-import FadeIn from "react-native-fade-in-image";
-import { ScrollView } from "react-native-gesture-handler";
-import { WebBrowser } from "expo";
+  Linking,
+} from 'react-native';
+import FadeIn from 'react-native-fade-in-image';
+import { ScrollView } from 'react-native-gesture-handler';
+import { WebBrowser } from 'expo';
 
-import { Colors } from "../constants";
-import MenuButton from "../components/MenuButton";
-import { BoldText, SemiBoldText, RegularText } from "../components/StyledText";
-import LoadingPlaceholder from "../components/LoadingPlaceholder";
+import { Colors } from '../constants';
+import MenuButton from '../components/MenuButton';
+import { BoldText, SemiBoldText, RegularText } from '../components/StyledText';
+import LoadingPlaceholder from '../components/LoadingPlaceholder';
+import CachedImage from '../components/CachedImage';
 
-export const Schedule = require("../data/schedule.json");
+export const Schedule = require('../data/schedule.json');
 
 const CrewData = Schedule.events[0].collaborators;
 
@@ -29,7 +30,7 @@ class CrewRow extends React.Component {
       <View style={styles.row}>
         <View style={styles.rowAvatarContainer}>
           <FadeIn>
-            <Image
+            <CachedImage
               source={{ uri: crew.avatarUrl }}
               style={{ width: 50, height: 50, borderRadius: 25 }}
             />
@@ -41,8 +42,7 @@ class CrewRow extends React.Component {
           </BoldText>
           {crew.role ? <SemiBoldText>{crew.role}</SemiBoldText> : null}
           <TouchableOpacity
-            onPress={() => this._handlePressCrewTwitter(crew.twitter)}
-          >
+            onPress={() => this._handlePressCrewTwitter(crew.twitter)}>
             <RegularText>@{crew.twitter}</RegularText>
           </TouchableOpacity>
         </View>
@@ -54,21 +54,21 @@ class CrewRow extends React.Component {
     try {
       await Linking.openURL(`twitter://user?screen_name=` + twitter);
     } catch (e) {
-      WebBrowser.openBrowserAsync("https://twitter.com/" + twitter);
+      WebBrowser.openBrowserAsync('https://twitter.com/' + twitter);
     }
   };
 }
 
 export default class Crews extends React.Component {
-  static navigationOptions = ({ navigation }) => ({
-    title: "Crew",
+  static navigationOptions = {
+    title: 'Crew',
     headerStyle: { backgroundColor: Colors.blue },
-    headerTintColor: "white",
-    headerLeft: <MenuButton navigation={navigation} />,
+    headerTintColor: 'white',
+    headerLeft: <MenuButton />,
     headerTitleStyle: {
-      fontFamily: "open-sans-bold",
+      fontFamily: 'open-sans-bold',
     },
-  });
+  };
 
   render() {
     return (
@@ -77,7 +77,7 @@ export default class Crews extends React.Component {
           renderScrollComponent={props => <ScrollView {...props} />}
           renderItem={this._renderItem}
           data={CrewData}
-          keyExtractor={(item, index) => index}
+          keyExtractor={(item, index) => index.toString()}
         />
       </LoadingPlaceholder>
     );
@@ -93,9 +93,9 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderColor: "#eee",
-    backgroundColor: "#fff",
-    flexDirection: "row",
+    borderColor: '#eee',
+    backgroundColor: '#fff',
+    flexDirection: 'row',
   },
   rowAvatarContainer: {
     paddingVertical: 5,

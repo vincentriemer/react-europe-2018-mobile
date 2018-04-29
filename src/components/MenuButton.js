@@ -12,7 +12,7 @@ export default class MenuButton extends React.Component {
   render() {
     return (
       <BorderlessButton
-        onPress={this.props.openDrawer}
+        onPress={() => this.props.openDrawer()}
         style={{
           marginBottom: 2,
           marginRight: 5,

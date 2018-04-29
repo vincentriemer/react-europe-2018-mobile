@@ -6,10 +6,11 @@ import {
   Text,
   Image,
   TouchableOpacity,
+  Alert,
   ScrollView,
   StyleSheet,
-  AsyncStorage,
-  View
+  View,
+  AsyncStorage
 } from "react-native";
 import { Asset, LinearGradient, WebBrowser, Video } from "expo";
 import { BorderlessButton, RectButton } from "react-native-gesture-handler";
@@ -20,23 +21,28 @@ import { Ionicons } from "@expo/vector-icons";
 import { withNavigation } from "react-navigation";
 
 import AnimatedScrollView from "../components/AnimatedScrollView";
-import MyContacts from "../components/MyContacts";
 import NavigationBar from "../components/NavigationBar";
+import Tickets from "../components/Tickets";
 import MenuButton from "../components/MenuButton";
 import VideoBackground from "../components/VideoBackground";
 import { BoldText, SemiBoldText } from "../components/StyledText";
 import { connectDrawerButton } from "../Navigation";
 import { Colors, FontSizes, Layout } from "../constants";
 import { Speakers, Talks } from "../data";
+import { Gravatar, GravatarApi } from "react-native-gravatar";
+
 import {
-  HideWhenConferenceHasStarted,
-  HideWhenConferenceHasEnded,
-  ShowWhenConferenceHasEnded
-} from "../utils";
+  Button,
+  Card,
+  CardContent,
+  Title,
+  Paragraph
+} from "react-native-paper";
+import Markdown from "react-native-easy-markdown";
 export const Schedule = require("../data/schedule.json");
 const Event = Schedule.events[0];
 
-class Contacts extends React.Component {
+class CheckedInAttendeeInfo extends React.Component {
   state = {
     scrollY: new Animated.Value(0)
   };
@@ -74,32 +80,36 @@ class Contacts extends React.Component {
             }}
           />
 
-          <DeferredContactsContent />
+          <DeferredCheckedInAttendeeInfoContent />
           <OverscrollView />
         </AnimatedScrollView>
-
-        <NavigationBar
-          renderLeftButton={() => <MenuButton />}
-          animatedBackgroundOpacity={headerOpacity}
-        />
       </View>
     );
   }
 }
 
-@withNavigation
-class DeferredContactsContent extends React.Component {
-  state = {
-    ready: Platform.OS === "android" ? false : true,
-    tickets: []
-  };
+class CheckinCard extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    const { checkins } = this.props;
+    // console.log("props", this.props);
+    // console.log("checkins", checkins);
+    return <Text>Date: {checkins[0].createdAt}</Text>;
+  }
+}
 
+@withNavigation
+class DeferredCheckedInAttendeeInfoContent extends React.Component {
+  state = {
+    tickets: [],
+    ready: Platform.OS === "android" ? false : true
+  };
   async getTickets() {
     try {
       const value = await AsyncStorage.getItem("@MySuperStore:tickets");
-      console.log("tickets", value);
       this.setState({ tickets: JSON.parse(value) });
-      this.tickets = JSON.parse(value);
     } catch (err) {
       console.log(err);
       return [];
@@ -108,78 +118,70 @@ class DeferredContactsContent extends React.Component {
 
   constructor(props) {
     super(props);
-    this.tickets = [];
+    this.getTickets();
   }
 
   componentDidMount() {
-    this.getTickets();
     if (this.state.ready) {
       return;
     }
 
     setTimeout(() => {
       this.setState({ ready: true });
+      AsyncStorage.removeItem("@MySuperStore:lastCheckedInRef");
     }, 200);
   }
 
   render() {
+    const params = this.props.navigation.state.params || {};
+    const checkedInAttendee = params.checkedInAttendee;
+    console.log("params", params);
     if (!this.state.ready) {
       return null;
     }
-    console.log("state", this.state);
-    const tix = this.state.tickets || [];
+
     return (
       <AnimatableView animation="fadeIn" useNativeDriver duration={800}>
-        <MyContacts
-          tickets={this.state.tickets}
-          style={{ marginTop: 20, marginHorizontal: 15, marginBottom: 2 }}
+        <Gravatar
+          options={{
+            email: checkedInAttendee.email,
+            parameters: { size: "200", d: "mm" },
+            secure: true
+          }}
+          style={styles.roundedProfileImage}
         />
-        {tix && tix.length > 0 ? (
-          <ClipBorderRadius>
-            <RectButton
-              style={styles.bigButton}
-              onPress={this._handlePressQRButton}
-              underlayColor="#fff"
-            >
-              <SemiBoldText style={styles.bigButtonText}>
-                Scan a contact badge's QR code
-              </SemiBoldText>
-            </RectButton>
-          </ClipBorderRadius>
-        ) : (
-          <ClipBorderRadius>
-            <RectButton
-              style={styles.bigButton}
-              onPress={this._handlePressProfileQRButton}
-              underlayColor="#fff"
-            >
-              <SemiBoldText style={styles.bigButtonText}>
-                You need to scan your ticket first
-              </SemiBoldText>
-            </RectButton>
-          </ClipBorderRadius>
-        )}
+
+        <Card>
+          <CardContent>
+            <Title>
+              {checkedInAttendee.firstName + " " + checkedInAttendee.lastName}{" "}
+            </Title>
+            <Title>Ticket Name: {checkedInAttendee.ticket.name} </Title>
+            <Title>Ticket Ref: {checkedInAttendee.ref} </Title>
+            <Markdown styles={markdownStyles}>
+              {checkedInAttendee.checkinMessage}
+            </Markdown>
+          </CardContent>
+        </Card>
+        <Button
+          raised
+          onPress={() => {
+            AsyncStorage.removeItem("@MySuperStore:lastCheckedInRef").then(() =>
+              this.props.navigation.goBack()
+            );
+          }}
+        >
+          Close
+        </Button>
+        {checkedInAttendee.checkins && checkedInAttendee.checkins.length > 0 ? (
+          <View>
+            <Title>Previous Checkin</Title>
+            <CheckinCard checkins={checkedInAttendee.checkins} />
+          </View>
+        ) : null}
       </AnimatableView>
     );
   }
-
-  _handlePressQRButton = () => {
-    this.props.navigation.navigate("QRContactScanner");
-  };
-
-  _handlePressProfileQRButton = () => {
-    this.props.navigation.navigate("QRScanner");
-  };
-
-  _handlePressTwitterButton = async () => {
-    try {
-      await Linking.openURL(
-        `twitter://user?screen_name=` + Event.twitterHandle
-      );
-    } catch (e) {
-      WebBrowser.openBrowserAsync("https://twitter.com/" + Event.twitterHandle);
-    }
-  };
 }
 
 const OverscrollView = () => (
@@ -210,7 +212,18 @@ const ClipBorderRadius = ({ children, style }) => {
 
 const BORDER_RADIUS = 3;
 
+const markdownStyles = {
+  text: {}
+};
+
 const styles = StyleSheet.create({
+  roundedProfileImage: {
+    width: 100,
+    height: 100,
+    borderWidth: 3,
+    borderColor: "white",
+    borderRadius: 50
+  },
   headerContent: {
     alignItems: "center",
     marginTop: 5,
@@ -258,4 +271,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Contacts;
+export default CheckedInAttendeeInfo;

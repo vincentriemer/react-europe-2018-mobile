@@ -2,7 +2,7 @@
   "version": "v1",
   "packages": {
     "react-native-dom": {
-      "signature": "828fba352c5fb8385cb24a16224fd0cd",
+      "signature": "b9ac8991ec5dd73249f36016cf46d6ca",
       "file": true,
       "replaced": "0.0.11"
     }

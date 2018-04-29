@@ -94,6 +94,10 @@ export class AppLoading extends React.Component<*> {
   }
 }
 
+export const Updates = {
+  addListener: () => {}
+};
+
 // export const BarCodeScanner = (props) => <View {...props} />;
 
 import BarCodeScanner from "./BarCodeScanner";

@@ -5,6 +5,7 @@ import FadeIn from "react-native-fade-in-image";
 import { withNavigation } from "react-navigation";
 
 import SaveIconWhenSaved from "./SaveIconWhenSaved";
+import CachedImage from './CachedImage';
 import { BoldText, RegularText, SemiBoldText } from "./StyledText";
 import { conferenceHasEnded, getSpeakerAvatarURL } from "../utils";
 import { Colors, FontSizes } from "../constants";
@@ -19,6 +20,8 @@ export default class TalkCard extends React.Component {
       return this._renderPlaceholderForNextYear();
     }
 
+
+    console.log(speakers);
     return (
       <RectButton
         onPress={this._handlePress}
@@ -29,7 +32,7 @@ export default class TalkCard extends React.Component {
           <View style={styles.headerRow} key={speaker.id}>
             <View style={styles.headerRowAvatarContainer}>
               <FadeIn>
-                <Image
+                <CachedImage
                   source={{ uri: speaker.avatarUrl }}
                   style={{ width: 50, height: 50, borderRadius: 25 }}
                 />
