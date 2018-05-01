@@ -136,7 +136,7 @@ export default class StaffCheckinLists extends React.Component {
           //<ListItem title={item.lastName} description="Press here to start checking people" icon="folder" key={item.id}/>}
 
           /**/
-          keyExtractor={(item, index) => item.id}
+          keyExtractor={(item, index) => item.id && item.id.toString()}
         />
       </LoadingPlaceholder>
     );
