@@ -11,7 +11,14 @@ import {
   AsyncStorage,
   View
 } from "react-native";
-import { Asset, LinearGradient, WebBrowser, Video, Permissions } from "expo";
+import {
+  Asset,
+  LinearGradient,
+  WebBrowser,
+  Video,
+  Permissions,
+  Notifications
+} from "expo";
 import { BorderlessButton, RectButton } from "react-native-gesture-handler";
 import { NavigationActions } from "react-navigation";
 import FadeIn from "react-native-fade-in-image";
@@ -26,7 +33,7 @@ import MenuButton from "../components/MenuButton";
 import VideoBackground from "../components/VideoBackground";
 import { BoldText, SemiBoldText } from "../components/StyledText";
 import { connectDrawerButton } from "../Navigation";
-import { Colors, FontSizes, Layout } from "../constants";
+import { Colors, FontSizes, Layout, GQL } from "../constants";
 import { Speakers, Talks } from "../data";
 import {
   HideWhenConferenceHasStarted,
@@ -40,10 +47,9 @@ class Home extends React.Component {
   state = {
     scrollY: new Animated.Value(0)
   };
-
   render() {
     const { scrollY } = this.state;
-      const headerOpacity = scrollY.interpolate({
+    const headerOpacity = scrollY.interpolate({
       inputRange: [0, 150],
       outputRange: [0, 1],
       extrapolate: "clamp"
@@ -124,6 +130,7 @@ class DeferredHomeContent extends React.Component {
   state = {
     ready: Platform.OS === "android" ? false : true,
     hasCameraPermission: null,
+    Notification: {},
     tickets: []
   };
 
@@ -145,15 +152,23 @@ class DeferredHomeContent extends React.Component {
   }
 
   componentDidMount() {
+    this._notificationSubscription = Notifications.addListener(
+      this._handleNotification
+    );
+
     if (this.state.ready) {
       return;
     }
-
     setTimeout(() => {
       this.setState({ ready: true });
     }, 200);
   }
-
+  _handleNotification = notification => {
+    this.setState({ notification: notification });
+    if (notification && notification.data && notification.data.url) {
+      WebBrowser.openBrowserAsync(notification.data.url);
+    }
+  };
   render() {
     if (!this.state.ready) {
       return null;

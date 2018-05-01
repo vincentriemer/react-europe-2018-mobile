@@ -21,7 +21,7 @@ import {
   Alert,
   AsyncStorage
 } from "react-native";
-import { Constants, BarCodeScanner, Permissions } from "expo";
+import { Constants, BarCodeScanner, Permissions, Notifications } from "expo";
 import { TabViewAnimated } from "react-native-tab-view";
 import {
   DrawerLayoutAndroid,
@@ -123,6 +123,17 @@ mutation createCheckin($uuid: String!, $checkinListId: Int!, $ref: String!) {
       createdAt
       id
     }
+  }
+}
+`;
+
+const updatePushTokenQuery = `
+mutation updateAttendee($uuid: String!, $expoPushToken: String!) {
+  updateAttendee(uuid: $uuid, expoPushToken: $expoPushToken) {
+    firstName
+    lastName
+    id
+    email
   }
 }
 `;
@@ -565,7 +576,36 @@ class QRScannerModalNavigation extends React.Component {
       return [];
     }
   }
+  async registerForPushNotificationsAsync(uuid) {
+    const { status: existingStatus } = await Permissions.getAsync(
+      Permissions.NOTIFICATIONS
+    );
+    let finalStatus = existingStatus;
 
+    // only ask if permissions have not already been determined, because
+    // iOS won't necessarily prompt the user a second time.
+    if (existingStatus !== "granted") {
+      // Android remote notification permissions are granted during the app
+      // install, so this will only ask on iOS
+      const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
+      finalStatus = status;
+    }
+
+    // Stop here if the user did not grant permissions
+    if (finalStatus !== "granted") {
+      return;
+    }
+
+    // Get the token that uniquely identifies this device
+    let token = await Notifications.getExpoPushTokenAsync();
+    const variables = { uuid: uuid, expoPushToken: token };
+    client
+      .executeQuery(query(updatePushTokenQuery, variables), true)
+      .then(function(value) {
+        console.log("updated attendee", value, token, uuid);
+      });
+    console.log("token", token, uuid);
+  }
   _handleBarCodeRead = data => {
     console.log(8);
     let variables = { slug: GQL.slug, uuid: data.data };
@@ -582,6 +622,7 @@ class QRScannerModalNavigation extends React.Component {
           let tickets = null;
           let newTickets = [];
           let found = false;
+
           if (value === null && me !== null) {
             tickets = [me];
           } else {
@@ -610,6 +651,7 @@ class QRScannerModalNavigation extends React.Component {
             //AsyncStorage.setItem("@MySuperStore:tickets", stringifiedTickets)
             //AsyncStorage.removeItem('@MySuperStore:tickets')
             //.then(value => {
+            that.registerForPushNotificationsAsync(variables.uuid);
             navigation.navigate("Profile");
             //});
           }
