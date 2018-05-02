@@ -39,7 +39,7 @@ class SavedButtonNavigationItem extends React.Component {
       <View
         style={{
           // gross dumb things
-          paddingTop: Platform.OS === 'android' ? 17 : 0,
+          paddingTop: Platform.OS === 'android' ? 30 : 0,
           marginTop: Layout.notchHeight > 0 ? -5 : 0,
         }}>
         <SaveButton talk={talk} />
@@ -254,7 +254,7 @@ export default class Details extends React.Component {
             <View
               style={{
                 // gross dumb things
-                paddingTop: Platform.OS === 'android' ? 17 : 0,
+                paddingTop: Platform.OS === 'android' ? 30 : 0,
                 marginTop: Layout.notchHeight > 0 ? -5 : 0,
               }}>
               <CloseButton

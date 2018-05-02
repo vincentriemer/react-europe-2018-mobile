@@ -1,10 +1,11 @@
 import React from 'react';
-import { AsyncStorage, Button, Text, View } from 'react-native';
+import { AsyncStorage } from 'react-native';
 import { BarCodeScanner, Permissions } from 'expo';
-import { SafeAreaView } from 'react-navigation';
 import { query } from 'urql';
+
 import { GQL } from '../../constants';
 import client from '../../utils/gqlClient';
+import QRScreen from './QRScreen';
 
 const qrContactQuery = `
 query events($slug: String!, $uuid: String!, $q: String!){
@@ -28,42 +29,6 @@ query events($slug: String!, $uuid: String!, $q: String!){
 `;
 
 export default class QRContactScannerModalNavigation extends React.Component {
-  state = {
-    hasCameraPermission: null,
-    showQRScanner: true,
-  };
-
-  _requestCameraPermission = async () => {
-    const { status } = await Permissions.askAsync(Permissions.CAMERA);
-    this.setState({
-      hasCameraPermission: status === 'granted',
-    });
-  };
-
-  componentDidMount() {
-    this._requestCameraPermission();
-
-    this.didBlurSubscription = this.props.navigation.addListener(
-      'didBlur',
-      payload => {
-        console.debug('didBlur', payload);
-        this.setState({ showQRScanner: false });
-      }
-    );
-    this.didFocusSubscription = this.props.navigation.addListener(
-      'didFocus',
-      payload => {
-        console.debug('didfocus', payload);
-        this.setState({ showQRScanner: true });
-      }
-    );
-  }
-
-  componentWillUnmount() {
-    this.didBlurSubscription && this.didBlurSubscription.remove();
-    this.didFocusSubscription && this.didFocusSubscription.remove();
-  }
-
   _handleContactBarCodeRead = data => {
     let navigation = this.props.navigation;
     AsyncStorage.getItem('@MySuperStore:tickets').then(value => {
@@ -145,43 +110,10 @@ export default class QRContactScannerModalNavigation extends React.Component {
 
   render() {
     return (
-      <View style={{ flex: 1, backgroundColor: 'black' }}>
-        {this.state.showQRScanner ? (
-          <BarCodeScanner
-            onBarCodeRead={this._handleContactBarCodeRead}
-            style={{
-              flex: 1,
-              alignItems: 'center',
-              justifyContent: 'center',
-              alignSelf: 'stretch',
-            }}
-          />
-        ) : null}
-
-        <SafeAreaView
-          forceInset={{ top: 'always' }}
-          style={{ position: 'absolute', top: 0, left: 0, right: 0 }}>
-          <Text
-            style={{
-              fontSize: 20,
-              marginTop: 15,
-              textAlign: 'center',
-              color: '#fff',
-            }}>
-            Scan a badge's QR code
-          </Text>
-        </SafeAreaView>
-
-        <SafeAreaView
-          forceInset={{ bottom: 'always' }}
-          style={{ position: 'absolute', bottom: 10, left: 0, right: 0 }}>
-          <Button
-            onPress={() => this.props.navigation.goBack()}
-            color="#fff"
-            title="Dismiss"
-          />
-        </SafeAreaView>
-      </View>
+      <QRScreen
+        title="Scan a badge's QR code"
+        onBarCodeRead={this._handleContactBarCodeRead}
+      />
     );
   }
 }
