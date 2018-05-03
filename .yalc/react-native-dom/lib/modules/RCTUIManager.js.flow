@@ -33,44 +33,6 @@ type Size = { width: number, height: number };
 
 let rootTagCounter = 0;
 
-function byPosition(a, b) {
-  if (a === b) return 0;
-  if (!a.compareDocumentPosition) {
-    // $FlowFixMe: libdef
-    return b.sourceIndex - a.sourceIndex;
-  }
-  if (a.compareDocumentPosition(b) & 2) {
-    return -1;
-  }
-  return 1;
-}
-
-// Doesn't get more hacky than this folks
-function reactViewFromPoint(topView: UIView, x: number, y: number) {
-  var element,
-    elements = [];
-  var old_visibility = [];
-  while (true) {
-    element = document.elementFromPoint(x, y);
-    if (!element || element === document.documentElement) {
-      break;
-    }
-    elements.push(element);
-    old_visibility.push(element.style.visibility);
-    element.style.visibility = "hidden"; // Temporarily hide the element (without changing the layout)
-  }
-  for (var k = 0; k < elements.length; k++) {
-    elements[k].style.visibility = old_visibility[k];
-  }
-
-  elements = elements.filter(
-    (elem) => topView.contains(elem) && elem instanceof UIView
-  );
-  elements.sort(byPosition);
-
-  return elements[0];
-}
-
 module.exports = (async () => {
   const RCTShadowView = await _RCTShadowView;
   const RCTRootShadowView = await _RCTRootShadowView;
@@ -246,6 +208,7 @@ module.exports = (async () => {
 
       this.rootViewTags.forEach((rootTag) => {
         const rootShadowView = this.shadowViewRegistry.get(rootTag);
+
         if (rootShadowView != null && rootShadowView.isDirty) {
           invariant(
             rootShadowView instanceof RCTRootShadowView,
@@ -562,24 +525,22 @@ module.exports = (async () => {
       callbackId: number
     ) {
       const [x, y] = atPoint;
-      const view = this.viewRegistry.get(reactTag);
+      const shadowView = this.shadowViewRegistry.get(reactTag);
 
-      invariant(view, `No such view with tag ${reactTag}`);
+      invariant(shadowView, `No such view with tag ${reactTag}`);
 
-      const target = reactViewFromPoint(view, x, y);
+      const targetReactTag = shadowView.reactTagAtPoint({ x, y });
 
-      if (!target || !(target instanceof UIView)) return;
-
-      const measurement = await this.measure(target.reactTag);
+      const measurement = await this.measure(targetReactTag);
 
       invariant(
         measurement,
-        `View with tag ${target.reactTag} has no measurement`
+        `View with tag ${targetReactTag} has no measurement`
       );
       const { globalX, globalY, width, height } = measurement;
 
       this.bridge.callbackFromId(callbackId)(
-        target.reactTag,
+        targetReactTag,
         globalX,
         globalY,
         width,
@@ -703,7 +664,6 @@ module.exports = (async () => {
             shadowSubView,
             indexToAdd
           );
-          shadowSubView.makeDirty();
         }
 
         this.addUIBlock((uiManager, viewRegistry) => {
