@@ -20,6 +20,7 @@ const SponsorsByLevel = [
   { title: "Diamond", data: SponsorsData["diamond"] },
   { title: "Platinum", data: SponsorsData["platinum"] },
   { title: "Gold", data: SponsorsData["gold"] },
+  { title: "Partners", data: SponsorsData["partner"] }
 ];
 
 const ClipBorderRadius = ({ children, style }) => {

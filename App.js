@@ -1,6 +1,6 @@
 import React from 'react';
 import { Asset, AppLoading, Font, Updates } from 'expo';
-import { Alert, Platform, View, YellowBox } from 'react-native';
+import { AsyncStorage, Alert, Platform, View, YellowBox } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { loadSavedTalksAsync } from './src/utils/storage';
 import { SafeAreaView } from 'react-navigation';
