@@ -56,17 +56,23 @@ export default class ContactCard extends React.Component {
     if (tickets && tickets[0] && tickets[0].firstName) {
       me = tickets[0];
     }
-    Linking.openURL(
+    const emailurl =
       "mailto:" +
-        email +
-        "?subject=hey it's" +
-        " " +
-        me.firstName +
-        " " +
-        me.lastName +
-        " " +
-        "from ReactEurope&body=ping"
-    );
+      email +
+      "?subject=hey it's" +
+      " " +
+      me.firstName +
+      " " +
+      me.lastName +
+      " " +
+      "from ReactEurope&body=ping";
+    try {
+      Platform.OS === "android"
+        ? WebBrowser.openBrowserAsync(emailurl)
+        : Linking.openURL(emailurl);
+    } catch (e) {
+      WebBrowser.openBrowserAsync("mailto:" + email);
+    }
   };
   getContactBio = () => {
     let contact = this.props.contact;
