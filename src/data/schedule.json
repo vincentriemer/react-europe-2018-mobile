@@ -1,4 +1,4 @@
-  {
+{
     "events": [
       {
         "cocUrl": "http://confcodeofconduct.com/",
@@ -362,7 +362,7 @@
                 "type": 0
               },
               {
-                "description": "For the past year Krzysztof has been working on react-native-gesture-handler – a library that exposes low level platform native capabilities related to gesture and touch handling to React Native. This library made it possible to recreate lots of interesting components like swipeable rows, drawer or image gallery by only writing Javascript code. In his talk will to highlight the differences between three possible approaches of building interactable components. He will also  show where it makes sense to design pure JS APIs (for customizability ease) and where it is needed for platform native mechanisms to be used. He will show where are the limits of what can be implemented in pure JS.",
+                "description": "Animations and touch related interactions are the secret ingredients that can make a good app an awesome app. Apparently, they are also the elements most sensitive to frame drops, which degrades the great experience they ought to provide. We will learn what the challenges are when building performant and responsive UI on mobile, and get to know how declarative APIs let us deal with these problems.",
                 "id": 1266,
                 "keynote": null,
                 "length": 25,
@@ -380,7 +380,7 @@
                 "startDate": "Thu May 17 10:00:00 +0000 2018",
                 "tags": "mobile, react, reactnative, gestures, navigation",
                 "talk": null,
-                "title": "Native vs Javascript",
+                "title": "Declarative future of gestures and animations in React Native",
                 "type": 0
               },
               {
@@ -1338,11 +1338,11 @@
             "name": "Krzysztof Magiera",
             "talks": [
               {
-                "description": "For the past year Krzysztof has been working on react-native-gesture-handler – a library that exposes low level platform native capabilities related to gesture and touch handling to React Native. This library made it possible to recreate lots of interesting components like swipeable rows, drawer or image gallery by only writing Javascript code. In his talk will to highlight the differences between three possible approaches of building interactable components. He will also  show where it makes sense to design pure JS APIs (for customizability ease) and where it is needed for platform native mechanisms to be used. He will show where are the limits of what can be implemented in pure JS.",
+                "description": "Animations and touch related interactions are the secret ingredients that can make a good app an awesome app. Apparently, they are also the elements most sensitive to frame drops, which degrades the great experience they ought to provide. We will learn what the challenges are when building performant and responsive UI on mobile, and get to know how declarative APIs let us deal with these problems.",
                 "id": 1266,
                 "length": 25,
                 "startDate": "Thu May 17 10:00:00 +0000 2018",
-                "title": "Native vs Javascript",
+                "title": "Declarative future of gestures and animations in React Native",
                 "type": 0
               }
             ],
@@ -1527,7 +1527,40 @@
               "url": "https://builderx.io/?utm_source=reacteurope&utm_medium=banner&utm_campaign=reacteurope-sponsor-banner"
             }
           ],
-          "partner": [],
+          "partner": [
+            {
+              "description": "Facebook's mission is to bring the world closer together. We're just getting started  – join us.",
+              "id": 39905,
+              "jobUrl": "https://www.facebook.com/careers/",
+              "logoUrl": "https://api.eventlama.com/events/158/purchases/39905/logo.png",
+              "name": "Facebook",
+              "url": "https://www.facebook.com/careers/"
+            },
+            {
+              "description": "EVENTLAMA is built and used by people who run big tech events. We know it's a lot of work, you need to build a web site, a mobile app, add speakers one by one, set up a call for paper, manage sponsors keep track of social media, manage orders, tickets, refunds, leads and more! We make all these daunting tasks just one click away so you can relax and spend more time focusing on making your attendee experience awesome with great innovative features that will make your customers love you.",
+              "id": 39906,
+              "jobUrl": "https://eventlama.com/",
+              "logoUrl": "https://api.eventlama.com/events/158/purchases/39906/logo.png",
+              "name": "Eventlama",
+              "url": "https://eventlama.com/"
+            },
+            {
+              "description": "We are a proudly non-profit organization driven by a culture of openness and collaboration. It’s a value we hold strong and it’s how we work together, day in and day out. When you join Mozilla, you’re becoming part of a global community that’s helping to build a brighter future for the Web — and for everyone.",
+              "id": 39907,
+              "jobUrl": "https://careers.mozilla.org/",
+              "logoUrl": "https://api.eventlama.com/events/158/purchases/39907/logo.png",
+              "name": "Mozilla",
+              "url": "https://www.mozilla.org/"
+            },
+            {
+              "description": "Ledger Wallet is a smartcard based Bitcoin hardware wallet bringing maximum protection level to your bitcoins without sacrificing usability or control.",
+              "id": 39908,
+              "jobUrl": "https://www.ledgerwallet.com/?utm_source=react-europe.org&utm_medium=app",
+              "logoUrl": "https://api.eventlama.com/events/158/purchases/39908/logo.png",
+              "name": "Ledger",
+              "url": "https://www.ledgerwallet.com/?utm_source=react-europe.org&utm_medium=app"
+            }
+          ],
           "platinum": [
             {
               "description": "comparethemarket.com was launched in 2006 and is one of the UK’s most loved price comparison websites. Providing customers with an easy way to make the right choice on a wide range of products and actively works with its brand partners to provide great services to customers.",
