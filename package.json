@@ -47,7 +47,7 @@
     "react-native-qrcode": "^0.2.6",
     "react-native-read-more-text": "^1.0.0",
     "react-native-resource-saving-container": "^1.0.2",
-    "react-navigation": "1.5.11",
+    "react-navigation": "1.5.12",
     "urql": "^0.2.0"
   },
   "devDependencies": {
