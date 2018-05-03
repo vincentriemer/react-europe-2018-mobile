@@ -29,7 +29,7 @@
     "react-native-read-more-text": "^1.0.0",
     "react-native-resource-saving-container": "^1.0.2",
     "react-native-simple-markdown": "1.1.0",
-    "react-navigation": "1.1.0-rc.4",
+    "react-navigation": "1.5.11",
     "urql": "^0.2.0"
   },
   "devDependencies": {
