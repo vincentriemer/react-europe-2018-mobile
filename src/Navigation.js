@@ -204,6 +204,10 @@ class DrawerView extends React.Component {
     };
   }
 
+  state = {
+    loaded: [this.props.navigation.state.index],
+  }
+
   componentDidMount() {
     if (Platform.OS === 'ios') {
       return;
@@ -230,8 +234,14 @@ class DrawerView extends React.Component {
       const currentRoute = this.props.navigation.state.routes[
         this.props.navigation.state.index
       ];
-      const nextRoute =
-        nextProps.navigation.state.routes[nextProps.navigation.state.index];
+
+      const nextIndex = nextProps.navigation.state.index;
+      const nextRoute = nextProps.navigation.state.routes[nextIndex];
+
+
+      if (!this.state.loaded.includes(nextProps.navigation.state.index)) {
+        this.setState({loaded: [...this.state.loaded, nextIndex]});
+      }
 
       if (currentRoute.key !== nextRoute.key) {
         this._updateVisibility(currentRoute, nextRoute);
@@ -239,16 +249,20 @@ class DrawerView extends React.Component {
     }
   }
 
-  _renderScene = ({ route }) => {
-    return (
-      <DrawerScene
-        ref={view => {
-          this._scenes[route.key] = view;
-        }}
-        {...this.props}
-        route={route}
-      />
-    );
+  _renderScene = ({ route, focused, index }) => {
+    if (focused || this.state.loaded.includes(index)) {
+      return (
+        <DrawerScene
+          ref={view => {
+            this._scenes[route.key] = view;
+          }}
+          {...this.props}
+          route={route}
+        />
+      );
+    } else {
+      return <View />;
+    }
   };
 
   render() {
@@ -285,7 +299,6 @@ class DrawerView extends React.Component {
                 renderScene={this._renderScene}
                 onIndexChange={this._navigateToScreen}
                 swipeEnabled={false}
-                lazy
               />
             </View>
             <View
