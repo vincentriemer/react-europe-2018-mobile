@@ -892,7 +892,7 @@
                 "speakers": [
                   {
                     "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1289/avatar.png",
-                    "bio": "Jared **interned on the React Native team, rewrote the React devtools**, and has given several talks on React & related technologies. He works at **Khan Academy on the mobile team**, using React Native alongside native Java and Swift. He loves type systems and learning new languages, and is** deeply invested in improving the experience of programming for everyone**.",
+                    "bio": "Jared **interned on the React Native team, rewrote the React devtools**, and has given several talks on React & related technologies. He works at **Khan Academy on the mobile team**, using React Native alongside native Java and Swift. He loves type systems and learning new languages, and is **deeply invested in improving the experience of programming for everyone**.",
                     "github": "jaredly",
                     "id": 1289,
                     "name": "Jared Forsyth",
@@ -949,6 +949,19 @@
                 "talk": null,
                 "title": "Hackathon at Mozilla from 9am to 9pm",
                 "type": 9
+              },
+              {
+                "description": "Join the comparethemarket Team for this interactive agile workshop centred around the importance of product ownership, continuous improvement and communications in an agile development environment.\n\n[You need to register here](https://www.eventbrite.co.uk/e/react-europe-comparethemarketcom-workshop-tickets-45728819129)\n\n09:30 - 09:45 - Welcome refreshments\n\n09:45 - 10:00 - Ice Breaker\n\n10:00 - 11:00 - Innovation and customer centric design workshop\n\n11:00 - 11:30 - Break\n\n11:30 - 12:30 - Communications in an agile development environment\n\n(This workshop is not organized by ReactEurope)",
+                "id": 1536,
+                "keynote": null,
+                "length": 180,
+                "room": null,
+                "speakers": [],
+                "startDate": "Sat May 19 07:30:00 +0000 2018",
+                "tags": "",
+                "talk": null,
+                "title": "comparethemarket.com Workshop",
+                "type": 1
               }
             ],
             "title": "Saturday"
@@ -1350,7 +1363,7 @@
           },
           {
             "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1289/avatar.png",
-            "bio": "Jared **interned on the React Native team, rewrote the React devtools**, and has given several talks on React & related technologies. He works at **Khan Academy on the mobile team**, using React Native alongside native Java and Swift. He loves type systems and learning new languages, and is** deeply invested in improving the experience of programming for everyone**.",
+            "bio": "Jared **interned on the React Native team, rewrote the React devtools**, and has given several talks on React & related technologies. He works at **Khan Academy on the mobile team**, using React Native alongside native Java and Swift. He loves type systems and learning new languages, and is **deeply invested in improving the experience of programming for everyone**.",
             "github": "jaredly",
             "id": 1289,
             "name": "Jared Forsyth",
@@ -1577,6 +1590,14 @@
               "logoUrl": "https://api.eventlama.com/events/158/purchases/36565/logo.png",
               "name": "Microsoft Edge",
               "url": "https://developer.microsoft.com/en-us/microsoft-edge/"
+            },
+            {
+              "description": "We’re Progress. We make software that developers love. We’ve heard that you’re a big fan of React, which is great, because we are too. In fact, we make a pretty awesome tool for React that you really need to know about: Kendo UI.\nKendo UI is a set of modular UI components you can use to enhance your apps—think calendars, grids, charts, and such. Sure, there are other grids and charts and stuff out there, but not like ours. See for yourself! You’ll find features that you just won’t see elsewhere. We even make it easy to use our components, too, with popular out-of-the-box themes and a custom theme editor.\nPretty cool? Our customers seem to think so.\nCome find us to chat about Kendo UI, grab some swag, and enter in a drawing.",
+              "id": 40121,
+              "jobUrl": "https://www.progress.com/company/careers",
+              "logoUrl": "https://api.eventlama.com/events/158/purchases/40121/logo.png",
+              "name": "Progress",
+              "url": "https://www.telerik.com/kendo-ui"
             }
           ]
         },
@@ -1773,3 +1794,4 @@
       }
     ]
   }
+
