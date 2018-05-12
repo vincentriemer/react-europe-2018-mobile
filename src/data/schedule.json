@@ -44,7 +44,7 @@
                 "type": 3
               },
               {
-                "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\nDay 1\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\nDay 2\n\n- Start from a simple template, review it.\n- Build the camera screen.\n- Apply image filters.\n- Add stickers on top of the filters (drag, scale, rotate).\n- Build list screen.\n- Make list screen work on web.\n- Support offline usage.",
+                "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\n...and other assorted topics of interest!",
                 "id": 917,
                 "keynote": null,
                 "length": 480,
@@ -59,12 +59,36 @@
                     "twitter": "notbrent"
                   },
                   {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/900/avatar.png",
+                    "bio": "Sometimes Lego Artist, Design Technologist at Frog Design, and Expo #1 Fanboy. I try to get people excited about **React Native game development by open sourcing overly ambitious Expo apps**!",
+                    "github": "EvanBacon",
+                    "id": 900,
+                    "name": "Evan Bacon",
+                    "twitter": "Baconbrix"
+                  },
+                  {
                     "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/917/avatar.png",
                     "bio": "React / React Native / GraphQL enthusiast 🙌 Co-organizer of @NYCGraphQL 🗓 Technical Writer 🖋 Mentor 🎓 Fine Dancer🕺",
                     "github": "kkemple",
                     "id": 917,
                     "name": "Kurtis Kemple",
                     "twitter": "kurtiskemple"
+                  },
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/919/avatar.png",
+                    "bio": "Software Engineer at **Major League Soccer** blending the gap between web and mobile development through **universal components**. By day Samantha codes and is a DIY’er. At night she sleeps.",
+                    "github": "samanthabretous",
+                    "id": 919,
+                    "name": "Samantha Bretous",
+                    "twitter": "samanthabretous"
+                  },
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1479/avatar.png",
+                    "bio": "gl-react⚛' author – run http://gl-transitions.com  – Lead Frontend @LedgerHQ",
+                    "github": "gre",
+                    "id": 1479,
+                    "name": "Gaëtan Renaudeau",
+                    "twitter": "greweb"
                   }
                 ],
                 "startDate": "Tue May 15 07:30:00 +0000 2018",
@@ -153,7 +177,7 @@
                 "type": 3
               },
               {
-                "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\nDay 1\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\nDay 2\n\n- Start from a simple template, review it.\n- Build the camera screen.\n- Apply image filters.\n- Add stickers on top of the filters (drag, scale, rotate).\n- Build list screen.\n- Make list screen work on web.\n- Support offline usage.",
+                "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\n...and other assorted topics of interest!",
                 "id": 918,
                 "keynote": null,
                 "length": 480,
@@ -168,12 +192,36 @@
                     "twitter": "notbrent"
                   },
                   {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/900/avatar.png",
+                    "bio": "Sometimes Lego Artist, Design Technologist at Frog Design, and Expo #1 Fanboy. I try to get people excited about **React Native game development by open sourcing overly ambitious Expo apps**!",
+                    "github": "EvanBacon",
+                    "id": 900,
+                    "name": "Evan Bacon",
+                    "twitter": "Baconbrix"
+                  },
+                  {
                     "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/917/avatar.png",
                     "bio": "React / React Native / GraphQL enthusiast 🙌 Co-organizer of @NYCGraphQL 🗓 Technical Writer 🖋 Mentor 🎓 Fine Dancer🕺",
                     "github": "kkemple",
                     "id": 917,
                     "name": "Kurtis Kemple",
                     "twitter": "kurtiskemple"
+                  },
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/919/avatar.png",
+                    "bio": "Software Engineer at **Major League Soccer** blending the gap between web and mobile development through **universal components**. By day Samantha codes and is a DIY’er. At night she sleeps.",
+                    "github": "samanthabretous",
+                    "id": 919,
+                    "name": "Samantha Bretous",
+                    "twitter": "samanthabretous"
+                  },
+                  {
+                    "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1479/avatar.png",
+                    "bio": "gl-react⚛' author – run http://gl-transitions.com  – Lead Frontend @LedgerHQ",
+                    "github": "gre",
+                    "id": 1479,
+                    "name": "Gaëtan Renaudeau",
+                    "twitter": "greweb"
                   }
                 ],
                 "startDate": "Wed May 16 07:30:00 +0000 2018",
@@ -1024,7 +1072,7 @@
             "name": "Brent Vatne",
             "talks": [
               {
-                "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\nDay 1\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\nDay 2\n\n- Start from a simple template, review it.\n- Build the camera screen.\n- Apply image filters.\n- Add stickers on top of the filters (drag, scale, rotate).\n- Build list screen.\n- Make list screen work on web.\n- Support offline usage.",
+                "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\n...and other assorted topics of interest!",
                 "id": 917,
                 "length": 480,
                 "startDate": "Tue May 15 07:30:00 +0000 2018",
@@ -1032,7 +1080,7 @@
                 "type": 1
               },
               {
-                "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\nDay 1\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\nDay 2\n\n- Start from a simple template, review it.\n- Build the camera screen.\n- Apply image filters.\n- Add stickers on top of the filters (drag, scale, rotate).\n- Build list screen.\n- Make list screen work on web.\n- Support offline usage.",
+                "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\n...and other assorted topics of interest!",
                 "id": 918,
                 "length": 480,
                 "startDate": "Wed May 16 07:30:00 +0000 2018",
@@ -1067,6 +1115,22 @@
             "id": 900,
             "name": "Evan Bacon",
             "talks": [
+              {
+                "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\n...and other assorted topics of interest!",
+                "id": 917,
+                "length": 480,
+                "startDate": "Tue May 15 07:30:00 +0000 2018",
+                "title": "React Native Workshop with Brent Vatne and Expo Team - Day 1",
+                "type": 1
+              },
+              {
+                "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\n...and other assorted topics of interest!",
+                "id": 918,
+                "length": 480,
+                "startDate": "Wed May 16 07:30:00 +0000 2018",
+                "title": "React Native Workshop with Brent Vatne and Expo Team - Day 2",
+                "type": 1
+              },
               {
                 "description": "In this expo symposium (exposium) 🎙 we shall cordially discuss the usage of recreational cyber-gaming frameworks and their place in the native development environment.📱👾",
                 "id": 1454,
@@ -1122,7 +1186,7 @@
             "name": "Kurtis Kemple",
             "talks": [
               {
-                "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\nDay 1\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\nDay 2\n\n- Start from a simple template, review it.\n- Build the camera screen.\n- Apply image filters.\n- Add stickers on top of the filters (drag, scale, rotate).\n- Build list screen.\n- Make list screen work on web.\n- Support offline usage.",
+                "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\n...and other assorted topics of interest!",
                 "id": 917,
                 "length": 480,
                 "startDate": "Tue May 15 07:30:00 +0000 2018",
@@ -1130,7 +1194,7 @@
                 "type": 1
               },
               {
-                "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\nDay 1\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\nDay 2\n\n- Start from a simple template, review it.\n- Build the camera screen.\n- Apply image filters.\n- Add stickers on top of the filters (drag, scale, rotate).\n- Build list screen.\n- Make list screen work on web.\n- Support offline usage.",
+                "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\n...and other assorted topics of interest!",
                 "id": 918,
                 "length": 480,
                 "startDate": "Wed May 16 07:30:00 +0000 2018",
@@ -1155,6 +1219,22 @@
             "id": 919,
             "name": "Samantha Bretous",
             "talks": [
+              {
+                "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\n...and other assorted topics of interest!",
+                "id": 917,
+                "length": 480,
+                "startDate": "Tue May 15 07:30:00 +0000 2018",
+                "title": "React Native Workshop with Brent Vatne and Expo Team - Day 1",
+                "type": 1
+              },
+              {
+                "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\n...and other assorted topics of interest!",
+                "id": 918,
+                "length": 480,
+                "startDate": "Wed May 16 07:30:00 +0000 2018",
+                "title": "React Native Workshop with Brent Vatne and Expo Team - Day 2",
+                "type": 1
+              },
               {
                 "description": "Creating universal components isn’t just about reusability. Its about creating a development strategy. Without careful planning, your team can quickly end up in some pretty nasty spots. Join Samantha and Kurt as they walk through what universal components are, some best practices, and most importantly, some pitfalls to avoid!",
                 "id": 1014,
@@ -1490,9 +1570,9 @@
               "url": "https://www.hellocomet.co/"
             },
             {
-              "description": "Rangle is North America’s leading digital transformation consultancy that specializes in JavaScript development services and solutions. Coupled with strategy, Lean UX design, consulting, continuous delivery and Agile best practices, Rangle’s team of experts enables clients to create modern mobile and web applications to lead within their industries. In just over four years, Rangle has enabled over 50 companies in diverse industries to achieve success, including Uniqlo, Aldo, BMO, TD and Pacific Life to name a few.\nFrom innovative startups to leading enterprises, Rangle's unparalleled expertise with the Angular and React frameworks have set it apart in a crowded market. Clients consistently turn to Rangle to help expand and execute their vision.",
+              "description": "Rangle is a digital transformation consultancy that plans, designs and builds innovative applications for clients like Aldo, Uniqlo, Raymond James, DriveTime, ThyssenKrupp and Sprout. Coupled with strategy, Lean UX design, consulting, continuous delivery and Agile best practices, Rangle’s team of experts enables clients to create modern mobile and web applications to lead within their industries. From innovative startups to leading enterprises, Rangle's unparalleled expertise with the Angular and React frameworks have set it apart in a crowded market. Clients consistently turn to Rangle to help expand and execute their vision.",
               "id": 28605,
-              "jobUrl": "http://rangle.io/careers/",
+              "jobUrl": "https://rangle.io/careers/?utm_source=react-europe.org&utm_medium=app",
               "logoUrl": "https://api.eventlama.com/events/158/purchases/28605/logo.png",
               "name": "Rangle",
               "url": "http://rangle.io/"
@@ -1572,6 +1652,14 @@
               "logoUrl": "https://api.eventlama.com/events/158/purchases/39908/logo.png",
               "name": "Ledger",
               "url": "https://www.ledgerwallet.com/?utm_source=react-europe.org&utm_medium=app"
+            },
+            {
+              "description": "Expo is a free and open source toolchain built around React Native to help you build native iOS and Android projects using JavaScript and React.",
+              "id": 40254,
+              "jobUrl": "https://expo.io/jobs?utm_source=react-europe.org&utm_medium=app",
+              "logoUrl": "https://api.eventlama.com/events/158/purchases/40254/logo.png",
+              "name": "Expo",
+              "url": "https://expo.io/?utm_source=react-europe.org&utm_medium=app"
             }
           ],
           "platinum": [
@@ -1614,7 +1702,7 @@
               "title": "Workshop Checkin & French Breakfast"
             },
             {
-              "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\nDay 1\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\nDay 2\n\n- Start from a simple template, review it.\n- Build the camera screen.\n- Apply image filters.\n- Add stickers on top of the filters (drag, scale, rotate).\n- Build list screen.\n- Make list screen work on web.\n- Support offline usage.",
+              "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\n...and other assorted topics of interest!",
               "id": 917,
               "speakers": [
                 {
@@ -1624,13 +1712,13 @@
                   "name": "Brent Vatne",
                   "talks": [
                     {
-                      "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\nDay 1\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\nDay 2\n\n- Start from a simple template, review it.\n- Build the camera screen.\n- Apply image filters.\n- Add stickers on top of the filters (drag, scale, rotate).\n- Build list screen.\n- Make list screen work on web.\n- Support offline usage.",
+                      "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\n...and other assorted topics of interest!",
                       "id": 917,
                       "startDate": "Tue May 15 07:30:00 +0000 2018",
                       "title": "React Native Workshop with Brent Vatne and Expo Team - Day 1"
                     },
                     {
-                      "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\nDay 1\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\nDay 2\n\n- Start from a simple template, review it.\n- Build the camera screen.\n- Apply image filters.\n- Add stickers on top of the filters (drag, scale, rotate).\n- Build list screen.\n- Make list screen work on web.\n- Support offline usage.",
+                      "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\n...and other assorted topics of interest!",
                       "id": 918,
                       "startDate": "Wed May 16 07:30:00 +0000 2018",
                       "title": "React Native Workshop with Brent Vatne and Expo Team - Day 2"
@@ -1639,19 +1727,46 @@
                   "twitter": "notbrent"
                 },
                 {
+                  "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/900/avatar.png",
+                  "bio": "Sometimes Lego Artist, Design Technologist at Frog Design, and Expo #1 Fanboy. I try to get people excited about **React Native game development by open sourcing overly ambitious Expo apps**!",
+                  "id": 900,
+                  "name": "Evan Bacon",
+                  "talks": [
+                    {
+                      "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\n...and other assorted topics of interest!",
+                      "id": 917,
+                      "startDate": "Tue May 15 07:30:00 +0000 2018",
+                      "title": "React Native Workshop with Brent Vatne and Expo Team - Day 1"
+                    },
+                    {
+                      "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\n...and other assorted topics of interest!",
+                      "id": 918,
+                      "startDate": "Wed May 16 07:30:00 +0000 2018",
+                      "title": "React Native Workshop with Brent Vatne and Expo Team - Day 2"
+                    },
+                    {
+                      "description": "In this expo symposium (exposium) 🎙 we shall cordially discuss the usage of recreational cyber-gaming frameworks and their place in the native development environment.📱👾",
+                      "id": 1454,
+                      "startDate": "Fri May 18 15:00:00 +0000 2018",
+                      "title": "Using lit APIs to make dope games with Expo"
+                    }
+                  ],
+                  "twitter": "Baconbrix"
+                },
+                {
                   "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/917/avatar.png",
                   "bio": "React / React Native / GraphQL enthusiast 🙌 Co-organizer of @NYCGraphQL 🗓 Technical Writer 🖋 Mentor 🎓 Fine Dancer🕺",
                   "id": 917,
                   "name": "Kurtis Kemple",
                   "talks": [
                     {
-                      "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\nDay 1\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\nDay 2\n\n- Start from a simple template, review it.\n- Build the camera screen.\n- Apply image filters.\n- Add stickers on top of the filters (drag, scale, rotate).\n- Build list screen.\n- Make list screen work on web.\n- Support offline usage.",
+                      "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\n...and other assorted topics of interest!",
                       "id": 917,
                       "startDate": "Tue May 15 07:30:00 +0000 2018",
                       "title": "React Native Workshop with Brent Vatne and Expo Team - Day 1"
                     },
                     {
-                      "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\nDay 1\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\nDay 2\n\n- Start from a simple template, review it.\n- Build the camera screen.\n- Apply image filters.\n- Add stickers on top of the filters (drag, scale, rotate).\n- Build list screen.\n- Make list screen work on web.\n- Support offline usage.",
+                      "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\n...and other assorted topics of interest!",
                       "id": 918,
                       "startDate": "Wed May 16 07:30:00 +0000 2018",
                       "title": "React Native Workshop with Brent Vatne and Expo Team - Day 2"
@@ -1664,6 +1779,54 @@
                     }
                   ],
                   "twitter": "kurtiskemple"
+                },
+                {
+                  "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/919/avatar.png",
+                  "bio": "Software Engineer at **Major League Soccer** blending the gap between web and mobile development through **universal components**. By day Samantha codes and is a DIY’er. At night she sleeps.",
+                  "id": 919,
+                  "name": "Samantha Bretous",
+                  "talks": [
+                    {
+                      "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\n...and other assorted topics of interest!",
+                      "id": 917,
+                      "startDate": "Tue May 15 07:30:00 +0000 2018",
+                      "title": "React Native Workshop with Brent Vatne and Expo Team - Day 1"
+                    },
+                    {
+                      "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\n...and other assorted topics of interest!",
+                      "id": 918,
+                      "startDate": "Wed May 16 07:30:00 +0000 2018",
+                      "title": "React Native Workshop with Brent Vatne and Expo Team - Day 2"
+                    },
+                    {
+                      "description": "Creating universal components isn’t just about reusability. Its about creating a development strategy. Without careful planning, your team can quickly end up in some pretty nasty spots. Join Samantha and Kurt as they walk through what universal components are, some best practices, and most importantly, some pitfalls to avoid!",
+                      "id": 1014,
+                      "startDate": "Thu May 17 15:30:00 +0000 2018",
+                      "title": "Up and Running with Universal Components"
+                    }
+                  ],
+                  "twitter": "samanthabretous"
+                },
+                {
+                  "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1479/avatar.png",
+                  "bio": "gl-react⚛' author – run http://gl-transitions.com  – Lead Frontend @LedgerHQ",
+                  "id": 1479,
+                  "name": "Gaëtan Renaudeau",
+                  "talks": [
+                    {
+                      "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\n...and other assorted topics of interest!",
+                      "id": 917,
+                      "startDate": "Tue May 15 07:30:00 +0000 2018",
+                      "title": "React Native Workshop with Brent Vatne and Expo Team - Day 1"
+                    },
+                    {
+                      "description": "Learn from the best with a 2-day workshop this May 15th and 16th from 8:45am to 5:30pm. **This is not a repeat of last year's workshop but a totally new workshop**. This workshop will focus on helping you build more advanced and professional apps with a real native like experience. Core React Native contributor Brent Vatne and the expo team will guide you through this workshop on how to build great React Native apps. This workshop requires an intermediary level in React Native.  Here are the full details:\n\n- Animated: Review basics, native driver, and tracking.\n- Gestures: react-native-gesture-handler, integration with Animated.\n- Universal components: react-native-web, share code between iOS/Android/web.\n- Camera: take photos, save to disk, upload. Read from photos already on disk.\n- OpenGL: how to use shaders on React Native views.\n- Offline support: keeping your app useful without connectivity.\n\n...and other assorted topics of interest!",
+                      "id": 918,
+                      "startDate": "Wed May 16 07:30:00 +0000 2018",
+                      "title": "React Native Workshop with Brent Vatne and Expo Team - Day 2"
+                    }
+                  ],
+                  "twitter": "greweb"
                 }
               ],
               "startDate": "Tue May 15 07:30:00 +0000 2018",
