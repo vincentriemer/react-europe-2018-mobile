@@ -1,4 +1,4 @@
-{
+ {
     "events": [
       {
         "cocUrl": "http://confcodeofconduct.com/",
@@ -331,7 +331,7 @@
                 "type": 3
               },
               {
-                "description": "More details coming soon",
+                "description": "The state of React.",
                 "id": 1450,
                 "keynote": null,
                 "length": 25,
@@ -463,7 +463,7 @@
                 "startDate": "Thu May 17 12:00:00 +0000 2018",
                 "tags": "graphql,apollo",
                 "talk": null,
-                "title": "On Apollo (final title coming soon)",
+                "title": "On Apollo",
                 "type": 0
               },
               {
@@ -1058,7 +1058,7 @@
                 "id": 1452,
                 "length": 25,
                 "startDate": "Thu May 17 12:00:00 +0000 2018",
-                "title": "On Apollo (final title coming soon)",
+                "title": "On Apollo",
                 "type": 0
               }
             ],
@@ -1270,7 +1270,7 @@
                 "type": 1
               },
               {
-                "description": "More details coming soon",
+                "description": "The state of React.",
                 "id": 1450,
                 "length": 25,
                 "startDate": "Thu May 17 08:00:00 +0000 2018",
@@ -1395,15 +1395,6 @@
               }
             ],
             "twitter": "JimPurbrick"
-          },
-          {
-            "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1054/avatar.png",
-            "bio": "Lin Clark is a **code cartoonist**... she turns software architectures into cartoons. When she's not drawing, **she's tinkering with WebAssembly, Rust, and Servo at Mozilla**. In past lives, she has hacked on **Firefox's developer tools, worked at npm, and has been a core maintainer on a number of open source projects**.",
-            "github": "linclark",
-            "id": 1054,
-            "name": "Lin Clark",
-            "talks": [],
-            "twitter": "linclark"
           },
           {
             "avatarUrl": "https://api.eventlama.com/avatars/events/158/speakers/1129/avatar.png",
@@ -1884,7 +1875,7 @@
                       "title": "React.js Workshop with Ken Wheeler, Brandon Dail and Emma Brillhart - Day 2"
                     },
                     {
-                      "description": "More details coming soon",
+                      "description": "The state of React.",
                       "id": 1450,
                       "startDate": "Thu May 17 08:00:00 +0000 2018",
                       "title": "Keynote"
