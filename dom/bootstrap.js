@@ -1,5 +1,3 @@
-require("babel-polyfill");
-
 import { RNDomInstance } from "react-native-dom";
 
 // Path to RN Bundle Entrypoint ================================================

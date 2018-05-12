@@ -183,7 +183,6 @@ export default class RCTNetworking extends RCTEventEmitter {
     this.requestStore[requestId] = req;
 
     req.open(method, url);
-    console.log(withCredentials);
     req.withCredentials = withCredentials;
     req.timeout = timeout;
     req.responseType = responseType;

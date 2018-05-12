@@ -47,7 +47,8 @@ class RCTNetworking extends NativeEventEmitter {
         responseType,
         incrementalUpdates,
         timeout,
-        withCredentials
+        // TODO: Update upstream react-native to use latest fetch polyfill
+        withCredentials: false
       },
       callback
     );

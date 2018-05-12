@@ -1,6 +1,6 @@
 {
   "name": "react-native-dom",
-  "version": "0.0.2-e98e21df",
+  "version": "0.0.2-d90f61d8",
   "main": "lib/index.js",
   "dependencies": {
     "@webcomponents/webcomponentsjs": "^1.1.1",

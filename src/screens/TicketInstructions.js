@@ -39,6 +39,20 @@ import Markdown from "react-native-easy-markdown";
 export const Schedule = require("../data/schedule.json");
 const Event = Schedule.events[0];
 
+const CustomLink = (href, title, children) => (
+  <Text
+    key={title + href}
+    style={{ textDecorationLine: "underline" }}
+    onPress={() => Linking.openURL(href)}
+  >
+    {children}
+  </Text>
+);
+
+const CustomizedMarkdown = ({ children, ...restProps }) => (
+  <Markdown renderLink={CustomLink}>{children}</Markdown>
+);
+
 class TicketInstructions extends React.Component {
   state = {
     scrollY: new Animated.Value(0)
@@ -130,7 +144,7 @@ class DeferredTicketInstructionsContent extends React.Component {
           <CardContent>
             <Title>{ticket.firstName + " " + ticket.lastName} </Title>
             <Title>Ticket Ref: {ticket.ref} </Title>
-            <Markdown styles={markdownStyles}>{ticket.mobileMessage}</Markdown>
+            <CustomizedMarkdown styles={markdownStyles}>{ticket.mobileMessage}</CustomizedMarkdown>
           </CardContent>
         </Card>
         <Button raised onPress={() => this.props.navigation.goBack()}>
