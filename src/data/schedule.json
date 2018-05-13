@@ -321,7 +321,7 @@
                 "description": "Your typical French breakfast with croissants, coffee and more.",
                 "id": 1461,
                 "keynote": null,
-                "length": 75,
+                "length": 60,
                 "room": null,
                 "speakers": [],
                 "startDate": "Thu May 17 06:45:00 +0000 2018",
@@ -329,6 +329,19 @@
                 "talk": null,
                 "title": "Breakfast",
                 "type": 3
+              },
+              {
+                "description": "A little intro before we start.",
+                "id": 1537,
+                "keynote": null,
+                "length": 15,
+                "room": null,
+                "speakers": [],
+                "startDate": "Thu May 17 07:45:00 +0000 2018",
+                "tags": "",
+                "talk": null,
+                "title": "Welcome Session",
+                "type": 0
               },
               {
                 "description": "The state of React.",
