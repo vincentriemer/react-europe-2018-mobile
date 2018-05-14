@@ -1,2 +1,0 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.default=CustomElement;function CustomElement(name){return function(target){customElements.define(name,target);};}
-//# sourceMappingURL=CustomElement.js.map

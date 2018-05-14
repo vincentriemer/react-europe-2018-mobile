@@ -1,2 +1,0 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.default=undefined;var _classCallCheck2=require("babel-runtime/helpers/classCallCheck");var _classCallCheck3=_interopRequireDefault(_classCallCheck2);function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj};}var RCTScrollViewLocalData=function RCTScrollViewLocalData(x,y){(0,_classCallCheck3.default)(this,RCTScrollViewLocalData);this.scrollOffsetX=x;this.scrollOffsetY=y;};exports.default=RCTScrollViewLocalData;
-//# sourceMappingURL=RCTScrollViewLocalData.js.map

@@ -1,2 +1,0 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.moduleConfigFactory=moduleConfigFactory;function moduleConfigFactory(name,constants,functions,promiseMethodIDs,syncMethodIDs){return[name,constants,functions,promiseMethodIDs,syncMethodIDs];}
-//# sourceMappingURL=RCTModuleConfig.js.map

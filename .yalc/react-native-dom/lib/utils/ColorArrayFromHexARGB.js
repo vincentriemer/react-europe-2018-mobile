@@ -1,2 +1,0 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.default=function(hex){hex=Math.floor(hex);return[(hex>>24&255)/255,hex>>16&255,hex>>8&255,hex&255];};
-//# sourceMappingURL=ColorArrayFromHexARGB.js.map

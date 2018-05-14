@@ -1,2 +1,0 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.default={matchMedia:typeof window.matchMedia==="function",performanceMeasure:!!window.performance&&typeof window.performance.measure==="function"};
-//# sourceMappingURL=CanUse.js.map

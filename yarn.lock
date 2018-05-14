@@ -591,9 +591,9 @@
   version "10.0.0"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-10.0.0.tgz#c40f8e07dce607d3ef25a626b93a6a7cdcf97881"
 
-"@webcomponents/webcomponentsjs@^1.1.1":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@webcomponents/webcomponentsjs/-/webcomponentsjs-1.2.0.tgz#c9e129340c3e4637f5fa6505e968e85face7bd5b"
+"@webcomponents/webcomponentsjs@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@webcomponents/webcomponentsjs/-/webcomponentsjs-2.0.0.tgz#166e7489b9ce66f5c082a3360120cb27505f762f"
 
 abab@^1.0.4:
   version "1.0.4"
@@ -1023,7 +1023,7 @@ babel-eslint@^7.2.3:
     babel-types "^6.23.0"
     babylon "^6.17.0"
 
-babel-generator@^6.18.0, babel-generator@^6.26.0:
+babel-generator@^6.18.0, babel-generator@^6.26.0, babel-generator@^6.26.1:
   version "6.26.1"
   resolved "https://registry.yarnpkg.com/babel-generator/-/babel-generator-6.26.1.tgz#1844408d3b8f0d35a404ea7ac180f087a601bd90"
   dependencies:
@@ -2530,7 +2530,7 @@ debounce@^1.0.2:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/debounce/-/debounce-1.1.0.tgz#6a1a4ee2a9dc4b7c24bb012558dbcdb05b37f408"
 
-debug@2, debug@2.6.9, debug@^2.0.0, debug@^2.1.0, debug@^2.1.2, debug@^2.1.3, debug@^2.2.0, debug@^2.3.3, debug@^2.6.2, debug@^2.6.8, debug@^2.6.9:
+debug@2, debug@2.6.9, debug@^2.0.0, debug@^2.1.0, debug@^2.1.2, debug@^2.1.3, debug@^2.2.0, debug@^2.3.3, debug@^2.6.2, debug@^2.6.6, debug@^2.6.8, debug@^2.6.9:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
   dependencies:
@@ -4309,18 +4309,6 @@ https-proxy-agent@^2.2.1:
     agent-base "^4.1.0"
     debug "^3.1.0"
 
-hyperhtml-element@^1.2.1:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/hyperhtml-element/-/hyperhtml-element-1.7.0.tgz#136b1f9d427aff8720ea556827ebfb674818fd41"
-  dependencies:
-    hyperhtml "^2.8.0"
-
-hyperhtml@^2.8.0:
-  version "2.10.0"
-  resolved "https://registry.yarnpkg.com/hyperhtml/-/hyperhtml-2.10.0.tgz#55ef3e07302a3fe01e78f180a70638ea8457aa80"
-  dependencies:
-    lightercollective "^0.0.3"
-
 hyphenate-style-name@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/hyphenate-style-name/-/hyphenate-style-name-1.0.2.tgz#31160a36930adaf1fc04c6074f7eb41465d4ec4b"
@@ -5479,10 +5467,6 @@ levn@^0.3.0, levn@~0.3.0:
   dependencies:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
-
-lightercollective@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/lightercollective/-/lightercollective-0.0.3.tgz#c58f01fde36f4d9432eda354c635a192fc291b2b"
 
 load-json-file@^1.0.0:
   version "1.1.0"
@@ -7071,18 +7055,23 @@ react-native-dismiss-keyboard@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-native-dismiss-keyboard/-/react-native-dismiss-keyboard-1.0.0.tgz#32886242b3f2317e121f3aeb9b0a585e2b879b49"
 
-"react-native-dom@file:.yalc/react-native-dom":
-  version "0.0.2-e98e21df"
+react-native-dom@0.1.0-alpha.720b32a6:
+  version "0.1.0-alpha.720b32a6"
+  resolved "http://localhost:4873/react-native-dom/-/react-native-dom-0.1.0-alpha.720b32a6.tgz#e5110364acf8ec59b6cb148871e55b7b68d0e7c2"
   dependencies:
-    "@webcomponents/webcomponentsjs" "^1.1.1"
+    "@webcomponents/webcomponentsjs" "^2.0.0"
+    babel-generator "^6.26.1"
     babel-runtime "^6.26.0"
+    babel-template "^6.26.0"
+    babel-traverse "^6.26.0"
+    babel-types "^6.26.0"
+    babylon "^6.18.0"
     bezier-easing "^2.0.3"
     cuid "^2.1.1"
     debounce "^1.0.2"
     deepmerge "^1.5.0"
     detect-it "^3.0.0"
     fast-memoize "^2.2.7"
-    hyperhtml-element "^1.2.1"
     idb-keyval "^2.3.0"
     inline-style-prefixer "^3.0.8"
     invariant "^2.2.2"
@@ -7090,12 +7079,15 @@ react-native-dismiss-keyboard@1.0.0:
     normalize-css-color "^1.0.2"
     opn "^5.2.0"
     pepjs "^0.4.3"
+    rndom-redbox "0.1.0-alpha.720b32a6"
+    rndom-switch "0.1.0-alpha.720b32a6"
     tinycolor2 "^1.4.1"
+    wait-port "^0.2.2"
     web-animations-js "^2.3.1"
     wolfy87-eventemitter "^5.1.0"
     yeoman-environment "^1.5.3"
     yeoman-generator "^0.21.2"
-    yoga-dom "^0.0.8"
+    yoga-dom "^0.0.10"
 
 react-native-drawer-layout-polyfill@^1.3.2:
   version "1.3.2"
@@ -7718,6 +7710,14 @@ rimraf@~2.4.0:
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.4.5.tgz#ee710ce5d93a8fdb856fb5ea8ff0e2d75934b2da"
   dependencies:
     glob "^6.0.1"
+
+rndom-redbox@0.1.0-alpha.720b32a6:
+  version "0.1.0-alpha.720b32a6"
+  resolved "http://localhost:4873/rndom-redbox/-/rndom-redbox-0.1.0-alpha.720b32a6.tgz#257fc96ac004e3eff6a434883f34f443402bcd7a"
+
+rndom-switch@0.1.0-alpha.720b32a6:
+  version "0.1.0-alpha.720b32a6"
+  resolved "http://localhost:4873/rndom-switch/-/rndom-switch-0.1.0-alpha.720b32a6.tgz#63ab679e74dc5ae3bfdb06c6984fd218a882b676"
 
 run-async@^0.1.0:
   version "0.1.0"
@@ -8979,6 +8979,14 @@ w3c-hr-time@^1.0.1:
   dependencies:
     browser-process-hrtime "^0.1.2"
 
+wait-port@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/wait-port/-/wait-port-0.2.2.tgz#d51a491e484a17bf75a947e711a2f012b4e6f2e3"
+  dependencies:
+    chalk "^1.1.3"
+    commander "^2.9.0"
+    debug "^2.6.6"
+
 walker@~1.0.5:
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/walker/-/walker-1.0.7.tgz#2f7f9b8fd10d677262b18a884e28d19618e028fb"
@@ -9469,6 +9477,6 @@ yeoman-welcome@^1.0.0:
   dependencies:
     chalk "^1.0.0"
 
-yoga-dom@^0.0.8:
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/yoga-dom/-/yoga-dom-0.0.8.tgz#e8cb372bbf3ea7ef54c1ecef2985155d2a33cdd6"
+yoga-dom@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/yoga-dom/-/yoga-dom-0.0.10.tgz#4ff3eafb42262b54c43ced8c46fb6ba308bff094"

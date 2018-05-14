@@ -22,15 +22,15 @@ const theme = {
   }
 };
 
-if (Platform.OS === 'android') {
+if (Platform.OS === "android") {
   SafeAreaView.setStatusBarHeight(0);
 }
 
-import Navigation from './src/Navigation';
+import Navigation from "./src/Navigation";
 
 export default class App extends React.Component {
   state = {
-    appIsReady: false,
+    appIsReady: false
   };
 
   componentDidMount() {
@@ -55,14 +55,14 @@ export default class App extends React.Component {
   }
 
   _promptForReload = () => {
-    Alert.alert(
+    /*Alert.alert(
       'A schedule update is available',
       'You need to restart the app to get the new schedule.',
       [
         { text: 'Restart the app now', onPress: () => Updates.reload() },
         { text: "I'll do it later", onPress: () => {} },
       ]
-    );
+    );*/
   };
 
   _loadResourcesAsync = () => {
@@ -76,15 +76,15 @@ export default class App extends React.Component {
   _loadAssetsAsync = async () => {
     return Promise.all([
       Font.loadAsync({
-        'open-sans-bold': require('./src/assets/OpenSans-Bold.ttf'),
-        'open-sans': require('./src/assets/OpenSans-Regular.ttf'),
-        'open-sans-semibold': require('./src/assets/OpenSans-SemiBold.ttf'),
-        ...Ionicons.font,
+        "open-sans-bold": require("./src/assets/OpenSans-Bold.ttf"),
+        "open-sans": require("./src/assets/OpenSans-Regular.ttf"),
+        "open-sans-semibold": require("./src/assets/OpenSans-SemiBold.ttf"),
+        ...Ionicons.font
       }),
-      Asset.fromModule(require('./src/assets/logo.png')).downloadAsync(),
+      Asset.fromModule(require("./src/assets/logo.png")).downloadAsync(),
       Asset.fromModule(
-        require('react-navigation/src/views/assets/back-icon.png')
-      ).downloadAsync(),
+        require("react-navigation/src/views/assets/back-icon.png")
+      ).downloadAsync()
     ]);
   };
 

@@ -1,2 +1,0 @@
-
-//# sourceMappingURL=RCTComponent.js.map
