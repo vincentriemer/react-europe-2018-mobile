@@ -176,6 +176,7 @@ class DeferredContactsContent extends React.Component {
 
   _handlePressTwitterButton = async () => {
     try {
+      if (Platform.OS === "dom") throw new Error("Don't even bother...");
       await Linking.openURL(
         `twitter://user?screen_name=` + Event.twitterHandle
       );
