@@ -9,13 +9,22 @@ const Speakers = Schedule.events[0].speakers;
 const Event = Schedule.events[0];
 export const Talks = Schedule.events[0].schedule;
 
+function flattenTalks(groupedTalks) {
+  const talks = groupedTalks
+    .reduce((acc, cur) => acc.concat(cur.slots), [])
+    .filter(schedule => {
+      return moment(schedule.startDate).isAfter(moment(new Date()));
+    });
+  return talks;
+}
+
 export function findNextTalksAfterDate(date = new Date(), allTalks = Talks) {
-  let talks = Event.status.nextFiveScheduledItems;
+  let talks = flattenTalks(Event.groupedSchedule);
   return talks.slice(0, 3);
 }
 
 export function findRandomTalk(allTalks = Talks) {
-  let talks = _.filter(Talks, talk => talk.type === 0);
+  const talks = Event.groupedSchedule.reduce((acc, cur) => acc.concat(cur.slots), []).filter(talk => talk.type === 0);
   return [_.sample(talks)];
 }
 
@@ -26,7 +35,7 @@ const NextYearTalk = {
   summary: "",
   time: "-",
   title: "ReactEurope 2019",
-  speaker: "Maybe you?"
+  speaker: "Maybe you?",
 };
 
 export function findTalkData(speakerName) {

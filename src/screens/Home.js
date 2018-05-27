@@ -89,7 +89,7 @@ class Home extends React.Component {
                 <SemiBoldText style={styles.headerText}>
                   Thank you for joining us!
                 </SemiBoldText>
-                <SemiBoldText style={styles.headerTextSmall}>
+                <SemiBoldText style={styles.headerSmallText}>
                   See you in May, 2019!
                 </SemiBoldText>
               </ShowWhenConferenceHasEnded>
@@ -419,8 +419,8 @@ const styles = StyleSheet.create({
   headerSmallText: {
     color: "#fff",
     textAlign: "center",
-    fontSize: 7,
-    lineHeight: 7 * 1.5
+    fontSize: 17,
+    lineHeight: 17 * 1.5
   },
   bigButton: {
     backgroundColor: Colors.blue,

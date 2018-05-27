@@ -20,6 +20,9 @@ export default class TalksUpNext extends React.Component {
       conferenceHasEnded() || findNextTalksAfterDate().length === 0
         ? findRandomTalk()
         : findNextTalksAfterDate();
+
+    nextTalks = nextTalks.filter(t => !!t);
+        
     let dateTime;
     let time;
     if (nextTalks && nextTalks.length > 0 && !_.isUndefined(nextTalks[0])) {

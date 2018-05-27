@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "serve ./dist --cache 31556952000 -t"
+    "start": "serve ./dist --cache 86400000 -t"
   },
   "dependencies": {
     "serve": "^6.5.6"

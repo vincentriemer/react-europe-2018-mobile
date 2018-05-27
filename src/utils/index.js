@@ -36,7 +36,8 @@ export function conferenceHasStarted() {
 }
 
 export function conferenceHasEnded() {
-  return Event.status.hasEnded;
+  console.log(convertUtcDateToEventTimezone(new Date()).isAfter(CONFERENCE_END_TIME));
+  return convertUtcDateToEventTimezone(new Date()).isAfter(CONFERENCE_END_TIME);
 }
 
 export function HideWhenConferenceHasStarted({ children }) {
